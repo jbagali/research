@@ -206,6 +206,7 @@ class MCTSNode:
         """
         if action not in self.children:
             # Obtain state following given action.
+            print("CHild: ", self.n_actions)
             new_state = self.TreeEnv.next_state(self.state,action)
             self.children[action] = MCTSNode(new_state,self.n_actions,
                                              self.TreeEnv,
@@ -245,6 +246,7 @@ class MCTSNode:
         :param value: Value estimate to be propagated.
         :param up_to: The node to propagate until.
         """
+        print("I am ran")
         print(predValue)
         print(actualValue)
         self.W += predValue
@@ -252,14 +254,18 @@ class MCTSNode:
         self.N += 1
         if self.parent is None or self is up_to:
             return
+        print("Test")
         self.parent.backup_value(predValue,actualValue,up_to)
 
     def is_done(self):
         return self.TreeEnv.is_done_state(self.state,self.depth)
 
     def inject_noise(self):
+        #Need to look into this next... (Matthew)
         dirch = np.random.dirichlet([D_NOISE_ALPHA] * self.n_actions)
+        #dirch = np.random.dirichlet([D_NOISE_ALPHA] * self.child_prior)
         #self.child_prior = self.child_prior * 0.75 + dirch * 0.25
+        print("Shape ", len(self.child_prior), " ", len(dirch))
         self.child_prior = self.child_prior * 0.85 + dirch * 0.15
 
     def visits_as_probs(self, squash=False):
@@ -344,6 +350,7 @@ class MCTS:
     def initialize_search(self, state=None):
         init_state = self.TreeEnv.get_initial_state()
         n_actions = self.TreeEnv.n_actions
+        print("Num actions: ", n_actions)
         self.root = MCTSNode(init_state,n_actions, self.TreeEnv,childType=self.childType)
         # Number of steps into the episode after which we always select the
         # action with highest action probability rather than selecting randomly

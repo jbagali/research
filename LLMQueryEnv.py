@@ -103,8 +103,8 @@ class LLMQueryEnv(gym.Env, StaticEnv):
                 if compilability:
                     functionality = self.functionality_check()
                 #Cleaning up files.
-                os.remove(output_verilog_file)
-                os.remove('simulation')
+                #os.remove(output_verilog_file)
+                #os.remove('simulation')
                 return True
 
     def getPromptScore(self,currentState=""):
@@ -182,15 +182,15 @@ class LLMQueryEnv(gym.Env, StaticEnv):
             if b"all tests passed" in simulation_output:
                 print("All testbench tests passed!")
                 print("Calling getPromptScore()...")
-                self.getPromptScore()
+                #self.getPromptScore()
                 return True
             else:
                 print("Some testbench tests failed.")
-                self.getPromptScore()
+                #self.getPromptScore()
                 return False
         else: 
             print("Verilog testbench simulation failed.")
-            self.getPromptScore() 
+            #self.getPromptScore() 
             return False
         
     #Helper - writes to the bash script to run the specific design/verilog file being synthesized.
@@ -208,6 +208,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
     #Helper - retrieving the delay value from the Yosys log file.
     def extract_delay_from_log(self, filepath):
         print("retrieving delay (called)")
+        print("Delay filepath: ", filepath)
         with open(filepath, "r") as file:
             for line in file:
                 if "Delay = " in line:
@@ -216,6 +217,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
                         if part == "Delay":
                             return parts[i + 2]
         print("Delay could not be found in synthesis results.")
+        print("type: ", type(0))
         return None
     
     #Helper - retrieving the area value from the Yosys log file.
@@ -277,7 +279,9 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         best_terminal_state = self.get_best_terminal_state(state,depth)
         complete_prompt = self.get_prompt_from_state(best_terminal_state)
         filteredGen = self.trim_with_stopwords(complete_prompt)
-        print("mc return")
+        print("mc return5")
+        print("WOO------------------------------")
+        print("Filtered gen: ", filteredGen)
         score = self.getPromptScore(filteredGen)
         #score = self.getPromptScore(complete_prompt)
         return score
