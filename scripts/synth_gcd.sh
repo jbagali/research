@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export ROOT_DIR=/home/grads/m/matthewdelorenzo/verigen
+export ROOT_DIR=/home/grads/m/matthewdelorenzo/research
 export SCRIPTS_DIR=${ROOT_DIR}/scripts
 export SYNTH_SCRIPT=${SCRIPTS_DIR}/yosys_simple_synth.tcl
 
