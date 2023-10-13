@@ -50,7 +50,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         self.orig_prompt = orig_prompt
         self.init_state = self.get_tokenized_state(self.orig_prompt)
         self.num_tokens=0
-        self.n_actions = 51200 #self.tokenizer.vocab_size
+        self.n_actions = 50295 #self.tokenizer.vocab_size
         self.stopwords = ['\n\n']
         self.depth=500
         self.orig_module = orig_module
@@ -108,7 +108,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
                 return True
 
     def getPromptScore(self,currentState=""):
-        print("getting score: ")
+        print("Running getPromptScore: ")
         #Specify your bash script to be utilized here.
         
         #bash_script = "/home/grads/m/matthewdelorenzo/mcts/scripts/synth_gcd.sh"
@@ -144,6 +144,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
                 print("Currently displaying area/delay scores for ", self.orig_module, " module.")
                 print("Area of the chip design is: ", area_value)
                 print("Delay value for the chip design is: ", delay_value)
+                print("Score (1/chip area): ", 1 / float(area_value))
                 #Currently returning area and delay values.
                 return (1 / float(area_value))
         else:
@@ -181,7 +182,6 @@ class LLMQueryEnv(gym.Env, StaticEnv):
             print("Verilog testbench simulation ran successfully.")
             if b"all tests passed" in simulation_output:
                 print("All testbench tests passed!")
-                print("Calling getPromptScore()...")
                 #self.getPromptScore()
                 return True
             else:
@@ -217,7 +217,6 @@ class LLMQueryEnv(gym.Env, StaticEnv):
                         if part == "Delay":
                             return parts[i + 2]
         print("Delay could not be found in synthesis results.")
-        print("type: ", type(0))
         return None
     
     #Helper - retrieving the area value from the Yosys log file.
@@ -259,6 +258,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
             output = self.model(input_ids=torchState)
             next_token_logits = output.logits[0, -1, :]
             next_token_probs = torch.softmax(next_token_logits, dim=-1)
+            #print("next_token logits: ", len(next_token_logits))
             return next_token_probs.detach().cpu().numpy()
 
     def get_best_terminal_state(self,state,depth):
@@ -279,9 +279,6 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         best_terminal_state = self.get_best_terminal_state(state,depth)
         complete_prompt = self.get_prompt_from_state(best_terminal_state)
         filteredGen = self.trim_with_stopwords(complete_prompt)
-        print("mc return5")
-        print("WOO------------------------------")
-        print("Filtered gen: ", filteredGen)
         score = self.getPromptScore(filteredGen)
         #score = self.getPromptScore(complete_prompt)
         return score

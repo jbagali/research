@@ -139,6 +139,8 @@ class MCTSNode:
 
     @property
     def child_U(self):
+        #print("Child N = ", len(self.child_N))
+        #print("Self N = ", len(self.child_prior))
         return (c_PUCT * math.sqrt(1 + self.N) *
                 self.child_prior / (1 + self.child_N))
 
@@ -206,7 +208,6 @@ class MCTSNode:
         """
         if action not in self.children:
             # Obtain state following given action.
-            print("CHild: ", self.n_actions)
             new_state = self.TreeEnv.next_state(self.state,action)
             self.children[action] = MCTSNode(new_state,self.n_actions,
                                              self.TreeEnv,
@@ -246,15 +247,13 @@ class MCTSNode:
         :param value: Value estimate to be propagated.
         :param up_to: The node to propagate until.
         """
-        print("I am ran")
-        print(predValue)
-        print(actualValue)
+        print("Prediction value: ", predValue)
+        print("Actual value: ", actualValue)
         self.W += predValue
         self.M += actualValue
         self.N += 1
         if self.parent is None or self is up_to:
             return
-        print("Test")
         self.parent.backup_value(predValue,actualValue,up_to)
 
     def is_done(self):
@@ -350,7 +349,6 @@ class MCTS:
     def initialize_search(self, state=None):
         init_state = self.TreeEnv.get_initial_state()
         n_actions = self.TreeEnv.n_actions
-        print("Num actions: ", n_actions)
         self.root = MCTSNode(init_state,n_actions, self.TreeEnv,childType=self.childType)
         # Number of steps into the episode after which we always select the
         # action with highest action probability rather than selecting randomly
