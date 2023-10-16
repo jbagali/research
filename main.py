@@ -89,6 +89,7 @@ if __name__ == '__main__':
     idx_ep = 0
     #mctsTree = initialize_MCTS_tree(LLMQueryEnv(orig_prompt=start_prompt))
     mctsTree = initialize_MCTS_tree(LLMQueryEnv(orig_prompt=prompt, orig_module=module_name, file_path=prob_files_path))
+    print("Episode not stated yet!")
     while idx_ep<num_episodes:
         print("******** EPISODE-{}************".format(idx_ep+1))
         mctsTree = execute_episode(mctsTree,simulation_per_episode)

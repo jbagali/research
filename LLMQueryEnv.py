@@ -51,7 +51,8 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         self.init_state = self.get_tokenized_state(self.orig_prompt)
         self.num_tokens=0
         self.n_actions = 50295 #self.tokenizer.vocab_size
-        self.stopwords = ['\n\n']
+        #self.stopwords = ['\n\n']
+        self.stopwords = ['endmodule']
         self.depth=500
         self.orig_module = orig_module
         self.file_path = file_path
@@ -73,7 +74,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
     def trim_with_stopwords(self, currentState):
         for w in sorted(self.stopwords, key=len, reverse=True):
             if currentState.endswith(w):
-                currentState = currentState[:-len(w)]
+                currentState = currentState[:-len(w)], w
                 # print('Trimmed', repr(currentState))
                 return currentState
 
@@ -138,6 +139,8 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         if os.path.isfile(logfile_path):
             area_value = self.extract_area_from_log(logfile_path)
             delay_value = self.extract_delay_from_log(logfile_path)
+            print("Initial area: ", area_value)
+            print("Initial delay: ", delay_value)
             #Printing results.
             if(area_value is not None and delay_value is not None):
                 print()
@@ -147,8 +150,11 @@ class LLMQueryEnv(gym.Env, StaticEnv):
                 print("Score (1/chip area): ", 1 / float(area_value))
                 #Currently returning area and delay values.
                 return (1 / float(area_value))
+            else:
+                print("Verilog code has not area or delay value (error in compilation).")
+                return 0
         else:
-            print("Error in retrieving area or delay calculation.")
+            print("Error in filepath of Yosys sythesis results.")
             return None
     
     def compilation_check(self, testbench_path, module_path):

@@ -262,6 +262,8 @@ class MCTSNode:
     def inject_noise(self):
         #Need to look into this next... (Matthew)
         dirch = np.random.dirichlet([D_NOISE_ALPHA] * self.n_actions)
+        #[1,2,...,5100] (current node's number of actions)
+        #
         #dirch = np.random.dirichlet([D_NOISE_ALPHA] * self.child_prior)
         #self.child_prior = self.child_prior * 0.75 + dirch * 0.25
         print("Shape ", len(self.child_prior), " ", len(dirch))
@@ -413,6 +415,7 @@ def execute_episode(mctsTree,simulation_budget):
     while mctsTree.root.N < current_runs+simulation_budget:
         mctsTree.tree_search()
     mctsTree.root.print_bfs_tree()
+    print("execute episode finished")
     return mctsTree
 
 def test_episode(mctsTree):
