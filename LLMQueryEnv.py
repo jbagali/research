@@ -56,6 +56,9 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         self.depth=500
         self.orig_module = orig_module
         self.file_path = file_path
+
+        self.compilable = False
+        self.functional = False
             #self.ep_length = NUM_LENGTH_EPISODES # not required
 
     def get_tokenized_state(self,prompt):
@@ -93,15 +96,16 @@ class LLMQueryEnv(gym.Env, StaticEnv):
                 # Write the Verilog code to a temporary file - file named after module name.
                 output_verilog_file = self.orig_module + ".v"
                 with open(output_verilog_file, 'w') as temp_file:
+                    print("writing new verilog file")
                     temp_file.write(verilog_code)
 
                 #Setting the testbench file path (assuming in same location as prompt file).
                 testbench_path = self.file_path + "/tb_" + self.orig_module + ".v"
                 #Check compilability.
-                compilability = self.compilation_check(testbench_path, output_verilog_file)
+                self.compilable = self.compilation_check(testbench_path, output_verilog_file)
                 #Call functionality check if compilable.
-                if compilability:
-                    functionality = self.functionality_check()
+                if self.compilable:
+                    self.functional = self.functionality_check()
                 #Cleaning up files.
                 #os.remove(output_verilog_file)
                 #os.remove('simulation')
@@ -110,9 +114,6 @@ class LLMQueryEnv(gym.Env, StaticEnv):
     def getPromptScore(self,currentState=""):
         print("Running getPromptScore: ")
         #Specify your bash script to be utilized here.
-        
-        #bash_script = "/home/grads/m/matthewdelorenzo/mcts/scripts/synth_gcd.sh"
-        #module_dump_folder = "/home/grads/m/matthewdelorenzo/mcts/scripts/dump/" + self.orig_module
         bash_script = "scripts/synth_gcd.sh"
         module_dump_folder = "scripts/dump/" + self.orig_module
         #Creating dump file for results to be placed if not already created.
@@ -150,7 +151,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
                 #Currently returning area and delay values.
                 try:
                     print("Removing dump files...")
-                    shutil.rmtree(module_dump_folder)
+                    os.remove(logfile_path)
                 except OSError as e:
                     print(f"Error: {e}")
 

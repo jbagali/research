@@ -248,7 +248,6 @@ class MCTSNode:
         :param up_to: The node to propagate until.
         """
         print("Prediction value: ", predValue)
-        print("Actual value: ", actualValue)
         self.W += predValue
         self.M += actualValue
         self.N += 1
@@ -412,15 +411,12 @@ def execute_episode(mctsTree,simulation_budget):
     rewards in each step, total return for this episode and the final state of
     this episode.
     """
-    i = 0
     current_runs = mctsTree.root.N
     print("Current runs: ", current_runs)
     print("Simulation budget", simulation_budget)
     while mctsTree.root.N < current_runs+simulation_budget:
         mctsTree.tree_search()
-        print("Iteration: ", i)
-        print("Current runs: ", current_runs)
-        i += 1
+        print("Current runs: ", mctsTree.root.N)
 
     mctsTree.root.print_bfs_tree()
     print("execute episode finished")
