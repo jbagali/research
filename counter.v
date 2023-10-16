@@ -6,6 +6,8 @@
     );
     
     always @(posedge clk)
-       !reset && (q == 4'b1111) && (q == 4'b1111)? q <= 4'b0000 : q <= q + 1;
-    
+        if(reset)
+            q <= 4'b0000;
+        else
+            q <= q + 1;
 endmodule

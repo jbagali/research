@@ -1,6 +1,6 @@
 import numpy as np
 import gym # open ai gym
-import os,re
+import os,re,shutil
 import time
 import torch
 import random
@@ -148,6 +148,12 @@ class LLMQueryEnv(gym.Env, StaticEnv):
                 print("Delay value for the chip design is: ", delay_value)
                 print("Score (1/chip area): ", 1 / float(area_value))
                 #Currently returning area and delay values.
+                try:
+                    print("Removing dump files...")
+                    shutil.rmtree(module_dump_folder)
+                except OSError as e:
+                    print(f"Error: {e}")
+
                 return (1 / float(area_value))
             else:
                 print("Verilog code has not area or delay value (error in compilation).")
