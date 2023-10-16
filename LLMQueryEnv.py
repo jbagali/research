@@ -83,14 +83,13 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         with torch.no_grad():
             torchState = torch.from_numpy(currentState).to(device)
             decoded = self.tokenizer.decode(currentState[0])    
-        print('decoded state',repr(decoded))
+        #print('decoded state',repr(decoded))
         for w in sorted(self.stopwords, key=len, reverse=True):
             if decoded.endswith(w):
                 print("Output Verilog from prompt is complete.")
                 #Getting resulting Verilog code.
                 verilog_code = self.get_prompt_from_state(currentState)
                 print(verilog_code)
-                print("Final Code: ", type(verilog_code), verilog_code)
                 # Write the Verilog code to a temporary file - file named after module name.
                 output_verilog_file = self.orig_module + ".v"
                 with open(output_verilog_file, 'w') as temp_file:

@@ -371,6 +371,7 @@ class MCTS:
     def test_tree_search(self,cType):
         ## This should not backup value since we are only traversing to the leaf node based
         ## on robust-child or max-child and return the value
+        print("Post-MCTS ideal tree search: ")
         leaf = self.root.select_leaf_during_evaluation(cType)
         if leaf.is_done():
             value = self.TreeEnv.get_return(leaf.state,leaf.depth)
@@ -411,9 +412,16 @@ def execute_episode(mctsTree,simulation_budget):
     rewards in each step, total return for this episode and the final state of
     this episode.
     """
+    i = 0
     current_runs = mctsTree.root.N
+    print("Current runs: ", current_runs)
+    print("Simulation budget", simulation_budget)
     while mctsTree.root.N < current_runs+simulation_budget:
         mctsTree.tree_search()
+        print("Iteration: ", i)
+        print("Current runs: ", current_runs)
+        i += 1
+
     mctsTree.root.print_bfs_tree()
     print("execute episode finished")
     return mctsTree
