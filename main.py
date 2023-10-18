@@ -8,7 +8,8 @@ highest point on a map.
 import time
 import numpy as np
 import matplotlib.pyplot as plt
-
+from concurrent.futures import ProcessPoolExecutor
+from multiprocessing import set_start_method
 from LLMQueryEnv import LLMQueryEnv
 from mcts import execute_episode,test_episode,initialize_MCTS_tree
 import argparse,os,re
@@ -40,7 +41,8 @@ if __name__ == '__main__':
     prompt_str = ""
     module_name = ""
     prob_files_path = ""
-    
+    set_start_method("spawn")
+
     runFolder = osp.join(rootDumpDir,'run'+str(runID))
     csvResultFile = osp.join(rootDumpDir,'data_run'+str(runID)+".csv") # Data to store area obtained in each iteration and best so far
     logFilePath = osp.join(runFolder,'log_run'+str(runID)+".log")   # Log data to dump area and read
@@ -56,8 +58,8 @@ if __name__ == '__main__':
         #-----------Alter the two lines below for your prompt files.---------------#
         #TODO
         #------For now, file_name (without the .v) should be the same as module name in prompt file for code to run.
-        file_dir = "VGen-main/prompts-and-testbenches/advanced1"
-        file_name = "testprompt_signed_adder.v"
+        file_dir = "VGen-main/prompts-and-testbenches/intermediate2"
+        file_name = "prompt3_counter.v"
 
         #Specify your prompt file to use as input.
         promptfile_path = file_dir + "/" + file_name
@@ -84,8 +86,14 @@ if __name__ == '__main__':
     mctsTree = initialize_MCTS_tree(LLMQueryEnv(orig_prompt=prompt_str, orig_module=problem_name, file_path=file_dir))
     print("Episode not stated yet!")
     while idx_ep<num_episodes:
-        print("******** EPISODE-{}************".format(idx_ep+1))
-        mctsTree = execute_episode(mctsTree,simulation_per_episode)
-        evalMctsMaxValue,evalMctsRobustValue = test_episode(mctsTree)
-        csvFileHandler.write("{},{}\n".format(evalMctsMaxValue,evalMctsRobustValue))
-        idx_ep+=1
+        with ProcessPoolExecutor(max_workers=simulation_per_episode) as executor:
+            futures = [executor.submit(execute_episode, mctsTree, 1) for _ in range(simulation_per_episode)]
+            #results = [future.result() for future in futures]
+        idx_ep+=1  
+    #while idx_ep<num_episodes:
+    #    print("******** EPISODE-{}************".format(idx_ep+1))
+    #    mctsTree = execute_episode(mctsTree,simulation_per_episode)
+    #    evalMctsMaxValue,evalMctsRobustValue = test_episode(mctsTree)
+    #    csvFileHandler.write("{},{}\n".format(evalMctsMaxValue,evalMctsRobustValue))
+    #    idx_ep+=1
+    

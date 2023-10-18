@@ -98,7 +98,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         print(verilog_code)
         # Write the Verilog code to a temporary file - file named after module name.
         #output_verilog_file = "./temp_files/" + self.orig_module + ".v"
-        output_verilog_file = self.orig_module + ".v"
+        output_verilog_file = str(os.getpid()) + "_" + self.orig_module + ".v"
         with open(output_verilog_file, 'w') as temp_file:
             print("writing new verilog file")
             temp_file.write(verilog_code)
@@ -121,7 +121,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
             return  -.5
         #Specify your bash script to be utilized here.
         bash_script = "scripts/synth_gcd.sh"
-        module_dump_folder = "scripts/dump/" + self.orig_module
+        module_dump_folder = "scripts/dump/" + str(os.getpid()) + "_" + self.orig_module
         print("Dump folder: ", module_dump_folder)
         #Creating dump file for results to be placed if not already created.
         if not os.path.exists(module_dump_folder):
@@ -130,10 +130,12 @@ class LLMQueryEnv(gym.Env, StaticEnv):
             except OSError as e:
                 print("Error creating dump file: ", e)
         #Editing the bash script to run the output verilog module.
-        x= self.edit_script_variables(bash_script, self.orig_module, self.orig_module + ".v")
+        new_script_path = os.path.join(module_dump_folder, "synth_script.sh")
+        shutil.copy(bash_script, new_script_path)
+        x= self.edit_script_variables(new_script_path, self.orig_module, str(os.getpid()) + '_' + self.orig_module + ".v")
         #Running the script file (with executable permission).
         try:
-            subprocess.run(['bash', '-c', f'chmod +x {bash_script} && {bash_script}'], check=True)
+            subprocess.run(['bash', '-c', f'chmod +x {new_script_path} && {new_script_path}'], check=True)
         except subprocess.CalledProcessError as e:
             print(f"Error running bash script: {e}")
             exit(1)
@@ -156,11 +158,11 @@ class LLMQueryEnv(gym.Env, StaticEnv):
                 print("Delay value for the chip design is: ", delay_value)
                 print("Score (1/chip area): ", 1 / float(area_value))
                 #Currently returning area and delay values.
-                try:
-                    print("Removing dump files...")
-                    os.remove(logfile_path)
-                except OSError as e:
-                    print(f"Error: {e}")
+                #try:
+                #    print("Removing dump files...")
+                #    os.remove(logfile_path)
+                #except OSError as e:
+                #    print(f"Error: {e}")
 
                 return (1 / float(area_value))
             else:
@@ -175,7 +177,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         try:
             # Run the Verilog compiler and capture the output and exit code - specify your testbench file to your prompt here.
             #compile_output = subprocess.check_output(['iverilog', '-o', './temp_files/simulation', testbench_path, module_path], stderr=subprocess.STDOUT)
-            compile_output = subprocess.check_output(['iverilog', '-o', 'simulation', testbench_path, module_path], stderr=subprocess.STDOUT)
+            compile_output = subprocess.check_output(['iverilog', '-o', str(os.getpid()) + '_simulation', testbench_path, module_path], stderr=subprocess.STDOUT)
             compile_exit_code = 0  # Compilation successful
             print("Output Verilog module compiles successfully.")
             return True
@@ -192,7 +194,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         try:
         #Executing the compiled simulation file.
             #simulation_output = subprocess.check_output(['vvp', './temp_files/simulation'], stderr=subprocess.STDOUT)
-            simulation_output = subprocess.check_output(['vvp', 'simulation'], stderr=subprocess.STDOUT)
+            simulation_output = subprocess.check_output(['vvp', str(os.getpid()) + '_simulation'], stderr=subprocess.STDOUT)
             simulation_exit_code = 0
         except subprocess.CalledProcessError as e:
             simulation_output = e.output
