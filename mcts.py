@@ -373,8 +373,10 @@ class MCTS:
         print("Post-MCTS ideal tree search: ")
         leaf = self.root.select_leaf_during_evaluation(cType)
         if leaf.is_done():
+            print("MCTS tree nodes reached end of module.")
             value = self.TreeEnv.get_return(leaf.state,leaf.depth)
         else:
+            print("MCTS tree didnt reach end nodes - geting MC return for rest of prediction:")
             probs = self.TreeEnv.getLLMestimates(leaf.state)
             startingAction = np.argmax(probs)
             next_state = self.TreeEnv.next_state(leaf.state,startingAction)

@@ -53,7 +53,8 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         self.n_actions = 50295 #self.tokenizer.vocab_size
         #self.stopwords = ['\n\n']
         self.stopwords = ['endmodule']
-        self.depth=500
+        #Limit to token generation before cutoff.
+        self.depth=100
         self.orig_module = orig_module
         self.file_path = file_path
 
@@ -89,33 +90,39 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         #print('decoded state',repr(decoded))
         for w in sorted(self.stopwords, key=len, reverse=True):
             if decoded.endswith(w):
-                print("Output Verilog from prompt is complete.")
-                #Getting resulting Verilog code.
-                verilog_code = self.get_prompt_from_state(currentState)
-                print(verilog_code)
-                # Write the Verilog code to a temporary file - file named after module name.
-                output_verilog_file = self.orig_module + ".v"
-                with open(output_verilog_file, 'w') as temp_file:
-                    print("writing new verilog file")
-                    temp_file.write(verilog_code)
-
-                #Setting the testbench file path (assuming in same location as prompt file).
-                testbench_path = self.file_path + "/tb_" + self.orig_module + ".v"
-                #Check compilability.
-                self.compilable = self.compilation_check(testbench_path, output_verilog_file)
-                #Call functionality check if compilable.
-                if self.compilable:
-                    self.functional = self.functionality_check()
-                #Cleaning up files.
-                #os.remove(output_verilog_file)
-                #os.remove('simulation')
+                self.verilogFunctionalityCheck(currentState)
                 return True
+            
+    def verilogFunctionalityCheck(self, currentState):
+        verilog_code = self.get_prompt_from_state(currentState)
+        print(verilog_code)
+        # Write the Verilog code to a temporary file - file named after module name.
+        #output_verilog_file = "./temp_files/" + self.orig_module + ".v"
+        output_verilog_file = self.orig_module + ".v"
+        with open(output_verilog_file, 'w') as temp_file:
+            print("writing new verilog file")
+            temp_file.write(verilog_code)
+
+        #Setting the testbench file path (assuming in same location as prompt file).
+        testbench_path = self.file_path + "/tb_" + self.orig_module + ".v"
+        print("Testbench path: ", testbench_path)
+        #Check compilability.
+        self.compilable = self.compilation_check(testbench_path, output_verilog_file)
+        #Call functionality check if compilable.
+        if self.compilable:
+            self.functional = self.functionality_check()
+        return 0
 
     def getPromptScore(self,currentState=""):
         print("Running getPromptScore: ")
+        if not self.compilable:
+            return -1
+        if not self.functional:
+            return  -.5
         #Specify your bash script to be utilized here.
         bash_script = "scripts/synth_gcd.sh"
         module_dump_folder = "scripts/dump/" + self.orig_module
+        print("Dump folder: ", module_dump_folder)
         #Creating dump file for results to be placed if not already created.
         if not os.path.exists(module_dump_folder):
             try:
@@ -167,6 +174,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
          # Compile the Verilog code using the iVerilog
         try:
             # Run the Verilog compiler and capture the output and exit code - specify your testbench file to your prompt here.
+            #compile_output = subprocess.check_output(['iverilog', '-o', './temp_files/simulation', testbench_path, module_path], stderr=subprocess.STDOUT)
             compile_output = subprocess.check_output(['iverilog', '-o', 'simulation', testbench_path, module_path], stderr=subprocess.STDOUT)
             compile_exit_code = 0  # Compilation successful
             print("Output Verilog module compiles successfully.")
@@ -183,6 +191,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
     def functionality_check(self):
         try:
         #Executing the compiled simulation file.
+            #simulation_output = subprocess.check_output(['vvp', './temp_files/simulation'], stderr=subprocess.STDOUT)
             simulation_output = subprocess.check_output(['vvp', 'simulation'], stderr=subprocess.STDOUT)
             simulation_exit_code = 0
         except subprocess.CalledProcessError as e:
@@ -207,10 +216,14 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         
     #Helper - writes to the bash script to run the specific design/verilog file being synthesized.
     def edit_script_variables(self, filename, design_name, file_name):
+        print("design_name: ", design_name)
+        print("file_name: ", file_name)
+        print("filename: ", filename)
         with open(filename, "r") as file:
             lines = file.readlines()
         for i, line in enumerate(lines):
             if line.startswith("export DESIGN_NAME="):
+                #lines[i] = f'export DESIGN_NAME={design_name}\n'
                 lines[i] = f'export DESIGN_NAME={design_name}\n'
             elif line.startswith("export VERILOG_FILE="):
                 lines[i] = f'export VERILOG_FILE={file_name}\n'
@@ -254,6 +267,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         if self.isPromptComplete(state,depth):
             return True
         elif depth>=self.depth:
+            self.verilogFunctionalityCheck(state)
             return True
         else:
             return False

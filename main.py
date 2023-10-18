@@ -37,7 +37,7 @@ if __name__ == '__main__':
     runID = args.runID
     simulation_per_episode = args.sims
     num_episodes = args.ep
-    prompt = ""
+    prompt_str = ""
     module_name = ""
     prob_files_path = ""
     
@@ -53,42 +53,35 @@ if __name__ == '__main__':
     csvFileHandler = open(csvResultFile,'w')
     
     if not origPrompt:
-        prob_files_path = "VGen-main/prompts-and-testbenches/intermediate2"
+        #-----------Alter the two lines below for your prompt files.---------------#
+        #TODO
+        #------For now, file_name (without the .v) should be the same as module name in prompt file for code to run.
+        file_dir = "VGen-main/prompts-and-testbenches/advanced1"
+        file_name = "testprompt_signed_adder.v"
+
         #Specify your prompt file to use as input.
-        promptfile_path = prob_files_path + "/prompt1_counter.v"
+        promptfile_path = file_dir + "/" + file_name
         #Reading input file data and finding the module name.
-        prompt = ""
+        #Parsing the file name for the problem name (counter, lfsr, etc).
+        file_name_parts = file_name.split("_", 1)
+        if len(file_name_parts) > 1:
+            problem_name = "_".join(file_name_parts[1:])
+            print("Joined problem name: ", problem_name)
+            if problem_name.endswith(".v"):
+                    problem_name = problem_name.replace(".v","")
+        else:
+            print("Error parsing file name - check formatting (ex: prompt1_counter.v)")
+            exit(1)
+
         try:
             with open(promptfile_path, "r") as prompt_file:
-                prompt = prompt_file.read()
-                match = re.search(r'module\s+(\w+)\s*\(', prompt)
-                if match:
-                    module_name = match.group(1)
-                    print("Module name: ", module_name)
-                else:
-                    print("Error finding module name in prompt file.")
-                    exit(1)
+                prompt_str = prompt_file.read()
         except:
             print("Error reading prompt file.")
             exit(1)
 
-        #Test prompt that works (intermediate2 - counter) if file read is not working.
-        # Note-- prompts seem to work best with 1 line of comments at the top, 
-        #   and with the module definition lines 1 tab to the right below the comment.
-
-                #prompt_test = "// This is a counter that counts from 1 to 12\n\
-                #module counter(\n\
-                #input clk,\n\
-                #input reset,\n\
-                #output reg [3:0] q\n\
-                #);"
-                #print(prompt_test)
-        
-        #env = LLMQueryEnv(orig_prompt=prompt, orig_module=module_name, file_path=prob_files_path)
-        #start_prompt="def hello_world():"
     idx_ep = 0
-    #mctsTree = initialize_MCTS_tree(LLMQueryEnv(orig_prompt=start_prompt))
-    mctsTree = initialize_MCTS_tree(LLMQueryEnv(orig_prompt=prompt, orig_module=module_name, file_path=prob_files_path))
+    mctsTree = initialize_MCTS_tree(LLMQueryEnv(orig_prompt=prompt_str, orig_module=problem_name, file_path=file_dir))
     print("Episode not stated yet!")
     while idx_ep<num_episodes:
         print("******** EPISODE-{}************".format(idx_ep+1))
