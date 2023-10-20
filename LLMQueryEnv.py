@@ -8,6 +8,7 @@ import subprocess
 from static_env import StaticEnv
 import pandas as pd
 from transformers import AutoTokenizer, AutoModelForCausalLM
+from datetime import datetime
 
 def seed_everything(seed=42):                                                 
     random.seed(seed)                                                     
@@ -99,7 +100,15 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         # Write the Verilog code to a temporary file - file named after module name.
         #output_verilog_file = "./temp_files/" + self.orig_module + ".v"
         output_verilog_file = str(os.getpid()) + "_" + self.orig_module + ".v"
-        with open(output_verilog_file, 'w') as temp_file:
+        tmp_dir_path = "tmp_output_files"
+        if not os.path.exists(tmp_dir_path):
+            try:
+                os.makedirs(tmp_dir_path, mode=0o777)
+            except OSError as e:
+                print("Error creating dump file: ", e)
+        output_file_path = os.path.join(tmp_dir_path, output_verilog_file)
+
+        with open(output_file_path, 'w') as temp_file:
             print("writing new verilog file")
             temp_file.write(verilog_code)
 
@@ -107,7 +116,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         testbench_path = self.file_path + "/tb_" + self.orig_module + ".v"
         print("Testbench path: ", testbench_path)
         #Check compilability.
-        self.compilable = self.compilation_check(testbench_path, output_verilog_file)
+        self.compilable = self.compilation_check(testbench_path, output_file_path)
         #Call functionality check if compilable.
         if self.compilable:
             self.functional = self.functionality_check()
@@ -135,16 +144,17 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         x= self.edit_script_variables(new_script_path, self.orig_module, str(os.getpid()) + '_' + self.orig_module + ".v")
         #Running the script file (with executable permission).
         try:
+            start_time = datetime.now()
             subprocess.run(['bash', '-c', f'chmod +x {new_script_path} && {new_script_path}'], check=True)
+            end_time = datetime.now()
+            time_difference = end_time - start_time
+            seconds = time_difference.total_seconds()
+            print("Running bash in x seconds: ", seconds)
         except subprocess.CalledProcessError as e:
             print(f"Error running bash script: {e}")
-            exit(1)
+            
         #Retrieving the results from generated log file - specify your filepath.
         logfile_path = module_dump_folder + "/yosys_synth.log"
-        #Sleep command to allow new files to be accessed without timing issues.
-        #May need more advanced delay system...
-        time.sleep(1)
-        #Retrieving the area and delay values from log file.
         if os.path.isfile(logfile_path):
             area_value = self.extract_area_from_log(logfile_path)
             delay_value = self.extract_delay_from_log(logfile_path)
@@ -158,18 +168,18 @@ class LLMQueryEnv(gym.Env, StaticEnv):
                 print("Delay value for the chip design is: ", delay_value)
                 print("Score (1/chip area): ", 1 / float(area_value))
                 #Currently returning area and delay values.
-                #try:
-                #    print("Removing dump files...")
-                #    os.remove(logfile_path)
-                #except OSError as e:
-                #    print(f"Error: {e}")
+                try:
+                    print("Removing dump files...")
+                    os.remove(logfile_path)
+                except OSError as e:
+                    print(f"Error: {e}")
 
                 return (1 / float(area_value))
             else:
-                print("Verilog code has not area or delay value (error in compilation).")
+                print("Verilog code has not area or delay value (error in extraction).")
                 return 0
         else:
-            print("Error in filepath of Yosys sythesis results.")
+            print("Filepath of Yosys results not recognized.")
             return None
     
     def compilation_check(self, testbench_path, module_path):
@@ -177,7 +187,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         try:
             # Run the Verilog compiler and capture the output and exit code - specify your testbench file to your prompt here.
             #compile_output = subprocess.check_output(['iverilog', '-o', './temp_files/simulation', testbench_path, module_path], stderr=subprocess.STDOUT)
-            compile_output = subprocess.check_output(['iverilog', '-o', str(os.getpid()) + '_simulation', testbench_path, module_path], stderr=subprocess.STDOUT)
+            compile_output = subprocess.check_output(['iverilog', '-o', os.path.join("tmp_output_files", str(os.getpid()) + '_simulation'), testbench_path, module_path], stderr=subprocess.STDOUT)
             compile_exit_code = 0  # Compilation successful
             print("Output Verilog module compiles successfully.")
             return True
@@ -194,13 +204,15 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         try:
         #Executing the compiled simulation file.
             #simulation_output = subprocess.check_output(['vvp', './temp_files/simulation'], stderr=subprocess.STDOUT)
-            simulation_output = subprocess.check_output(['vvp', str(os.getpid()) + '_simulation'], stderr=subprocess.STDOUT)
+            sim_path = os.path.join("tmp_output_files", str(os.getpid()) + '_simulation')
+            print(sim_path)
+            simulation_output = subprocess.check_output(['vvp', sim_path], stderr=subprocess.STDOUT)
             simulation_exit_code = 0
         except subprocess.CalledProcessError as e:
             simulation_output = e.output
             simulation_exit_code = e.returncode
         #Displaying result cases of simulation.
-        print("Simulation output: ", simulation_output)
+        #print("Simulation output: ", simulation_output)
         if simulation_exit_code == 0:
             print("Verilog testbench simulation ran successfully.")
             if b"all tests passed" in simulation_output:
@@ -218,9 +230,6 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         
     #Helper - writes to the bash script to run the specific design/verilog file being synthesized.
     def edit_script_variables(self, filename, design_name, file_name):
-        print("design_name: ", design_name)
-        print("file_name: ", file_name)
-        print("filename: ", filename)
         with open(filename, "r") as file:
             lines = file.readlines()
         for i, line in enumerate(lines):
@@ -228,7 +237,9 @@ class LLMQueryEnv(gym.Env, StaticEnv):
                 #lines[i] = f'export DESIGN_NAME={design_name}\n'
                 lines[i] = f'export DESIGN_NAME={design_name}\n'
             elif line.startswith("export VERILOG_FILE="):
-                lines[i] = f'export VERILOG_FILE={file_name}\n'
+                lines[i] = f'export VERILOG_FILE={"${MODULE_DIR}" + "/" + file_name}\n'
+            elif line.startswith("export OUTPUT_NAME="):
+                lines[i] = f'export OUTPUT_NAME={file_name}\n'
         with open(filename, "w") as file:
             file.writelines(lines)
         
@@ -248,18 +259,17 @@ class LLMQueryEnv(gym.Env, StaticEnv):
     
     #Helper - retrieving the area value from the Yosys log file.
     def extract_area_from_log(self, filepath):
+
         #Reading data.
-        with open(filepath, 'r') as file:
-            content = file.read()
-        #Finding chip area number.
-        pattern = r'Chip area for module .+: (\d+\.\d+)'
-        match = re.search(pattern, content)
-        if match:
-            chip_area = match.group(1)
-            return chip_area
-        else:
-            print("Error: chip area not found in synthesis results.")
-            return None
+        with open(filepath, "r") as file:
+            for line in file:
+                if "Chip area for module" in line:
+                    parts = line.split(':')
+                    if len(parts) >= 2:
+                        chip_area = parts[-1].strip()
+                        return chip_area
+        print("Error: Chip area ont found in syntheis results.")
+        return None
 
     def next_state(self,state,action):
         nextState = np.append(state,np.array([[action]]),axis=-1)

@@ -17,6 +17,7 @@ import os.path as osp
 import torch,shutil
 import statistics,pickle
 from mcts import MCTS
+os.environ['TOKENIZERS_PARALLELISM'] = 'false'
 
 if __name__ == '__main__':
     
@@ -84,16 +85,20 @@ if __name__ == '__main__':
 
     idx_ep = 0
     mctsTree = initialize_MCTS_tree(LLMQueryEnv(orig_prompt=prompt_str, orig_module=problem_name, file_path=file_dir))
-    print("Episode not stated yet!")
-    while idx_ep<num_episodes:
-        with ProcessPoolExecutor(max_workers=simulation_per_episode) as executor:
-            futures = [executor.submit(execute_episode, mctsTree, 1) for _ in range(simulation_per_episode)]
-            #results = [future.result() for future in futures]
-        idx_ep+=1  
+    #print("Episode not stated yet!")
     #while idx_ep<num_episodes:
-    #    print("******** EPISODE-{}************".format(idx_ep+1))
-    #    mctsTree = execute_episode(mctsTree,simulation_per_episode)
-    #    evalMctsMaxValue,evalMctsRobustValue = test_episode(mctsTree)
-    #    csvFileHandler.write("{},{}\n".format(evalMctsMaxValue,evalMctsRobustValue))
-    #    idx_ep+=1
+    #    with ProcessPoolExecutor(max_workers=simulation_per_episode) as executor:
+    #        futures = [executor.submit(execute_episode, mctsTree, 1) for _ in range(simulation_per_episode)]
+    #        #results = [future.result() for future in futures]
+    #    idx_ep+=1  
+    #print(mctsTree.num_simulations)
+    
+    
+    
+    while idx_ep<num_episodes:
+        print("******** EPISODE-{}************".format(idx_ep+1))
+        mctsTree = execute_episode(mctsTree,simulation_per_episode)
+        evalMctsMaxValue,evalMctsRobustValue = test_episode(mctsTree)
+        csvFileHandler.write("{},{}\n".format(evalMctsMaxValue,evalMctsRobustValue))
+        idx_ep+=1
     

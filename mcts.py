@@ -346,6 +346,7 @@ class MCTS:
         self.temp_threshold = None        # Overwritten in initialize_search
         self.isFirstExploration = True
         self.root = None
+        self.num_simulations = 0
 
     def initialize_search(self, state=None):
         init_state = self.TreeEnv.get_initial_state()
@@ -414,6 +415,8 @@ def execute_episode(mctsTree,simulation_budget):
     rewards in each step, total return for this episode and the final state of
     this episode.
     """
+    mctsTree.num_simulations += 1
+    print("Updated num: ", mctsTree.num_simulations)
     current_runs = mctsTree.root.N
     #print("Current runs: ", current_runs)
     #print("Simulation budget", simulation_budget)
