@@ -209,6 +209,7 @@ class MCTSNode:
         if action not in self.children:
             # Obtain state following given action.
             new_state = self.TreeEnv.next_state(self.state,action)
+            #print("new state: ", new_state)
             self.children[action] = MCTSNode(new_state,self.n_actions,
                                              self.TreeEnv,
                                              action=action, parent=self,childType=self.childType)
@@ -247,7 +248,6 @@ class MCTSNode:
         :param value: Value estimate to be propagated.
         :param up_to: The node to propagate until.
         """
-        print("Prediction value: ", predValue)
         self.W += predValue
         self.M += actualValue
         self.N += 1
@@ -261,11 +261,10 @@ class MCTSNode:
     def inject_noise(self):
         #Need to look into this next... (Matthew)
         dirch = np.random.dirichlet([D_NOISE_ALPHA] * self.n_actions)
-        #[1,2,...,5100] (current node's number of actions)
-        #
         #dirch = np.random.dirichlet([D_NOISE_ALPHA] * self.child_prior)
         #self.child_prior = self.child_prior * 0.75 + dirch * 0.25
-        print("Shape ", len(self.child_prior), " ", len(dirch))
+
+        #print("Shape ", len(self.child_prior), " ", len(dirch))
         self.child_prior = self.child_prior * 0.85 + dirch * 0.15
 
     def visits_as_probs(self, squash=False):

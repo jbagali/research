@@ -21,7 +21,7 @@ export DUMP_DIR=${SCRIPTS_DIR}/dump/${OUTPUT_NAME%.v}
 export ABC_AREA=1
 #export ABC_CLOCK_PERIOD_IN_PS=460
 
-echo "SYNTH_SCRIPT: $SYNTH_SCRIPT"
-echo "DUMP_DIR: $DUMP_DIR"
+#echo "SYNTH_SCRIPT: $SYNTH_SCRIPT"
+#echo "DUMP_DIR: $DUMP_DIR"
 
 yosys -c ${SYNTH_SCRIPT} > ${DUMP_DIR}/yosys_synth.log 2>&1

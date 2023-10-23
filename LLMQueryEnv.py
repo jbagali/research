@@ -96,9 +96,9 @@ class LLMQueryEnv(gym.Env, StaticEnv):
             
     def verilogFunctionalityCheck(self, currentState):
         verilog_code = self.get_prompt_from_state(currentState)
-        print(verilog_code)
+        #print(verilog_code)
+        #print("Checking functionality...")
         # Write the Verilog code to a temporary file - file named after module name.
-        #output_verilog_file = "./temp_files/" + self.orig_module + ".v"
         output_verilog_file = str(os.getpid()) + "_" + self.orig_module + ".v"
         tmp_dir_path = "tmp_output_files"
         if not os.path.exists(tmp_dir_path):
@@ -114,7 +114,6 @@ class LLMQueryEnv(gym.Env, StaticEnv):
 
         #Setting the testbench file path (assuming in same location as prompt file).
         testbench_path = self.file_path + "/tb_" + self.orig_module + ".v"
-        print("Testbench path: ", testbench_path)
         #Check compilability.
         self.compilable = self.compilation_check(testbench_path, output_file_path)
         #Call functionality check if compilable.
@@ -131,7 +130,8 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         #Specify your bash script to be utilized here.
         bash_script = "scripts/synth_gcd.sh"
         module_dump_folder = "scripts/dump/" + str(os.getpid()) + "_" + self.orig_module
-        print("Dump folder: ", module_dump_folder)
+        #print("Dump folder: ", module_dump_folder)
+
         #Creating dump file for results to be placed if not already created.
         if not os.path.exists(module_dump_folder):
             try:
@@ -152,7 +152,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
             print("Running bash in x seconds: ", seconds)
         except subprocess.CalledProcessError as e:
             print(f"Error running bash script: {e}")
-            
+
         #Retrieving the results from generated log file - specify your filepath.
         logfile_path = module_dump_folder + "/yosys_synth.log"
         if os.path.isfile(logfile_path):
@@ -245,8 +245,8 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         
     #Helper - retrieving the delay value from the Yosys log file.
     def extract_delay_from_log(self, filepath):
-        print("retrieving delay (called)")
-        print("Delay filepath: ", filepath)
+        #print("retrieving delay (called)")
+        #print("Delay filepath: ", filepath)
         with open(filepath, "r") as file:
             for line in file:
                 if "Delay = " in line:
