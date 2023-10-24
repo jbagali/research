@@ -299,21 +299,21 @@ class MCTSNode:
         node_string = "----"
         node_string += "\n Tree depth: {}".format(level)
         node_string += "\n Node: action={}".format(self.action)
-        node_string += "\n• state:{}".format(self.state)
-        node_string += "\n• Child Action scores:{}".format(self.child_action_score)
-        node_string += "\n• Child averaged monte carlo:{}".format(self.averagedMonteCarlo)
-        node_string += "\n• Child probablities:{}".format(self.child_prior)
-        node_string += "\n• Child visitation:{}".format(self.child_visited)
-        node_string += "\n• N={},Q={},M={}".format(self.N,self.Q,self.averagedMonteCarlo)
+        node_string += "\n� state:{}".format(self.state)
+        node_string += "\n� Child Action scores:{}".format(self.child_action_score)
+        node_string += "\n� Child averaged monte carlo:{}".format(self.averagedMonteCarlo)
+        node_string += "\n� Child probablities:{}".format(self.child_prior)
+        node_string += "\n� Child visitation:{}".format(self.child_visited)
+        node_string += "\n� N={},Q={},M={}".format(self.N,self.Q,self.averagedMonteCarlo)
         print(node_string)
 
     def print_tree(self, level=0):
         node_string = "\033[94m|" + "----"*level
         node_string += "\n Node: action={}\033[0m".format(self.action)
-        node_string += "\n• state:\n{}".format(self.state)
-        node_string += "\n• Child Action scores:\n{}".format(self.child_action_score)
-        node_string += "\n• Child visitation:\n{}".format(self.child_visited)
-        node_string += "\n• N={},Q={},M={}".format(self.N,self.Q,self.averagedMonteCarlo)
+        node_string += "\n� state:\n{}".format(self.state)
+        node_string += "\n� Child Action scores:\n{}".format(self.child_action_score)
+        node_string += "\n� Child visitation:\n{}".format(self.child_visited)
+        node_string += "\n� N={},Q={},M={}".format(self.N,self.Q,self.averagedMonteCarlo)
         print(node_string)
         for _, child in sorted(self.children.items()):
             child.print_tree(level+1)
@@ -387,7 +387,8 @@ class MCTS:
 
 
 def initialize_MCTS_tree(TreeEnv):
-    mcts = MCTS(TreeEnv,childType=CHILD_TYPE)
+
+    mcts = MCTS(TreeEnv, childType=CHILD_TYPE)
     mcts.initialize_search()
     first_node = mcts.root.select_leaf()
     probs = TreeEnv.getLLMestimates(first_node.state)
@@ -422,6 +423,11 @@ def execute_episode(mctsTree,simulation_budget):
     while mctsTree.root.N < current_runs+simulation_budget:
         mctsTree.tree_search()
         print("Current runs: ", mctsTree.root.N)
+        mctsTree.TreeEnv.row_data['episode'] = mctsTree.num_simulations
+        mctsTree.TreeEnv.row_data['currentRun'] = mctsTree.root.N
+        mctsTree.TreeEnv.csv_logger.log(mctsTree.TreeEnv.row_data)
+
+        
 
     mctsTree.root.print_bfs_tree()
     #print("execute episode finished")

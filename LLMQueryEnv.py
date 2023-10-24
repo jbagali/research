@@ -1,3 +1,4 @@
+from logging import root
 import numpy as np
 import gym # open ai gym
 import os,re,shutil
@@ -43,7 +44,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
 
     # origAIG incomplete prompt
     
-    def __init__(self,orig_prompt="def hello_world():", orig_module="hello_world", file_path = ""):
+    def __init__(self, csv_logger, row_data, orig_prompt="def hello_world():", orig_module="hello_world", file_path = ""):
         seed_everything()
         model_name = "shailja/CodeGen_2B_Verilog"
         self.tokenizer = AutoTokenizer.from_pretrained("shailja/fine-tuned-codegen-2B-Verilog")
@@ -61,6 +62,10 @@ class LLMQueryEnv(gym.Env, StaticEnv):
 
         self.compilable = False
         self.functional = False
+
+        self.csv_logger = csv_logger
+        self.row_data = row_data
+        
             #self.ep_length = NUM_LENGTH_EPISODES # not required
 
     def get_tokenized_state(self,prompt):
@@ -121,7 +126,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
             self.functional = self.functionality_check()
         return 0
 
-    def getPromptScore(self,currentState=""):
+    def getPromptScore(self, currentState=""):
         print("Running getPromptScore: ")
         if not self.compilable:
             return -1
@@ -167,6 +172,14 @@ class LLMQueryEnv(gym.Env, StaticEnv):
                 print("Area of the chip design is: ", area_value)
                 print("Delay value for the chip design is: ", delay_value)
                 print("Score (1/chip area): ", 1 / float(area_value))
+                
+                #self.csv_logger.log(area=area_value, delay=delay_value, score=1/float(area_value))
+                self.row_data = {
+                    'area' : area_value,
+                    'delay' : delay_value,
+                    'score' : 1/float(area_value),
+                }
+
                 #Currently returning area and delay values.
                 try:
                     print("Removing dump files...")

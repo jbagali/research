@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export ROOT_DIR=/home/grads/m/matthewdelorenzo/research
+export ROOT_DIR=/home/grads/j/jbagali/researchGit/research
 export MODULE_DIR=${ROOT_DIR}/tmp_output_files
 export SCRIPTS_DIR=${ROOT_DIR}/scripts
 export SYNTH_SCRIPT=${SCRIPTS_DIR}/yosys_simple_synth.tcl

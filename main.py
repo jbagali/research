@@ -16,11 +16,32 @@ import argparse,os,re
 import os.path as osp
 import torch,shutil
 import statistics,pickle
+import csv
 from mcts import MCTS
 os.environ['TOKENIZERS_PARALLELISM'] = 'false'
 
+class CsvLogger:
+    def __init__(self, filename):
+        self.filename = filename
+        # Initialize the CSV file with the header
+        with open(self.filename, 'w', newline='') as file:
+            writer = csv.writer(file)
+            writer.writerow(["Area", "Delay", "Score", "Current Run", "Episode"])  # Add header row
+
+    def log(self, data):
+        # 'data' is expected to be a dictionary like:
+        # {'area': 123.4, 'delay': 5.67, 'score': 8.9, 'currentRun': 10, 'episode': 1}
+        with open(self.filename, 'a', newline='') as file:
+            writer = csv.writer(file)
+            # Make sure the order of keys matches the order of your CSV columns
+            writer.writerow([data['area'], data['delay'], data['score'], data['currentRun'], data['episode']])
+
+
 if __name__ == '__main__':
     
+    csv_logger = CsvLogger("log.csv")
+    row_data = {}
+
     parser = argparse.ArgumentParser(description='MCTS+LLM')
     parser.add_argument('--init_prompt', type=str, required=False,
                         help='Initial prompt')
@@ -84,7 +105,7 @@ if __name__ == '__main__':
             exit(1)
 
     idx_ep = 0
-    mctsTree = initialize_MCTS_tree(LLMQueryEnv(orig_prompt=prompt_str, orig_module=problem_name, file_path=file_dir))
+    mctsTree = initialize_MCTS_tree(LLMQueryEnv(csv_logger, row_data, orig_prompt=prompt_str, orig_module=problem_name, file_path=file_dir))
     #print("Episode not stated yet!")
     #while idx_ep<num_episodes:
     #    with ProcessPoolExecutor(max_workers=simulation_per_episode) as executor:
