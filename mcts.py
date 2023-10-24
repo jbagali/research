@@ -12,6 +12,7 @@ import numpy as np
 import os
 import os.path as osp
 import torch
+import shutil
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
 # Exploration constant
@@ -400,6 +401,41 @@ def initialize_MCTS_tree(TreeEnv):
     mcts.root.inject_noise()
     return mcts
 
+"""
+def execute_episode(mctsTree,simulation_budget):
+    
+    Executes a single episode of the task using Monte-Carlo tree search with
+    the given agent network. It returns the experience tuples collected during
+    the search.
+    :param agent_netw: Network for predicting action probabilities and state
+    value estimate.
+    :param num_simulations: Number of simulations (traverses from root to leaf)
+    per action.
+    :param TreeEnv: Static environment that describes the environment dynamics.
+    :return: The observations for each step of the episode, the policy outputs
+    as output by the MCTS (not the pure neural network outputs), the individual
+    rewards in each step, total return for this episode and the final state of
+    this episode.
+    
+    mctsTree.num_simulations += 1
+    print("Updated num: ", mctsTree.num_simulations)
+    current_runs = mctsTree.root.N
+    #print("Current runs: ", current_runs)
+    #print("Simulation budget", simulation_budget)
+    while mctsTree.root.N < current_runs+simulation_budget:
+        mctsTree.tree_search()
+        print("Current runs: ", mctsTree.root.N)
+        mctsTree.TreeEnv.row_data['episode'] = mctsTree.num_simulations
+        mctsTree.TreeEnv.row_data['currentRun'] = mctsTree.root.N
+        mctsTree.TreeEnv.csv_logger.log(mctsTree.TreeEnv.row_data)
+
+        
+
+    mctsTree.root.print_bfs_tree()
+    #print("execute episode finished")
+    return mctsTree
+    
+"""
 def execute_episode(mctsTree,simulation_budget):
     """
     Executes a single episode of the task using Monte-Carlo tree search with
@@ -422,16 +458,22 @@ def execute_episode(mctsTree,simulation_budget):
     #print("Simulation budget", simulation_budget)
     while mctsTree.root.N < current_runs+simulation_budget:
         mctsTree.tree_search()
-        print("Current runs: ", mctsTree.root.N)
         mctsTree.TreeEnv.row_data['episode'] = mctsTree.num_simulations
         mctsTree.TreeEnv.row_data['currentRun'] = mctsTree.root.N
         mctsTree.TreeEnv.csv_logger.log(mctsTree.TreeEnv.row_data)
-
-        
-
-    mctsTree.root.print_bfs_tree()
-    #print("execute episode finished")
-    return mctsTree
+        print("Current runs: ", mctsTree.root.N)
+        for filename in os.listdir("tmp_output_files"):
+            filepath = os.path.join("tmp_output_files", filename)
+            if os.path.isfile(filepath):
+                os.remove(filepath)
+            elif os.path.isdir(filepath):
+                shutil.rmtree(filepath)
+        for filename in os.listdir("scripts/dump"):
+            filepath = os.path.join("scripts/dump", filename)
+            if os.path.isfile(filepath):
+                os.remove(filepath)
+            elif os.path.isdir(filepath):
+                shutil.rmtree(filepath)
 
 def test_episode(mctsTree):
     mctsEvalMaxValue = mctsTree.test_tree_search(cType='max')
