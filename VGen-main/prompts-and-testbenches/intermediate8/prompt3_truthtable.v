@@ -11,7 +11,6 @@
 //  1   0   1  |    0
 //  1   1   0  |    1
 //  1   1   1  |    0
-module truthtable(input x3, input x2, input x1, output f );
 // If x3 is low and x2 is low and x3 is low, assign 1 to f
 // If x3 is low and x2 is low and x3 is high, assign 1 to f
 // If x3 is low and x2 is high and x3 is low, assign 0 to f
@@ -20,3 +19,4 @@ module truthtable(input x3, input x2, input x1, output f );
 // If x3 is high and x2 is low and x3 is high, assign 0 to f
 // If x3 is high and x2 is high and x3 is low, assign 1 to f
 // If x3 is high and x2 is high and x3 is high, assign 0 to f
+module truthtable(input x3, input x2, input x1, output f );

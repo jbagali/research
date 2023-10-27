@@ -1,4 +1,6 @@
 // This is a permutation block module.
+// The input signal bits are permuted according to the table In32table.
+// For i=0 till i<32, assign the bit of in32 indexed by In32table[i] to Out32[i] 
 module P_box ( input wire [31:0] In32, output reg [31:0] Out32 );
 localparam len_table = 32;
 reg [5:0] In32table [len_table-1:0];
@@ -37,5 +39,3 @@ In32table[30] = 21;
 In32table[31] = 24;
 end
 integer i;
-// The input signal bits are permuted according to the table In32table.
-// For i=0 till i<32, assign the bit of in32 indexed by In32table[i] to Out32[i] 

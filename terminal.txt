@@ -1,0 +1,19 @@
+Joined problem name:  wire_assign.v
+Loading LLM model...
+Initializing MCTS tree...
+writing new verilog file
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+All testbench tests passed!
+Tokens:  10
+LLM generates return in:  5.76705  seconds
+Running getPromptScore: 
+Running bash in x seconds:  0.728947
+Error: Chip area ont found in syntheis results.
+Delay could not be found in synthesis results.
+Verilog code has not area or delay value (error in extraction).
+Episode not stated yet!
+Simulations per episode:  200
+******** EPISODE-1************
+Updated num:  1
+Depth:  1

@@ -9,10 +9,11 @@ import random as rd
 import collections
 from unicodedata import name
 import numpy as np
-import os
+import os, shutil
 import os.path as osp
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
+from LLMQueryEnv import LLMQueryEnv
 
 # Exploration constant
 c_PUCT = 1.38
@@ -361,6 +362,7 @@ class MCTS:
             value = self.TreeEnv.get_return(leaf.state,leaf.depth)
             leaf.backup_value(value,value,up_to=self.root)
         else:
+            print("Depth: ", leaf.depth)
             probs = self.TreeEnv.getLLMestimates(leaf.state)
             startingAction = np.argmax(probs)
             next_state = self.TreeEnv.next_state(leaf.state,startingAction)
@@ -378,6 +380,7 @@ class MCTS:
             value = self.TreeEnv.get_return(leaf.state,leaf.depth)
         else:
             #print("MCTS tree didnt reach end nodes - geting MC return for rest of prediction:")
+            
             probs = self.TreeEnv.getLLMestimates(leaf.state)
             startingAction = np.argmax(probs)
             next_state = self.TreeEnv.next_state(leaf.state,startingAction)
@@ -387,6 +390,7 @@ class MCTS:
 
 
 def initialize_MCTS_tree(TreeEnv):
+    print("Initializing MCTS tree...")
     mcts = MCTS(TreeEnv,childType=CHILD_TYPE)
     mcts.initialize_search()
     first_node = mcts.root.select_leaf()
@@ -398,6 +402,13 @@ def initialize_MCTS_tree(TreeEnv):
     first_node.incorporate_estimates(probs, first_node_rolloutReturn, first_node_rolloutReturn,first_node)
     mcts.root.inject_noise()
     return mcts
+
+def initialize_thread_tree(index, prompt_str, problem_name, file_dir, model_name, tokenizer, model):
+    # Create a partially applied function with the required parameters
+    return initialize_MCTS_tree(
+        LLMQueryEnv(orig_prompt=prompt_str, orig_module=problem_name, file_path=file_dir,
+                    model_name=model_name, tokenizer=tokenizer, model=model)
+    )
 
 def execute_episode(mctsTree,simulation_budget):
     """
@@ -423,11 +434,78 @@ def execute_episode(mctsTree,simulation_budget):
         mctsTree.tree_search()
         print("Current runs: ", mctsTree.root.N)
 
+        #for filename in os.listdir("tmp_output_files"):
+        #    filepath = os.path.join("tmp_output_files", filename)
+        #    if os.path.isfile(filepath):
+        #        os.remove(filepath)
+        #    elif os.path.isdir(filepath):
+        #        shutil.rmtree(filepath)
+
+        #for filename in os.listdir("scripts/dump"):
+        #    filepath = os.path.join("scripts/dump", filename)
+        #    if os.path.isfile(filepath):
+        #        os.remove(filepath)
+        #    elif os.path.isdir(filepath):
+        #        shutil.rmtree(filepath)
+        mctsTree.TreeEnv.row_data['episode'] = mctsTree.num_simulations
+        mctsTree.TreeEnv.row_data['currentRun'] = mctsTree.root.N
+        
+        mctsTree.TreeEnv.csv_logger.log(mctsTree.TreeEnv.row_data)
+
     mctsTree.root.print_bfs_tree()
     #print("execute episode finished")
     return mctsTree
 
 def test_episode(mctsTree):
-    mctsEvalMaxValue = mctsTree.test_tree_search(cType='max')
+    #mctsEvalMaxValue = mctsTree.test_tree_search(cType='max')
     mctsEvalRobustValue = mctsTree.test_tree_search(cType='robust')
-    return mctsEvalMaxValue,mctsEvalRobustValue
+    return mctsEvalRobustValue
+
+def merge_nodes(merged_tree_node, thread_tree_node):
+    #for actions in current merged tree node
+    for action in merged_tree_node.children:
+        #if action (child) also exists in the thread tree
+        if action in thread_tree_node.children:
+            merge_nodes(merged_tree_node.children[action], thread_tree_node.children[action])
+        else:
+            #If the child does not exist
+            merged_tree_node.children[action] = thread_tree_node.children[action]
+
+    for action in thread_tree_node.children:
+        if action not in merged_tree_node.children:
+            merged_tree_node.children[action] = thread_tree_node.children[action]
+
+
+def update_root_node(merged_root, thread_root):
+    merged_root.parent.child_N += thread_root.parent.child_N
+    merged_root.parent.child_W += thread_root.parent.child_W
+    merged_root.parent.child_M += thread_root.parent.child_M
+
+def update_node_children(merged_node, thread_node):
+    #add child_n, child_m, child_w, child_visited
+    #If child dictionary doesnt contain node, add it here.
+    merged_node.child_N += thread_node.child_N
+    merged_node.child_W += thread_node.child_W
+    merged_node.child_M += thread_node.child_M
+    for action in thread_node.children:
+        if action not in merged_node.children:
+            merged_node.children[action] = thread_node.children[action]
+
+def merge_nodes(merged_tree_node, thread_tree_node):
+    if (merged_tree_node.parent == DummyNode() and thread_tree_node.parent == DummyNode()):
+        #If root node
+        update_root_node(merged_tree_node, thread_tree_node)
+
+    if thread_tree_node.children:
+        update_node_children(merged_tree_node, thread_tree_node)
+
+        for action in thread_tree_node.children:
+            thread_node_child = thread_tree_node.children[action]
+            merged_node_child = merged_tree_node.children[action]            
+            merge_nodes(merged_node_child, thread_node_child)
+    
+def merge_trees(merge_tree, thread_trees):
+    for thread_tree in thread_trees:
+        merge_nodes(merge_tree.root, thread_tree.root)
+
+        
