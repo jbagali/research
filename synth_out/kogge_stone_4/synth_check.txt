@@ -1,0 +1,4 @@
+
+11. Executing CHECK pass (checking for obvious problems).
+checking module kogge_stone_4..
+found and reported 0 problems.

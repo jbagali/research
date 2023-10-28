@@ -1,0 +1,27 @@
+
+12. Printing statistics.
+
+=== ripple_carry_adder_4 ===
+
+   Number of wires:                 33
+   Number of wire bits:             42
+   Number of public wires:           9
+   Number of public wire bits:      18
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 29
+     INV_X1                          7
+     INV_X2                          1
+     NAND2_X1                        4
+     NAND2_X2                        5
+     NAND3_X1                        1
+     NOR2_X1                         1
+     NOR2_X2                         2
+     OAI21_X2                        2
+     OR2_X1                          1
+     XNOR2_X1                        3
+     XOR2_X1                         2
+
+   Chip area for module '\ripple_carry_adder_4': 31.654000
+

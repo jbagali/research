@@ -59,7 +59,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         #self.stopwords = ['\n\n']
         self.stopwords = ['endmodule']
         #Limit to token generation before cutoff.
-        self.depth=200
+        self.depth=500
         self.orig_module = orig_module
         self.file_path = file_path
 

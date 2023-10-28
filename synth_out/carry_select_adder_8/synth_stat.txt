@@ -1,0 +1,28 @@
+
+12. Printing statistics.
+
+=== carry_select_adder_8 ===
+
+   Number of wires:                 75
+   Number of wire bits:             96
+   Number of public wires:           9
+   Number of public wire bits:      30
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 75
+     INV_X1                         19
+     NAND2_X1                       18
+     NAND2_X2                        4
+     NAND2_X4                        3
+     NAND3_X1                        5
+     NOR2_X1                         9
+     NOR2_X2                         2
+     OAI21_X1                        5
+     OAI21_X2                        2
+     OR2_X1                          1
+     XNOR2_X1                        5
+     XOR2_X1                         2
+
+   Chip area for module '\carry_select_adder_8': 73.416000
+

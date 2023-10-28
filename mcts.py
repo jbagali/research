@@ -260,7 +260,6 @@ class MCTSNode:
         return self.TreeEnv.is_done_state(self.state,self.depth)
 
     def inject_noise(self):
-        #Need to look into this next... (Matthew)
         dirch = np.random.dirichlet([D_NOISE_ALPHA] * self.n_actions)
         #dirch = np.random.dirichlet([D_NOISE_ALPHA] * self.child_prior)
         #self.child_prior = self.child_prior * 0.75 + dirch * 0.25
