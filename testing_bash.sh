@@ -12,10 +12,10 @@ mod_names=("prompt3_wire_assign.v" "prompt3_and_gate.v" "prompt3_priority_encode
        "prompt3_countslow.v" "prompt3_advfsm.v" "prompt3_advshifter.v" "prompt3_abro.v")
 
 # Loop through the arrays and run the command
-for i in {12..17}; do
+for i in {1..5}; do
     csv_file="log${i}.csv"
     mod_dir=${mod_dirs[$i - 1]}
     mod_name=${mod_names[$i - 1]}
     
-    CUDA_VISIBLE_DEVICES=2 python main.py --dumpdir scripts/dump --runID 0 --sim 200 --ep 1 --mod_dir "${mod_dir}" --mod_name "${mod_name}" --csv "${csv_file}"
+    CUDA_VISIBLE_DEVICES=2 python main.py --dumpdir scripts/dump --runID 0 --sim 2 --ep 1 --mod_dir "${mod_dir}" --mod_name "${mod_name}" --csv "${csv_file}"
 done

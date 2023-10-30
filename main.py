@@ -111,6 +111,7 @@ if __name__ == '__main__':
         file_name_parts = file_name.split("_", 1)
         if len(file_name_parts) > 1:
             problem_name = "_".join(file_name_parts[1:])
+            print("Problem: ", problem_name)
             print("Joined problem name: ", problem_name)
             if problem_name.endswith(".v"):
                     problem_name = problem_name.replace(".v","")
@@ -121,6 +122,7 @@ if __name__ == '__main__':
         try:
             with open(promptfile_path, "r") as prompt_file:
                 prompt_str = prompt_file.read()
+                print("Prompt str: ", prompt_str)
         except:
             print("Error reading prompt file.")
             exit(1)

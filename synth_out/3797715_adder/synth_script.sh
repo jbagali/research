@@ -15,9 +15,9 @@ export ABC_LOAD_IN_FF=3.898
 #export DESIGN_NICKNAME=gcd
 
 #DESIGN_NAME and VERILOG_FILE will be changed to current tested module in LLMQueryEnv.py.
-export DESIGN_NAME=counter
-export VERILOG_FILE=counter.v
-export OUTPUT_NAME=counter.v
+export DESIGN_NAME=adder
+export VERILOG_FILE=${MODULE_DIR}/3797715_adder.v
+export OUTPUT_NAME=3797715_adder.v
 #TMP EDIT
 export DUMP_DIR=${ROOT_DIR}/synth_out/${OUTPUT_NAME%.v}
 export ABC_AREA=1

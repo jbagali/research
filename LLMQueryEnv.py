@@ -98,58 +98,77 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         for w in sorted(self.stopwords, key=len, reverse=True):
             if decoded.endswith(w):
                 self.verilogFunctionalityCheck(currentState)
-                return True
+                if self.compilable:
+                    return True
+                else:
+                    return False
             else:
-                #end_time = datetime.now()
-                #time_difference = end_time - start_time
-                #seconds = time_difference.total_seconds()
-                #print("Checking for end: ", seconds)
                 return False
             
     def verilogFunctionalityCheck(self, currentState):
         verilog_code = self.get_prompt_from_state(currentState)
-        #print(verilog_code)
+        #print("Type: ", type(verilog_code), " ", verilog_code)
         #print("Checking functionality....")
         # Write the Verilog code to a temporary file - filenamed after module name.
-        self.row_data['verilog'] = verilog_code
         output_verilog_file = str(os.getpid()) + "_" + self.orig_module + ".v"
-        tmp_dir_path = "tmp_output_files"
+        tmp_dir_path = "adders/carry_lookahead"
         if not os.path.exists(tmp_dir_path):
             try:
                 os.makedirs(tmp_dir_path, mode=0o777)
             except OSError as e:
                 print("Error creating dump file: ", e)
         output_file_path = os.path.join(tmp_dir_path, output_verilog_file)
+        try:
+            module_name = "module " + self.orig_module
+            #print("MODULE NAME: ", module_name)
+            module_index = verilog_code.find(module_name)
+            verilog_code = verilog_code[module_index:]
+        except ExceptionType:
+            print("Prompt does not contain the term 'module' - please readjust.")   
 
         with open(output_file_path, 'w') as temp_file:
-            print("writing new verilog file")
+            #print("writing new verilog file")
+            #print(verilog_code)
             temp_file.write(verilog_code)
 
+        self.row_data['verilog'] = verilog_code
         os.chmod(output_file_path, 0o777)
         #Setting the testbench file path (assuming in same location as prompt file).
         testbench_path = self.file_path + "/tb_" + self.orig_module + ".v"
         #Check compilability.
-        self.compilable = self.compilation_check(testbench_path, output_file_path)
+        
+        
+        #TMP EDIT
+        self.compilable = self.compilation_check(output_file_path, testbench_path)
         #Call functionality check if compilable.
-        if self.compilable:
-            self.functional = self.functionality_check()
+        
+        
+        #if self.compilable:
+        #    self.functional = self.functionality_check()
+        
         return 0
 
     def getPromptScore(self, currentState=""):
-        print("Running getPromptScore: ")
+        #print("Running getPromptScore: ")
+        #TMP EDIT!
         if not self.compilable:
             self.row_data['area'] = 'N/A'
             self.row_data['delay'] = 'N/A'
             self.row_data['score'] = -1
             return -1
-        if not self.functional:
-            self.row_data['area'] = 'N/A'
-            self.row_data['delay'] = 'N/A'
-            self.row_data['score'] = -.5
-            return  -.5
+        
+        #TMP EDIT!
+        #if not self.functional:
+        #    self.row_data['area'] = 'N/A'
+        #    self.row_data['delay'] = 'N/A'
+        #    self.row_data['score'] = -.5
+        #    return  -.5
+        
+        #TMP EDIT
         #Specify your bash script to be utilized here.
         bash_script = "scripts/synth_gcd.sh"
-        module_dump_folder = "scripts/dump/" + str(os.getpid()) + "_" + self.orig_module
+
+        module_dump_folder = "synth_out/" + str(os.getpid()) + "_" + self.orig_module
         #print("Dump folder: ", module_dump_folder)
 
         #Creating dump file for results to be placed if not already created.
@@ -209,12 +228,15 @@ class LLMQueryEnv(gym.Env, StaticEnv):
             print("Filepath of Yosys results not recognized.")
             return None
     
-    def compilation_check(self, testbench_path, module_path):
+    def compilation_check(self, module_path, testbench_path=None):
          # Compile the Verilog code using the iVerilog
         try:
             # Run the Verilog compiler and capture the output and exit code - specify your testbench file to your prompt here.
             #compile_output = subprocess.check_output(['iverilog', '-o', './temp_files/simulation', testbench_path, module_path], stderr=subprocess.STDOUT)
-            compile_output = subprocess.check_output(['iverilog', '-o', os.path.join("tmp_output_files", str(os.getpid()) + '_simulation'), testbench_path, module_path], stderr=subprocess.STDOUT)
+
+            #TMP EDIT!!
+            #compile_output = subprocess.check_output(['iverilog', '-o', os.path.join("tmp_output_files", str(os.getpid()) + '_simulation'), testbench_path, module_path], stderr=subprocess.STDOUT)
+            compile_output = subprocess.check_output(['iverilog', '-o', os.path.join("tmp_output_files", str(os.getpid()) + '_simulation'), module_path], stderr=subprocess.STDOUT)
             compile_exit_code = 0  # Compilation successful
             print("Output Verilog module compiles successfully.")
             return True
@@ -305,7 +327,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
     def is_done_state(self,state,depth):
         if self.isPromptComplete(state,depth):
             return True
-        elif depth>=self.depth:
+        if depth>=self.depth:
             self.verilogFunctionalityCheck(state)
             return True
         else:
@@ -351,6 +373,8 @@ class LLMQueryEnv(gym.Env, StaticEnv):
 
                 torchState = torch.cat([torchState, selected_token], dim=-1)
                 state = torchState.detach().cpu().numpy()
+                decoded = self.tokenizer.decode(state[0])    
+                #print("Curr state: ", decoded)
                 depth+=1
                 #end_time = datetime.now()
 
