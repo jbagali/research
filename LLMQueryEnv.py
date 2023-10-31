@@ -110,8 +110,9 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         #print("Type: ", type(verilog_code), " ", verilog_code)
         #print("Checking functionality....")
         # Write the Verilog code to a temporary file - filenamed after module name.
+        print(verilog_code)
         output_verilog_file = str(os.getpid()) + "_" + self.orig_module + ".v"
-        tmp_dir_path = "adders/carry_lookahead"
+        tmp_dir_path = "tmp_output_files"
         if not os.path.exists(tmp_dir_path):
             try:
                 os.makedirs(tmp_dir_path, mode=0o777)
@@ -143,8 +144,8 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         #Call functionality check if compilable.
         
         
-        #if self.compilable:
-        #    self.functional = self.functionality_check()
+        if self.compilable:
+            self.functional = self.functionality_check()
         
         return 0
 
@@ -235,8 +236,8 @@ class LLMQueryEnv(gym.Env, StaticEnv):
             #compile_output = subprocess.check_output(['iverilog', '-o', './temp_files/simulation', testbench_path, module_path], stderr=subprocess.STDOUT)
 
             #TMP EDIT!!
-            #compile_output = subprocess.check_output(['iverilog', '-o', os.path.join("tmp_output_files", str(os.getpid()) + '_simulation'), testbench_path, module_path], stderr=subprocess.STDOUT)
-            compile_output = subprocess.check_output(['iverilog', '-o', os.path.join("tmp_output_files", str(os.getpid()) + '_simulation'), module_path], stderr=subprocess.STDOUT)
+            compile_output = subprocess.check_output(['iverilog', '-o', os.path.join("tmp_output_files", str(os.getpid()) + '_simulation'), testbench_path, module_path], stderr=subprocess.STDOUT)
+            #compile_output = subprocess.check_output(['iverilog', '-o', os.path.join("tmp_output_files", str(os.getpid()) + '_simulation'), module_path], stderr=subprocess.STDOUT)
             compile_exit_code = 0  # Compilation successful
             print("Output Verilog module compiles successfully.")
             return True
@@ -253,6 +254,9 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         try:
         #Executing the compiled simulation file.
             #simulation_output = subprocess.check_output(['vvp', './temp_files/simulation'], stderr=subprocess.STDOUT)
+
+            #TMP EDIT!!
+            #sim_path = os.path.join("tmp_output_files", str(os.getpid()) + '_simulation')
             sim_path = os.path.join("tmp_output_files", str(os.getpid()) + '_simulation')
             #print(sim_path)
             simulation_output = subprocess.check_output(['vvp', sim_path], stderr=subprocess.STDOUT)
@@ -261,7 +265,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
             simulation_output = e.output
             simulation_exit_code = e.returncode
         #Displaying result cases of simulation.
-        #print("Simulation output: ", simulation_output)
+        
         if simulation_exit_code == 0:
             print("Verilog testbench simulation ran successfully.")
             if b"all tests passed" in simulation_output:
@@ -271,6 +275,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
             else:
                 print("Some testbench tests failed.")
                 #self.getPromptScore()
+                print("Simulation output: ", simulation_output)
                 return False
         else: 
             print("Verilog testbench simulation failed.")

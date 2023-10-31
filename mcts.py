@@ -264,7 +264,7 @@ class MCTSNode:
         #dirch = np.random.dirichlet([D_NOISE_ALPHA] * self.child_prior)
         #self.child_prior = self.child_prior * 0.75 + dirch * 0.25
 
-        #print("Shape ", len(self.child_prior), " ", len(dirch))
+        print("Shape ", len(self.child_prior), " ", len(dirch))
         self.child_prior = self.child_prior * 0.85 + dirch * 0.15
 
     def visits_as_probs(self, squash=False):
@@ -363,6 +363,7 @@ class MCTS:
         else:
             print("Depth: ", leaf.depth)
             probs = self.TreeEnv.getLLMestimates(leaf.state)
+            print("Probabilities: ", len(probs))
             startingAction = np.argmax(probs)
             next_state = self.TreeEnv.next_state(leaf.state,startingAction)
             rolloutReturn = self.TreeEnv.get_montecarlo_return(next_state,leaf.depth+1)
