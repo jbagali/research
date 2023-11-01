@@ -71,6 +71,7 @@ class MCTSNode:
         self.n_actions = n_actions
         self.is_expanded = False
         self.childType = childType
+
         self.n_vlosses = 0  # Number of virtual losses on this node
         self.child_N = np.zeros([n_actions], dtype=np.float32)
         self.child_W = np.zeros([n_actions], dtype=np.float32)
@@ -81,6 +82,7 @@ class MCTSNode:
         self.original_prior = np.zeros([n_actions], dtype=np.float32)
         self.child_prior = np.zeros([n_actions], dtype=np.float32)
         self.child_visited = np.zeros([n_actions], dtype=np.int32)
+        self.action_ids = np.zeros([n_actions], dtype=np.int32)
         self.children = {}
 
     @property
@@ -182,6 +184,8 @@ class MCTSNode:
             #             break
             # else:
             #     best_move = np.argmax(current.child_action_score)
+            print("Select leaf, child action score len: ", len(current.child_action_score))
+            #CHECK!!
             best_move = np.argmax(current.child_action_score)
             current = current.maybe_add_child(best_move)
         return current
@@ -264,7 +268,7 @@ class MCTSNode:
         #dirch = np.random.dirichlet([D_NOISE_ALPHA] * self.child_prior)
         #self.child_prior = self.child_prior * 0.75 + dirch * 0.25
 
-        print("Shape ", len(self.child_prior), " ", len(dirch))
+        #print("Shape ", self.parent, len(self.child_prior), " ", len(dirch))
         self.child_prior = self.child_prior * 0.85 + dirch * 0.15
 
     def visits_as_probs(self, squash=False):
@@ -350,6 +354,7 @@ class MCTS:
     def initialize_search(self, state=None):
         init_state = self.TreeEnv.get_initial_state()
         n_actions = self.TreeEnv.n_actions
+        print("Initialize search: ", n_actions)
         self.root = MCTSNode(init_state,n_actions, self.TreeEnv,childType=self.childType)
         # Number of steps into the episode after which we always select the
         # action with highest action probability rather than selecting randomly
@@ -361,9 +366,8 @@ class MCTS:
             value = self.TreeEnv.get_return(leaf.state,leaf.depth)
             leaf.backup_value(value,value,up_to=self.root)
         else:
-            print("Depth: ", leaf.depth)
             probs = self.TreeEnv.getLLMestimates(leaf.state)
-            print("Probabilities: ", len(probs))
+
             startingAction = np.argmax(probs)
             next_state = self.TreeEnv.next_state(leaf.state,startingAction)
             rolloutReturn = self.TreeEnv.get_montecarlo_return(next_state,leaf.depth+1)
@@ -395,7 +399,9 @@ def initialize_MCTS_tree(TreeEnv):
     mcts.initialize_search()
     first_node = mcts.root.select_leaf()
     probs = TreeEnv.getLLMestimates(first_node.state)
+    print("Initilize MCTS probs length: ", len(probs))
     ## Compute montecarlo return using the policy's first best move followed by random rather than entirely random policy
+    
     startingAction = np.argmax(probs)
     next_state = TreeEnv.next_state(first_node.state,startingAction)
     first_node_rolloutReturn = TreeEnv.get_montecarlo_return(next_state,first_node.depth+1) #resyn2 output will lead to DRAW or 0.

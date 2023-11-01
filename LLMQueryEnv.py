@@ -55,16 +55,17 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         self.orig_prompt = orig_prompt
         self.init_state = self.get_tokenized_state(self.orig_prompt)
         self.num_tokens=0
-        self.n_actions = 50295 #self.tokenizer.vocab_size
+        self.n_actions = 5 #self.tokenizer.vocab_size
         #self.stopwords = ['\n\n']
         self.stopwords = ['endmodule']
         #Limit to token generation before cutoff.
         self.depth=500
         self.orig_module = orig_module
         self.file_path = file_path
-
+        self.non_compilable_attempts = 0
         self.compilable = False
         self.functional = False
+        self.top_token_ids = None
             #self.ep_length = NUM_LENGTH_EPISODES # not required
 
     def get_tokenized_state(self,prompt):
@@ -90,7 +91,6 @@ class LLMQueryEnv(gym.Env, StaticEnv):
 
     def isPromptComplete(self,currentState,depth):
         #start_time = datetime.now()
-
         with torch.no_grad():
             torchState = torch.from_numpy(currentState).to(device)
             decoded = self.tokenizer.decode(currentState[0])    
@@ -100,17 +100,18 @@ class LLMQueryEnv(gym.Env, StaticEnv):
                 self.verilogFunctionalityCheck(currentState)
                 if self.compilable:
                     return True
+                elif self.non_compilable_attempts >= 2:
+                    return True
                 else:
+                    self.non_compilable_attempts += 1
                     return False
             else:
                 return False
             
     def verilogFunctionalityCheck(self, currentState):
         verilog_code = self.get_prompt_from_state(currentState)
-        #print("Type: ", type(verilog_code), " ", verilog_code)
-        #print("Checking functionality....")
         # Write the Verilog code to a temporary file - filenamed after module name.
-        print(verilog_code)
+        #print(verilog_code)
         output_verilog_file = str(os.getpid()) + "_" + self.orig_module + ".v"
         tmp_dir_path = "tmp_output_files"
         if not os.path.exists(tmp_dir_path):
@@ -128,8 +129,6 @@ class LLMQueryEnv(gym.Env, StaticEnv):
             print("Prompt does not contain the term 'module' - please readjust.")   
 
         with open(output_file_path, 'w') as temp_file:
-            #print("writing new verilog file")
-            #print(verilog_code)
             temp_file.write(verilog_code)
 
         self.row_data['verilog'] = verilog_code
@@ -201,7 +200,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
             #print("Initial area: ", area_value)
             #print("Initial delay: ", delay_value)
             #Printing results.
-            if(area_value is not None and delay_value is not None):
+            if(self.functional and area_value is not None and delay_value is not None):
                 print()
                 print("Currently displaying area/delay scores for ", self.orig_module, " module.")
                 print("Area of the chip design is: ", area_value)
@@ -219,12 +218,22 @@ class LLMQueryEnv(gym.Env, StaticEnv):
                     print(f"Error: {e}")
 
                 return (1 / float(area_value))
+            elif (area_value is not None and delay_value is not None):
+                self.row_data['area'] = area_value
+                self.row_data['delay'] = delay_value
+                self.row_data['score'] = -.5
+                return -.5
+
             else:
+                if(self.functional):
+                    reward = .5
+                if(not self.functional):
+                    reward = -1
                 print("Verilog code has not area or delay value (error in extraction).")
                 self.row_data['area'] = area_value
                 self.row_data['delay'] = delay_value
-                self.row_data['score'] = -1
-                return -1
+                self.row_data['score'] = reward
+                return reward
         else:
             print("Filepath of Yosys results not recognized.")
             return None
@@ -326,7 +335,8 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         return None
 
     def next_state(self,state,action):
-        nextState = np.append(state,np.array([[action]]),axis=-1)
+        token_id = self.top_token_ids[action]
+        nextState = np.append(state,np.array([[token_id]]),axis=-1)
         return nextState
 
     def is_done_state(self,state,depth):
@@ -350,12 +360,21 @@ class LLMQueryEnv(gym.Env, StaticEnv):
             output = self.model(input_ids=torchState)
             next_token_logits = output.logits[0, -1, :]
             next_token_probs = torch.softmax(next_token_logits, dim=-1)
-            #print("next_token logits: ", len(next_token_logits))
-            return next_token_probs.detach().cpu().numpy()
+            sorted_probs, sorted_ids = torch.sort(next_token_probs, dim=-1, descending=True)
+            top_5_ids = sorted_ids[:5].detach().cpu().numpy()
+            top_5_probs = sorted_probs[:5].detach().cpu().numpy() # Get the top 5 probabilities
+            self.top_token_ids = top_5_ids
+            print("Probabilities: ", top_5_probs)
+            print("Ids: ", top_5_ids)
+
+            #top_probs_dict = {id.item(): prob.item() for id, prob in zip(top_5_ids, top_5_probs)}
+            
+            return top_5_probs
 
     def get_best_terminal_state(self,state,depth):
         start_time = datetime.now()
         i = 0
+        self.non_compilable_attempts = 0
         with torch.no_grad():
             torchState = torch.from_numpy(state).to(device)
             while not self.is_done_state(state,depth):
