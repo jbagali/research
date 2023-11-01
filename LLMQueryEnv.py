@@ -65,7 +65,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         self.non_compilable_attempts = 0
         self.compilable = False
         self.functional = False
-        self.top_token_ids = None
+        #self.top_token_ids = None
             #self.ep_length = NUM_LENGTH_EPISODES # not required
 
     def get_tokenized_state(self,prompt):
@@ -335,8 +335,8 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         return None
 
     def next_state(self,state,action):
-        token_id = self.top_token_ids[action]
-        nextState = np.append(state,np.array([[token_id]]),axis=-1)
+        #token_id = self.top_token_ids[action]
+        nextState = np.append(state,np.array([[action]]),axis=-1)
         return nextState
 
     def is_done_state(self,state,depth):
@@ -361,15 +361,15 @@ class LLMQueryEnv(gym.Env, StaticEnv):
             next_token_logits = output.logits[0, -1, :]
             next_token_probs = torch.softmax(next_token_logits, dim=-1)
             sorted_probs, sorted_ids = torch.sort(next_token_probs, dim=-1, descending=True)
-            top_5_ids = sorted_ids[:5].detach().cpu().numpy()
-            top_5_probs = sorted_probs[:5].detach().cpu().numpy() # Get the top 5 probabilities
-            self.top_token_ids = top_5_ids
-            print("Probabilities: ", top_5_probs)
-            print("Ids: ", top_5_ids)
+            top_ids = sorted_ids[:self.n_actions].detach().cpu().numpy()
+            top_probs = sorted_probs[:self.n_actions].detach().cpu().numpy() # Get the top 5 probabilities
+            #self.top_token_ids = top_ids
+            print("Probabilities: ", top_probs)
+            print("Ids: ", top_ids)
 
             #top_probs_dict = {id.item(): prob.item() for id, prob in zip(top_5_ids, top_5_probs)}
             
-            return top_5_probs
+            return top_probs, top_ids
 
     def get_best_terminal_state(self,state,depth):
         start_time = datetime.now()

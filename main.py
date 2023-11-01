@@ -4,7 +4,6 @@ to master the HillClimbingEnvironment, in which the agent has to reach the
 highest point on a map.
 """
 #import imp
-#test
 import time
 import numpy as np
 import matplotlib.pyplot as plt
@@ -79,7 +78,7 @@ if __name__ == '__main__':
     prompt_str = ""
     module_name = ""
     prob_files_path = ""
-    set_start_method("spawn")
+    #set_start_method("spawn")
 
     runFolder = osp.join(rootDumpDir,'run'+str(runID))
     csvResultFile = osp.join(rootDumpDir,'data_run'+str(runID)+".csv") # Data to store area obtained in each iteration and best so far
@@ -101,7 +100,7 @@ if __name__ == '__main__':
 
     if not origPrompt:
         #-----------Alter the two lines below for your prompt files.---------------#
-        #TODO
+        
         #------For now, file_name (without the .v) should be the same as module name in prompt file for code to run.
 
         #Specify your prompt file to use as input.
@@ -150,33 +149,6 @@ if __name__ == '__main__':
 
     print("Num simulations: ", merged_tree.num_simulations)
     
-    
-    # while idx_ep<num_episodes:
-    #     with ThreadPoolExecutor(max_workers=num_processes) as executor:
-    #         thread_trees = list(executor.map(
-    #             initialize_thread_tree, 
-    #             range(num_processes),
-    #             [prompt_str] * num_processes,
-    #             [problem_name] * num_processes,
-    #             [file_dir] * num_processes,
-    #             [model_name] * num_processes,
-    #             [tokenizer] * num_processes,
-    #             [model] * num_processes
-    #             ))
-    #         futures = [executor.submit(execute_episode, tree, simulation_per_episode) for tree in thread_trees]
-    #         results = []
-    #         for future in as_completed(futures):
-    #             result_tree = future.result()
-    #             results.append(result_tree)
-    #        #results = [future.result() for future in futures]
-    #     idx_ep+=1  
-    
-    # print("# thread trees: ", len(results))
-    # print("Calling merge trees...")
-    # merge_trees(merged_tree, results)
-
-
-
 
 
     #test

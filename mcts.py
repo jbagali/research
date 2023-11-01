@@ -82,7 +82,7 @@ class MCTSNode:
         self.original_prior = np.zeros([n_actions], dtype=np.float32)
         self.child_prior = np.zeros([n_actions], dtype=np.float32)
         self.child_visited = np.zeros([n_actions], dtype=np.int32)
-        self.action_ids = np.zeros([n_actions], dtype=np.int32)
+        self.child_ids = np.zeros([n_actions], dtype=np.int32)
         self.children = {}
 
     @property
@@ -170,6 +170,7 @@ class MCTSNode:
         """
         current = self
         while True:
+            print("Leaf selection - depth: ", current.depth)
             #current.N += 1
             # Encountered leaf node (i.e. node that is not yet expanded).
             if not current.is_expanded:
@@ -184,8 +185,8 @@ class MCTSNode:
             #             break
             # else:
             #     best_move = np.argmax(current.child_action_score)
-            print("Select leaf, child action score len: ", len(current.child_action_score))
             #CHECK!!
+            print("Leaf selection - action scores: ", current.child_action_score, " taking action: ", np.argmax(current.child_action_score))
             best_move = np.argmax(current.child_action_score)
             current = current.maybe_add_child(best_move)
         return current
@@ -213,7 +214,8 @@ class MCTSNode:
         """
         if action not in self.children:
             # Obtain state following given action.
-            new_state = self.TreeEnv.next_state(self.state,action)
+            print("Adding child.")
+            new_state = self.TreeEnv.next_state(self.state,self.child_ids[action])
             #print("new state: ", new_state)
             self.children[action] = MCTSNode(new_state,self.n_actions,
                                              self.TreeEnv,
@@ -299,7 +301,6 @@ class MCTSNode:
                 listOfNodesToPrint.append((child,depth+1))
             
     def printNodeInfo(self,level):
-        #node_string = "\033[94m|" + "----"*level
         node_string = "----"
         node_string += "\n Tree depth: {}".format(level)
         node_string += "\n Node: action={}".format(self.action)
@@ -354,23 +355,30 @@ class MCTS:
     def initialize_search(self, state=None):
         init_state = self.TreeEnv.get_initial_state()
         n_actions = self.TreeEnv.n_actions
-        print("Initialize search: ", n_actions)
+        print("Initialize search (crating root node)")
         self.root = MCTSNode(init_state,n_actions, self.TreeEnv,childType=self.childType)
         # Number of steps into the episode after which we always select the
         # action with highest action probability rather than selecting randomly
         self.temp_threshold = TEMP_THRESHOLD
 
-    def tree_search(self):       
+    def tree_search(self):    
+        print("Selection: finding leaf node.")
         leaf = self.root.select_leaf()
         if leaf.is_done():
+            print("Leaf is terminal - getting return value.")
             value = self.TreeEnv.get_return(leaf.state,leaf.depth)
+            print("Backpropogation: incorporating estimates.")
             leaf.backup_value(value,value,up_to=self.root)
         else:
-            probs = self.TreeEnv.getLLMestimates(leaf.state)
-
-            startingAction = np.argmax(probs)
+            print("Getting LLM token estimates (probs/ids).")
+            probs, ids = self.TreeEnv.getLLMestimates(leaf.state)
+            leaf.child_ids = ids
+            startingAction = leaf.child_ids[np.argmax(probs)]
+            print("Expansion: next action: ", np.argmax(probs), " corresponding to state: ", startingAction)
             next_state = self.TreeEnv.next_state(leaf.state,startingAction)
+            print("Getting rollout return of leaf.")
             rolloutReturn = self.TreeEnv.get_montecarlo_return(next_state,leaf.depth+1)
+            print("Backpropogation: incorporating estimates.")
             leaf.incorporate_estimates(probs,rolloutReturn,rolloutReturn,up_to=self.root)
             
     def test_tree_search(self,cType):
@@ -385,8 +393,9 @@ class MCTS:
         else:
             #print("MCTS tree didnt reach end nodes - geting MC return for rest of prediction:")
             
-            probs = self.TreeEnv.getLLMestimates(leaf.state)
-            startingAction = np.argmax(probs)
+            probs, ids = self.TreeEnv.getLLMestimates(leaf.state)
+            leaf.child_ids = ids
+            startingAction = leaf.child_ids[np.argmax(probs)]
             next_state = self.TreeEnv.next_state(leaf.state,startingAction)
             value = self.TreeEnv.get_montecarlo_return(next_state,leaf.depth+1)
             
@@ -394,17 +403,22 @@ class MCTS:
 
 
 def initialize_MCTS_tree(TreeEnv):
-    print("Initializing MCTS tree...")
+    print("Initializing MCTS tree.")
     mcts = MCTS(TreeEnv,childType=CHILD_TYPE)
     mcts.initialize_search()
+    print("Selection: finding leaf node.")
     first_node = mcts.root.select_leaf()
-    probs = TreeEnv.getLLMestimates(first_node.state)
-    print("Initilize MCTS probs length: ", len(probs))
+    print("Getting LLM token estimates (probs/ids).")
+    probs, ids = TreeEnv.getLLMestimates(first_node.state)
+
     ## Compute montecarlo return using the policy's first best move followed by random rather than entirely random policy
-    
-    startingAction = np.argmax(probs)
+    first_node.child_ids = ids
+    startingAction = first_node.child_ids[np.argmax(probs)]
+    print("Expansion: next action: ", np.argmax(probs), " corresponding to state: ", startingAction)
     next_state = TreeEnv.next_state(first_node.state,startingAction)
+    print("Getting rollout return of leaf.")
     first_node_rolloutReturn = TreeEnv.get_montecarlo_return(next_state,first_node.depth+1) #resyn2 output will lead to DRAW or 0.
+    print("Backpropogation: incorporating estimates.")
     first_node.incorporate_estimates(probs, first_node_rolloutReturn, first_node_rolloutReturn,first_node)
     mcts.root.inject_noise()
     return mcts
