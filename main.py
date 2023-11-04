@@ -19,6 +19,7 @@ import statistics,pickle
 import csv
 from mcts import MCTS, initialize_thread_tree
 from transformers import AutoTokenizer, AutoModelForCausalLM
+from torch.nn.parallel import DistributedDataParallel
 os.environ['TOKENIZERS_PARALLELISM'] = 'false'
 
 class CsvLogger:
@@ -44,13 +45,13 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='MCTS+LLM')
     parser.add_argument('--init_prompt', type=str, required=False,
                         help='Initial prompt')
-    parser.add_argument('--dumpdir', type=str, required=True,default="",
+    parser.add_argument('--dumpdir', type=str, required=False,default="",
                         help='DUMP directory for storing result')
     parser.add_argument('--runID', type=int, required=True, default=0,
                         help='Run ID')
-    parser.add_argument('--sims', type=int, required=False, default=1000,
+    parser.add_argument('--sims', type=int, required=True, default=1000,
                         help='Simulations per MCTS episode')
-    parser.add_argument('--ep', type=int, required=False, default=50,
+    parser.add_argument('--ep', type=int, required=True, default=50,
                         help='#MCTS episode')
     parser.add_argument('--pr', type=int, required=False, default=1,
                         help='#processes executing MCTS')
@@ -131,7 +132,8 @@ if __name__ == '__main__':
     model_name = "shailja/CodeGen_2B_Verilog"
     tokenizer = AutoTokenizer.from_pretrained("shailja/fine-tuned-codegen-2B-Verilog")
     model = AutoModelForCausalLM.from_pretrained("shailja/fine-tuned-codegen-2B-Verilog").to(device)
-    
+    #model = DistributedDataParallel(model, device_ids=[0,1,2], find_unused_parameters=True)
+    print("Initializing MCTS tree/LLM env...")
     idx_ep = 0
     merged_tree = initialize_MCTS_tree(LLMQueryEnv(csv_logger, row_data, orig_prompt=prompt_str, orig_module=problem_name, file_path=file_dir,
                                                     model_name=model_name, tokenizer=tokenizer, model=model))
@@ -143,8 +145,9 @@ if __name__ == '__main__':
     while idx_ep<num_episodes:
         print("******** EPISODE-{}************".format(idx_ep+1))
         merged_tree = execute_episode(merged_tree,simulation_per_episode)
-        evalMctsMaxValue,evalMctsRobustValue = test_episode(merged_tree)
-        csvFileHandler.write("{},{}\n".format(evalMctsMaxValue,evalMctsRobustValue))
+        print("ROBUST FINAL VALUE:")
+        evalMctsRobustValue = test_episode(merged_tree)
+        #csvFileHandler.write("{},{}\n".format(evalMctsRobustValue))
         idx_ep+=1
 
     print("Num simulations: ", merged_tree.num_simulations)

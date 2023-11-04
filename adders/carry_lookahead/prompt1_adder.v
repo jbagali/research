@@ -1,4 +1,4 @@
-Design a 4-bit adder design with a small chip-area.
+Design a 4-bit adder.
 The module below includes the inputs and outputs in the definition.
 Please finish the module.
 

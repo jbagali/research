@@ -43,7 +43,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
 
     # origAIG incomplete prompt
     
-    def __init__(self, csv_logger, row_data, orig_prompt="def hello_world():", orig_module="hello_world", file_path = "", 
+    def __init__(self, csv_logger=None, row_data=None, orig_prompt="def hello_world():", orig_module="hello_world", file_path = "", 
                  model_name=None, tokenizer=None, model=None):
         seed_everything()
 
@@ -55,7 +55,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         self.orig_prompt = orig_prompt
         self.init_state = self.get_tokenized_state(self.orig_prompt)
         self.num_tokens=0
-        self.n_actions = 5 #self.tokenizer.vocab_size
+        self.n_actions = 10 #self.tokenizer.vocab_size
         #self.stopwords = ['\n\n']
         self.stopwords = ['endmodule']
         #Limit to token generation before cutoff.
@@ -105,13 +105,14 @@ class LLMQueryEnv(gym.Env, StaticEnv):
                 else:
                     self.non_compilable_attempts += 1
                     return False
+                #return True
             else:
                 return False
             
     def verilogFunctionalityCheck(self, currentState):
         verilog_code = self.get_prompt_from_state(currentState)
         # Write the Verilog code to a temporary file - filenamed after module name.
-        #print(verilog_code)
+        print(verilog_code)
         output_verilog_file = str(os.getpid()) + "_" + self.orig_module + ".v"
         tmp_dir_path = "tmp_output_files"
         if not os.path.exists(tmp_dir_path):
@@ -130,8 +131,8 @@ class LLMQueryEnv(gym.Env, StaticEnv):
 
         with open(output_file_path, 'w') as temp_file:
             temp_file.write(verilog_code)
-
-        self.row_data['verilog'] = verilog_code
+        if self.row_data:
+            self.row_data['verilog'] = verilog_code
         os.chmod(output_file_path, 0o777)
         #Setting the testbench file path (assuming in same location as prompt file).
         testbench_path = self.file_path + "/tb_" + self.orig_module + ".v"
@@ -152,9 +153,10 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         #print("Running getPromptScore: ")
         #TMP EDIT!
         if not self.compilable:
-            self.row_data['area'] = 'N/A'
-            self.row_data['delay'] = 'N/A'
-            self.row_data['score'] = -1
+            if self.row_data:
+                self.row_data['area'] = 'N/A'
+                self.row_data['delay'] = 'N/A'
+                self.row_data['score'] = -1
             return -1
         
         #TMP EDIT!
@@ -206,10 +208,10 @@ class LLMQueryEnv(gym.Env, StaticEnv):
                 print("Area of the chip design is: ", area_value)
                 print("Delay value for the chip design is: ", delay_value)
                 print("Score (1/chip area): ", 1 / float(area_value))
-                
-                self.row_data['area'] = area_value
-                self.row_data['delay'] = delay_value
-                self.row_data['score'] = 1 / float(area_value)
+                if self.row_data:
+                    self.row_data['area'] = area_value
+                    self.row_data['delay'] = delay_value
+                    self.row_data['score'] = 1 / float(area_value)
                 #Currently returning area and delay values.
                 try:
                     print("Removing dump files...")
@@ -219,9 +221,10 @@ class LLMQueryEnv(gym.Env, StaticEnv):
 
                 return (1 / float(area_value))
             elif (area_value is not None and delay_value is not None):
-                self.row_data['area'] = area_value
-                self.row_data['delay'] = delay_value
-                self.row_data['score'] = -.5
+                if self.row_data:
+                    self.row_data['area'] = area_value
+                    self.row_data['delay'] = delay_value
+                    self.row_data['score'] = -.5
                 return -.5
 
             else:
@@ -230,9 +233,10 @@ class LLMQueryEnv(gym.Env, StaticEnv):
                 if(not self.functional):
                     reward = -1
                 print("Verilog code has not area or delay value (error in extraction).")
-                self.row_data['area'] = area_value
-                self.row_data['delay'] = delay_value
-                self.row_data['score'] = reward
+                if self.row_data:
+                    self.row_data['area'] = area_value
+                    self.row_data['delay'] = delay_value
+                    self.row_data['score'] = reward
                 return reward
         else:
             print("Filepath of Yosys results not recognized.")
@@ -255,7 +259,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
             compile_output = e.output
             compile_exit_code = e.returncode
             print("Verilog compilation failed, error: ", compile_exit_code)
-            #print("Compilation output: ", compile_output)
+            print("Compilation output: ", compile_output)
             return False
 
     #Helper function to check the functionality of output Verilog code against its respective testbench.
@@ -432,59 +436,60 @@ class LLMQueryEnv(gym.Env, StaticEnv):
 if __name__ == '__main__':
     #---------------------CONFIGURE the below file path/name to your module to test-------------------
     #Configure your path to the prompts/testbenches folder you want to test.
-    prob_files_path = "VGen-main/prompts-and-testbenches/intermediate2"
+
+    file_dir = "/home/grads/m/matthewdelorenzo/research/adders/carry_lookahead"
+    file_name = "prompt1_arithmetic.v"
     #Specify your prompt file to use as input.
-    promptfile_path = prob_files_path + "/prompt1_counter.v"
+    promptfile_path = file_dir + "/" + file_name
     #Reading input file data and finding the module name.
-    prompt = ""
+    file_name_parts = file_name.split("_", 1)
+    if len(file_name_parts) > 1:
+        problem_name = "_".join(file_name_parts[1:])
+        if problem_name.endswith(".v"):
+                problem_name = problem_name.replace(".v","")
+    else:
+        print("Error parsing file name - check formatting (ex: prompt1_counter.v)")
+        exit(1)
+
     try:
         with open(promptfile_path, "r") as prompt_file:
-            prompt = prompt_file.read()
-            match = re.search(r'module\s+(\w+)\s*\(', prompt)
-            if match:
-                module_name = match.group(1)
-                print("Module name: ", module_name)
-            else:
-                print("Error finding module name in prompt file.")
-                exit(1)
+            prompt_str = prompt_file.read()
+            print("Prompt str: ", prompt_str)
     except:
         print("Error reading prompt file.")
         exit(1)
 
-    #Test prompt that works (intermediate2 - counter) if file read is not working.
-    # Note-- prompts seem to work best with 1 line of comments at the top, 
-    #   and with the module definition lines 1 tab to the right below the comment.
 
-            #prompt_test = "// This is a counter that counts from 1 to 12\n\
-            #module counter(\n\
-            #input clk,\n\
-            #input reset,\n\
-            #output reg [3:0] q\n\
-            #);"
-            #print(prompt_test)
+    model_name = "shailja/CodeGen_2B_Verilog"
+    tokenizer = AutoTokenizer.from_pretrained("shailja/fine-tuned-codegen-2B-Verilog")
+    model = AutoModelForCausalLM.from_pretrained("shailja/fine-tuned-codegen-2B-Verilog").to(device)
+    print("Promtp Str: ", prompt_str)
+    print("Problem name: ", problem_name)
+    print("File Dir: ", file_dir)
+    #env = LLMQueryEnv(orig_prompt=prompt, orig_module=module_name, file_path=prob_files_path)
+    env = LLMQueryEnv(csv_logger=None, row_data=None, orig_prompt=prompt_str, orig_module=problem_name, file_path=file_dir,
+                                                    model_name=model_name, tokenizer=tokenizer, model=model)
     
-    env = LLMQueryEnv(orig_prompt=prompt, orig_module=module_name, file_path=prob_files_path)
     print("env created")
     init_state = env.get_initial_state()
     depth=0
-    print("Main: ", init_state)
     ### Rollout return ###
     finalState = env.get_best_terminal_state(init_state,depth)
     promptGen = env.get_prompt_from_state(finalState)
     filteredGen=env.trim_with_stopwords(promptGen)
     print('Filtered relevant code with stop words {}-->\n{}\n'.format(env.stopwords, filteredGen))
     
-    #### Get next best state ###
-    best_prediction = np.argmax(env.getLLMestimates(init_state))
-    next_state = env.next_state(init_state,best_prediction)
-    prompt = env.get_prompt_from_state(next_state)
-    depth+=1
-    print('1',prompt)
-    #### Again, get the next best state ###
-    best_prediction = np.argmax(env.getLLMestimates(next_state))
-    next_state = env.next_state(next_state,best_prediction)
-    prompt = env.get_prompt_from_state(next_state)
-    depth+=1
-    print('2',prompt)
+    # #### Get next best state ###
+    # best_prediction = np.argmax(env.getLLMestimates(init_state))
+    # next_state = env.next_state(init_state,best_prediction)
+    # prompt = env.get_prompt_from_state(next_state)
+    # depth+=1
+    # print('1',prompt)
+    # #### Again, get the next best state ###
+    # best_prediction = np.argmax(env.getLLMestimates(next_state))
+    # next_state = env.next_state(next_state,best_prediction)
+    # prompt = env.get_prompt_from_state(next_state)
+    # depth+=1
+    # print('2',prompt)
 
     

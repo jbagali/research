@@ -146,6 +146,8 @@ class MCTSNode:
         #print("Self N = ", len(self.child_prior))
         return (c_PUCT * math.sqrt(1 + self.N) *
                 self.child_prior / (1 + self.child_N))
+        #Child_prior - purely LLM predictions
+        #averge
 
     @property
     def child_action_score(self):
@@ -355,7 +357,7 @@ class MCTS:
     def initialize_search(self, state=None):
         init_state = self.TreeEnv.get_initial_state()
         n_actions = self.TreeEnv.n_actions
-        print("Initialize search (crating root node)")
+        print("Initialize search (creating root node)")
         self.root = MCTSNode(init_state,n_actions, self.TreeEnv,childType=self.childType)
         # Number of steps into the episode after which we always select the
         # action with highest action probability rather than selecting randomly
