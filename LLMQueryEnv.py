@@ -1,6 +1,6 @@
 import numpy as np
 import gym # open ai gym
-import os,re,shutil
+import os,re,shutil,argparse
 import time
 import torch
 import random
@@ -10,15 +10,17 @@ import pandas as pd
 from transformers import AutoTokenizer, AutoModelForCausalLM
 from datetime import datetime
 
-def seed_everything(seed=42):                                                 
+def seed_everything():  
+    seed = random.randint(1, 1000000)                                               
     random.seed(seed)                                                     
     torch.manual_seed(seed)
     np.random.seed(seed)
+    print("Env seed: ", seed)
     os.environ['PYTHONHASHSEED'] = str(seed)
     if torch.cuda.is_available():
         torch.cuda.manual_seed(seed)                                                   
         torch.cuda.manual_seed_all(seed)                                             
-        torch.backends.cudnn.deterministic = True
+        torch.backends.cudnn.deterministic = False
         torch.backends.cudnn.benchmark = False
 
 if torch.cuda.is_available():
@@ -97,7 +99,9 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         #print('decoded state',repr(decoded))
         for w in sorted(self.stopwords, key=len, reverse=True):
             if decoded.endswith(w):
+                #TMP EDIT!
                 self.verilogFunctionalityCheck(currentState)
+
                 if self.compilable:
                     return True
                 elif self.non_compilable_attempts >= 2:
@@ -126,13 +130,14 @@ class LLMQueryEnv(gym.Env, StaticEnv):
             #print("MODULE NAME: ", module_name)
             module_index = verilog_code.find(module_name)
             verilog_code = verilog_code[module_index:]
-        except ExceptionType:
+        except:
             print("Prompt does not contain the term 'module' - please readjust.")   
 
         with open(output_file_path, 'w') as temp_file:
             temp_file.write(verilog_code)
-        if self.row_data:
-            self.row_data['verilog'] = verilog_code
+        #TMP
+        self.row_data['verilog'] = verilog_code
+
         os.chmod(output_file_path, 0o777)
         #Setting the testbench file path (assuming in same location as prompt file).
         testbench_path = self.file_path + "/tb_" + self.orig_module + ".v"
@@ -150,13 +155,12 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         return 0
 
     def getPromptScore(self, currentState=""):
-        #print("Running getPromptScore: ")
-        #TMP EDIT!
+        print("Running getPromptScore: ")
+
         if not self.compilable:
-            if self.row_data:
-                self.row_data['area'] = 'N/A'
-                self.row_data['delay'] = 'N/A'
-                self.row_data['score'] = -1
+            self.row_data['area'] = 'N/A'
+            self.row_data['delay'] = 'N/A'
+            self.row_data['score'] = -1
             return -1
         
         #TMP EDIT!
@@ -199,19 +203,16 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         if os.path.isfile(logfile_path):
             area_value = self.extract_area_from_log(logfile_path)
             delay_value = self.extract_delay_from_log(logfile_path)
-            #print("Initial area: ", area_value)
-            #print("Initial delay: ", delay_value)
-            #Printing results.
+
             if(self.functional and area_value is not None and delay_value is not None):
                 print()
                 print("Currently displaying area/delay scores for ", self.orig_module, " module.")
                 print("Area of the chip design is: ", area_value)
                 print("Delay value for the chip design is: ", delay_value)
                 print("Score (1/chip area): ", 1 / float(area_value))
-                if self.row_data:
-                    self.row_data['area'] = area_value
-                    self.row_data['delay'] = delay_value
-                    self.row_data['score'] = 1 / float(area_value)
+                self.row_data['area'] = area_value
+                self.row_data['delay'] = delay_value
+                self.row_data['score'] = 1 / float(area_value)
                 #Currently returning area and delay values.
                 try:
                     print("Removing dump files...")
@@ -221,10 +222,9 @@ class LLMQueryEnv(gym.Env, StaticEnv):
 
                 return (1 / float(area_value))
             elif (area_value is not None and delay_value is not None):
-                if self.row_data:
-                    self.row_data['area'] = area_value
-                    self.row_data['delay'] = delay_value
-                    self.row_data['score'] = -.5
+                self.row_data['area'] = area_value
+                self.row_data['delay'] = delay_value
+                self.row_data['score'] = -.5
                 return -.5
 
             else:
@@ -233,10 +233,9 @@ class LLMQueryEnv(gym.Env, StaticEnv):
                 if(not self.functional):
                     reward = -1
                 print("Verilog code has not area or delay value (error in extraction).")
-                if self.row_data:
-                    self.row_data['area'] = area_value
-                    self.row_data['delay'] = delay_value
-                    self.row_data['score'] = reward
+                self.row_data['area'] = area_value
+                self.row_data['delay'] = delay_value
+                self.row_data['score'] = reward
                 return reward
         else:
             print("Filepath of Yosys results not recognized.")
@@ -245,9 +244,6 @@ class LLMQueryEnv(gym.Env, StaticEnv):
     def compilation_check(self, module_path, testbench_path=None):
          # Compile the Verilog code using the iVerilog
         try:
-            # Run the Verilog compiler and capture the output and exit code - specify your testbench file to your prompt here.
-            #compile_output = subprocess.check_output(['iverilog', '-o', './temp_files/simulation', testbench_path, module_path], stderr=subprocess.STDOUT)
-
             #TMP EDIT!!
             compile_output = subprocess.check_output(['iverilog', '-o', os.path.join("tmp_output_files", str(os.getpid()) + '_simulation'), testbench_path, module_path], stderr=subprocess.STDOUT)
             #compile_output = subprocess.check_output(['iverilog', '-o', os.path.join("tmp_output_files", str(os.getpid()) + '_simulation'), module_path], stderr=subprocess.STDOUT)
@@ -259,40 +255,32 @@ class LLMQueryEnv(gym.Env, StaticEnv):
             compile_output = e.output
             compile_exit_code = e.returncode
             print("Verilog compilation failed, error: ", compile_exit_code)
-            print("Compilation output: ", compile_output)
+            #print("Compilation output: ", compile_output)
             return False
 
     #Helper function to check the functionality of output Verilog code against its respective testbench.
     def functionality_check(self):
         try:
-        #Executing the compiled simulation file.
-            #simulation_output = subprocess.check_output(['vvp', './temp_files/simulation'], stderr=subprocess.STDOUT)
-
-            #TMP EDIT!!
-            #sim_path = os.path.join("tmp_output_files", str(os.getpid()) + '_simulation')
             sim_path = os.path.join("tmp_output_files", str(os.getpid()) + '_simulation')
-            #print(sim_path)
             simulation_output = subprocess.check_output(['vvp', sim_path], stderr=subprocess.STDOUT)
             simulation_exit_code = 0
         except subprocess.CalledProcessError as e:
             simulation_output = e.output
             simulation_exit_code = e.returncode
-        #Displaying result cases of simulation.
-        
+
         if simulation_exit_code == 0:
             print("Verilog testbench simulation ran successfully.")
+            #if b"All tests passed!" in simulation_output:
             if b"all tests passed" in simulation_output:
                 print("All testbench tests passed!")
-                #self.getPromptScore()
                 return True
             else:
                 print("Some testbench tests failed.")
-                #self.getPromptScore()
                 print("Simulation output: ", simulation_output)
                 return False
         else: 
             print("Verilog testbench simulation failed.")
-            #self.getPromptScore() 
+            print("Simulation output: ", simulation_output)
             return False
         
     #Helper - writes to the bash script to run the specific design/verilog file being synthesized.
@@ -365,16 +353,33 @@ class LLMQueryEnv(gym.Env, StaticEnv):
             next_token_logits = output.logits[0, -1, :]
             next_token_probs = torch.softmax(next_token_logits, dim=-1)
             sorted_probs, sorted_ids = torch.sort(next_token_probs, dim=-1, descending=True)
-            top_ids = sorted_ids[:self.n_actions].detach().cpu().numpy()
-            top_probs = sorted_probs[:self.n_actions].detach().cpu().numpy() # Get the top 5 probabilities
-            #self.top_token_ids = top_ids
-            print("Probabilities: ", top_probs)
-            print("Ids: ", top_ids)
+            sorted_ids_arr = sorted_ids[:].detach().cpu().numpy()
+            sorted_probs_arr = sorted_probs[:].detach().cpu().numpy()
+            non_comment_mask = np.array([not self.is_comment(token_id) for token_id in sorted_ids_arr])
 
-            #top_probs_dict = {id.item(): prob.item() for id, prob in zip(top_5_ids, top_5_probs)}
             
-            return top_probs, top_ids
-
+            non_comment_all_ids = sorted_ids_arr[non_comment_mask]
+            print("Len original: ", len(sorted_ids_arr), " Len new: ", len(non_comment_all_ids))
+            # Apply the mask to get non-comment IDs and their probabilities
+            non_comment_ids = non_comment_all_ids[:self.n_actions]
+            non_comment_probs = sorted_probs_arr[non_comment_mask][:self.n_actions]
+           
+            decoded_tokens = [self.tokenizer.decode([prob]) for prob in non_comment_all_ids]
+            
+            #top_ids = sorted_ids[:self.n_actions].detach().cpu().numpy()
+            #top_probs = sorted_probs[:self.n_actions].detach().cpu().numpy() # Get the top 5 probabilities
+            #ecoded_tokens = [self.tokenizer.decode([sorted_id]) for sorted_id in sorted_ids]
+            
+            #print("Probabilities: ", non_comment_probs)
+            #print("Ids: ", non_comment_ids)
+            print("All decoded: ", decoded_tokens)
+            
+            return non_comment_probs, non_comment_ids
+        
+    def is_comment(self, token_id):
+        # Implement a function to check if the token is a comment
+        decoded_token = self.tokenizer.decode([token_id])
+        return '//' in decoded_token or '/*' in decoded_token or '*/' in decoded_token
     def get_best_terminal_state(self,state,depth):
         start_time = datetime.now()
         i = 0
@@ -382,11 +387,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         with torch.no_grad():
             torchState = torch.from_numpy(state).to(device)
             while not self.is_done_state(state,depth):
-                #Could call getLLMEstimates?
-            
                 output = self.model(input_ids=torchState)
-                
-                #start_time = datetime.now()
                 next_token_logits = output.logits[0, -1, :]
                 next_token_probs = torch.softmax(next_token_logits, dim=-1)
                     #~5000, converts into their probabilities based on LLM.
@@ -402,10 +403,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
                 torchState = torch.cat([torchState, selected_token], dim=-1)
                 state = torchState.detach().cpu().numpy()
                 decoded = self.tokenizer.decode(state[0])    
-                #print("Curr state: ", decoded)
                 depth+=1
-                #end_time = datetime.now()
-
                 i += 1
             print("Tokens: ", i)
             end_time = datetime.now()
@@ -419,7 +417,6 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         complete_prompt = self.get_prompt_from_state(best_terminal_state)
         filteredGen = self.trim_with_stopwords(complete_prompt)
         score = self.getPromptScore(filteredGen)
-        #score = self.getPromptScore(complete_prompt)
         return score
 
     def get_return(self,state,depth):
@@ -428,17 +425,26 @@ class LLMQueryEnv(gym.Env, StaticEnv):
             print("Serious error")
             exit(1)
         complete_prompt = self.get_prompt_from_state(state)
-        #score = self.getPromptScore(complete_prompt)
         score = self.getPromptScore(state)
         return score
 
 
 if __name__ == '__main__':
-    #---------------------CONFIGURE the below file path/name to your module to test-------------------
-    #Configure your path to the prompts/testbenches folder you want to test.
 
-    file_dir = "/home/grads/m/matthewdelorenzo/research/adders/carry_lookahead"
-    file_name = "prompt1_arithmetic.v"
+    parser = argparse.ArgumentParser(description='MCTS+LLM')
+    parser.add_argument('--sims', type=int, required=True, default=1000,
+                        help='Simulations per MCTS episode')
+    parser.add_argument('--mod_dir', type=str, required=False, default = "VGen-main/prompts-and-testbenches/intermediate1",
+                        help="Directory of prompt files (ex: intermediate2)")
+    parser.add_argument('--mod_name', type=str, required=False, default = "prompt3_half_adder.v",
+                        help = "Name of prompt file (ex: prompt1_counter.v)")
+    
+    
+    args = parser.parse_args()
+    file_dir = args.mod_dir
+    file_name = args.mod_name
+    sims = args.sims
+
     #Specify your prompt file to use as input.
     promptfile_path = file_dir + "/" + file_name
     #Reading input file data and finding the module name.
@@ -463,21 +469,26 @@ if __name__ == '__main__':
     model_name = "shailja/CodeGen_2B_Verilog"
     tokenizer = AutoTokenizer.from_pretrained("shailja/fine-tuned-codegen-2B-Verilog")
     model = AutoModelForCausalLM.from_pretrained("shailja/fine-tuned-codegen-2B-Verilog").to(device)
-    print("Promtp Str: ", prompt_str)
-    print("Problem name: ", problem_name)
-    print("File Dir: ", file_dir)
-    #env = LLMQueryEnv(orig_prompt=prompt, orig_module=module_name, file_path=prob_files_path)
-    env = LLMQueryEnv(csv_logger=None, row_data=None, orig_prompt=prompt_str, orig_module=problem_name, file_path=file_dir,
-                                                    model_name=model_name, tokenizer=tokenizer, model=model)
-    
+
     print("env created")
-    init_state = env.get_initial_state()
-    depth=0
-    ### Rollout return ###
-    finalState = env.get_best_terminal_state(init_state,depth)
-    promptGen = env.get_prompt_from_state(finalState)
-    filteredGen=env.trim_with_stopwords(promptGen)
-    print('Filtered relevant code with stop words {}-->\n{}\n'.format(env.stopwords, filteredGen))
+    start_time = datetime.now()
+    for i in range(sims):
+        print("ITERATION: ", i)
+        print("---------------")
+        env = LLMQueryEnv(csv_logger=None, row_data=None, orig_prompt=prompt_str, orig_module=problem_name, file_path=file_dir,
+                                                model_name=model_name, tokenizer=tokenizer, model=model)
+        init_state = env.get_initial_state()
+        finalState = env.get_best_terminal_state(init_state,0)
+        promptGen = env.get_prompt_from_state(finalState)
+        filteredGen=env.trim_with_stopwords(promptGen)
+        print('Filtered relevant code with stop words {}-->\n{}\n'.format(env.stopwords, filteredGen))
+    
+    end_time = datetime.now()
+    time_difference = end_time - start_time
+    print("Final end time: ", time_difference)
+    
+    
+    
     
     # #### Get next best state ###
     # best_prediction = np.argmax(env.getLLMestimates(init_state))

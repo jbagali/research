@@ -479,9 +479,9 @@ def execute_episode(mctsTree,simulation_budget):
     return mctsTree
 
 def test_episode(mctsTree):
-    #mctsEvalMaxValue = mctsTree.test_tree_search(cType='max')
+    mctsEvalMaxValue = mctsTree.test_tree_search(cType='max')
     mctsEvalRobustValue = mctsTree.test_tree_search(cType='robust')
-    return mctsEvalRobustValue
+    return mctsEvalRobustValue, mctsEvalMaxValue
 
 def merge_nodes(merged_tree_node, thread_tree_node):
     #for actions in current merged tree node

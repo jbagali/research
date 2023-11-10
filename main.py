@@ -43,8 +43,8 @@ class CsvLogger:
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='MCTS+LLM')
-    parser.add_argument('--init_prompt', type=str, required=False,
-                        help='Initial prompt')
+    #parser.add_argument('--init_prompt', type=str, required=False,
+    #                    help='Initial prompt')
     parser.add_argument('--dumpdir', type=str, required=False,default="",
                         help='DUMP directory for storing result')
     parser.add_argument('--runID', type=int, required=True, default=0,
@@ -64,7 +64,7 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
     
-    origPrompt = args.init_prompt
+    #origPrompt = args.init_prompt
     rootDumpDir = args.dumpdir
     runID = args.runID
     simulation_per_episode = args.sims
@@ -99,33 +99,27 @@ if __name__ == '__main__':
         device = torch.device("cpu")
 
 
-    if not origPrompt:
-        #-----------Alter the two lines below for your prompt files.---------------#
-        
-        #------For now, file_name (without the .v) should be the same as module name in prompt file for code to run.
+    promptfile_path = file_dir + "/" + file_name
+    #Reading input file data and finding the module name.
+    #Parsing the file name for the problem name (counter, lfsr, etc).
+    file_name_parts = file_name.split("_", 1)
+    if len(file_name_parts) > 1:
+        problem_name = "_".join(file_name_parts[1:])
+        print("Problem: ", problem_name)
+        print("Joined problem name: ", problem_name)
+        if problem_name.endswith(".v"):
+                problem_name = problem_name.replace(".v","")
+    else:
+        print("Error parsing file name - check formatting (ex: prompt1_counter.v)")
+        exit(1)
 
-        #Specify your prompt file to use as input.
-        promptfile_path = file_dir + "/" + file_name
-        #Reading input file data and finding the module name.
-        #Parsing the file name for the problem name (counter, lfsr, etc).
-        file_name_parts = file_name.split("_", 1)
-        if len(file_name_parts) > 1:
-            problem_name = "_".join(file_name_parts[1:])
-            print("Problem: ", problem_name)
-            print("Joined problem name: ", problem_name)
-            if problem_name.endswith(".v"):
-                    problem_name = problem_name.replace(".v","")
-        else:
-            print("Error parsing file name - check formatting (ex: prompt1_counter.v)")
-            exit(1)
-
-        try:
-            with open(promptfile_path, "r") as prompt_file:
-                prompt_str = prompt_file.read()
-                print("Prompt str: ", prompt_str)
-        except:
-            print("Error reading prompt file.")
-            exit(1)
+    try:
+        with open(promptfile_path, "r") as prompt_file:
+            prompt_str = prompt_file.read()
+            print("Prompt str: ", prompt_str)
+    except:
+        print("Main: Error reading prompt file.")
+        exit(1)
         
 
     print("Loading LLM model...")
@@ -135,8 +129,8 @@ if __name__ == '__main__':
     #model = DistributedDataParallel(model, device_ids=[0,1,2], find_unused_parameters=True)
     print("Initializing MCTS tree/LLM env...")
     idx_ep = 0
-    merged_tree = initialize_MCTS_tree(LLMQueryEnv(csv_logger, row_data, orig_prompt=prompt_str, orig_module=problem_name, file_path=file_dir,
-                                                    model_name=model_name, tokenizer=tokenizer, model=model))
+    #merged_tree = initialize_MCTS_tree(LLMQueryEnv(csv_logger, row_data, orig_prompt=prompt_str, orig_module=problem_name, file_path=file_dir,
+    #                                                model_name=model_name, tokenizer=tokenizer, model=model))
     
     print("Episode not stated yet!")
     print("Simulations per episode: ", simulation_per_episode)
@@ -144,9 +138,11 @@ if __name__ == '__main__':
     
     while idx_ep<num_episodes:
         print("******** EPISODE-{}************".format(idx_ep+1))
+        merged_tree = initialize_MCTS_tree(LLMQueryEnv(csv_logger, row_data, orig_prompt=prompt_str, orig_module=problem_name, file_path=file_dir,
+                                                    model_name=model_name, tokenizer=tokenizer, model=model))
         merged_tree = execute_episode(merged_tree,simulation_per_episode)
         print("ROBUST FINAL VALUE:")
-        evalMctsRobustValue = test_episode(merged_tree)
+        evalMctsRobustValue, evalMctsMaxValue = test_episode(merged_tree)
         #csvFileHandler.write("{},{}\n".format(evalMctsRobustValue))
         idx_ep+=1
 
