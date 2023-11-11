@@ -65,6 +65,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         self.orig_module = orig_module
         self.file_path = file_path
         self.non_compilable_attempts = 0
+        compilation_output = None
         self.compilable = False
         self.functional = False
         #self.top_token_ids = None
@@ -101,14 +102,16 @@ class LLMQueryEnv(gym.Env, StaticEnv):
             if decoded.endswith(w):
                 #TMP EDIT!
                 self.verilogFunctionalityCheck(currentState)
-
-                if self.compilable:
+                if self.compilable:     #if compilable, finish prompt generation.
                     return True
-                elif self.non_compilable_attempts >= 2:
+                elif self.non_compilable_attempts >= 2:    #if continued generation of module 2+ times, finish.
                     return True
-                else:
+                elif b'Unknown module type' in self.compilation_output:    #if unknown module, continue generation.
                     self.non_compilable_attempts += 1
                     return False
+                else:   #if compilation error is of origin other than "undefined module", finish generation.
+                    return True
+
                 #return True
             else:
                 return False
@@ -248,6 +251,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
             compile_output = subprocess.check_output(['iverilog', '-o', os.path.join("tmp_output_files", str(os.getpid()) + '_simulation'), testbench_path, module_path], stderr=subprocess.STDOUT)
             #compile_output = subprocess.check_output(['iverilog', '-o', os.path.join("tmp_output_files", str(os.getpid()) + '_simulation'), module_path], stderr=subprocess.STDOUT)
             compile_exit_code = 0  # Compilation successful
+            self.compilation_output = None
             print("Output Verilog module compiles successfully.")
             return True
         except subprocess.CalledProcessError as e:
@@ -255,7 +259,8 @@ class LLMQueryEnv(gym.Env, StaticEnv):
             compile_output = e.output
             compile_exit_code = e.returncode
             print("Verilog compilation failed, error: ", compile_exit_code)
-            #print("Compilation output: ", compile_output)
+            print("Compilation output: ", compile_output)
+            self.compilation_output = compile_output
             return False
 
     #Helper function to check the functionality of output Verilog code against its respective testbench.
@@ -372,7 +377,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
             
             #print("Probabilities: ", non_comment_probs)
             #print("Ids: ", non_comment_ids)
-            print("All decoded: ", decoded_tokens)
+            #print("All decoded: ", decoded_tokens)
             
             return non_comment_probs, non_comment_ids
         
