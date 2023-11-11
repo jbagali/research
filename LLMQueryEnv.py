@@ -45,7 +45,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
 
     # origAIG incomplete prompt
     
-    def __init__(self, csv_logger=None, row_data=None, orig_prompt="def hello_world():", orig_module="hello_world", file_path = "", 
+    def __init__(self, csv_logger=None, row_data=None, orig_prompt="def hello_world():", orig_module="hello_world", file_path = "", tb_path = "", dump_path = "",
                  model_name=None, tokenizer=None, model=None):
         seed_everything()
 
@@ -61,9 +61,11 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         #self.stopwords = ['\n\n']
         self.stopwords = ['endmodule']
         #Limit to token generation before cutoff.
-        self.depth=500
+        self.depth=2000
         self.orig_module = orig_module
-        self.file_path = file_path
+        self.prompt_path = file_path
+        self.tb_path = tb_path
+        self.dumppath = dump_path
         self.non_compilable_attempts = 0
         compilation_output = None
         self.compilable = False
@@ -120,14 +122,16 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         verilog_code = self.get_prompt_from_state(currentState)
         # Write the Verilog code to a temporary file - filenamed after module name.
         print(verilog_code)
-        output_verilog_file = str(os.getpid()) + "_" + self.orig_module + ".v"
-        tmp_dir_path = "tmp_output_files"
-        if not os.path.exists(tmp_dir_path):
+        module_dump_folder = self.dumppath + "/" + str(os.getpid()) + "_" + self.orig_module
+        if not os.path.exists(module_dump_folder):
             try:
-                os.makedirs(tmp_dir_path, mode=0o777)
+                os.makedirs(module_dump_folder, mode=0o777)
             except OSError as e:
                 print("Error creating dump file: ", e)
-        output_file_path = os.path.join(tmp_dir_path, output_verilog_file)
+
+        output_verilog_file = str(os.getpid()) + "_" + self.orig_module + ".v"       
+
+        output_file_path = os.path.join(module_dump_folder, output_verilog_file)
         try:
             module_name = "module " + self.orig_module
             #print("MODULE NAME: ", module_name)
@@ -143,12 +147,11 @@ class LLMQueryEnv(gym.Env, StaticEnv):
 
         os.chmod(output_file_path, 0o777)
         #Setting the testbench file path (assuming in same location as prompt file).
-        testbench_path = self.file_path + "/tb_" + self.orig_module + ".v"
-        #Check compilability.
+
         
         
         #TMP EDIT
-        self.compilable = self.compilation_check(output_file_path, testbench_path)
+        self.compilable = self.compilation_check(output_file_path, self.tb_path)
         #Call functionality check if compilable.
         
         
@@ -167,17 +170,17 @@ class LLMQueryEnv(gym.Env, StaticEnv):
             return -1
         
         #TMP EDIT!
-        #if not self.functional:
-        #    self.row_data['area'] = 'N/A'
-        #    self.row_data['delay'] = 'N/A'
-        #    self.row_data['score'] = -.5
-        #    return  -.5
+        if not self.functional:
+            self.row_data['area'] = 'N/A'
+            self.row_data['delay'] = 'N/A'
+            self.row_data['score'] = -.5
+            return  -.5
         
         #TMP EDIT
         #Specify your bash script to be utilized here.
         bash_script = "scripts/synth_gcd.sh"
 
-        module_dump_folder = "synth_out/" + str(os.getpid()) + "_" + self.orig_module
+        module_dump_folder = self.dumppath + "/" + str(os.getpid()) + "_" + self.orig_module
         #print("Dump folder: ", module_dump_folder)
 
         #Creating dump file for results to be placed if not already created.
@@ -188,6 +191,8 @@ class LLMQueryEnv(gym.Env, StaticEnv):
                 print("Error creating dump file: ", e)
         #Editing the bash script to run the output verilog module.
         new_script_path = os.path.join(module_dump_folder, "synth_script.sh")
+        print(self.orig_module)
+        print(new_script_path)
         shutil.copy(bash_script, new_script_path)
         x= self.edit_script_variables(new_script_path, self.orig_module, str(os.getpid()) + '_' + self.orig_module + ".v")
         #Running the script file (with executable permission).
@@ -204,42 +209,33 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         #Retrieving the results from generated log file - specify your filepath.
         logfile_path = module_dump_folder + "/yosys_synth.log"
         if os.path.isfile(logfile_path):
-            area_value = self.extract_area_from_log(logfile_path)
-            delay_value = self.extract_delay_from_log(logfile_path)
-
+            area_value = float(self.extract_area_from_log(logfile_path))
+            delay_value = float(self.extract_delay_from_log(logfile_path))
+            area_delay_product = area_value * delay_value
             if(self.functional and area_value is not None and delay_value is not None):
                 print()
                 print("Currently displaying area/delay scores for ", self.orig_module, " module.")
                 print("Area of the chip design is: ", area_value)
                 print("Delay value for the chip design is: ", delay_value)
-                print("Score (1/chip area): ", 1 / float(area_value))
+                print("Product: ", area_delay_product)
+                print("Score (1/chip area): ", (1 / area_delay_product) * 1000)
                 self.row_data['area'] = area_value
                 self.row_data['delay'] = delay_value
-                self.row_data['score'] = 1 / float(area_value)
+                self.row_data['score'] = 1 / area_delay_product
                 #Currently returning area and delay values.
-                try:
-                    print("Removing dump files...")
-                    os.remove(logfile_path)
-                except OSError as e:
-                    print(f"Error: {e}")
+                #try:
+                #    print("Removing dump files...")
+                #    os.remove(logfile_path)
+                #except OSError as e:
+                #    print(f"Error: {e}")
 
-                return (1 / float(area_value))
-            elif (area_value is not None and delay_value is not None):
-                self.row_data['area'] = area_value
-                self.row_data['delay'] = delay_value
-                self.row_data['score'] = -.5
-                return -.5
-
+                return (1 / area_delay_product)
             else:
-                if(self.functional):
-                    reward = .5
-                if(not self.functional):
-                    reward = -1
-                print("Verilog code has not area or delay value (error in extraction).")
-                self.row_data['area'] = area_value
-                self.row_data['delay'] = delay_value
-                self.row_data['score'] = reward
-                return reward
+                print("Error retrieving area/delay from results.")
+                self.row_data['area'] ='N/A'
+                self.row_data['delay'] = 'N/A'
+                self.row_data['score'] = -.75
+                return -.5
         else:
             print("Filepath of Yosys results not recognized.")
             return None
@@ -248,7 +244,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
          # Compile the Verilog code using the iVerilog
         try:
             #TMP EDIT!!
-            compile_output = subprocess.check_output(['iverilog', '-o', os.path.join("tmp_output_files", str(os.getpid()) + '_simulation'), testbench_path, module_path], stderr=subprocess.STDOUT)
+            compile_output = subprocess.check_output(['iverilog', '-o', os.path.join(self.dumppath + "/" + str(os.getpid()) + "_" + self.orig_module, str(os.getpid()) + '_simulation'), testbench_path, module_path], stderr=subprocess.STDOUT)
             #compile_output = subprocess.check_output(['iverilog', '-o', os.path.join("tmp_output_files", str(os.getpid()) + '_simulation'), module_path], stderr=subprocess.STDOUT)
             compile_exit_code = 0  # Compilation successful
             self.compilation_output = None
@@ -266,7 +262,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
     #Helper function to check the functionality of output Verilog code against its respective testbench.
     def functionality_check(self):
         try:
-            sim_path = os.path.join("tmp_output_files", str(os.getpid()) + '_simulation')
+            sim_path = os.path.join(self.dumppath + "/" + str(os.getpid()) + "_" + self.orig_module, str(os.getpid()) + '_simulation')
             simulation_output = subprocess.check_output(['vvp', sim_path], stderr=subprocess.STDOUT)
             simulation_exit_code = 0
         except subprocess.CalledProcessError as e:
@@ -293,13 +289,19 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         with open(filename, "r") as file:
             lines = file.readlines()
         for i, line in enumerate(lines):
+            if line.startswith("export ROOT_DIR="):
+                lines[i] = f'export ROOT_DIR={os.getcwd()}\n'
+            if line.startswith("export MODULE_DIR="):
+                lines[i] = f'export MODULE_DIR={"${ROOT_DIR}" + "/" + self.dumppath + "/" + str(os.getpid()) + "_" + self.orig_module}\n'
             if line.startswith("export DESIGN_NAME="):
                 #lines[i] = f'export DESIGN_NAME={design_name}\n'
                 lines[i] = f'export DESIGN_NAME={design_name}\n'
             elif line.startswith("export VERILOG_FILE="):
                 lines[i] = f'export VERILOG_FILE={"${MODULE_DIR}" + "/" + file_name}\n'
             elif line.startswith("export OUTPUT_NAME="):
-                lines[i] = f'export OUTPUT_NAME={file_name}\n'
+                lines[i] = f'export OUTPUT_NAME={"${MODULE_DIR}" + "/" + file_name}\n'
+            elif line.startswith("export DUMP_DIR="):
+                lines[i] = f'export DUMP_DIR={self.dumppath + "/" + str(os.getpid()) + "_" + self.orig_module}\n'
         with open(filename, "w") as file:
             file.writelines(lines)
         
@@ -358,6 +360,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
             next_token_logits = output.logits[0, -1, :]
             next_token_probs = torch.softmax(next_token_logits, dim=-1)
             sorted_probs, sorted_ids = torch.sort(next_token_probs, dim=-1, descending=True)
+
             sorted_ids_arr = sorted_ids[:].detach().cpu().numpy()
             sorted_probs_arr = sorted_probs[:].detach().cpu().numpy()
             non_comment_mask = np.array([not self.is_comment(token_id) for token_id in sorted_ids_arr])
@@ -392,19 +395,40 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         with torch.no_grad():
             torchState = torch.from_numpy(state).to(device)
             while not self.is_done_state(state,depth):
+                #print("Token: ", i)
                 output = self.model(input_ids=torchState)
                 next_token_logits = output.logits[0, -1, :]
-                next_token_probs = torch.softmax(next_token_logits, dim=-1)
+                next_token_prob = torch.softmax(next_token_logits, dim=-1)
                     #~5000, converts into their probabilities based on LLM.
-                max_token_index = torch.argmax(next_token_probs, dim=-1)
-                selected_token = max_token_index.unsqueeze(0).unsqueeze(0)
+                #max_token_index = torch.argmax(next_token_prob, dim=-1)
+                #selected_token = max_token_index.unsqueeze(0).unsqueeze(0)
+                #print("type: ", selected_token)
+                #print("type: ", selected_token.item())
+                sorted_probs, sorted_ids = torch.sort(next_token_prob, dim=-1, descending=True)
+                selected_token = sorted_ids[0].unsqueeze(0).unsqueeze(0)
+                #start_time = datetime.now()
+                chosen_id = selected_token
+                chosen_index = 0
+                #print("Len: ", sorted_ids.size(-1))
+                while (self.is_comment(chosen_id.item()) and chosen_index < sorted_ids.size(-1)):
+                    print("Comment: ", chosen_id.item())
+                    print("Incrementing: ", chosen_index)
+                    chosen_index += 1
+                    chosen_id = sorted_ids[i].unsqueeze(0).unsqueeze(0)
 
-
+                selected_token = chosen_id
+                #end_time = datetime.now()
+                #time_difference = end_time - start_time
+                #seconds = time_difference.total_seconds()
+                #print("Good: ", self.tokenizer.decode(selected_token.item()))
+                #print("return in: ", seconds, " seconds")
+                
                 #sorted_ids = torch.argsort(next_token_probs, dim=-1, descending=True)
                 #print("Sorted Id: ", sorted_ids[None,0, None])
                 #torchState = torch.cat([torchState, sorted_ids[None,0, None]], dim=-1)
 
 
+                #torchState = torch.cat([torchState, torch.tensor([chosen_id], device=torchState.device).unsqueeze(0)], dim=-1)
                 torchState = torch.cat([torchState, selected_token], dim=-1)
                 state = torchState.detach().cpu().numpy()
                 decoded = self.tokenizer.decode(state[0])    

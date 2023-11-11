@@ -19,8 +19,8 @@ export DESIGN_NAME=counter
 export VERILOG_FILE=counter.v
 export OUTPUT_NAME=counter.v
 #TMP EDIT
-export DUMP_DIR=${ROOT_DIR}/synth_out/${OUTPUT_NAME%.v}
-export ABC_AREA=1
+export DUMP_DIR=${MODULE_DIR}/${OUTPUT_NAME%.v}
+#export ABC_AREA=1
 #export ABC_CLOCK_PERIOD_IN_PS=460
 
 #echo "SYNTH_SCRIPT: $SYNTH_SCRIPT"

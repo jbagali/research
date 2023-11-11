@@ -45,8 +45,8 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='MCTS+LLM')
     #parser.add_argument('--init_prompt', type=str, required=False,
     #                    help='Initial prompt')
-    parser.add_argument('--dumpdir', type=str, required=False,default="",
-                        help='DUMP directory for storing result')
+    parser.add_argument('--dumpdir', type=str, required=True,default="",
+                        help='DUMP directory for storing output files.')
     parser.add_argument('--runID', type=int, required=True, default=0,
                         help='Run ID')
     parser.add_argument('--sims', type=int, required=True, default=1000,
@@ -55,12 +55,18 @@ if __name__ == '__main__':
                         help='#MCTS episode')
     parser.add_argument('--pr', type=int, required=False, default=1,
                         help='#processes executing MCTS')
-    parser.add_argument('--mod_dir', type=str, required=False, default = "VGen-main/prompts-and-testbenches/intermediate1",
-                        help="Directory of prompt files (ex: intermediate2)")
-    parser.add_argument('--mod_name', type=str, required=False, default = "prompt3_half_adder.v",
-                        help = "Name of prompt file (ex: prompt1_counter.v)")
+    #parser.add_argument('--mod_dir', type=str, required=False, default = "VGen-main/prompts-and-testbenches/intermediate1",
+    #                    help="Directory of prompt files (ex: intermediate2)")
+    #parser.add_argument('--mod_name', type=str, required=False, default = "prompt3_half_adder.v",
+    #                    help = "Name of prompt file (ex: prompt1_counter.v)")
     parser.add_argument('--csv', type=str, required=False, default = "log.csv",
                         help = "Name of csv file. (ex: log.csv)")
+    parser.add_argument('--prompt_path', type=str, required=True, default = "VGen-main/prompts-and-testbenches/intermediate1/prompt3_half_adder.v",
+                        help = "Filepath of prompt file from current directory (ex: filepath/prompt1_counter.v)")
+    parser.add_argument('--tb_path', type=str, required=True, default = "VGen-main/prompts-and-testbenches/intermediate1/tb_counter.v",
+                        help = "Filepath of counter filepath from current directory (ex: filepath/prompt1_counter.v)")
+    parser.add_argument('--module_name', type=str, required=True, default = "counter",
+                        help = "Name of module in prompt for which the LLM will finish creating. Ex: counter")
 
     args = parser.parse_args()
     
@@ -70,27 +76,30 @@ if __name__ == '__main__':
     simulation_per_episode = args.sims
     num_episodes = args.ep
     num_processes = args.pr
-    file_dir = args.mod_dir
-    file_name = args.mod_name
+    #file_dir = args.mod_dir
+    #file_name = args.mod_name
     csv_name = args.csv
     csv_logger = CsvLogger(csv_name)
     row_data = {}
+
+    prompt_filepath = args.prompt_path
+    tb_filepath = args.tb_path
+    module_name = args.module_name
     
     prompt_str = ""
-    module_name = ""
-    prob_files_path = ""
     #set_start_method("spawn")
 
-    runFolder = osp.join(rootDumpDir,'run'+str(runID))
-    csvResultFile = osp.join(rootDumpDir,'data_run'+str(runID)+".csv") # Data to store area obtained in each iteration and best so far
-    logFilePath = osp.join(runFolder,'log_run'+str(runID)+".log")   # Log data to dump area and read
+    #runFolder = osp.join(rootDumpDir,'run'+str(runID))
+    #csvResultFile = osp.join(rootDumpDir,'data_run'+str(runID)+".csv") # Data to store area obtained in each iteration and best so far
+    #logFilePath = osp.join(runFolder,'log_run'+str(runID)+".log")   # Log data to dump area and read
+    
     if not osp.exists(rootDumpDir):
-        os.mkdir(rootDumpDir)
+        os.mkdirs(rootDumpDir, mode=0o777 )
         
-    if not osp.exists(runFolder):    
-        os.mkdir(runFolder)
+    #if not osp.exists(runFolder):    
+    #    os.mkdir(runFolder)
 
-    csvFileHandler = open(csvResultFile,'w')
+    #csvFileHandler = open(csvResultFile,'w')
     
     if torch.cuda.is_available():
         device = torch.device("cuda")
@@ -99,22 +108,23 @@ if __name__ == '__main__':
         device = torch.device("cpu")
 
 
-    promptfile_path = file_dir + "/" + file_name
+    #promptfile_path = file_dir + "/" + file_name
     #Reading input file data and finding the module name.
     #Parsing the file name for the problem name (counter, lfsr, etc).
-    file_name_parts = file_name.split("_", 1)
-    if len(file_name_parts) > 1:
-        problem_name = "_".join(file_name_parts[1:])
-        print("Problem: ", problem_name)
-        print("Joined problem name: ", problem_name)
-        if problem_name.endswith(".v"):
-                problem_name = problem_name.replace(".v","")
-    else:
-        print("Error parsing file name - check formatting (ex: prompt1_counter.v)")
-        exit(1)
+    # file_name_parts = file_name.split("_", 1)
+    # if len(file_name_parts) > 1:
+    #     problem_name = "_".join(file_name_parts[1:])
+    #     print("Problem: ", problem_name)
+    #     print("Joined problem name: ", problem_name)
+    #     if problem_name.endswith(".v"):
+    #             problem_name = problem_name.replace(".v","")
+    # else:
+    #     print("Error parsing file name - check formatting (ex: prompt1_counter.v)")
+    #     exit(1)
 
+    print(prompt_filepath)
     try:
-        with open(promptfile_path, "r") as prompt_file:
+        with open(prompt_filepath, "r") as prompt_file:
             prompt_str = prompt_file.read()
             print("Prompt str: ", prompt_str)
     except:
@@ -129,8 +139,6 @@ if __name__ == '__main__':
     #model = DistributedDataParallel(model, device_ids=[0,1,2], find_unused_parameters=True)
     print("Initializing MCTS tree/LLM env...")
     idx_ep = 0
-    #merged_tree = initialize_MCTS_tree(LLMQueryEnv(csv_logger, row_data, orig_prompt=prompt_str, orig_module=problem_name, file_path=file_dir,
-    #                                                model_name=model_name, tokenizer=tokenizer, model=model))
     
     print("Episode not stated yet!")
     print("Simulations per episode: ", simulation_per_episode)
@@ -138,7 +146,8 @@ if __name__ == '__main__':
     
     while idx_ep<num_episodes:
         print("******** EPISODE-{}************".format(idx_ep+1))
-        merged_tree = initialize_MCTS_tree(LLMQueryEnv(csv_logger, row_data, orig_prompt=prompt_str, orig_module=problem_name, file_path=file_dir,
+        print("ORIG MODILE: ", module_name)
+        merged_tree = initialize_MCTS_tree(LLMQueryEnv(csv_logger, row_data, orig_prompt=prompt_str, orig_module=module_name, file_path=prompt_filepath, tb_path = tb_filepath, dump_path = rootDumpDir,
                                                     model_name=model_name, tokenizer=tokenizer, model=model))
         merged_tree = execute_episode(merged_tree,simulation_per_episode)
         print("ROBUST FINAL VALUE:")
@@ -148,6 +157,10 @@ if __name__ == '__main__':
 
     print("Num simulations: ", merged_tree.num_simulations)
     
+
+
+
+
 
 
     #test
