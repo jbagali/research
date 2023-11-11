@@ -11,7 +11,8 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 from datetime import datetime
 
 def seed_everything():  
-    seed = random.randint(1, 1000000)                                               
+    #seed = random.randint(1, 1000000)     
+    seed = 42                                          
     random.seed(seed)                                                     
     torch.manual_seed(seed)
     np.random.seed(seed)
@@ -20,7 +21,7 @@ def seed_everything():
     if torch.cuda.is_available():
         torch.cuda.manual_seed(seed)                                                   
         torch.cuda.manual_seed_all(seed)                                             
-        torch.backends.cudnn.deterministic = False
+        torch.backends.cudnn.deterministic = True
         torch.backends.cudnn.benchmark = False
 
 if torch.cuda.is_available():
@@ -61,7 +62,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         #self.stopwords = ['\n\n']
         self.stopwords = ['endmodule']
         #Limit to token generation before cutoff.
-        self.depth=2000
+        self.depth=1500
         self.orig_module = orig_module
         self.prompt_path = file_path
         self.tb_path = tb_path
@@ -399,17 +400,13 @@ class LLMQueryEnv(gym.Env, StaticEnv):
                 output = self.model(input_ids=torchState)
                 next_token_logits = output.logits[0, -1, :]
                 next_token_prob = torch.softmax(next_token_logits, dim=-1)
-                    #~5000, converts into their probabilities based on LLM.
                 #max_token_index = torch.argmax(next_token_prob, dim=-1)
                 #selected_token = max_token_index.unsqueeze(0).unsqueeze(0)
-                #print("type: ", selected_token)
-                #print("type: ", selected_token.item())
+
                 sorted_probs, sorted_ids = torch.sort(next_token_prob, dim=-1, descending=True)
                 selected_token = sorted_ids[0].unsqueeze(0).unsqueeze(0)
-                #start_time = datetime.now()
                 chosen_id = selected_token
                 chosen_index = 0
-                #print("Len: ", sorted_ids.size(-1))
                 while (self.is_comment(chosen_id.item()) and chosen_index < sorted_ids.size(-1)):
                     print("Comment: ", chosen_id.item())
                     print("Incrementing: ", chosen_index)
@@ -417,9 +414,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
                     chosen_id = sorted_ids[i].unsqueeze(0).unsqueeze(0)
 
                 selected_token = chosen_id
-                #end_time = datetime.now()
-                #time_difference = end_time - start_time
-                #seconds = time_difference.total_seconds()
+
                 #print("Good: ", self.tokenizer.decode(selected_token.item()))
                 #print("return in: ", seconds, " seconds")
                 
