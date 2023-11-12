@@ -109085,3 +109085,1659 @@ Getting LLM token estimates (probs/ids).
 Len original:  50295  Len new:  50278
 Expansion: next action:  0  corresponding to state:  50284
 Getting rollout return of leaf.
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+                      
+    wire [63:0] sum;
+    wire cout;
+    
+    wire [63:0] c;
+    
+    adder_32 a0(sum[31:0], c[0], in1[31:0], in2[31:0], cin);
+    adder_32 a1(sum[63:32], cout, in1[63:32], in2[63:32], c[0]);
+    
+endmodule
+Verilog compilation failed, error:  3
+Compilation output:  b'output_files/3863513_adder_64/3863513_adder_64.v:11: error: Unknown module type: adder_32\noutput_files/3863513_adder_64/3863513_adder_64.v:12: error: Unknown module type: adder_32\n3 error(s) during elaboration.\n*** These modules were missing:\n        adder_32 referenced 2 times.\n***\n'
+Incrementing:  0
+16
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+                      
+    wire [63:0] sum;
+    wire cout;
+    
+    wire [63:0] c;
+    
+    adder_32 a0(sum[31:0], c[0], in1[31:0], in2[31:0], cin);
+    adder_32 a1(sum[63:32], cout, in1[63:32], in2[63:32], c[0]);
+    
+endmodule
+
+1. Design a 64-bit adder with carry-in.
+2. Design a 64-bit adder with carry-out.
+3. Design a 64-bit adder with carry-in and carry-out.
+4. Design a 64-bit adder with carry-in and carry-out.
+5. Design a 64-bit adder with carry-in and carry-out.
+6. Design a 64-bit adder with carry-in and carry-out.
+7. Design a 64-bit adder with carry-in and carry-out.
+8. Design a 64-bit adder with carry-in and carry-out.
+9. Design a 64-bit adder with carry-in and carry-out.
+10. Design a 64-bit adder with carry-in and carry-out.
+11. Design a 64-bit adder with carry-in and carry-out.
+12. Design a 64-bit adder with carry-in and carry-out.
+13. Design a 64-bit adder with carry-in and carry-out.
+14. Design a 64-bit adder with carry-in and carry-out.
+15. Design a 64-bit adder with carry-in and carry-out.
+16. Design a 64-bit adder with carry-in and carry-out.
+17. Design a 64-bit adder with carry-in and carry-out.
+18. Design a 64-bit adder with carry-in and carry-out.
+19. Design a 64-bit adder with carry-in and carry-out.
+20. Design a 64-bit adder with carry-in and carry-out.
+21. Design a 64-bit adder with carry-in and carry-out.
+22. Design a 64-bit adder with carry-in and carry-out.
+23. Design a 64-bit adder with carry-in and carry-out.
+24. Design a 64-bit adder with carry-in and carry-out.
+25. Design a 64-bit adder with carry-in and carry-out.
+26. Design a 64-bit adder with carry-in and carry-out.
+27. Design a 64-bit adder with carry-in and carry-out.
+28. Design a 64-bit adder with carry-in and carry-out.
+29. Design a 64-bit adder with carry-in and carry-out.
+30. Design a 64-bit adder with carry-in and carry-out.
+31. Design a 64-bit adder with carry-in and carry-out.
+32. Design a 64-bit adder with carry-in and carry-out.
+33. Design a 64-bit adder with carry-in and carry-out.
+34. Design a 64-bit adder with carry-in and carry-out.
+35. Design a 64-bit adder with carry-in and carry-out.
+36. Design a 64-bit adder with carry-in and carry-out.
+37. Design a 64-bit adder with carry-in and carry-out.
+38. Design a 64-bit adder with carry-in and carry-out.
+39. Design a 64-bit adder with carry-in and carry-out.
+40. Design a 64-bit adder with carry-in and carry-out.
+41. Design a 64-bit adder with carry-in and carry-out.
+42. Design a 64-bit adder with carry-in and carry-out.
+43. Design a 64-bit adder with carry-in and carry-out.
+44. Design a 64-bit adder with carry-in and carry-out.
+45. Design a 64-bit adder with carry-in and carry-out.
+46. Design a 64-bit adder with carry-in and carry-out.
+47. Design a 64-bit adder with carry-in and carry-out.
+48. Design a 64-bit add
+Verilog compilation failed, error:  2
+Compilation output:  b'output_files/3863513_adder_64/3863513_adder_64.v:16: syntax error\nI give up.\n'
+Tokens:  996
+LLM generates return in:  361.715879  seconds
+Running getPromptScore: 
+Backpropogation: incorporating estimates.
+Current runs:  79.0
+Selection: finding leaf node.
+Leaf selection - depth:  0
+Leaf selection - action scores:  [-0.52430576 -0.56900653 -0.64783311 -0.66324489 -0.66324509 -0.6644177
+ -0.59546698 -0.66538063 -0.66552237 -0.66553514]  taking action:  0
+Leaf selection - depth:  1
+Leaf selection - action scores:  [-0.38457346 -0.3799234  -0.35583505 -0.5701408  -0.3557883  -0.37203848
+ -0.3974319  -0.40427962 -0.4095192  -0.43951073]  taking action:  4
+Leaf selection - depth:  2
+Leaf selection - action scores:  [0.6410274  0.23360391 0.17224939 0.13706332 0.04771875 0.04402249
+ 0.00818302 0.00661335 0.00592988 0.00529503]  taking action:  0
+Adding child.
+Leaf selection - depth:  3
+Getting LLM token estimates (probs/ids).
+Len original:  50295  Len new:  50278
+Expansion: next action:  0  corresponding to state:  685
+Getting rollout return of leaf.
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+        wire [63:0] sum;
+        wire cout;
+        wire [63:0] in1;
+        wire [63:0] in2;
+        wire cin;
+        wire [63:0] carry;
+        
+        full_adder FA1(sum[0], carry[0], in1[0], in2[0], cin);
+        full_adder FA2(sum[1], carry[1], in1[1], in2[1], carry[0]);
+        full_adder FA3(sum[2], carry[2], in1[2], in2[2], carry[1]);
+        full_adder FA4(sum[3], carry[3], in1[3], in2[3], carry[2]);
+        full_adder FA5(sum[4], carry[4], in1[4], in2[4], carry[3]);
+        full_adder FA6(sum[5], carry[5], in1[5], in2[5], carry[4]);
+        full_adder FA7(sum[6], carry[6], in1[6], in2[6], carry[5]);
+        full_adder FA8(sum[7], carry[7], in1[7], in2[7], carry[6]);
+        full_adder FA9(sum[8], carry[8], in1[8], in2[8], carry[7]);
+        full_adder FA10(sum[9], carry[9], in1[9], in2[9], carry[8]);
+        full_adder FA11(sum[10], carry[10], in1[10], in2[10], carry[9]);
+        full_adder FA12(sum[11], carry[11], in1[11], in2[11], carry[10]);
+        full_adder FA13(sum[12], carry[12], in1[12], in2[12], carry[11]);
+        full_adder FA14(sum[13], carry[13], in1[13], in2[13], carry[12]);
+        full_adder FA15(sum[14], carry[14], in1[14], in2[14], carry[13]);
+        full_adder FA16(sum[15], carry[15], in1[15], in2[15], carry[14]);
+        full_adder FA17(sum[16], carry[16], in1[16], in2[16], carry[15]);
+        full_adder FA18(sum[17], carry[17], in1[17], in2[17], carry[16]);
+        full_adder FA19(sum[18], carry[18], in1[18], in2[18], carry[17]);
+        full_adder FA20(sum[19], carry[19], in1[19], in2[19], carry[18]);
+        full_adder FA21(sum[20], carry[20], in1[20], in2[20], carry[19]);
+        full_adder FA22(sum[21], carry[21], in1[21], in2[21], carry[20]);
+        full_adder FA23(sum[22], carry[22], in1[22], in2[22], carry[21]);
+        full_adder FA24(sum[23], carry[23], in1[23], in2[23], carry[22]);
+        full_adder FA25(sum[24], carry[24], in1[24], in2[24], carry[23]);
+        full_adder FA26(sum[25], carry[25], in1[25], in2[25], carry[24]);
+        full_adder FA27(sum[26], carry[26], in1[26], in2[26], carry[25]);
+        full_adder FA28(sum[27], carry[27], in1[27], in2[27], carry[26]);
+        full_adder FA29(sum[28], carry[28], in1[28], in2[28], carry[27]);
+        full_adder FA30(sum[29], carry[29], in1[29], in2[29], carry[28]);
+        full_adder FA31(sum[30], carry[30], in1[30], in2[30], carry[29]);
+        full_adder FA32(sum[31], carry[31],
+Verilog compilation failed, error:  2
+Compilation output:  b'output_files/3863513_adder_64/3863513_adder_64.v:43: syntax error\nI give up.\n'
+Tokens:  996
+LLM generates return in:  361.189802  seconds
+Running getPromptScore: 
+Backpropogation: incorporating estimates.
+Current runs:  80.0
+Selection: finding leaf node.
+Leaf selection - depth:  0
+Leaf selection - action scores:  [-0.53405561 -0.56729472 -0.64771576 -0.66322357 -0.66322377 -0.66440368
+ -0.59383658 -0.66537262 -0.66551524 -0.66552809]  taking action:  0
+Leaf selection - depth:  1
+Leaf selection - action scores:  [-0.3808478  -0.37903738 -0.35232273 -0.5690501  -0.5694392  -0.37059253
+ -0.39627293 -0.403198   -0.40849677 -0.43882722]  taking action:  2
+Leaf selection - depth:  2
+Leaf selection - action scores:  [ 0.16607136 -0.34270763  0.13371737 -0.39271834  0.12048037  0.05858253
+  0.02228773  0.01484553  0.01474276  0.01470333]  taking action:  0
+Leaf selection - depth:  3
+Leaf selection - action scores:  [1.0409379  0.70066255 0.08945757 0.04426546 0.01082841 0.00725445
+ 0.00699004 0.00581399 0.00385838 0.00326975]  taking action:  0
+Adding child.
+Leaf selection - depth:  4
+Getting LLM token estimates (probs/ids).
+Len original:  50295  Len new:  50278
+Expansion: next action:  0  corresponding to state:  5066
+Getting rollout return of leaf.
+Incrementing:  0
+361
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+    
+    if (in1[63] == 1'b1 && in2[63] == 1'b0)
+        assign in1[63:1] = in1[63:1] + 1'b1;
+    if (in1[63] == 1'b0 && in2[63] == 1'b1)
+        assign in2[63:1] = in2[63:1] + 1'b1;
+    
+    if (in1[63] == 1'b1 && in2[63] == 1'b1)
+        assign in1[63:1] = in1[63:1] + 1'b1;
+    if (in1[63] == 1'b0 && in2[63] == 1'b0)
+        assign in2[63:1] = in2[63:1] + 1'b1;
+    
+    assign in1[0] = 1'b0;
+    assign in2[0] = 1'b0;
+    assign cin = 1'b0;
+    
+    full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder FA4(sum[3], c4, in1[3], in2[3], c3);
+    full_adder FA5(sum[4], c5, in1[4], in2[4], c4);
+    full_adder FA6(sum[5], c6, in1[5], in2[5], c5);
+    full_adder FA7(sum[6], c7, in1[6], in2[6], c6);
+    full_adder FA8(sum[7], c8, in1[7], in2[7], c7);
+    full_adder FA9(sum[8], c9, in1[8], in2[8], c8);
+    full_adder FA10(sum[9], c10, in1[9], in2[9], c9);
+    full_adder FA11(sum[10], c11, in1[10], in2[10], c10);
+    full_adder FA12(sum[11], c12, in1[11], in2[11], c11);
+    full_adder FA13(sum[12], c13, in1[12], in2[12], c12);
+    full_adder FA14(sum[13], c14, in1[13], in2[13], c13);
+    full_adder FA15(sum[14], c15, in1[14], in2[14], c14);
+    full_adder FA16(sum[15], c16, in1[15], in2[15], c15);
+    full_adder FA17(sum[16], c17, in1[16], in2[16], c16);
+    full_adder FA18(sum[17], c18, in1[17], in2[17], c17);
+    full_adder FA19(sum[18], c19, in1[18], in2[18], c18);
+    full_adder FA20(sum[19], c20, in1[19], in2[19], c19);
+    full_adder FA21(sum[20], c21, in1[20], in2[20], c20);
+    full_adder FA22(sum[21], c22, in1[21], in2[21], c21);
+    full_adder FA23(sum[22], c23, in1[22], in2[22], c22);
+    full_adder FA24(sum[23], c24, in1[23], in2[23], c23);
+    full_adder FA25(sum[24], c25, in1[24], in2[24], c24);
+    full
+Verilog compilation failed, error:  2
+Compilation output:  b'output_files/3863513_adder_64/3863513_adder_64.v:50: syntax error\nI give up.\n'
+Tokens:  995
+LLM generates return in:  360.955765  seconds
+Running getPromptScore: 
+Backpropogation: incorporating estimates.
+Current runs:  81.0
+Selection: finding leaf node.
+Leaf selection - depth:  0
+Leaf selection - action scores:  [-0.5433865  -0.56559344 -0.64759914 -0.66320238 -0.66320259 -0.66438976
+ -0.59221622 -0.66536465 -0.66550816 -0.66552108]  taking action:  0
+Leaf selection - depth:  1
+Leaf selection - action scores:  [-0.37716332 -0.37816116 -0.4418707  -0.5679714  -0.5683648  -0.36916256
+ -0.39512673 -0.40212834 -0.40748566 -0.43815124]  taking action:  5
+Leaf selection - depth:  2
+Leaf selection - action scores:  [1.9333677e+00 1.1177773e-02 5.0469893e-03 8.7927957e-04 2.6973692e-04
+ 1.3692773e-04 1.3489540e-04 1.2463417e-04 9.3013979e-05 5.0117978e-05]  taking action:  0
+Adding child.
+Leaf selection - depth:  3
+Getting LLM token estimates (probs/ids).
+Len original:  50295  Len new:  50278
+Expansion: next action:  0  corresponding to state:  50286
+Getting rollout return of leaf.
+Incrementing:  0
+66
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+ 
+  wire [63:0] sum;
+  wire cout;
+  wire [63:0] in1;
+  wire [63:0] in2;
+  wire cin;
+ 
+  cout = 0;
+  adder_32 a1(sum[31:0], cout, in1[31:0], in2[31:0], cin);
+  adder_32 a2(sum[63:32], cout, in1[63:32], in2[63:32], cout);
+ 
+endmodule
+Verilog compilation failed, error:  2
+Compilation output:  b'output_files/3863513_adder_64/3863513_adder_64.v:12: syntax error\noutput_files/3863513_adder_64/3863513_adder_64.v:12: error: Invalid module instantiation\n'
+Tokens:  120
+LLM generates return in:  15.01453  seconds
+Running getPromptScore: 
+Backpropogation: incorporating estimates.
+Current runs:  82.0
+Selection: finding leaf node.
+Leaf selection - depth:  0
+Leaf selection - action scores:  [-0.5523251  -0.56390251 -0.64748323 -0.66318132 -0.66318153 -0.66437592
+ -0.59060571 -0.66535674 -0.66550111 -0.66551412]  taking action:  0
+Leaf selection - depth:  1
+Leaf selection - action scores:  [-0.37351865 -0.37729442 -0.4389256  -0.5669044  -0.56730205 -0.5784987
+ -0.39399293 -0.40107024 -0.40648547 -0.4374826 ]  taking action:  0
+Leaf selection - depth:  2
+Leaf selection - action scores:  [-0.18180963  0.15274921 -0.35236412 -0.40274715  0.09005108  0.0848081
+  0.04393161  0.02082057  0.01109859  0.01099237]  taking action:  1
+Leaf selection - depth:  3
+Leaf selection - action scores:  [1.9515443e+00 1.9949248e-05 1.8823695e-05 1.1143739e-05 5.7766447e-06
+ 3.9314182e-06 2.3768200e-06 2.0843991e-06 1.4638190e-06 7.3980686e-07]  taking action:  0
+Adding child.
+Leaf selection - depth:  4
+Getting LLM token estimates (probs/ids).
+Len original:  50295  Len new:  50278
+Expansion: next action:  0  corresponding to state:  1391
+Getting rollout return of leaf.
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+  assign {cout, sum} = in1 + in2 + cin;
+endmodule
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+All testbench tests passed!
+Tokens:  18
+LLM generates return in:  1.986461  seconds
+Running getPromptScore: 
+adder_64
+output_files/3863513_adder_64/synth_script.sh
+Running bash in x seconds:  1.022387
+
+Currently displaying area/delay scores for  adder_64  module.
+Area of the chip design is:  612.598
+Delay value for the chip design is:  2389.48
+Product:  1463790.6690399998
+Score (1/chip area):  0.0006831577910356756
+Backpropogation: incorporating estimates.
+Current runs:  83.0
+Selection: finding leaf node.
+Leaf selection - depth:  0
+Leaf selection - action scores:  [-0.54006245 -0.56222173 -0.64736801 -0.66316039 -0.6631606  -0.66436216
+ -0.58900487 -0.66534887 -0.66549411 -0.6655072 ]  taking action:  0
+Leaf selection - depth:  1
+Leaf selection - action scores:  [-0.32367343 -0.37643683 -0.43601164 -0.5658487  -0.56625056 -0.5775657
+ -0.39287114 -0.40002334 -0.40549588 -0.436821  ]  taking action:  0
+Leaf selection - depth:  2
+Leaf selection - action scores:  [-0.14833272  0.10886405 -0.3421706  -0.39603233  0.09626866  0.09066366
+  0.04696487  0.02225813  0.01186489  0.01175133]  taking action:  1
+Leaf selection - depth:  3
+Leaf selection - action scores:  [1.1950723e+00 2.4432740e-05 2.3054225e-05 1.3648238e-05 7.0749161e-06
+ 4.8149841e-06 2.9109981e-06 2.5528570e-06 1.7928049e-06 9.0607466e-07]  taking action:  0
+Leaf selection - depth:  4
+Leaf selection - action scores:  [0.78338146 0.39610136 0.238388   0.21523337 0.10541987 0.03143667
+ 0.02034463 0.01123096 0.00945183 0.00904646]  taking action:  0
+Adding child.
+Leaf selection - depth:  5
+Getting LLM token estimates (probs/ids).
+Len original:  50295  Len new:  50278
+Expansion: next action:  0  corresponding to state:  66
+Getting rollout return of leaf.
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+  assign {cout, sum} = in1 + in2 + cin;
+endmodule
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+All testbench tests passed!
+Tokens:  17
+LLM generates return in:  1.888252  seconds
+Running getPromptScore: 
+adder_64
+output_files/3863513_adder_64/synth_script.sh
+Running bash in x seconds:  1.0118
+
+Currently displaying area/delay scores for  adder_64  module.
+Area of the chip design is:  612.598
+Delay value for the chip design is:  2389.48
+Product:  1463790.6690399998
+Score (1/chip area):  0.0006831577910356756
+Backpropogation: incorporating estimates.
+Current runs:  84.0
+Selection: finding leaf node.
+Leaf selection - depth:  0
+Leaf selection - action scores:  [-0.52830476 -0.56055092 -0.64725348 -0.66313958 -0.66313979 -0.66434848
+ -0.58741353 -0.66534105 -0.66548715 -0.66550032]  taking action:  0
+Leaf selection - depth:  1
+Leaf selection - action scores:  [-0.28493398 -0.37558815 -0.43312788 -0.5648039  -0.5652099  -0.5766424
+ -0.39176095 -0.39898726 -0.40451652 -0.4361663 ]  taking action:  0
+Leaf selection - depth:  2
+Leaf selection - action scores:  [-0.11689049  0.08660098 -0.33259666 -0.38972563  0.10210833  0.09616333
+  0.04981377  0.02360831  0.01258461  0.01246417]  taking action:  4
+Adding child.
+Leaf selection - depth:  3
+Getting LLM token estimates (probs/ids).
+Len original:  50295  Len new:  50278
+Expansion: next action:  0  corresponding to state:  62
+Getting rollout return of leaf.
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+  adder_32 a0(sum[31:0], c0, in1[31:0], in2[31:0], cin);
+  adder_32 a1(sum[63:32], cout, in1[63:32], in2[63:32], c0);
+endmodule
+Verilog compilation failed, error:  3
+Compilation output:  b'output_files/3863513_adder_64/3863513_adder_64.v:5: error: Unknown module type: adder_32\noutput_files/3863513_adder_64/3863513_adder_64.v:6: error: Unknown module type: adder_32\n3 error(s) during elaboration.\n*** These modules were missing:\n        adder_32 referenced 2 times.\n***\n'
+Incrementing:  0
+5235
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+  adder_32 a0(sum[31:0], c0, in1[31:0], in2[31:0], cin);
+  adder_32 a1(sum[63:32], cout, in1[63:32], in2[63:32], c0);
+endmodule
+
+genvar i;
+generate
+  for (i=0; i<64; i=i+1)
+    begin : adder_loop
+      adder_64 a(sum[i], cout, in1[i], in2[i], cin);
+    end
+endgenerate
+
+endmodule
+Verilog compilation failed, error:  2
+Compilation output:  b'output_files/3863513_adder_64/3863513_adder_64.v:9: syntax error\nI give up.\n'
+Tokens:  138
+LLM generates return in:  18.133121  seconds
+Running getPromptScore: 
+Backpropogation: incorporating estimates.
+Current runs:  85.0
+Selection: finding leaf node.
+Leaf selection - depth:  0
+Leaf selection - action scores:  [-0.53702163 -0.55888991 -0.64713962 -0.66311889 -0.6631191  -0.66433488
+ -0.58583153 -0.66533327 -0.66548023 -0.66549348]  taking action:  0
+Leaf selection - depth:  1
+Leaf selection - action scores:  [-0.35396782 -0.37474808 -0.4302734  -0.56376976 -0.5641799  -0.5757284
+ -0.39066207 -0.39796174 -0.40354714 -0.43551823]  taking action:  0
+Leaf selection - depth:  2
+Leaf selection - action scores:  [-0.08715165  0.09128542 -0.32354137 -0.38376063 -0.4461842   0.10136506
+  0.05250832  0.02488534  0.01326535  0.01313839]  taking action:  5
+Adding child.
+Leaf selection - depth:  3
+Getting LLM token estimates (probs/ids).
+Len original:  50295  Len new:  50278
+Expansion: next action:  0  corresponding to state:  7785
+Getting rollout return of leaf.
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+  genvar i;
+  generate
+    for(i=0;i<64;i=i+1) begin
+      wire c;
+      if(i<=63)
+        assign c = in1[i] ^ in2[i];
+      else
+        assign c = cin;
+      full_adder FA(sum[i], c, in1[i], in2[i], c);
+    end
+  endgenerate
+  assign cout = c[63];
+endmodule
+Verilog compilation failed, error:  64
+Compilation output:  b'output_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\noutput_files/3863513_adder_64/3863513_adder_64.v:13: error: Unknown module type: full_adder\n64 error(s) during elaboration.\n*** These modules were missing:\n        full_adder referenced 64 times.\n***\n'
+Incrementing:  0
+31673
+Incrementing:  0
+5589
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+  genvar i;
+  generate
+    for(i=0;i<64;i=i+1) begin
+      wire c;
+      if(i<=63)
+        assign c = in1[i] ^ in2[i];
+      else
+        assign c = cin;
+      full_adder FA(sum[i], c, in1[i], in2[i], c);
+    end
+  endgenerate
+  assign cout = c[63];
+endmodule
+
+memory_64x32 mem(.clka(clk),.addra(addra),.douta(douta));
+
+compare_64_bit comp(.a(a),.b(b),.a_eq_b(a_eq_b),.a_gt_b(a_gt_b));
+
+adder_64 adder(.sum(sum),.cout(cout),.in1(a),.in2(b),.cin(a_eq_b));
+
+initial begin
+  clk = 0;
+  addra = 0;
+  #10
+  addra = 1;
+  #10
+  addra = 2;
+  #10
+  addra = 3;
+  #10
+  addra = 4;
+  #10
+  addra = 5;
+  #10
+  addra = 6;
+  #10
+  addra = 7;
+  #10
+  addra = 8;
+  #10
+  addra = 9;
+  #10
+  addra = 10;
+  #10
+  addra = 11;
+  #10
+  addra = 12;
+  #10
+  addra = 13;
+  #10
+  addra = 14;
+  #10
+  addra = 15;
+  #10
+  addra = 16;
+  #10
+  addra = 17;
+  #10
+  addra = 18;
+  #10
+  addra = 19;
+  #10
+  addra = 20;
+  #10
+  addra = 21;
+  #10
+  addra = 22;
+  #10
+  addra = 23;
+  #10
+  addra = 24;
+  #10
+  addra = 25;
+  #10
+  addra = 26;
+  #10
+  addra = 27;
+  #10
+  addra = 28;
+  #10
+  addra = 29;
+  #10
+  addra = 30;
+  #10
+  addra = 31;
+  #10
+  addra = 32;
+  #10
+  addra = 33;
+  #10
+  addra = 34;
+  #10
+  addra = 35;
+  #10
+  addra = 36;
+  #10
+  addra = 37;
+  #10
+  addra = 38;
+  #10
+  addra = 39;
+  #10
+  addra = 40;
+  #10
+  addra = 41;
+  #10
+  addra = 42;
+  #10
+  addra = 43;
+  #10
+  addra = 44;
+  #10
+  addra = 45;
+  #10
+  addra = 46;
+  #10
+  addra = 47;
+  #10
+  addra = 48;
+  #10
+  addra = 49;
+  #10
+  addra = 50;
+  #10
+  addra = 51;
+  #10
+  addra = 52;
+  #10
+  addra = 53;
+  #10
+  addra = 54;
+  #10
+  addra = 55;
+  #10
+  addra = 56;
+  #10
+  addra = 57;
+  #10
+  addra = 58;
+  #10
+  addra = 59;
+  #10
+  addra = 60;
+  #10
+  addra = 61;
+  #10
+  addra = 62;
+  #10
+  addra = 63;
+  #10
+  addra = 64;
+  #10
+  addra = 65;
+  #10
+  addra = 66;
+  #10
+  addra = 67;
+  #10
+  addra
+Verilog compilation failed, error:  2
+Compilation output:  b'output_files/3863513_adder_64/3863513_adder_64.v:19: syntax error\nI give up.\n'
+Tokens:  996
+LLM generates return in:  361.034366  seconds
+Running getPromptScore: 
+Backpropogation: incorporating estimates.
+Current runs:  86.0
+Selection: finding leaf node.
+Leaf selection - depth:  0
+Leaf selection - action scores:  [-0.54540068 -0.55723854 -0.64702642 -0.66309832 -0.66309854 -0.66432137
+ -0.5842587  -0.66532554 -0.66547336 -0.66548667]  taking action:  0
+Leaf selection - depth:  1
+Leaf selection - action scores:  [-0.41047245 -0.37391636 -0.42744735 -0.56274587 -0.5631601  -0.5748235
+ -0.3895741  -0.3969464  -0.40258738 -0.4348766 ]  taking action:  1
+Leaf selection - depth:  2
+Leaf selection - action scores:  [-0.09937245 -0.1062497  -0.3789062  -0.15346259  0.02354603 -0.18997711
+ -0.48168957 -0.48258418 -0.4865442  -0.4881643 ]  taking action:  4
+Leaf selection - depth:  3
+Leaf selection - action scores:  [0.5503902  0.17529713 0.16808331 0.04270516 0.04060787 0.02875621
+ 0.02860021 0.02717893 0.0195602  0.00790283]  taking action:  0
+Leaf selection - depth:  4
+Leaf selection - action scores:  [0.6781284  0.21603175 0.05176936 0.01369002 0.01360889 0.00900083
+ 0.00861931 0.00755539 0.00649757 0.00523243]  taking action:  0
+Leaf selection - depth:  5
+Leaf selection - action scores:  [9.1975528e-01 4.0054283e-04 2.1246473e-04 7.1069378e-05 2.5646023e-05
+ 4.3087484e-06 1.8114221e-06 1.5383547e-06 1.5088995e-06 1.4584253e-06]  taking action:  0
+Leaf selection - depth:  6
+Leaf selection - action scores:  [1.1929903e+00 2.6113517e-03 1.3943049e-03 5.5516415e-05 1.2521553e-05
+ 1.1962379e-05 1.1770003e-05 8.3746299e-06 7.8897165e-06 6.7290498e-06]  taking action:  0
+Leaf selection - depth:  7
+Leaf selection - action scores:  [1.95021009e+00 1.08983507e-03 1.90614912e-04 2.74083523e-05
+ 2.60969264e-05 1.09198145e-05 1.07451051e-05 1.06840835e-05
+ 8.07197102e-06 6.74317425e-06]  taking action:  0
+Adding child.
+Leaf selection - depth:  8
+Getting LLM token estimates (probs/ids).
+Len original:  50295  Len new:  50278
+Expansion: next action:  0  corresponding to state:  2160
+Getting rollout return of leaf.
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+reg [63:0] sum;
+reg cout;
+
+always @(in1 or in2 or cin)
+begin
+    {cout, sum} = in1 + in2 + cin;
+end
+
+endmodule
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+All testbench tests passed!
+Tokens:  45
+LLM generates return in:  5.125343  seconds
+Running getPromptScore: 
+adder_64
+output_files/3863513_adder_64/synth_script.sh
+Running bash in x seconds:  1.016536
+
+Currently displaying area/delay scores for  adder_64  module.
+Area of the chip design is:  612.598
+Delay value for the chip design is:  2389.48
+Product:  1463790.6690399998
+Score (1/chip area):  0.0006831577910356756
+Backpropogation: incorporating estimates.
+Current runs:  87.0
+Selection: finding leaf node.
+Leaf selection - depth:  0
+Leaf selection - action scores:  [-0.5342306  -0.55559663 -0.64691386 -0.66307787 -0.66307809 -0.66430793
+ -0.58269488 -0.66531786 -0.66546652 -0.66547991]  taking action:  0
+Leaf selection - depth:  1
+Leaf selection - action scores:  [-0.40826857 -0.358169   -0.42464888 -0.561732   -0.56215024 -0.57392746
+ -0.38849676 -0.395941   -0.401637   -0.43424124]  taking action:  1
+Leaf selection - depth:  2
+Leaf selection - action scores:  [-0.08939281 -0.10500388 -0.37640914 -0.15147191  0.02059857 -0.18873939
+ -0.481312   -0.48222503 -0.48626673 -0.48792025]  taking action:  4
+Leaf selection - depth:  3
+Leaf selection - action scores:  [0.4954079  0.18934254 0.18155073 0.04612684 0.04386151 0.03106026
+ 0.03089176 0.0293566  0.02112743 0.00853603]  taking action:  0
+Leaf selection - depth:  4
+Leaf selection - action scores:  [0.59428203 0.23665093 0.0567105  0.01499666 0.0149078  0.00985992
+ 0.00944198 0.00827651 0.00711773 0.00573184]  taking action:  0
+Leaf selection - depth:  5
+Leaf selection - action scores:  [7.7123839e-01 4.4782049e-04 2.3754277e-04 7.9457976e-05 2.8673125e-05
+ 4.8173270e-06 2.0252314e-06 1.7199328e-06 1.6870009e-06 1.6305692e-06]  taking action:  0
+Leaf selection - depth:  6
+Leaf selection - action scores:  [9.1836452e-01 3.0153291e-03 1.6100046e-03 6.4104832e-05 1.4458644e-05
+ 1.3812964e-05 1.3590828e-05 9.6701888e-06 9.1102602e-06 7.7700370e-06]  taking action:  0
+Leaf selection - depth:  7
+Leaf selection - action scores:  [1.1942552e+00 1.3347699e-03 2.3345464e-04 3.3568238e-05 3.1962078e-05
+ 1.3373987e-05 1.3160013e-05 1.3085276e-05 9.8861046e-06 8.2586685e-06]  taking action:  0
+Leaf selection - depth:  8
+Leaf selection - action scores:  [0.8597435  0.3975002  0.18336827 0.07438426 0.04815478 0.04534391
+ 0.0352365  0.02790884 0.0197151  0.0171457 ]  taking action:  0
+Adding child.
+Leaf selection - depth:  9
+Getting LLM token estimates (probs/ids).
+Len original:  50295  Len new:  50278
+Expansion: next action:  0  corresponding to state:  26
+Getting rollout return of leaf.
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+reg [63:0] sum;
+reg cout;
+
+always @(in1 or in2 or cin)
+begin
+    {cout, sum} = in1 + in2 + cin;
+end
+
+endmodule
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+All testbench tests passed!
+Tokens:  44
+LLM generates return in:  4.998842  seconds
+Running getPromptScore: 
+adder_64
+output_files/3863513_adder_64/synth_script.sh
+Running bash in x seconds:  1.018166
+
+Currently displaying area/delay scores for  adder_64  module.
+Area of the chip design is:  612.598
+Delay value for the chip design is:  2389.48
+Product:  1463790.6690399998
+Score (1/chip area):  0.0006831577910356756
+Backpropogation: incorporating estimates.
+Current runs:  88.0
+Selection: finding leaf node.
+Leaf selection - depth:  0
+Leaf selection - action scores:  [-0.52348584 -0.55396402 -0.64680195 -0.66305754 -0.66305776 -0.66429456
+ -0.58113992 -0.66531021 -0.66545972 -0.66547319]  taking action:  0
+Leaf selection - depth:  1
+Leaf selection - action scores:  [-0.4060858  -0.34364027 -0.42187715 -0.56072783 -0.5611501  -0.57304
+ -0.3874297  -0.39494517 -0.40069568 -0.43361196]  taking action:  1
+Leaf selection - depth:  2
+Leaf selection - action scores:  [-0.07961082 -0.10378272 -0.37396157 -0.14952067  0.01838076 -0.18752618
+ -0.48094192 -0.48187304 -0.48599476 -0.48768103]  taking action:  4
+Leaf selection - depth:  3
+Leaf selection - action scores:  [0.45395434 0.20241569 0.1940859  0.04931167 0.04688993 0.03320481
+ 0.03302468 0.03138353 0.02258617 0.0091254 ]  taking action:  0
+Leaf selection - depth:  4
+Leaf selection - action scores:  [0.53491515 0.25561222 0.06125434 0.01619825 0.01610226 0.01064993
+ 0.01019851 0.00893965 0.00768802 0.00619109]  taking action:  0
+Leaf selection - depth:  5
+Leaf selection - action scores:  [6.7587954e-01 4.9056276e-04 2.6021508e-04 8.7041852e-05 3.1409832e-05
+ 5.2771175e-06 2.2185297e-06 1.8840921e-06 1.8480168e-06 1.7861989e-06]  taking action:  0
+Leaf selection - depth:  6
+Leaf selection - action scores:  [7.7007222e-01 3.3712403e-03 1.8000398e-03 7.1671377e-05 1.6165255e-05
+ 1.5443364e-05 1.5195007e-05 1.0811600e-05 1.0185580e-05 8.6871651e-06]  taking action:  0
+Leaf selection - depth:  7
+Leaf selection - action scores:  [9.1933829e-01 1.5412595e-03 2.6957018e-04 3.8761264e-05 3.6906626e-05
+ 1.5442949e-05 1.5195873e-05 1.5109575e-05 1.1415490e-05 9.5362884e-06]  taking action:  0
+Leaf selection - depth:  8
+Leaf selection - action scores:  [0.52648354 0.48683634 0.22457935 0.09110174 0.05897732 0.05553472
+ 0.04315573 0.03418121 0.02414596 0.02099911]  taking action:  0
+Leaf selection - depth:  9
+Leaf selection - action scores:  [1.4345723  0.2841571  0.14841749 0.03672904 0.00761901 0.00645695
+ 0.00196131 0.00179485 0.00174078 0.00154245]  taking action:  0
+Adding child.
+Leaf selection - depth:  10
+Getting LLM token estimates (probs/ids).
+Len original:  50295  Len new:  50278
+Expansion: next action:  0  corresponding to state:  198
+Getting rollout return of leaf.
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+reg [63:0] sum;
+reg cout;
+
+always @(in1 or in2 or cin)
+begin
+    {cout, sum} = in1 + in2 + cin;
+end
+
+endmodule
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+All testbench tests passed!
+Tokens:  43
+LLM generates return in:  4.880008  seconds
+Running getPromptScore: 
+adder_64
+output_files/3863513_adder_64/synth_script.sh
+Running bash in x seconds:  1.011039
+
+Currently displaying area/delay scores for  adder_64  module.
+Area of the chip design is:  612.598
+Delay value for the chip design is:  2389.48
+Product:  1463790.6690399998
+Score (1/chip area):  0.0006831577910356756
+Backpropogation: incorporating estimates.
+Current runs:  89.0
+Selection: finding leaf node.
+Leaf selection - depth:  0
+Leaf selection - action scores:  [-0.5131427  -0.55234055 -0.64669066 -0.66303732 -0.66303754 -0.66428127
+ -0.57959367 -0.66530262 -0.66545296 -0.6654665 ]  taking action:  0
+Leaf selection - depth:  1
+Leaf selection - action scores:  [-0.4039235  -0.33019453 -0.4191315  -0.55973303 -0.5601593  -0.57216084
+ -0.3863727  -0.39395872 -0.39976323 -0.43298858]  taking action:  1
+Leaf selection - depth:  2
+Leaf selection - action scores:  [-0.07001525 -0.10258483 -0.3715606  -0.14760661  0.01664976 -0.1863361
+ -0.48057887 -0.48152772 -0.48572797 -0.48744637]  taking action:  4
+Leaf selection - depth:  3
+Leaf selection - action scores:  [0.4213049  0.21469426 0.20585917 0.05230292 0.04973428 0.03521902
+ 0.03502796 0.03328726 0.02395625 0.00967894]  taking action:  0
+Leaf selection - depth:  4
+Leaf selection - action scores:  [0.49015576 0.27326095 0.06548364 0.01731666 0.01721404 0.01138526
+ 0.01090266 0.00955689 0.00821884 0.00661855]  taking action:  0
+Leaf selection - depth:  5
+Leaf selection - action scores:  [6.0836124e-01 5.2986835e-04 2.8106442e-04 9.4015952e-05 3.3926499e-05
+ 5.6999384e-06 2.3962862e-06 2.0350521e-06 1.9960864e-06 1.9293154e-06]  taking action:  0
+Leaf selection - depth:  6
+Leaf selection - action scores:  [6.7485756e-01 3.6930088e-03 1.9718448e-03 7.8512065e-05 1.7708149e-05
+ 1.6917358e-05 1.6645296e-05 1.1843515e-05 1.1157744e-05 9.5163123e-06]  taking action:  0
+Leaf selection - depth:  7
+Leaf selection - action scores:  [7.70888746e-01 1.72318041e-03 3.01388616e-04 4.33364075e-05
+ 4.12628615e-05 1.72657419e-05 1.69895029e-05 1.68930183e-05
+ 1.27629055e-05 1.06618945e-05]  taking action:  0
+Leaf selection - depth:  8
+Leaf selection - action scores:  [0.40528738 0.5621502  0.2593219  0.10519522 0.06810115 0.06412598
+ 0.04983194 0.03946906 0.02788136 0.02424769]  taking action:  1
+Adding child.
+Leaf selection - depth:  9
+Getting LLM token estimates (probs/ids).
+Len original:  50295  Len new:  50278
+Expansion: next action:  0  corresponding to state:  26
+Getting rollout return of leaf.
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+reg [63:0] c;
+
+always @(in1 or in2 or cin)
+begin
+    {cout, sum} = in1 + in2 + cin;
+end
+
+endmodule
+Verilog compilation failed, error:  2
+Compilation output:  b'output_files/3863513_adder_64/3863513_adder_64.v:10: error: cout is not a valid l-value in tb_ripplecarry_64.uut.\noutput_files/3863513_adder_64/3863513_adder_64.v:2:      : cout is declared here as wire.\noutput_files/3863513_adder_64/3863513_adder_64.v:10: error: sum is not a valid l-value in tb_ripplecarry_64.uut.\noutput_files/3863513_adder_64/3863513_adder_64.v:1:      : sum is declared here as wire.\n2 error(s) during elaboration.\n'
+Tokens:  40
+LLM generates return in:  4.47392  seconds
+Running getPromptScore: 
+Backpropogation: incorporating estimates.
+Current runs:  90.0
+Selection: finding leaf node.
+Leaf selection - depth:  0
+Leaf selection - action scores:  [-0.52136103 -0.55072608 -0.64657999 -0.66301721 -0.66301743 -0.66426806
+ -0.57805599 -0.66529506 -0.66544623 -0.66545985]  taking action:  0
+Leaf selection - depth:  1
+Leaf selection - action scores:  [-0.40178117 -0.35342994 -0.4164111  -0.5587475  -0.55917764 -0.5712898
+ -0.3853254  -0.39298135 -0.39883938 -0.43237096]  taking action:  1
+Leaf selection - depth:  2
+Leaf selection - action scores:  [-0.06059581 -0.10140894 -0.36920372 -0.14572766 -0.08474025 -0.18516785
+ -0.4802225  -0.48118874 -0.48546606 -0.487216  ]  taking action:  0
+Leaf selection - depth:  3
+Leaf selection - action scores:  [ 0.20484743 -0.17295113  0.08730057  0.06331108  0.0169519   0.01312242
+  0.01288954  0.01226672  0.0087082   0.00685637]  taking action:  0
+Leaf selection - depth:  4
+Leaf selection - action scores:  [0.6837891  0.2723899  0.11563583 0.02248194 0.01200117 0.0107381
+ 0.0104459  0.00620493 0.00584039 0.00520026]  taking action:  0
+Leaf selection - depth:  5
+Leaf selection - action scores:  [1.9501668e+00 1.2510340e-03 8.7331871e-05 5.7796438e-05 1.1978308e-05
+ 1.1852405e-05 3.4109346e-06 2.9835940e-06 2.4140688e-06 2.3000962e-06]  taking action:  0
+Adding child.
+Leaf selection - depth:  6
+Getting LLM token estimates (probs/ids).
+Len original:  50295  Len new:  50278
+Expansion: next action:  0  corresponding to state:  15
+Getting rollout return of leaf.
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+wire [63:0] sum_temp;
+wire [63:0] in1_temp;
+wire [63:0] in2_temp;
+
+assign sum_temp = in1 + in2;
+assign in1_temp = in1;
+assign in2_temp = in2;
+
+assign cout = cin;
+
+assign sum = sum_temp[63:0];
+
+endmodule
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Test 1 passed\nTest 2 failed\n'
+Tokens:  92
+LLM generates return in:  11.208685  seconds
+Running getPromptScore: 
+Backpropogation: incorporating estimates.
+Current runs:  91.0
+Selection: finding leaf node.
+Leaf selection - depth:  0
+Leaf selection - action scores:  [-0.52036072 -0.54912046 -0.64646992 -0.66299722 -0.66299744 -0.66425491
+ -0.57652674 -0.66528754 -0.66543954 -0.66545324]  taking action:  0
+Leaf selection - depth:  1
+Leaf selection - action scores:  [-0.39965823 -0.35782748 -0.41371536 -0.5577708  -0.5582049  -0.57042664
+ -0.3842876  -0.39201286 -0.3979239  -0.4317589 ]  taking action:  1
+Leaf selection - depth:  2
+Leaf selection - action scores:  [-0.115437   -0.10025384 -0.36688858 -0.143882   -0.08447015 -0.1840203
+ -0.4798724  -0.4808558  -0.4852088  -0.48698974]  taking action:  4
+Leaf selection - depth:  3
+Leaf selection - action scores:  [0.28363943 0.22630762 0.21699461 0.05513212 0.05242454 0.03712411
+ 0.03692271 0.03508785 0.02525211 0.0102025 ]  taking action:  0
+Leaf selection - depth:  4
+Leaf selection - action scores:  [0.32990253 0.289837   0.06945589 0.01836709 0.01825825 0.01207589
+ 0.01156402 0.01013661 0.0087174  0.00702004]  taking action:  0
+Leaf selection - depth:  5
+Leaf selection - action scores:  [4.1459894e-01 5.6645309e-04 3.0047051e-04 1.0050728e-04 3.6268953e-05
+ 6.0934904e-06 2.5617378e-06 2.1755623e-06 2.1339063e-06 2.0625250e-06]  taking action:  0
+Leaf selection - depth:  6
+Leaf selection - action scores:  [4.4077456e-01 3.9889053e-03 2.1298360e-03 8.4802719e-05 1.9126988e-05
+ 1.8272834e-05 1.7978975e-05 1.2792458e-05 1.2051742e-05 1.0278793e-05]  taking action:  0
+Leaf selection - depth:  7
+Leaf selection - action scores:  [4.7557297e-01 1.8876496e-03 3.3015470e-04 4.7472658e-05 4.5201199e-05
+ 1.8913672e-05 1.8611068e-05 1.8505374e-05 1.3981063e-05 1.1679520e-05]  taking action:  0
+Leaf selection - depth:  8
+Leaf selection - action scores:  [ 0.453125   -0.18574852  0.28993067  0.11761183  0.07613939  0.07169501
+  0.0557138   0.04412775  0.0311723   0.02710973]  taking action:  0
+Leaf selection - depth:  9
+Leaf selection - action scores:  [0.87849295 0.34801996 0.18177356 0.04498371 0.00933134 0.00790811
+ 0.00240211 0.00219823 0.00213202 0.00188911]  taking action:  0
+Leaf selection - depth:  10
+Leaf selection - action scores:  [1.8762249e+00 8.2046827e-03 3.5235977e-03 3.0885683e-03 2.8803563e-03
+ 1.8568338e-03 1.5756100e-03 1.4882337e-03 1.4341933e-03 1.3705334e-03]  taking action:  0
+Adding child.
+Leaf selection - depth:  11
+Getting LLM token estimates (probs/ids).
+Len original:  50295  Len new:  50278
+Expansion: next action:  0  corresponding to state:  2301
+Getting rollout return of leaf.
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+reg [63:0] sum;
+reg cout;
+
+always @(in1 or in2 or cin)
+begin
+    {cout, sum} = in1 + in2 + cin;
+end
+
+endmodule
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+All testbench tests passed!
+Tokens:  42
+LLM generates return in:  4.784725  seconds
+Running getPromptScore: 
+adder_64
+output_files/3863513_adder_64/synth_script.sh
+Running bash in x seconds:  1.016296
+
+Currently displaying area/delay scores for  adder_64  module.
+Area of the chip design is:  612.598
+Delay value for the chip design is:  2389.48
+Product:  1463790.6690399998
+Score (1/chip area):  0.0006831577910356756
+Backpropogation: incorporating estimates.
+Current runs:  92.0
+Selection: finding leaf node.
+Leaf selection - depth:  0
+Leaf selection - action scores:  [-0.51062682 -0.54752354 -0.64636046 -0.66297733 -0.66297755 -0.66424184
+ -0.57500577 -0.66528007 -0.66543289 -0.66544666]  taking action:  0
+Leaf selection - depth:  1
+Leaf selection - action scores:  [-0.3975541  -0.34527084 -0.41104358 -0.5568028  -0.5572407  -0.56957114
+ -0.38325903 -0.39105296 -0.39701653 -0.4311523 ]  taking action:  1
+Leaf selection - depth:  2
+Leaf selection - action scores:  [-0.1076417  -0.09911851 -0.364613   -0.14206788 -0.07654965 -0.18289235
+ -0.47952834 -0.4805285  -0.48495594 -0.48676732]  taking action:  4
+Leaf selection - depth:  3
+Leaf selection - action scores:  [0.27261612 0.23735346 0.22758588 0.05782306 0.05498332 0.0389361
+ 0.03872487 0.03680045 0.02648464 0.01070048]  taking action:  0
+Leaf selection - depth:  4
+Leaf selection - action scores:  [0.3151195  0.30551502 0.07321294 0.01936061 0.01924588 0.0127291
+ 0.01218955 0.01068493 0.00918895 0.00739977]  taking action:  0
+Leaf selection - depth:  5
+Leaf selection - action scores:  [3.92362565e-01 6.00814237e-04 3.18697072e-04 1.06604064e-04
+ 3.84690320e-05 6.46312219e-06 2.71713316e-06 2.30753199e-06
+ 2.26334919e-06 2.18763807e-06]  taking action:  0
+Leaf selection - depth:  6
+Leaf selection - action scores:  [4.1375601e-01 4.2643193e-03 2.2768904e-03 9.0657923e-05 2.0447611e-05
+ 1.9534482e-05 1.9220333e-05 1.3675713e-05 1.2883854e-05 1.0988492e-05]  taking action:  0
+Leaf selection - depth:  7
+Leaf selection - action scores:  [4.4141865e-01 2.0388947e-03 3.5660784e-04 5.1276333e-05 4.8822876e-05
+ 2.0429103e-05 2.0102252e-05 1.9988089e-05 1.5101275e-05 1.2615324e-05]  taking action:  0
+Leaf selection - depth:  8
+Leaf selection - action scores:  [ 0.37228033 -0.15575475  0.31760314  0.12883732  0.08340652  0.07853796
+  0.06103141  0.04833953  0.03414755  0.02969723]  taking action:  0
+Leaf selection - depth:  9
+Leaf selection - action scores:  [0.67626435 0.4018588  0.20989403 0.05194271 0.0107749  0.0091315
+ 0.00277371 0.0025383  0.00246184 0.00218135]  taking action:  0
+Leaf selection - depth:  10
+Leaf selection - action scores:  [1.1489488  0.01004864 0.00431551 0.00378271 0.0035277  0.00227415
+ 0.00192972 0.00182271 0.00175652 0.00167855]  taking action:  0
+Leaf selection - depth:  11
+Leaf selection - action scores:  [1.4808242  0.19236743 0.15382922 0.02100134 0.01472705 0.01413442
+ 0.01080648 0.00842352 0.0026819  0.002553  ]  taking action:  0
+Adding child.
+Leaf selection - depth:  12
+Getting LLM token estimates (probs/ids).
+Len original:  50295  Len new:  50278
+Expansion: next action:  0  corresponding to state:  42304
+Getting rollout return of leaf.
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+reg [63:0] sum;
+reg cout;
+
+always @(in1 or in2 or cin)
+begin
+    {cout, sum} = in1 + in2 + cin;
+end
+
+endmodule
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+All testbench tests passed!
+Tokens:  41
+LLM generates return in:  4.662703  seconds
+Running getPromptScore: 
+adder_64
+output_files/3863513_adder_64/synth_script.sh
+Running bash in x seconds:  1.016979
+
+Currently displaying area/delay scores for  adder_64  module.
+Area of the chip design is:  612.598
+Delay value for the chip design is:  2389.48
+Product:  1463790.6690399998
+Score (1/chip area):  0.0006831577910356756
+Backpropogation: incorporating estimates.
+Current runs:  93.0
+Selection: finding leaf node.
+Leaf selection - depth:  0
+Leaf selection - action scores:  [-0.50123175 -0.54593519 -0.64625157 -0.66295754 -0.66295777 -0.66422884
+ -0.57349296 -0.66527263 -0.66542628 -0.66544012]  taking action:  0
+Leaf selection - depth:  1
+Leaf selection - action scores:  [-0.3954684  -0.33352962 -0.40839514 -0.5558433  -0.556285   -0.56872314
+ -0.38223943 -0.39010143 -0.3961171  -0.430551  ]  taking action:  1
+Leaf selection - depth:  2
+Leaf selection - action scores:  [-0.09997532 -0.09800195 -0.36237505 -0.14028376 -0.06995288 -0.18178307
+ -0.47918993 -0.48020664 -0.48470727 -0.48654857]  taking action:  4
+Leaf selection - depth:  3
+Leaf selection - action scores:  [0.26289535 0.2479076  0.23770571 0.06039421 0.0574282  0.04066743
+ 0.0404468  0.03843682 0.0276623  0.01117628]  taking action:  0
+Leaf selection - depth:  4
+Leaf selection - action scores:  [0.30233103 0.32042688 0.07678638 0.02030558 0.02018525 0.0133504
+ 0.01278451 0.01120645 0.00963745 0.00776094]  taking action:  1
+Adding child.
+Leaf selection - depth:  5
+Getting LLM token estimates (probs/ids).
+Len original:  50295  Len new:  50278
+Expansion: next action:  0  corresponding to state:  25
+Getting rollout return of leaf.
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+reg [64:0] sum_reg;
+reg cout_reg;
+
+always @(in1 or in2 or cin)
+begin
+    sum_reg = in1 + in2 + cin;
+    cout_reg = sum_reg[64];
+end
+
+assign sum = sum_reg[63:0];
+assign cout = cout_reg;
+
+endmodule
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+All testbench tests passed!
+Tokens:  85
+LLM generates return in:  10.19659  seconds
+Running getPromptScore: 
+adder_64
+output_files/3863513_adder_64/synth_script.sh
+Running bash in x seconds:  1.015919
+
+Currently displaying area/delay scores for  adder_64  module.
+Area of the chip design is:  612.598
+Delay value for the chip design is:  2389.48
+Product:  1463790.6690399998
+Score (1/chip area):  0.0006831577910356756
+Backpropogation: incorporating estimates.
+Current runs:  94.0
+Selection: finding leaf node.
+Leaf selection - depth:  0
+Leaf selection - action scores:  [-0.4921583  -0.54435526 -0.64614327 -0.66293787 -0.66293809 -0.66421591
+ -0.57198818 -0.66526524 -0.6654197  -0.66543361]  taking action:  0
+Leaf selection - depth:  1
+Leaf selection - action scores:  [-0.3934006  -0.3225272  -0.40576938 -0.554892   -0.55533755 -0.5678824
+ -0.3812286  -0.38915807 -0.39522535 -0.42995486]  taking action:  1
+Leaf selection - depth:  2
+Leaf selection - action scores:  [-0.09243155 -0.09690324 -0.3601729  -0.1385282  -0.06437422 -0.18069153
+ -0.47885695 -0.47988993 -0.48446256 -0.48633334]  taking action:  4
+Leaf selection - depth:  3
+Leaf selection - action scores:  [0.2542304  0.25803038 0.24741194 0.06286029 0.05977317 0.042328
+ 0.04209837 0.04000631 0.02879184 0.01163264]  taking action:  1
+Adding child.
+Leaf selection - depth:  4
+Getting LLM token estimates (probs/ids).
+Len original:  50295  Len new:  50278
+Expansion: next action:  0  corresponding to state:  16
+Getting rollout return of leaf.
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+reg c1, c2;
+
+always @(in1 or in2 or cin)
+begin
+    {c1, sum} = in1 + in2 + cin;
+    c2 = c1;
+end
+
+assign cout = c2;
+
+endmodule
+Verilog compilation failed, error:  1
+Compilation output:  b'output_files/3863513_adder_64/3863513_adder_64.v:10: error: sum is not a valid l-value in tb_ripplecarry_64.uut.\noutput_files/3863513_adder_64/3863513_adder_64.v:1:      : sum is declared here as wire.\n1 error(s) during elaboration.\n'
+Tokens:  61
+LLM generates return in:  6.92247  seconds
+Running getPromptScore: 
+Backpropogation: incorporating estimates.
+Current runs:  95.0
+Selection: finding leaf node.
+Leaf selection - depth:  0
+Leaf selection - action scores:  [-0.5000569  -0.54278362 -0.64603554 -0.66291829 -0.66291852 -0.66420304
+ -0.57049129 -0.66525788 -0.66541315 -0.66542714]  taking action:  0
+Leaf selection - depth:  1
+Leaf selection - action scores:  [-0.39135027 -0.3424994  -0.40316585 -0.55394876 -0.55439806 -0.5670488
+ -0.38022628 -0.3882227  -0.39434117 -0.42936376]  taking action:  1
+Leaf selection - depth:  2
+Leaf selection - action scores:  [-0.08500481 -0.09582158 -0.35800493 -0.13679984 -0.13102397 -0.17961691
+ -0.47852913 -0.47957814 -0.48422167 -0.48612145]  taking action:  0
+Leaf selection - depth:  3
+Leaf selection - action scores:  [ 0.0609763  -0.13339293  0.0942954   0.06838378  0.01831014  0.01417383
+  0.01392229  0.01324957  0.00940593  0.00740573]  taking action:  2
+Adding child.
+Leaf selection - depth:  4
+Getting LLM token estimates (probs/ids).
+Len original:  50295  Len new:  50278
+Expansion: next action:  0  corresponding to state:  15
+Getting rollout return of leaf.
+Incrementing:  0
+37
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+wire cout0, cout1, cout2, cout3, cout4, cout5, cout6, cout7, cout8, cout9, cout10, cout11, cout12, cout13, cout14, cout15, cout16, cout17, cout18, cout19, cout20, cout21, cout22, cout23, cout24, cout25, cout26, cout27, cout28, cout29, cout30, cout31, cout32, cout33, cout34, cout35, cout36, cout37, cout38, cout39, cout40, cout41, cout42, cout43, cout44, cout45, cout46, cout47, cout48, cout49, cout50, cout51, cout52, cout53, cout54, cout55, cout56, cout57, cout58, cout59, cout60, cout61, cout62, cout63;
+
+FADDER fadder0(sum[0], cout0, in1[0], in2[0], cin);
+FADDER fadder1(sum[1], cout1, in1[1], in2[1], cout0);
+FADDER fadder2(sum[2], cout2, in1[2], in2[2], cout1);
+FADDER fadder3(sum[3], cout3, in1[3], in2[3], cout2);
+FADDER fadder4(sum[4], cout4, in1[4], in2[4], cout3);
+FADDER fadder5(sum[5], cout5, in1[5], in2[5], cout4);
+FADDER fadder6(sum[6], cout6, in1[6], in2[6], cout5);
+FADDER fadder7(sum[7], cout7, in1[7], in2[7], cout6);
+FADDER fadder8(sum[8], cout8, in1[8], in2[8], cout7);
+FADDER fadder9(sum[9], cout9, in1[9], in2[9], cout8);
+FADDER fadder10(sum[10], cout10, in1[10], in2[10], cout9);
+FADDER fadder11(sum[11], cout11, in1[11], in2[11], cout10);
+FADDER fadder12(sum[12], cout12, in1[12], in2[12], cout11);
+FADDER fadder13(sum[13], cout13, in1[13], in2[13], cout12);
+FADDER fadder14(sum[14], cout14, in1[14], in2[14], cout13);
+FADDER fadder15(sum[15], cout15, in1[15], in2[15], cout14);
+FADDER fadder16(sum[16], cout16, in1[16], in2[16], cout15);
+FADDER fadder17(sum[17], cout17, in1[17], in2[17], cout16);
+FADDER fadder18(sum[18], cout18, in1[18], in2[18], cout17);
+FADDER fadder19(sum[19], cout19, in1[19], in2[19], cout18);
+FADDER fadder20(sum[20], cout20, in1[20], in2[20], cout19);
+FADDER fadder21(sum[21], cout21, in1[21], in2[21], cout20);
+FADDER fadder22(sum[22], cout22, in1[22], in2[22], cout21);
+FADDER fadder23(sum[23], cout23, in1[23], in2[23], cout22);
+FADDER fadder24(sum[24], cout24, in1[24], in2[24], cout23);
+FADDER fadder25(sum[25], cout25, in1[25], in2[25], cout24);
+FADDER fadder26(sum[26], cout26, in1[26], in2[26], cout25);
+FADDER fadder27(sum[27], cout27, in1[27], in2[27], cout26);
+FADDER fadder28(sum[28], cout28, in1[28],
+Verilog compilation failed, error:  2
+Compilation output:  b'output_files/3863513_adder_64/3863513_adder_64.v:36: syntax error\nI give up.\n'
+Tokens:  995
+LLM generates return in:  360.624614  seconds
+Running getPromptScore: 
+Backpropogation: incorporating estimates.
+Current runs:  96.0
+Selection: finding leaf node.
+Leaf selection - depth:  0
+Leaf selection - action scores:  [-0.5076994  -0.54122015 -0.64592836 -0.66289882 -0.66289905 -0.66419024
+ -0.56900218 -0.66525056 -0.66540664 -0.6654207 ]  taking action:  0
+Leaf selection - depth:  1
+Leaf selection - action scores:  [-0.38931692 -0.3613013  -0.4005839  -0.5530133  -0.5534663  -0.5662221
+ -0.3792323  -0.38729507 -0.39346433 -0.42877755]  taking action:  1
+Leaf selection - depth:  2
+Leaf selection - action scores:  [-0.1929785  -0.09475619 -0.35586953 -0.13509747 -0.13084602 -0.17855845
+ -0.47820625 -0.47927102 -0.48398438 -0.4859127 ]  taking action:  1
+Leaf selection - depth:  3
+Leaf selection - action scores:  [4.7604379e-01 4.3566877e-05 7.1649529e-06 6.7910591e-06 5.8377227e-06
+ 5.7649595e-06 4.5258744e-06 8.6626466e-07 6.6070339e-07 5.9886520e-07]  taking action:  0
+Leaf selection - depth:  4
+Leaf selection - action scores:  [ 0.4799995  -0.25626135  0.39522615  0.35721242  0.11243962  0.05749977
+  0.04843112  0.01726081  0.01670431  0.01352214]  taking action:  0
+Leaf selection - depth:  5
+Leaf selection - action scores:  [1.1663200e+00 2.1619746e-02 1.9128479e-02 2.8639636e-03 2.3035516e-03
+ 1.1807251e-03 9.5416530e-04 9.2964398e-04 6.7322672e-04 3.9939585e-04]  taking action:  0
+Leaf selection - depth:  6
+Leaf selection - action scores:  [1.94836903e+00 1.94251805e-03 4.32897388e-04 1.44921723e-04
+ 1.19670905e-04 9.31809482e-05 9.04481931e-05 9.00471205e-05
+ 8.10268393e-05 3.77298820e-05]  taking action:  0
+Adding child.
+Leaf selection - depth:  7
+Getting LLM token estimates (probs/ids).
+Len original:  50295  Len new:  50278
+Expansion: next action:  0  corresponding to state:  11
+Getting rollout return of leaf.
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+assign {cout, sum} = in1 + in2 + cin;
+
+endmodule
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+All testbench tests passed!
+Tokens:  16
+LLM generates return in:  1.784142  seconds
+Running getPromptScore: 
+adder_64
+output_files/3863513_adder_64/synth_script.sh
+Running bash in x seconds:  1.010704
+
+Currently displaying area/delay scores for  adder_64  module.
+Area of the chip design is:  612.598
+Delay value for the chip design is:  2389.48
+Product:  1463790.6690399998
+Score (1/chip area):  0.0006831577910356756
+Backpropogation: incorporating estimates.
+Current runs:  97.0
+Selection: finding leaf node.
+Leaf selection - depth:  0
+Leaf selection - action scores:  [-0.4989692  -0.53966471 -0.64582174 -0.66287945 -0.66287968 -0.66417751
+ -0.56752073 -0.66524328 -0.66540016 -0.6654143 ]  taking action:  0
+Leaf selection - depth:  1
+Leaf selection - action scores:  [-0.3873002  -0.35046157 -0.39802304 -0.5520855  -0.5525422  -0.5654021
+ -0.37824643 -0.386375   -0.39259464 -0.42819613]  taking action:  1
+Leaf selection - depth:  2
+Leaf selection - action scores:  [-0.18667129 -0.08031964 -0.3537653  -0.13341999 -0.13067068 -0.17751546
+ -0.47788808 -0.47896838 -0.48375058 -0.48570704]  taking action:  1
+Leaf selection - depth:  3
+Leaf selection - action scores:  [4.4184244e-01 4.7057605e-05 7.7390341e-06 7.3351825e-06 6.3054617e-06
+ 6.2268682e-06 4.8885036e-06 9.3567280e-07 7.1364127e-07 6.4684838e-07]  taking action:  0
+Leaf selection - depth:  4
+Leaf selection - action scores:  [ 0.39435998 -0.23299769  0.43294856  0.3913066   0.12317143  0.06298785
+  0.05305364  0.01890827  0.01829865  0.01481277]  taking action:  2
+Adding child.
+Leaf selection - depth:  5
+Getting LLM token estimates (probs/ids).
+Len original:  50295  Len new:  50278
+Expansion: next action:  0  corresponding to state:  796
+Getting rollout return of leaf.
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+assign sum = in1 + in2 + cin;
+assign cout = (in1[63] == in2[63] && in1[63] == cin)? 1'b1 : 1'b0;
+
+endmodule
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Test 1 failed\n'
+Tokens:  51
+LLM generates return in:  5.771657  seconds
+Running getPromptScore: 
+Backpropogation: incorporating estimates.
+Current runs:  98.0
+Selection: finding leaf node.
+Leaf selection - depth:  0
+Leaf selection - action scores:  [-0.49845534 -0.5381172  -0.64571565 -0.66286018 -0.6628604  -0.66416484
+ -0.56604682 -0.66523604 -0.66539372 -0.66540792]  taking action:  0
+Leaf selection - depth:  1
+Leaf selection - action scores:  [-0.38529965 -0.35411704 -0.39548272 -0.55116516 -0.55162555 -0.5645887
+ -0.37726846 -0.38546234 -0.39173192 -0.4276194 ]  taking action:  1
+Leaf selection - depth:  2
+Leaf selection - action scores:  [-0.18045357 -0.13200349 -0.35169095 -0.13176629 -0.13049783 -0.17648727
+ -0.4775744  -0.47867006 -0.48352006 -0.4855043 ]  taking action:  4
+Leaf selection - depth:  3
+Leaf selection - action scores:  [ 0.2669731  -0.36611462  0.25675148  0.0652332   0.06202954  0.04392584
+  0.04368754  0.0415165   0.0298787   0.01207176]  taking action:  0
+Leaf selection - depth:  4
+Leaf selection - action scores:  [0.32022107 0.16733782 0.08020075 0.02120849 0.02108281 0.01394403
+ 0.01335298 0.01170476 0.01006599 0.00810604]  taking action:  0
+Leaf selection - depth:  5
+Leaf selection - action scores:  [3.7364274e-01 6.3331379e-04 3.3593623e-04 1.1237055e-04 4.0549923e-05
+ 6.8127292e-06 2.8641098e-06 2.4323524e-06 2.3857797e-06 2.3059729e-06]  taking action:  0
+Leaf selection - depth:  6
+Leaf selection - action scores:  [3.91580254e-01 4.52299323e-03 2.41500675e-03 9.61572441e-05
+ 2.16879653e-05 2.07194462e-05 2.03862419e-05 1.45052827e-05
+ 1.36653898e-05 1.16550555e-05]  taking action:  0
+Leaf selection - depth:  7
+Leaf selection - action scores:  [4.14346218e-01 2.17967015e-03 3.81229824e-04 5.48167045e-05
+ 5.21938528e-05 2.18396290e-05 2.14902102e-05 2.13681669e-05
+ 1.61439420e-05 1.34863485e-05]  taking action:  0
+Leaf selection - depth:  8
+Leaf selection - action scores:  [ 0.3216871  -0.1281726   0.34305063  0.1391602   0.09008935  0.08483069
+  0.06592146  0.05221266  0.03688357  0.03207667]  taking action:  2
+Adding child.
+Leaf selection - depth:  9
+Getting LLM token estimates (probs/ids).
+Len original:  50295  Len new:  50278
+Expansion: next action:  0  corresponding to state:  62
+Getting rollout return of leaf.
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+reg [63:0] cout_temp;
+
+always @(in1 or in2 or cin)
+begin
+    {cout_temp, sum} = in1 + in2 + cin;
+end
+
+assign cout = cout_temp[0];
+
+endmodule
+Verilog compilation failed, error:  1
+Compilation output:  b'output_files/3863513_adder_64/3863513_adder_64.v:10: error: sum is not a valid l-value in tb_ripplecarry_64.uut.\noutput_files/3863513_adder_64/3863513_adder_64.v:1:      : sum is declared here as wire.\n1 error(s) during elaboration.\n'
+Tokens:  56
+LLM generates return in:  6.438371  seconds
+Running getPromptScore: 
+Backpropogation: incorporating estimates.
+Current runs:  99.0
+Selection: finding leaf node.
+Leaf selection - depth:  0
+Leaf selection - action scores:  [-0.50577264 -0.53657747 -0.64561011 -0.662841   -0.66284123 -0.66415224
+ -0.56458033 -0.66522883 -0.6653873  -0.66540158]  taking action:  0
+Leaf selection - depth:  1
+Leaf selection - action scores:  [-0.3833149  -0.3710922  -0.3929625  -0.5502521  -0.55071616 -0.56378174
+ -0.37629825 -0.3845569  -0.39087602 -0.4270472 ]  taking action:  1
+Leaf selection - depth:  2
+Leaf selection - action scores:  [-0.17432156 -0.13123798 -0.3496452  -0.13013539 -0.18830553 -0.17547324
+ -0.47726506 -0.47837582 -0.48329276 -0.48530436]  taking action:  3
+Leaf selection - depth:  3
+Leaf selection - action scores:  [1.9481727e+00 1.0325360e-03 5.7883351e-04 3.3518209e-04 2.6057943e-04
+ 2.4009551e-04 7.8593417e-05 7.1289294e-05 4.6926336e-05 3.9629154e-05]  taking action:  0
+Adding child.
+Leaf selection - depth:  4
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+endmodule
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Test 1 failed\n'
+Leaf is terminal - getting return value.
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+endmodule
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Test 1 failed\n'
+Running getPromptScore: 
+Backpropogation: incorporating estimates.
+Current runs:  100.0
+Selection: finding leaf node.
+Leaf selection - depth:  0
+Leaf selection - action scores:  [-0.50517505 -0.53504543 -0.64550508 -0.66282192 -0.66282215 -0.6641397
+ -0.56312115 -0.66522166 -0.66538092 -0.66539527]  taking action:  0
+Leaf selection - depth:  1
+Leaf selection - action scores:  [-0.38134563 -0.37401974 -0.3904619  -0.54934615 -0.54981375 -0.56298107
+ -0.37533557 -0.38365847 -0.3900268  -0.42647946]  taking action:  1
+Leaf selection - depth:  2
+Leaf selection - action scores:  [-0.16827193 -0.13048276 -0.34762695 -0.25235096 -0.18814856 -0.17447284
+ -0.47695988 -0.47808558 -0.48306847 -0.4851071 ]  taking action:  1
+Leaf selection - depth:  3
+Leaf selection - action scores:  [3.4330592e-01 5.0306695e-05 8.2733750e-06 7.8416397e-06 6.7408218e-06
+ 6.6568023e-06 5.2260298e-06 1.0002763e-06 7.6291462e-07 6.9151002e-07]  taking action:  0
+Leaf selection - depth:  4
+Leaf selection - action scores:  [ 0.42595744 -0.21160454 -0.01618104  0.42265946  0.13304035  0.06803466
+  0.05730448  0.02042327  0.0197648   0.01599962]  taking action:  0
+Leaf selection - depth:  5
+Leaf selection - action scores:  [8.9783365e-01 2.4964331e-02 2.2087663e-02 3.3070203e-03 2.6599122e-03
+ 1.3633838e-03 1.1017752e-03 1.0734603e-03 7.7737524e-04 4.6118262e-04]  taking action:  0
+Leaf selection - depth:  6
+Leaf selection - action scores:  [1.1931279e+00 2.3790891e-03 5.3018885e-04 1.7749214e-04 1.4656632e-04
+ 1.1412289e-04 1.1077596e-04 1.1028475e-04 9.9237201e-05 4.6209479e-05]  taking action:  0
+Leaf selection - depth:  7
+Leaf selection - action scores:  [1.8821259e+00 2.1782607e-02 1.4600739e-02 1.2515762e-02 1.0022000e-02
+ 4.5929942e-03 1.2395120e-03 1.1528779e-03 9.9778606e-04 3.8945288e-04]  taking action:  0
+Adding child.
+Leaf selection - depth:  8
+Getting LLM token estimates (probs/ids).
+Len original:  50295  Len new:  50278
+Expansion: next action:  0  corresponding to state:  2160
+Getting rollout return of leaf.
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+assign {cout, sum} = in1 + in2 + cin;
+
+endmodule
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+All testbench tests passed!
+Tokens:  15
+LLM generates return in:  1.669632  seconds
+Running getPromptScore: 
+adder_64
+output_files/3863513_adder_64/synth_script.sh
+Running bash in x seconds:  1.01066
+
+Currently displaying area/delay scores for  adder_64  module.
+Area of the chip design is:  612.598
+Delay value for the chip design is:  2389.48
+Product:  1463790.6690399998
+Score (1/chip area):  0.0006831577910356756
+Backpropogation: incorporating estimates.
+Current runs:  101.0
+Selection: finding leaf node.
+Leaf selection - depth:  0
+Leaf selection - action scores:  [-0.49702232 -0.53352096 -0.64540058 -0.66280293 -0.66280316 -0.66412722
+ -0.56166919 -0.66521452 -0.66537457 -0.66538899]  taking action:  0
+Leaf selection - depth:  1
+Leaf selection - action scores:  [-0.37939143 -0.36398008 -0.38798046 -0.54844713 -0.54891837 -0.56218654
+ -0.3743803  -0.38276696 -0.3891841  -0.42591608]  taking action:  1
+Leaf selection - depth:  2
+Leaf selection - action scores:  [-0.16230136 -0.11532205 -0.34563506 -0.25129232 -0.18799363 -0.17348552
+ -0.4766587  -0.4777991  -0.48284715 -0.4849124 ]  taking action:  1
+Leaf selection - depth:  3
+Leaf selection - action scores:  [3.2998836e-01 5.3358308e-05 8.7752396e-06 8.3173145e-06 7.1497211e-06
+ 7.0606047e-06 5.5430414e-06 1.0609532e-06 8.0919307e-07 7.3345711e-07]  taking action:  0
+Leaf selection - depth:  4
+Leaf selection - action scores:  [ 3.6429423e-01 -1.9169229e-01 -3.7014484e-05  4.5184198e-01
+  1.4222611e-01  7.2732106e-02  6.1261062e-02  2.1833392e-02
+  2.1129463e-02  1.7104309e-02]  taking action:  3
+Adding child.
+Leaf selection - depth:  5
+Getting LLM token estimates (probs/ids).
+Len original:  50295  Len new:  50278
+Expansion: next action:  0  corresponding to state:  259
+Getting rollout return of leaf.
+Incrementing:  0
+8612
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+assign cin = 1'b0;
+
+generate
+
+genvar i;
+
+for (i = 0; i < 64; i = i + 1)
+begin: adder_loop
+
+wire c1, c2, c3;
+
+adder_1bit a1(sum[i], c1, in1[i], in2[i]);
+adder_1bit a2(sum[i+1], c2, in1[i], in2[i+1]);
+adder_1bit a3(sum[i+2], c3, in1[i+1], in2[i+2]);
+adder_1bit a4(sum[i+3], cout, in1[i+2], in2[i+3]);
+
+assign c1 = cout;
+assign c2 = c1;
+assign c3 = c2;
+
+end
+
+endgenerate
+
+endmodule
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+All testbench tests passed!
+Tokens:  208
+LLM generates return in:  31.352137  seconds
+Running getPromptScore: 
+adder_64
+output_files/3863513_adder_64/synth_script.sh
+Error running bash script: Command '['bash', '-c', 'chmod +x output_files/3863513_adder_64/synth_script.sh && output_files/3863513_adder_64/synth_script.sh']' returned non-zero exit status 1.
+Error: Chip area ont found in syntheis results.

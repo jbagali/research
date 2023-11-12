@@ -764,6 +764,6 @@ Dumping module `\adder_32'.
 
 Warnings: 8 unique messages, 72 total
 End of script. Logfile hash: a9259441f3
-CPU: user 0.55s system 0.01s, MEM: 47.55 MB total, 29.67 MB resident
+CPU: user 0.55s system 0.01s, MEM: 47.55 MB total, 29.52 MB resident
 Yosys 0.9 (git sha1 1979e0b)
 Time spent: 18% 1x share (0 sec), 15% 2x stat (0 sec), ...

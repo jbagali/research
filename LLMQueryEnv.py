@@ -62,7 +62,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         #self.stopwords = ['\n\n']
         self.stopwords = ['endmodule']
         #Limit to token generation before cutoff.
-        self.depth=1000
+        self.depth=2000
         self.orig_module = orig_module
         self.prompt_path = file_path
         self.tb_path = tb_path
@@ -210,10 +210,12 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         #Retrieving the results from generated log file - specify your filepath.
         logfile_path = module_dump_folder + "/yosys_synth.log"
         if os.path.isfile(logfile_path):
-            area_value = float(self.extract_area_from_log(logfile_path))
-            delay_value = float(self.extract_delay_from_log(logfile_path))
-            area_delay_product = area_value * delay_value
+            area_value = self.extract_area_from_log(logfile_path)
+            delay_value = self.extract_delay_from_log(logfile_path)
             if(self.functional and area_value is not None and delay_value is not None):
+                area_value = float(area_value)
+                delay_value = float(delay_value)
+                area_delay_product = area_value * delay_value
                 print()
                 print("Currently displaying area/delay scores for ", self.orig_module, " module.")
                 print("Area of the chip design is: ", area_value)
@@ -223,12 +225,6 @@ class LLMQueryEnv(gym.Env, StaticEnv):
                 self.row_data['area'] = area_value
                 self.row_data['delay'] = delay_value
                 self.row_data['score'] = (1 / area_delay_product) * 1000 * 1000
-                #Currently returning area and delay values.
-                #try:
-                #    print("Removing dump files...")
-                #    os.remove(logfile_path)
-                #except OSError as e:
-                #    print(f"Error: {e}")
 
                 return ((1 / area_delay_product) * 1000 * 1000)
             else:
@@ -272,8 +268,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
 
         if simulation_exit_code == 0:
             print("Verilog testbench simulation ran successfully.")
-            #if b"All tests passed!" in simulation_output:
-            if b"all tests passed" in simulation_output:
+            if b"all tests passed" in simulation_output or b"All tests passed" in simulation_output:
                 print("All testbench tests passed!")
                 return True
             else:

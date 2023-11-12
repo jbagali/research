@@ -3194,3 +3194,862 @@ Outputs:
 Outputs:
 
 32-bit"
+N/A,N/A,-1,64.0,1,"module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+        wire [31:0] sum;
+        wire cout;
+        wire [31:0] in1;
+        wire [31:0] in2;
+        wire cin;
+        wire [31:0] carry;
+        
+        full_adder_32 FA1(sum[0], carry[0], in1[0], in2[0], cin);
+        full_adder_32 FA2(sum[1], carry[1], in1[1], in2[1], carry[0]);
+        full_adder_32 FA3(sum[2], carry[2], in1[2], in2[2], carry[1]);
+        full_adder_32 FA4(sum[3], carry[3], in1[3], in2[3], carry[2]);
+        full_adder_32 FA5(sum[4], carry[4], in1[4], in2[4], carry[3]);
+        full_adder_32 FA6(sum[5], carry[5], in1[5], in2[5], carry[4]);
+        full_adder_32 FA7(sum[6], carry[6], in1[6], in2[6], carry[5]);
+        full_adder_32 FA8(sum[7], carry[7], in1[7], in2[7], carry[6]);
+        full_adder_32 FA9(sum[8], carry[8], in1[8], in2[8], carry[7]);
+        full_adder_32 FA10(sum[9], carry[9], in1[9], in2[9], carry[8]);
+        full_adder_32 FA11(sum[10], carry[10], in1[10], in2[10], carry[9]);
+        full_adder_32 FA12(sum[11], carry[11], in1[11], in2[11], carry[10]);
+        full_adder_32 FA13(sum[12], carry[12], in1[12], in2[12], carry[11]);
+        full_adder_32 FA14(sum[13], carry[13], in1[13], in2[13], carry[12]);
+        full_adder_32 FA15(sum[14], carry[14], in1[14], in2[14], carry[13]);
+        full_adder_32 FA16(sum[15], carry[15], in1[15], in2[15], carry[14]);
+        full_adder_32 FA17(sum[16], carry[16], in1[16], in2[16], carry[15]);
+        full_adder_32 FA18(sum[17], carry[17], in1[17], in2[17], carry[16]);
+        full_adder_32 FA19(sum[18], carry[18], in1[18], in2[18], carry[17]);
+        full_adder_32 FA20(sum[19], carry[19], in1[19], in2[19], carry[18]);
+        full_adder_32 FA21(sum[20], carry[20], in1[20], in2[20], carry[19]);
+        full_adder_32 FA22(sum[21], carry[21], in1[21], in2[21], carry[20]);
+        full_adder_32 FA23(sum[22], carry[22], in1[22], in2[22], carry[21]);
+        full_adder_32 FA24(sum[23], carry[23], in1[23], in2[23], carry[22]);
+        full_adder_32 FA25(sum[24], carry[24], in1[24], in2[24], carry[23]);
+        full_adder_32 FA26(sum[25], carry[25], in1[25], in2[25], carry[24]);
+        full_adder_32 FA27(sum[26], carry[26], in1[26], in2[26], carry[25]);
+        full_adder_32 FA28(sum[27], carry[27], in1[27], in2[27], carry[26]);
+        full_adder_32 FA29(sum[28], carry[28], in1[28], in2[28], carry[27]);
+        full_adder_32 FA30(sum[29], carry[29],"
+N/A,N/A,-1,65.0,1,"module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+
+                    wire [31:0] carry;
+                    wire [31:0] sum_temp;
+                    wire [31:0] carry_temp;
+                    wire [31:0] carry_temp_1;
+                    wire [31:0] carry_temp_2;
+                    wire [31:0] carry_temp_3;
+                    wire [31:0] carry_temp_4;
+                    wire [31:0] carry_temp_5;
+                    wire [31:0] carry_temp_6;
+                    wire [31:0] carry_temp_7;
+                    wire [31:0] carry_temp_8;
+                    wire [31:0] carry_temp_9;
+                    wire [31:0] carry_temp_10;
+                    wire [31:0] carry_temp_11;
+                    wire [31:0] carry_temp_12;
+                    wire [31:0] carry_temp_13;
+                    wire [31:0] carry_temp_14;
+                    wire [31:0] carry_temp_15;
+                    wire [31:0] carry_temp_16;
+                    wire [31:0] carry_temp_17;
+                    wire [31:0] carry_temp_18;
+                    wire [31:0] carry_temp_19;
+                    wire [31:0] carry_temp_20;
+                    wire [31:0] carry_temp_21;
+                    wire [31:0] carry_temp_22;
+                    wire [31:0] carry_temp_23;
+                    wire [31:0] carry_temp_24;
+                    wire [31:0] carry_temp_25;
+                    wire [31:0] carry_temp_26;
+                    wire [31:0] carry_temp_27;
+                    wire [31:0] carry_temp_28;
+                    wire [31:0] carry_temp_29;
+                    wire [31:0] carry_temp_30;
+                    wire [31:0] carry_temp_31;
+                    wire [31:0] carry_temp_32;
+                    wire [31:0] carry_temp_33;
+                    wire [31:0] carry_temp_34;
+                    wire [31:0] carry_temp_35;
+                    wire [31:0] carry_temp_36;
+                    wire [31:0] carry_temp_37;
+                    wire [31:0] carry_temp_38;
+                    wire [31:0] carry_temp_39;
+                    wire [31:0] carry_temp_40;
+                    wire [31:0] carry_temp_41;
+                    wire [31:0] carry_temp_42;
+                    wire [31:0] carry_temp_43;
+                    wire [31:0] carry_temp_44;
+                    wire [31:0] carry_temp_45;
+                    wire [31:0] carry_temp_46;
+                    wire [31:0] carry_temp_47;
+                    wire [31:0] carry_temp_48;
+                    wire [31:0] carry_temp_49;
+                    wire [31:0] carry_temp_50;
+                    wire [31:0] carry_temp_51;
+                    wire [31:0] carry_temp_52;
+                    wire [31:0] carry_temp_53;
+                    wire [31:0] carry_temp_54;
+                    wire [31:0] carry_temp_55;
+                    wire [31:0] carry_temp_56;
+                    wire [31:0] carry_temp_57;
+                    wire [31:0] carry_temp_58;
+                    wire [31:0] carry_temp_59;
+                    wire [31:0] carry_temp_60;
+                    wire [31:0] carry_temp_61;
+                    wire [31:0] carry_temp_62;
+                    wire [31:0] carry_temp_63;
+                    wire [31:0] carry_temp_64;
+                    wire [31:0] carry_temp_65;
+                    wire [31:0] carry_temp_66;
+                    wire [31:0] carry_temp_67;
+                    wire [31:0] carry_temp_68;
+                    wire [31:0] carry_temp_69;"
+300.314,1228.16,2.7112494237965957e-06,66.0,1,"module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+    assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+N/A,N/A,-1,67.0,1,"module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+    wire [31:0] sum;
+    wire cout;
+    wire [31:0] in1;
+    wire [31:0] in2;
+    wire cin;
+    wire [31:0] carry;
+    
+    ALU_32bit uut(sum, carry, in1, in2, cin);
+    
+    assign cout = carry[31];
+    
+endmodule
+
+module ALU_32bit(output [31:0] sum,
+                  output [31:0] carry,
+                  input [31:0] in1, in2,
+                  input cin);
+    wire [31:0] sum;
+    wire [31:0] carry;
+    wire [31:0] in1;
+    wire [31:0] in2;
+    wire cin;
+    
+    wire [31:0] carry_in;
+    
+    assign carry_in = {1'b0, cin};
+    
+    adder_32 uut(sum, carry_in, in1, in2, cin);
+    
+endmodule"
+N/A,N/A,-0.5,68.0,1,"module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+                      
+    wire [31:0] sum;
+    wire cout;
+    wire [31:0] in1;
+    wire [31:0] in2;
+    wire cin;
+    
+    function [31:0] adder_1bit(input a, b, c_in);
+        begin
+            adder_1bit = a + b + c_in;
+        end
+    endfunction
+    
+    assign sum = adder_1bit(in1, in2, cin);
+    assign cout = in1[31] ^ in2[31] ^ cin;
+endmodule"
+N/A,N/A,-1,69.0,1,"module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+ 
+  wire [31:0] sum;
+  wire cout;
+  wire [31:0] in1;
+  wire [31:0] in2;
+  wire cin;
+ 
+  one_bit_adder adder_1(sum[0], c1, in1[0], in2[0], cin);
+  one_bit_adder adder_2(sum[1], c2, in1[1], in2[1], c1);
+  one_bit_adder adder_3(sum[2], c3, in1[2], in2[2], c2);
+  one_bit_adder adder_4(sum[3], c4, in1[3], in2[3], c3);
+  one_bit_adder adder_5(sum[4], c5, in1[4], in2[4], c4);
+  one_bit_adder adder_6(sum[5], c6, in1[5], in2[5], c5);
+  one_bit_adder adder_7(sum[6], c7, in1[6], in2[6], c6);
+  one_bit_adder adder_8(sum[7], c8, in1[7], in2[7], c7);
+  one_bit_adder adder_9(sum[8], c9, in1[8], in2[8], c8);
+  one_bit_adder adder_10(sum[9], c10, in1[9], in2[9], c9);
+  one_bit_adder adder_11(sum[10], c11, in1[10], in2[10], c10);
+  one_bit_adder adder_12(sum[11], c12, in1[11], in2[11], c11);
+  one_bit_adder adder_13(sum[12], c13, in1[12], in2[12], c12);
+  one_bit_adder adder_14(sum[13], c14, in1[13], in2[13], c13);
+  one_bit_adder adder_15(sum[14], c15, in1[14], in2[14], c14);
+  one_bit_adder adder_16(sum[15], c16, in1[15], in2[15], c15);
+  one_bit_adder adder_17(sum[16], c17, in1[16], in2[16], c16);
+  one_bit_adder adder_18(sum[17], c18, in1[17], in2[17], c17);
+  one_bit_adder adder_19(sum[18], c19, in1[18], in2[18], c18);
+  one_bit_adder adder_20(sum[19], c20, in1[19], in2[19], c19);
+  one_bit_adder adder_21(sum[20], c21, in1[20], in2[20], c20);
+  one_bit_adder adder_22(sum[21], c22, in1[21], in2[21], c21);
+  one_bit_adder adder_23(sum[22], c23, in1[22], in2[22], c22);
+  one_bit_adder adder_24(sum[23], c24, in1[23], in2[23], c23);
+  one_bit_adder adder_25(sum[24], c25, in1[24], in2[24], c24);
+  one_bit_adder adder_26(sum[25], c26, in1[25], in2[25], c25);
+  one_bit_adder adder_27(sum[26], c27, in1[26], in2[26], c26);
+  one_bit_adder adder_28(sum[27], c28, in1[27], in2[27], c27);
+  one_bit_adder adder_29(sum[28], c29, in1[28], in2[28], c28);
+  one_bit_adder adder_30(sum[29], c30, in1[29], in"
+300.314,1228.16,2.7112494237965957e-06,70.0,1,"module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+300.314,1228.16,2.7112494237965957e-06,71.0,1,"module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+300.314,1228.16,2.7112494237965957e-06,72.0,1,"module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+N/A,N/A,-1,73.0,1,"module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder FA8(sum[7], c8, in1[7], in2[7], c7);
+  full_adder FA9(sum[8], c9, in1[8], in2[8], c8);
+  full_adder FA10(sum[9], c10, in1[9], in2[9], c9);
+  full_adder FA11(sum[10], c11, in1[10], in2[10], c10);
+  full_adder FA12(sum[11], c12, in1[11], in2[11], c11);
+  full_adder FA13(sum[12], c13, in1[12], in2[12], c12);
+  full_adder FA14(sum[13], c14, in1[13], in2[13], c13);
+  full_adder FA15(sum[14], c15, in1[14], in2[14], c14);
+  full_adder FA16(sum[15], c16, in1[15], in2[15], c15);
+  full_adder FA17(sum[16], c17, in1[16], in2[16], c16);
+  full_adder FA18(sum[17], c18, in1[17], in2[17], c17);
+  full_adder FA19(sum[18], c19, in1[18], in2[18], c18);
+  full_adder FA20(sum[19], c20, in1[19], in2[19], c19);
+  full_adder FA21(sum[20], c21, in1[20], in2[20], c20);
+  full_adder FA22(sum[21], c22, in1[21], in2[21], c21);
+  full_adder FA23(sum[22], c23, in1[22], in2[22], c22);
+  full_adder FA24(sum[23], c24, in1[23], in2[23], c23);
+  full_adder FA25(sum[24], c25, in1[24], in2[24], c24);
+  full_adder FA26(sum[25], c26, in1[25], in2[25], c25);
+  full_adder FA27(sum[26], c27, in1[26], in2[26], c26);
+  full_adder FA28(sum[27], c28, in1[27], in2[27], c27);
+  full_adder FA29(sum[28], c29, in1[28], in2[28], c28);
+  full_adder FA30(sum[29], c30, in1[29], in2[29], c29);
+  full_adder FA31(sum[30], c31, in1[30], in2[30], c30);
+  full_adder FA32(sum[31], cout, in1[31], in2[31], c31);
+endmodule
+
+module carry_select_adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire [31:0] sum_0;
+  wire [31:0] sum_1;
+  wire [31:0] sum_2;
+  wire [31:0] sum_3;
+  wire [31:0] sum_"
+N/A,N/A,-1,74.0,1,"module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  adder_32_bit cin_1(cout, cin_1, in1, in2, cin);
+  adder_32_bit cin_2(sum, cout_1, in1, in2, cin_1);
+endmodule
+
+module adder_32_bit(output cout_1,
+                     output cout_2,
+                     input [31:0] in1, in2,
+                     input cin);
+  wire [31:0] sum;
+  wire cout;
+  adder_32 a1(sum, cout, in1, in2, cin);
+  assign cout_1 = cout;
+  assign cout_2 = cout_1;
+endmodule"
+N/A,N/A,-1,75.0,1,"module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1, c2, c3;
+  full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+endmodule
+
+3-bit adder
+module adder_3(output [2:0] sum,
+                      output cout,
+                      input [2:0] in1, in2,
+                      input cin);
+  wire c1, c2, c3;
+  full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder FA3(sum[2], cout, in1[2], in2[2], c2);
+endmodule"
+300.314,1228.16,2.7112494237965957e-06,76.0,1,"module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+    assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+N/A,N/A,-1,77.0,1,"module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+    full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder FA4(sum[3], c4, in1[3], in2[3], c3);
+    full_adder FA5(sum[4], c5, in1[4], in2[4], c4);
+    full_adder FA6(sum[5], c6, in1[5], in2[5], c5);
+    full_adder FA7(sum[6], c7, in1[6], in2[6], c6);
+    full_adder FA8(sum[7], c8, in1[7], in2[7], c7);
+    full_adder FA9(sum[8], c9, in1[8], in2[8], c8);
+    full_adder FA10(sum[9], c10, in1[9], in2[9], c9);
+    full_adder FA11(sum[10], c11, in1[10], in2[10], c10);
+    full_adder FA12(sum[11], c12, in1[11], in2[11], c11);
+    full_adder FA13(sum[12], c13, in1[12], in2[12], c12);
+    full_adder FA14(sum[13], c14, in1[13], in2[13], c13);
+    full_adder FA15(sum[14], c15, in1[14], in2[14], c14);
+    full_adder FA16(sum[15], c16, in1[15], in2[15], c15);
+    full_adder FA17(sum[16], c17, in1[16], in2[16], c16);
+    full_adder FA18(sum[17], c18, in1[17], in2[17], c17);
+    full_adder FA19(sum[18], c19, in1[18], in2[18], c18);
+    full_adder FA20(sum[19], c20, in1[19], in2[19], c19);
+    full_adder FA21(sum[20], c21, in1[20], in2[20], c20);
+    full_adder FA22(sum[21], c22, in1[21], in2[21], c21);
+    full_adder FA23(sum[22], c23, in1[22], in2[22], c22);
+    full_adder FA24(sum[23], c24, in1[23], in2[23], c23);
+    full_adder FA25(sum[24], c25, in1[24], in2[24], c24);
+    full_adder FA26(sum[25], c26, in1[25], in2[25], c25);
+    full_adder FA27(sum[26], c27, in1[26], in2[26], c26);
+    full_adder FA28(sum[27], c28, in1[27], in2[27], c27);
+    full_adder FA29(sum[28], c29, in1[28], in2[28], c28);
+    full_adder FA30(sum[29], c30, in1[29], in2[29], c29);
+    full_adder FA31(sum[30], c31, in1[30], in2[30], c30);
+    full_adder FA32(sum[31], cout, in1[31], in2[31], c31);
+endmodule
+
+module full_adder(output wire sum,
+                  output wire cout,
+                  input wire in1,
+                  input wire in2,
+                  input wire cin);
+    wire temp1;
+    wire temp2;
+    wire temp3;
+    xor(sum, in1, in2, cin);
+    and(temp1,in1,in2);
+    and(temp2,in1,cin);
+    and(temp"
+N/A,N/A,-1,78.0,1,"module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+	wire [31:0] sum;
+	wire cout;
+	wire [31:0] in1;
+	wire [31:0] in2;
+	wire cin;
+	
+	adder_32_bitwise adder(sum[0], cout, in1[0], in2[0], cin);
+	adder_32_bitwise adder1(sum[1], cout, in1[1], in2[1], cout);
+	adder_32_bitwise adder2(sum[2], cout, in1[2], in2[2], cout);
+	adder_32_bitwise adder3(sum[3], cout, in1[3], in2[3], cout);
+	adder_32_bitwise adder4(sum[4], cout, in1[4], in2[4], cout);
+	adder_32_bitwise adder5(sum[5], cout, in1[5], in2[5], cout);
+	adder_32_bitwise adder6(sum[6], cout, in1[6], in2[6], cout);
+	adder_32_bitwise adder7(sum[7], cout, in1[7], in2[7], cout);
+	adder_32_bitwise adder8(sum[8], cout, in1[8], in2[8], cout);
+	adder_32_bitwise adder9(sum[9], cout, in1[9], in2[9], cout);
+	adder_32_bitwise adder10(sum[10], cout, in1[10], in2[10], cout);
+	adder_32_bitwise adder11(sum[11], cout, in1[11], in2[11], cout);
+	adder_32_bitwise adder12(sum[12], cout, in1[12], in2[12], cout);
+	adder_32_bitwise adder13(sum[13], cout, in1[13], in2[13], cout);
+	adder_32_bitwise adder14(sum[14], cout, in1[14], in2[14], cout);
+	adder_32_bitwise adder15(sum[15], cout, in1[15], in2[15], cout);
+	adder_32_bitwise adder16(sum[16], cout, in1[16], in2[16], cout);
+	adder_32_bitwise adder17(sum[17], cout, in1[17], in2[17], cout);
+	adder_32_bitwise adder18(sum[18], cout, in1[18], in2[18], cout);
+	adder_32_bitwise adder19(sum[19], cout, in1[19], in2[19], cout);
+	adder_32_bitwise adder20(sum[20], cout, in1[20], in2[20], cout);
+	adder_32_bitwise adder21(sum[21], cout, in1[21], in2[21], cout);
+	adder_32_bitwise adder22(sum[22], cout, in1[22], in2[22], cout);
+	adder_32_bitwise adder23(sum[23], cout, in1[23], in2[23], cout);
+	adder_32_bitwise adder24(sum[24], cout, in1[24], in2[24], cout);
+	adder_32_bitwise adder25(sum[25], cout, in1[25], in2[25], cout);
+	adder_32_bitwise adder26(sum[26], cout, in1[26], in2[26], cout);
+	adder_32_bitwise adder27(sum[27], cout, in1[27], in2[27], cout);
+	adder_32_bitwise adder28(sum[28], cout, in1[28], in2[28], cout);
+	adder_32_bitwise adder29(sum[29], cout, in1[29], in2[29], cout);
+	adder_32_bitwise adder30(sum[30], cout, in1[30], in2[30], cout);
+	adder_32_bitwise adder31(sum[31], cout, in1[31], in2"
+N/A,N/A,-1,79.0,1,"module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+      wire [31:0] sum;
+      wire cout;
+      wire [31:0] in1;
+      wire [31:0] in2;
+      wire cin;
+      
+      adder_32_bitwise adder(sum[0], c1, in1[0], in2[0], cin);
+      adder_32_bitwise adder1(sum[1], c2, in1[1], in2[1], c1);
+      adder_32_bitwise adder2(sum[2], c3, in1[2], in2[2], c2);
+      adder_32_bitwise adder3(sum[3], c4, in1[3], in2[3], c3);
+      adder_32_bitwise adder4(sum[4], c5, in1[4], in2[4], c4);
+      adder_32_bitwise adder5(sum[5], c6, in1[5], in2[5], c5);
+      adder_32_bitwise adder6(sum[6], c7, in1[6], in2[6], c6);
+      adder_32_bitwise adder7(sum[7], c8, in1[7], in2[7], c7);
+      adder_32_bitwise adder8(sum[8], c9, in1[8], in2[8], c8);
+      adder_32_bitwise adder9(sum[9], c10, in1[9], in2[9], c9);
+      adder_32_bitwise adder10(sum[10], c11, in1[10], in2[10], c10);
+      adder_32_bitwise adder11(sum[11], c12, in1[11], in2[11], c11);
+      adder_32_bitwise adder12(sum[12], c13, in1[12], in2[12], c12);
+      adder_32_bitwise adder13(sum[13], c14, in1[13], in2[13], c13);
+      adder_32_bitwise adder14(sum[14], c15, in1[14], in2[14], c14);
+      adder_32_bitwise adder15(sum[15], c16, in1[15], in2[15], c15);
+      adder_32_bitwise adder16(sum[16], c17, in1[16], in2[16], c16);
+      adder_32_bitwise adder17(sum[17], c18, in1[17], in2[17], c17);
+      adder_32_bitwise adder18(sum[18], c19, in1[18], in2[18], c18);
+      adder_32_bitwise adder19(sum[19], c20, in1[19], in2[19], c19);
+      adder_32_bitwise adder20(sum[20], c21, in1[20], in2[20], c20);
+      adder_32_bitwise adder21(sum[21], c22, in1[21], in2[21], c21);
+      adder_32_bitwise adder22(sum[22], c23, in1[22], in2[22], c22);
+      adder_32_bitwise adder23(sum[23], c24, in1[23], in2[23], c23);
+      adder_32_bitwise adder24(sum[24], c25, in1[24], in2[24], c24);
+      adder_32_bitwise adder25(sum[25], c26, in1[25], in2[25], c25);
+      adder_32_bitwise adder26(sum[26], c27, in1[26], in2[26], c26);
+      adder_32_bitwise adder27(sum[27], c28, in1[27], in2[27], c27);
+      adder_32_bitwise adder28(sum[28], c29, in1[28], in2[28], c28);
+      adder_32_bitwise adder29(sum[29], c30, in1[29], in2[29"
+N/A,N/A,-1,80.0,1,"module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+
+adder_32_bit a1(sum[0],cout,in1[0],in2[0],cin);
+adder_32_bit a2(sum[1],cout,in1[1],in2[1],cout);
+adder_32_bit a3(sum[2],cout,in1[2],in2[2],cout);
+adder_32_bit a4(sum[3],cout,in1[3],in2[3],cout);
+adder_32_bit a5(sum[4],cout,in1[4],in2[4],cout);
+adder_32_bit a6(sum[5],cout,in1[5],in2[5],cout);
+adder_32_bit a7(sum[6],cout,in1[6],in2[6],cout);
+adder_32_bit a8(sum[7],cout,in1[7],in2[7],cout);
+adder_32_bit a9(sum[8],cout,in1[8],in2[8],cout);
+adder_32_bit a10(sum[9],cout,in1[9],in2[9],cout);
+adder_32_bit a11(sum[10],cout,in1[10],in2[10],cout);
+adder_32_bit a12(sum[11],cout,in1[11],in2[11],cout);
+adder_32_bit a13(sum[12],cout,in1[12],in2[12],cout);
+adder_32_bit a14(sum[13],cout,in1[13],in2[13],cout);
+adder_32_bit a15(sum[14],cout,in1[14],in2[14],cout);
+adder_32_bit a16(sum[15],cout,in1[15],in2[15],cout);
+adder_32_bit a17(sum[16],cout,in1[16],in2[16],cout);
+adder_32_bit a18(sum[17],cout,in1[17],in2[17],cout);
+adder_32_bit a19(sum[18],cout,in1[18],in2[18],cout);
+adder_32_bit a20(sum[19],cout,in1[19],in2[19],cout);
+adder_32_bit a21(sum[20],cout,in1[20],in2[20],cout);
+adder_32_bit a22(sum[21],cout,in1[21],in2[21],cout);
+adder_32_bit a23(sum[22],cout,in1[22],in2[22],cout);
+adder_32_bit a24(sum[23],cout,in1[23],in2[23],cout);
+adder_32_bit a25(sum[24],cout,in1[24],in2[24],cout);
+adder_32_bit a26(sum[25],cout,in1[25],in2[25],cout);
+adder_32_bit a27(sum[26],cout,in1[26],in2[26],cout);
+adder_32_bit a28(sum[27],cout,in1[27],in2[27],cout);
+adder_32_bit a29(sum[28],cout,in1[28],in2[28],cout);
+adder_32_bit a30(sum[29],cout,in1[29],in2[29],cout);
+adder_32_bit a31(sum[30],cout,in1[30],in2[30],cout);
+adder_32_bit a32(sum[31],cout,in1[31],in2[31],cout);
+
+endmodule
+
+module adder_32_bit(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+
+wire [31:0] carry;
+
+adder_32_bit a1(sum[0],carry"
+N/A,N/A,-1,81.0,1,"module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+
+  wire [31:0] sum;
+  wire cout;
+  wire [31:0] in1;
+  wire [31:0] in2;
+  wire cin;
+
+  CARRY4 c1(.cout(cout),
+           .sum(sum[3:0]),
+           .in1(in1[3:0]),
+           .in2(in2[3:0]),
+           .cin(cin));
+
+  CARRY4 c2(.cout(cout),
+           .sum(sum[7:4]),
+           .in1(in1[7:4]),
+           .in2(in2[7:4]),
+           .cin(cout));
+
+  CARRY4 c3(.cout(cout),
+           .sum(sum[11:8]),
+           .in1(in1[11:8]),
+           .in2(in2[11:8]),
+           .cin(cout));
+
+  CARRY4 c4(.cout(cout),
+           .sum(sum[15:12]),
+           .in1(in1[15:12]),
+           .in2(in2[15:12]),
+           .cin(cout));
+
+  CARRY4 c5(.cout(cout),
+           .sum(sum[19:16]),
+           .in1(in1[19:16]),
+           .in2(in2[19:16]),
+           .cin(cout));
+
+  CARRY4 c6(.cout(cout),
+           .sum(sum[23:20]),
+           .in1(in1[23:20]),
+           .in2(in2[23:20]),
+           .cin(cout));
+
+  CARRY4 c7(.cout(cout),
+           .sum(sum[27:24]),
+           .in1(in1[27:24]),
+           .in2(in2[27:24]),
+           .cin(cout));
+
+  CARRY4 c8(.cout(cout),
+           .sum(sum[31:28]),
+           .in1(in1[31:28]),
+           .in2(in2[31:28]),
+           .cin(cout));
+
+endmodule
+
+module carry_select_adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+
+  wire [31:0] sum;
+  wire cout;
+  wire [31:0] in1;
+  wire [31:0] in2;
+  wire cin;
+
+  wire [3:0] carry;
+  wire [31:0] sum_0;
+  wire [31:0] sum_1;
+  wire [31:0] sum_2;
+  wire [31:0] sum_3;
+  wire [31:0] sum_4;
+  wire [31:0] sum_5;
+  wire [31:0] sum_6;
+  wire [31:0] sum_7;
+  wire [31:0] sum_8;
+  wire [31:0] sum_9;
+  wire [31:0] sum_10;
+  wire [31:0] sum_11;
+  wire [31:0] sum_12;
+  wire [31:0] sum_13;
+  wire [31:0] sum_14;
+  wire [31:0] sum_15;
+  wire [31:0] sum_16;
+  wire [31:0] sum_17;
+  wire [31:0] sum_18;
+  wire [31:0] sum_19;
+  wire [31:0] sum_20;
+  wire [31:0] sum_21;
+  wire [31:0] sum_22;
+  wire [31:0] sum_23;
+  wire [31:0] sum_24;
+  wire [31:0] sum_25;
+  wire [31:0] sum_26;
+  wire [31:0] sum_27;
+  wire [31:0] sum_28;
+  wire [31:0] sum_29;
+  wire [31:0] sum_30;
+  wire [31"
+300.314,1228.16,2.7112494237965957e-06,82.0,1,"module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+    assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+N/A,N/A,-1,83.0,1,"module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+    assign c[0] = cin;
+    assign sum = in1 ^ in2 ^ c[0];
+    assign cout = (in1 & in2) | (in1 & c[0]) | (in2 & c[0]);
+endmodule"
+N/A,N/A,-1,84.0,1,"module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+   wire [31:0] sum;
+   wire cout;
+   wire [32:0] carry;
+   
+   adder_32_bit a0(sum[0], carry[0], in1[0], in2[0], cin);
+   adder_32_bit a1(sum[1], carry[1], in1[1], in2[1], carry[0]);
+   adder_32_bit a2(sum[2], carry[2], in1[2], in2[2], carry[1]);
+   adder_32_bit a3(sum[3], carry[3], in1[3], in2[3], carry[2]);
+   adder_32_bit a4(sum[4], carry[4], in1[4], in2[4], carry[3]);
+   adder_32_bit a5(sum[5], carry[5], in1[5], in2[5], carry[4]);
+   adder_32_bit a6(sum[6], carry[6], in1[6], in2[6], carry[5]);
+   adder_32_bit a7(sum[7], carry[7], in1[7], in2[7], carry[6]);
+   adder_32_bit a8(sum[8], carry[8], in1[8], in2[8], carry[7]);
+   adder_32_bit a9(sum[9], carry[9], in1[9], in2[9], carry[8]);
+   adder_32_bit a10(sum[10], carry[10], in1[10], in2[10], carry[9]);
+   adder_32_bit a11(sum[11], carry[11], in1[11], in2[11], carry[10]);
+   adder_32_bit a12(sum[12], carry[12], in1[12], in2[12], carry[11]);
+   adder_32_bit a13(sum[13], carry[13], in1[13], in2[13], carry[12]);
+   adder_32_bit a14(sum[14], carry[14], in1[14], in2[14], carry[13]);
+   adder_32_bit a15(sum[15], carry[15], in1[15], in2[15], carry[14]);
+   adder_32_bit a16(sum[16], carry[16], in1[16], in2[16], carry[15]);
+   adder_32_bit a17(sum[17], carry[17], in1[17], in2[17], carry[16]);
+   adder_32_bit a18(sum[18], carry[18], in1[18], in2[18], carry[17]);
+   adder_32_bit a19(sum[19], carry[19], in1[19], in2[19], carry[18]);
+   adder_32_bit a20(sum[20], carry[20], in1[20], in2[20], carry[19]);
+   adder_32_bit a21(sum[21], carry[21], in1[21], in2[21], carry[20]);
+   adder_32_bit a22(sum[22], carry[22], in1[22], in2[22], carry[21]);
+   adder_32_bit a23(sum[23], carry[23], in1[23], in2[23], carry[22]);
+   adder_32_bit a24(sum[24], carry[24], in1[24], in2[24], carry[23]);
+   adder_32_bit a25(sum[25], carry[25], in1[25], in2[25], carry[24]);
+   adder_32_bit a26(sum[26], carry[26], in1[26], in2[26], carry[25]);
+   adder_32_bit a27(sum[27], carry[27], in1[27], in2[27], carry[26]);
+   adder_32_bit a28(sum[28], carry[28], in1[28], in2[28], carry[27]);
+   adder_32_bit a29(sum[29], carry[29], in1[29], in2[29], carry[28]);
+   adder_32_bit a30(sum[30],"
+N/A,N/A,-1,85.0,1,"module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);    		
+	wire [31:0] sum;
+	wire cout;
+	wire [31:0] in1, in2;
+	wire cin;
+	
+	adder_32_bit adder(sum[0], cout, in1[0], in2[0], cin);
+	adder_32_bit adder1(sum[1], cout, in1[1], in2[1], cout);
+	adder_32_bit adder2(sum[2], cout, in1[2], in2[2], cout);
+	adder_32_bit adder3(sum[3], cout, in1[3], in2[3], cout);
+	adder_32_bit adder4(sum[4], cout, in1[4], in2[4], cout);
+	adder_32_bit adder5(sum[5], cout, in1[5], in2[5], cout);
+	adder_32_bit adder6(sum[6], cout, in1[6], in2[6], cout);
+	adder_32_bit adder7(sum[7], cout, in1[7], in2[7], cout);
+	adder_32_bit adder8(sum[8], cout, in1[8], in2[8], cout);
+	adder_32_bit adder9(sum[9], cout, in1[9], in2[9], cout);
+	adder_32_bit adder10(sum[10], cout, in1[10], in2[10], cout);
+	adder_32_bit adder11(sum[11], cout, in1[11], in2[11], cout);
+	adder_32_bit adder12(sum[12], cout, in1[12], in2[12], cout);
+	adder_32_bit adder13(sum[13], cout, in1[13], in2[13], cout);
+	adder_32_bit adder14(sum[14], cout, in1[14], in2[14], cout);
+	adder_32_bit adder15(sum[15], cout, in1[15], in2[15], cout);
+	adder_32_bit adder16(sum[16], cout, in1[16], in2[16], cout);
+	adder_32_bit adder17(sum[17], cout, in1[17], in2[17], cout);
+	adder_32_bit adder18(sum[18], cout, in1[18], in2[18], cout);
+	adder_32_bit adder19(sum[19], cout, in1[19], in2[19], cout);
+	adder_32_bit adder20(sum[20], cout, in1[20], in2[20], cout);
+	adder_32_bit adder21(sum[21], cout, in1[21], in2[21], cout);
+	adder_32_bit adder22(sum[22], cout, in1[22], in2[22], cout);
+	adder_32_bit adder23(sum[23], cout, in1[23], in2[23], cout);
+	adder_32_bit adder24(sum[24], cout, in1[24], in2[24], cout);
+	adder_32_bit adder25(sum[25], cout, in1[25], in2[25], cout);
+	adder_32_bit adder26(sum[26], cout, in1[26], in2[26], cout);
+	adder_32_bit adder27(sum[27], cout, in1[27], in2[27], cout);
+	adder_32_bit adder28(sum[28], cout, in1[28], in2[28], cout);
+	adder_32_bit adder29(sum[29], cout, in1[29], in2[29], cout);
+	adder_32_bit adder30(sum[30], cout, in1[30], in2[30], cout);
+	adder_32_bit adder31(sum[31], cout, in1[31], in2[31], cout);
+endmodule
+
+module adder_32_bit(output [31:0] sum,
+                      output cout,
+                      input [31:0"
+N/A,N/A,-1,86.0,1,"module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+                      
+  wire [31:0] sum;
+  wire cout;
+  wire [31:0] in1;
+  wire [31:0] in2;
+  wire cin;
+  
+  compare_32 c1(.a(in1),.b(in2),.cin(cin),.sum(sum),.cout(cout));
+  
+endmodule
+
+alt_adder_32 adder_32_tb();
+
+module compare_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+                      
+  wire [31:0] sum;
+  wire cout;
+  wire [31:0] in1;
+  wire [31:0] in2;
+  wire cin;
+  
+  assign sum = in1 + in2;
+  assign cout = in1[31] ^ in2[31];
+  
+endmodule"
+N/A,N/A,-1,87.0,1,"module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+    adder_32_bit a1(sum[31:0], cout, in1[31:0], in2[31:0], cin);
+    adder_32_bit a2(sum[63:32], cout, in1[63:32], in2[63:32], cout);
+endmodule
+
+default_adder_32 default_adder_32_inst(sum, cout, in1, in2, cin);
+
+Tester #(.WIDTH(32)) tester(.in1(in1),.in2(in2),.cin(cin),.sum(sum),.cout(cout));
+
+endmodule"
+300.314,1228.16,2.7112494237965957e-06,88.0,1,"module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+
+    assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+300.314,1228.16,2.7112494237965957e-06,89.0,1,"module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+
+    assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+300.314,1228.16,2.7112494237965957e-06,90.0,1,"module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+
+    assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+N/A,N/A,-1,91.0,1,"module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+
+    wire c1, c2, c3;
+    wire [31:0] sum1, sum2, sum3;
+    wire cout1, cout2, cout3;
+
+    adder_32_bit a1(sum1, c1, in1, in2);
+    adder_32_bit a2(sum2, c2, in1, in2);
+    adder_32_bit a3(sum3, c3, in1, in2);
+
+    adder_32_bit a4(sum, cout, sum1, c1);
+    adder_32_bit a5(sum, cout1, sum2, c2);
+    adder_32_bit a6(sum, cout2, sum3, c3);
+
+endmodule
+
+module adder_32_bit(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2);
+
+    wire c1, c2, c3;
+    wire [31:0] sum1, sum2, sum3;
+    wire cout1, cout2, cout3;
+
+    adder_32_bit_bitwise a1(sum1, c1, in1, in2);
+    adder_32_bit_bitwise a2(sum2, c2, in1, in2);
+    adder_32_bit_bitwise a3(sum3, c3, in1, in2);
+
+    adder_32_bit_bitwise a4(sum, cout, sum1, c1);
+    adder_32_bit_bitwise a5(sum, cout1, sum2, c2);
+    adder_32_bit_bitwise a6(sum, cout2, sum3, c3);
+
+endmodule
+
+module adder_32_bit_bitwise(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2);
+
+    wire c1, c2, c3;
+    wire [31:0] sum1, sum2, sum3;
+    wire cout1, cout2, cout3;
+
+    adder_32_bit_bitwise_1 a1(sum1, c1, in1, in2);
+    adder_32_bit_bitwise_1 a2(sum2, c2, in1, in2);
+    adder_32_bit_bitwise_1 a3(sum3, c3, in1, in2);
+
+    adder_32_bit_bitwise_2 a4(sum, cout, sum1, c1);
+    adder_32_bit_bitwise_2 a5(sum, cout1, sum2, c2);
+    adder_32_bit_bitwise_2 a6(sum, cout2, sum3, c3);
+
+endmodule
+
+module adder_32_bit_bitwise_1(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2);
+
+    wire c1, c2, c3;
+    wire [31:0] sum1, sum2, sum3;
+    wire cout1, cout2, cout3;
+
+    adder_32_bit_bitwise_1_bitwise_1 a1(sum1, c1, in1, in2);
+    adder_32_bit_bitwise_1_bitwise_1 a2(sum2, c2, in1, in2);
+    adder_32_bit_bitwise_1_bitwise_1 a3(sum3, c3, in1, in2);
+
+    adder_32_bit_bitwise_1_bitwise_1 a4(sum, cout, sum1, c1);
+    adder_32_bit_bitwise_1_bitwise_1 a5(sum, cout1, sum2, c2);
+    adder_32_bit_bitwise_1_bitwise_1 a6(sum, cout2, sum3, c3);
+
+endmodule
+
+module adder_32_bit_bitwise_1_bitwise_1(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2);
+
+    wire c1, c2, c3;
+    wire [31:0] sum1, sum2, sum3;
+    wire cout1"
