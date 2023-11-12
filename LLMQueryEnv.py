@@ -62,7 +62,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         #self.stopwords = ['\n\n']
         self.stopwords = ['endmodule']
         #Limit to token generation before cutoff.
-        self.depth=1500
+        self.depth=1000
         self.orig_module = orig_module
         self.prompt_path = file_path
         self.tb_path = tb_path
@@ -107,8 +107,8 @@ class LLMQueryEnv(gym.Env, StaticEnv):
                 self.verilogFunctionalityCheck(currentState)
                 if self.compilable:     #if compilable, finish prompt generation.
                     return True
-                elif self.non_compilable_attempts >= 2:    #if continued generation of module 2+ times, finish.
-                    return True
+                #elif self.non_compilable_attempts >= 2:    #if continued generation of module 2+ times, finish.
+                #    return True
                 elif b'Unknown module type' in self.compilation_output:    #if unknown module, continue generation.
                     self.non_compilable_attempts += 1
                     return False
@@ -219,10 +219,10 @@ class LLMQueryEnv(gym.Env, StaticEnv):
                 print("Area of the chip design is: ", area_value)
                 print("Delay value for the chip design is: ", delay_value)
                 print("Product: ", area_delay_product)
-                print("Score (1/chip area): ", (1 / area_delay_product) * 1000)
+                print("Score (1/chip area): ", (1 / area_delay_product) * 1000 * 1000)
                 self.row_data['area'] = area_value
                 self.row_data['delay'] = delay_value
-                self.row_data['score'] = 1 / area_delay_product
+                self.row_data['score'] = (1 / area_delay_product) * 1000 * 1000
                 #Currently returning area and delay values.
                 #try:
                 #    print("Removing dump files...")
@@ -230,7 +230,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
                 #except OSError as e:
                 #    print(f"Error: {e}")
 
-                return (1 / area_delay_product)
+                return ((1 / area_delay_product) * 1000 * 1000)
             else:
                 print("Error retrieving area/delay from results.")
                 self.row_data['area'] ='N/A'
@@ -397,7 +397,9 @@ class LLMQueryEnv(gym.Env, StaticEnv):
             torchState = torch.from_numpy(state).to(device)
             while not self.is_done_state(state,depth):
                 #print("Token: ", i)
+                #context_state = torchState[:,-500:]
                 output = self.model(input_ids=torchState)
+
                 next_token_logits = output.logits[0, -1, :]
                 next_token_prob = torch.softmax(next_token_logits, dim=-1)
                 #max_token_index = torch.argmax(next_token_prob, dim=-1)
@@ -408,10 +410,12 @@ class LLMQueryEnv(gym.Env, StaticEnv):
                 chosen_id = selected_token
                 chosen_index = 0
                 while (self.is_comment(chosen_id.item()) and chosen_index < sorted_ids.size(-1)):
-                    print("Comment: ", chosen_id.item())
+                    #
+                    # print("Comment: ", chosen_id.item())
                     print("Incrementing: ", chosen_index)
                     chosen_index += 1
                     chosen_id = sorted_ids[i].unsqueeze(0).unsqueeze(0)
+                    print(chosen_id.item())
 
                 selected_token = chosen_id
 

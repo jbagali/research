@@ -1,0 +1,27 @@
+
+12. Printing statistics.
+
+=== adder_32 ===
+
+   Number of wires:                182
+   Number of wire bits:            275
+   Number of public wires:           5
+   Number of public wire bits:      98
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                210
+     INV_X1                         41
+     NAND2_X1                       42
+     NAND2_X2                        3
+     NAND2_X4                       58
+     NAND3_X1                        1
+     NOR2_X1                         9
+     OAI21_X2                        1
+     OR2_X1                          1
+     XNOR2_X1                       22
+     XOR2_X1                        26
+     XOR2_X2                         6
+
+   Chip area for module '\adder_32': 300.314000
+

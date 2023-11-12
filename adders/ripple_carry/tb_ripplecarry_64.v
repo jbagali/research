@@ -115,7 +115,7 @@ module tb_ripplecarry_64;
 
     // Add more test cases as needed.
 
-    $display("All tests passed");
+    $display("all tests passed");
     $finish;
   end
 

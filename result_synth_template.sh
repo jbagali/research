@@ -14,10 +14,10 @@ export ABC_LOAD_IN_FF=3.898
 #export DESIGN_NICKNAME=gcd
 
 #DESIGN_NAME and VERILOG_FILE will be changed to current tested module in LLMQueryEnv.py.
-export DESIGN_NAME=signedaddition
-export VERILOG_FILE=${MODULE_DIR}/sol_signedaddition.v
-export OUTPUT_NAME=sol_signedaddition.v
-export DUMP_DIR=${ROOT_DIR}/synth_out
+export DESIGN_NAME=ripple_carry_adder_16
+export VERILOG_FILE=${MODULE_DIR}/ripple_carry_adders_16.v
+export OUTPUT_NAME=ripple_carry_adders_16.v
+export DUMP_DIR=${ROOT_DIR}/output_files
 export ABC_SPEED=0
 export ABC_AREA=1
 export ABC_CLOCK_PERIOD_IN_PS=460
