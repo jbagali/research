@@ -62,7 +62,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         #self.stopwords = ['\n\n']
         self.stopwords = ['endmodule']
         #Limit to token generation before cutoff.
-        self.depth=2000
+        self.depth=1500
         self.orig_module = orig_module
         self.prompt_path = file_path
         self.tb_path = tb_path
@@ -71,6 +71,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         compilation_output = None
         self.compilable = False
         self.functional = False
+        self.first_successful_product = 0
         #self.top_token_ids = None
             #self.ep_length = NUM_LENGTH_EPISODES # not required
 
@@ -215,24 +216,32 @@ class LLMQueryEnv(gym.Env, StaticEnv):
             if(self.functional and area_value is not None and delay_value is not None):
                 area_value = float(area_value)
                 delay_value = float(delay_value)
-                area_delay_product = area_value * delay_value
+                current_area_delay_product = area_value * delay_value
+                if(self.first_successful_product == 0):
+                    self.first_successful_product = current_area_delay_product
+                    reward = 1
+                else: 
+                    if current_area_delay_product == self.first_successful_product:
+                        reward = 1
+                    else:
+                        reward = 1 + (((current_area_delay_product - self.first_successful_product) / self.first_successful_product) * -1)
                 print()
                 print("Currently displaying area/delay scores for ", self.orig_module, " module.")
                 print("Area of the chip design is: ", area_value)
                 print("Delay value for the chip design is: ", delay_value)
-                print("Product: ", area_delay_product)
-                print("Score (1/chip area): ", (1 / area_delay_product) * 1000 * 1000)
+                print("Product: ", current_area_delay_product)
+                print("Score (1/chip area): ", reward)
                 self.row_data['area'] = area_value
                 self.row_data['delay'] = delay_value
-                self.row_data['score'] = (1 / area_delay_product) * 1000 * 1000
+                self.row_data['score'] = reward
 
-                return ((1 / area_delay_product) * 1000 * 1000)
+                return reward
             else:
                 print("Error retrieving area/delay from results.")
                 self.row_data['area'] ='N/A'
                 self.row_data['delay'] = 'N/A'
                 self.row_data['score'] = -.75
-                return -.5
+                return -.75
         else:
             print("Filepath of Yosys results not recognized.")
             return None
@@ -391,7 +400,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         with torch.no_grad():
             torchState = torch.from_numpy(state).to(device)
             while not self.is_done_state(state,depth):
-                #print("Token: ", i)
+                print("Token: ", i)
                 #context_state = torchState[:,-500:]
                 output = self.model(input_ids=torchState)
 
@@ -407,10 +416,10 @@ class LLMQueryEnv(gym.Env, StaticEnv):
                 while (self.is_comment(chosen_id.item()) and chosen_index < sorted_ids.size(-1)):
                     #
                     # print("Comment: ", chosen_id.item())
-                    print("Incrementing: ", chosen_index)
+                    #print("Incrementing: ", chosen_index)
                     chosen_index += 1
                     chosen_id = sorted_ids[i].unsqueeze(0).unsqueeze(0)
-                    print(chosen_id.item())
+                    #print(chosen_id.item())
 
                 selected_token = chosen_id
 
