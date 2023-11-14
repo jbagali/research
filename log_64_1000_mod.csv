@@ -1,0 +1,389 @@
+Area,Delay,Score,Current Run,Episode,Verilog
+N/A,N/A,-1,2.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c21,c22,c23,c24,c25,c26,c27,c28,c29,c30,c31,c32,c33,c34,c35,c36,c37,c38,c39,c40,c41,c42,c43,c44,c45,c46,c47,c48,c49,c50,c51,c52,c53,c54,c55,c56,c57,c58,c59,c60,c61,c62,c63;
+  adder_8 a1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 a2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 a3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 a4(sum[31:24], c4, in1[31:24], in2[31:24], c3);
+  adder_8 a5(sum[39:32], c5, in1[39:32], in2[39:32], c4);
+  adder_8 a6(sum[47:40], c6, in1[47:40], in2[47:40], c5);
+  adder_8 a7(sum[55:48], c7, in1[55:48], in2[55:48], c6);
+  adder_8 a8(sum[63:56], cout, in1[63:56], in2[63:56], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c21,c22,c23,c24,c25,c26,c27,c28,c29,c30,c31;
+  adder_64 a1(sum[63:32], c1, in1[63:32], in2[63:32], cin);
+  adder_64 a2(sum[95:64], c2, in1[95:64], in2[95:64], c1);
+  adder_64 a3(sum[127:96], c3, in1[127:96], in2[127:96], c2);
+  adder_64 a4(sum[159:128], c4, in1[159:128], in2[159:128], c3);
+  adder_64 a5(sum[191:160], c5, in1[191:160], in2[191:160], c4);
+  adder_64 a6(sum[223:192], c6, in1[223:192], in2[223:192], c5);
+  adder_64 a7(sum[255:224], cout, in1[255:224], in2[255:224], c6);
+endmodule
+
+module adder_16(output [15:0] sum,
+                      output cout,
+                      input [15:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15;
+  adder_32 a1(sum[31:16], c1, in1[31:16], in2[31:16], cin);
+  adder_32 a2(sum[63:32], c2, in1[63:32], in2[63:32], c1);
+"
+N/A,N/A,-1,3.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c21,c22,c23,c24,c25,c26,c27,c28,c29,c30,c31,c32,c33,c34,c35,c36,c37,c38,c39,c40,c41,c42,c43,c44,c45,c46,c47,c48,c49,c50,c51,c52,c53,c54,c55,c56,c57,c58,c59,c60,c61,c62,c63;
+  adder_8 a1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 a2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 a3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 a4(sum[31:24], c4, in1[31:24], in2[31:24], c3);
+  adder_8 a5(sum[39:32], c5, in1[39:32], in2[39:32], c4);
+  adder_8 a6(sum[47:40], c6, in1[47:40], in2[47:40], c5);
+  adder_8 a7(sum[55:48], c7, in1[55:48], in2[55:48], c6);
+  adder_8 a8(sum[63:56], cout, in1[63:56], in2[63:56], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c21,c22,c23,c24,c25,c26,c27,c28,c29,c30,c31;
+  adder_64 a1(sum[63:32], c1, in1[63:32], in2[63:32], cin);
+  adder_64 a2(sum[95:64], c2, in1[95:64], in2[95:64], c1);
+  adder_64 a3(sum[127:96], c3, in1[127:96], in2[127:96], c2);
+  adder_64 a4(sum[159:128], c4, in1[159:128], in2[159:128], c3);
+  adder_64 a5(sum[191:160], c5, in1[191:160], in2[191:160], c4);
+  adder_64 a6(sum[223:192], c6, in1[223:192], in2[223:192], c5);
+  adder_64 a7(sum[255:224], cout, in1[255:224], in2[255:224], c6);
+endmodule
+
+module adder_16(output [15:0] sum,
+                      output cout,
+                      input [15:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15;
+  adder_32 a1(sum[31:16], c1, in1[31:16], in2[31:16], cin);
+  adder_32 a2(sum[63:32], c2, in1[63:32], in2[63:32], c1);
+"
+N/A,N/A,-1,4.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+ 
+  wire c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c21,c22,c23,c24,c25,c26,c27,c28,c29,c30,c31,c32,c33,c34,c35,c36,c37,c38,c39,c40,c41,c42,c43,c44,c45,c46,c47,c48,c49,c50,c51,c52,c53,c54,c55,c56,c57,c58,c59,c60,c61,c62,c63;
+  
+  adder_8 a1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 a2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 a3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 a4(sum[31:24], c4, in1[31:24], in2[31:24], c3);
+  adder_8 a5(sum[39:32], c5, in1[39:32], in2[39:32], c4);
+  adder_8 a6(sum[47:40], c6, in1[47:40], in2[47:40], c5);
+  adder_8 a7(sum[55:48], c7, in1[55:48], in2[55:48], c6);
+  adder_8 a8(sum[63:56], cout, in1[63:56], in2[63:56], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c21,c22,c23,c24,c25,c26,c27,c28,c29,c30,c31,c32,c33,c34,c35,c36,c37,c38,c39,c40,c41,c42,c43,c44,c45,c46,c47,c48,c49,c50,c51,c52,c53,c54,c55,c56,c57,c58,c59,c60,c61,c62,c63;
+  
+  adder_8 a1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 a2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 a3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 a4(sum[31:24], c4, in1[31:24], in2[31:24], c3);
+  adder_8 a5(sum[39:32], c5, in1[39:32], in2[39:32], c4);
+  adder_8 a6(sum[47:40], c6, in1[47:40], in2[47:40], c5);
+  adder_8 a7(sum[55:48], c7, in1[55:48], in2[55:48], c6);
+  adder_8 a8(sum[63:56], cout, in1[63:56], in2[63:56], c7);
+endmodule
+
+module adder_16(output [15:0] sum,
+                      output cout,
+"
+N/A,N/A,-1,5.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c21,c22,c23,c24,c25,c26,c27,c28,c29,c30,c31,c32,c33,c34,c35,c36,c37,c38,c39,c40,c41,c42,c43,c44,c45,c46,c47,c48,c49,c50,c51,c52,c53,c54,c55,c56,c57,c58,c59,c60,c61,c62,c63;
+  adder_8 a1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 a2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 a3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 a4(sum[31:24], c4, in1[31:24], in2[31:24], c3);
+  adder_8 a5(sum[39:32], c5, in1[39:32], in2[39:32], c4);
+  adder_8 a6(sum[47:40], c6, in1[47:40], in2[47:40], c5);
+  adder_8 a7(sum[55:48], c7, in1[55:48], in2[55:48], c6);
+  adder_8 a8(sum[63:56], cout, in1[63:56], in2[63:56], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c21,c22,c23,c24,c25,c26,c27,c28,c29,c30,c31;
+  adder_64 a1(sum[63:32], c1, in1[63:32], in2[63:32], cin);
+  adder_64 a2(sum[95:64], c2, in1[95:64], in2[95:64], c1);
+  adder_64 a3(sum[127:96], c3, in1[127:96], in2[127:96], c2);
+  adder_64 a4(sum[159:128], c4, in1[159:128], in2[159:128], c3);
+  adder_64 a5(sum[191:160], c5, in1[191:160], in2[191:160], c4);
+  adder_64 a6(sum[223:192], c6, in1[223:192], in2[223:192], c5);
+  adder_64 a7(sum[255:224], cout, in1[255:224], in2[255:224], c6);
+endmodule
+
+module adder_16(output [15:0] sum,
+                      output cout,
+                      input [15:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15;
+  adder_32 a1(sum[31:16], c1, in1[31:16], in2[31:16], cin);
+  adder_32 a2(sum[63:32], c2, in1[63:32], in2[63:32], c1);
+"
+N/A,N/A,-1,6.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+    wire c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c21,c22,c23,c24,c25,c26,c27,c28,c29,c30,c31,c32,c33,c34,c35,c36,c37,c38,c39,c40,c41,c42,c43,c44,c45,c46,c47,c48,c49,c50,c51,c52,c53,c54,c55,c56,c57,c58,c59,c60,c61,c62,c63;
+    wire [63:0] s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12,s13,s14,s15,s16,s17,s18,s19,s20,s21,s22,s23,s24,s25,s26,s27,s28,s29,s30,s31,s32,s33,s34,s35,s36,s37,s38,s39,s40,s41,s42,s43,s44,s45,s46,s47,s48,s49,s50,s51,s52,s53,s54,s55,s56,s57,s58,s59,s60,s61,s62,s63;
+    adder_8 a1(s1[7:0], c1, in1[7:0], in2[7:0], 1'b0);
+    adder_8 a2(s2[7:0], c2, in1[7:0], in2[7:0], c1);
+    adder_8 a3(s3[7:0], c3, in1[7:0], in2[7:0], c2);
+    adder_8 a4(s4[7:0], c4, in1[7:0], in2[7:0], c3);
+    adder_8 a5(s5[7:0], c5, in1[7:0], in2[7:0], c4);
+    adder_8 a6(s6[7:0], c6, in1[7:0], in2[7:0], c5);
+    adder_8 a7(s7[7:0], c7, in1[7:0], in2[7:0], c6);
+    adder_8 a8(s8[7:0], c8, in1[7:0], in2[7:0], c7);
+    adder_8 a9(s9[7:0], c9, in1[7:0], in2[7:0], c8);
+    adder_8 a10(s10[7:0], c10, in1[7:0], in2[7:0], c9);
+    adder_8 a11(s11[7:0], c11, in1[7:0], in2[7:0], c10);
+    adder_8 a12(s12[7:0], c12, in1[7:0], in2[7:0], c11);
+    adder_8 a13(s13[7:0], c13, in1[7:0], in2[7:0], c12);
+    adder_8 a14(s14[7:0], c14, in1[7:0], in2[7:0], c13);
+    adder_8 a15(s15[7:0], c15, in1[7:0], in2[7:0], c14);
+    adder_8 a16(s16[7:0], c16, in1[7:0], in2[7:0], c15);
+    adder_8 a17(s17[7:0], c17, in1[7:0], in2[7:0], c16);
+    adder_8 a18(s18[7:0],"
+N/A,N/A,-1,7.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+wire c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c21,c22,c23,c24,c25,c26,c27,c28,c29,c30,c31,c32,c33,c34,c35,c36,c37,c38,c39,c40,c41,c42,c43,c44,c45,c46,c47,c48,c49,c50,c51,c52,c53,c54,c55,c56,c57,c58,c59,c60,c61,c62,c63;
+
+adder_8 a1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+adder_8 a2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+adder_8 a3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+adder_8 a4(sum[31:24], c4, in1[31:24], in2[31:24], c3);
+adder_8 a5(sum[39:32], c5, in1[39:32], in2[39:32], c4);
+adder_8 a6(sum[47:40], c6, in1[47:40], in2[47:40], c5);
+adder_8 a7(sum[55:48], c7, in1[55:48], in2[55:48], c6);
+adder_8 a8(sum[63:56], cout, in1[63:56], in2[63:56], c7);
+
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c21,c22,c23,c24,c25,c26,c27,c28,c29,c30,c31,c32,c33,c34,c35,c36,c37,c38,c39,c40,c41,c42,c43,c44,c45,c46,c47,c48,c49,c50,c51,c52,c53,c54,c55,c56,c57,c58,c59,c60,c61,c62,c63;
+  wire t1,t2,t3,t4,t5,t6,t7,t8,t9,t10,t11,t12,t13,t14,t15,t16,t17,t18,t19,t20,t21,t22,t23,t24,t25,t26,t27,t28,t29,t30,t31,t32,t33,t34,t35,t36,t37,t38,t39,t40,t41,t42,t43,t44,t45,t46,t47,t48,t49,t50,t51,t52,t53,t54,t55,t56,t57,t58,t59,t60,t61,t62,t63;
+  adder_8 a1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 a2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 a3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 a4(sum[31:24],"
+N/A,N/A,-1,8.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+  wire [63:0] carry;
+  wire [7:0] c1,c2,c3,c4,c5,c6,c7;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], c4, in1[31:24], in2[31:24], c3);
+  adder_8 A5(sum[39:32], c5, in1[39:32], in2[39:32], c4);
+  adder_8 A6(sum[47:40], c6, in1[47:40], in2[47:40], c5);
+  adder_8 A7(sum[55:48], c7, in1[55:48], in2[55:48], c6);
+  adder_8 A8(sum[63:56], cout, in1[63:56], in2[63:56], c7);
+  assign carry[7:0] = cin;
+  assign carry[63:8] = 0;
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire [31:0] carry;
+  wire [7:0] c1,c2,c3,c4,c5,c6,c7;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], c4, in1[31:24], in2[31:24], c3);
+  adder_8 A5(sum[39:32], c5, in1[39:32], in2[39:32], c4);
+  adder_8 A6(sum[47:40], c6, in1[47:40], in2[47:40], c5);
+  adder_8 A7(sum[55:48], c7, in1[55:48], in2[55:48], c6);
+  adder_8 A8(sum[63:56], cout, in1[63:56], in2[63:56], c7);
+  assign carry[7:0] = cin;
+  assign carry[63:8] = 0;
+endmodule
+
+module adder_16(output [15:0] sum,
+                      output cout,
+                      input [15:0] in1, in2,
+                      input cin);
+  wire [15:0] carry;
+  wire [7:0] c1,c2,c3,c4,c5,c6,c7;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], c4, in1[31:24], in2[31:24], c3);
+  adder_8 A5(sum[39:32], c5, in1[39:32], in2[39:32], c4);
+  adder_8 A6(sum[47:40], c6, in1[47:40], in2[47:40"
+N/A,N/A,-1,9.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+   wire c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c21,c22,c23,c24,c25,c26,c27,c28,c29,c30,c31,c32,c33,c34,c35,c36,c37,c38,c39,c40,c41,c42,c43,c44,c45,c46,c47,c48,c49,c50,c51,c52,c53,c54,c55,c56,c57,c58,c59,c60,c61,c62,c63;
+  adder_8 a1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 a2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 a3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 a4(sum[31:24], c4, in1[31:24], in2[31:24], c3);
+  adder_8 a5(sum[39:32], c5, in1[39:32], in2[39:32], c4);
+  adder_8 a6(sum[47:40], c6, in1[47:40], in2[47:40], c5);
+  adder_8 a7(sum[55:48], c7, in1[55:48], in2[55:48], c6);
+  adder_8 a8(sum[63:56], cout, in1[63:56], in2[63:56], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c21,c22,c23,c24,c25,c26,c27,c28,c29,c30,c31,c32,c33,c34,c35,c36,c37,c38,c39,c40,c41,c42,c43,c44,c45,c46,c47,c48,c49,c50,c51,c52,c53,c54,c55,c56,c57,c58,c59,c60,c61,c62,c63;
+  wire t1,t2,t3,t4,t5,t6,t7,t8,t9,t10,t11,t12,t13,t14,t15,t16,t17,t18,t19,t20,t21,t22,t23,t24,t25,t26,t27,t28,t29,t30,t31,t32,t33,t34,t35,t36,t37,t38,t39,t40,t41,t42,t43,t44,t45,t46,t47,t48,t49,t50,t51,t52,t53,t54,t55,t56,t57,t58,t59,t60,t61,t62,t63;
+  adder_8 a1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 a2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 a3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 a4("
+N/A,N/A,-1,10.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+	wire c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c21,c22,c23,c24,c25,c26,c27,c28,c29,c30,c31,c32,c33,c34,c35,c36,c37,c38,c39,c40,c41,c42,c43,c44,c45,c46,c47,c48,c49,c50,c51,c52,c53,c54,c55,c56,c57,c58,c59,c60,c61,c62,c63;
+	adder_8 a1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+	adder_8 a2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+	adder_8 a3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+	adder_8 a4(sum[31:24], c4, in1[31:24], in2[31:24], c3);
+	adder_8 a5(sum[39:32], c5, in1[39:32], in2[39:32], c4);
+	adder_8 a6(sum[47:40], c6, in1[47:40], in2[47:40], c5);
+	adder_8 a7(sum[55:48], c7, in1[55:48], in2[55:48], c6);
+	adder_8 a8(sum[63:56], cout, in1[63:56], in2[63:56], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c21,c22,c23,c24,c25,c26,c27,c28,c29,c30,c31;
+  adder_64 a1(sum[63:32], c1, in1[63:32], in2[63:32], cin);
+  adder_64 a2(sum[95:64], c2, in1[95:64], in2[95:64], c1);
+  adder_64 a3(sum[127:96], c3, in1[127:96], in2[127:96], c2);
+  adder_64 a4(sum[159:128], c4, in1[159:128], in2[159:128], c3);
+  adder_64 a5(sum[191:160], c5, in1[191:160], in2[191:160], c4);
+  adder_64 a6(sum[223:192], c6, in1[223:192], in2[223:192], c5);
+  adder_64 a7(sum[255:224], cout, in1[255:224], in2[255:224], c6);
+endmodule
+
+module adder_16(output [15:0] sum,
+                      output cout,
+                      input [15:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15;
+  adder_32 a1(sum[31:16], c1, in1[31:16], in2[31:16], cin);
+  adder_32 a2(sum[63:32], c2, in1[63:32], in2[63:32], c1);
+"
+N/A,N/A,-1,11.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+        wire [7:0] carry;
+        adder_8 A1(sum[7:0], carry[0], in1[7:0], in2[7:0], cin);
+        adder_8 A2(sum[15:8], carry[1], in1[15:8], in2[15:8], carry[0]);
+        adder_8 A3(sum[23:16], carry[2], in1[23:16], in2[23:16], carry[1]);
+        adder_8 A4(sum[31:24], carry[3], in1[31:24], in2[31:24], carry[2]);
+        adder_8 A5(sum[39:32], carry[4], in1[39:32], in2[39:32], carry[3]);
+        adder_8 A6(sum[47:40], carry[5], in1[47:40], in2[47:40], carry[4]);
+        adder_8 A7(sum[55:48], carry[6], in1[55:48], in2[55:48], carry[5]);
+        adder_8 A8(sum[63:56], cout, in1[63:56], in2[63:56], carry[6]);
+endmodule
+
+module multiplier_64(output [127:0] product,
+                     input [63:0] A, B);
+  wire [63:0] a1;
+  wire [63:0] a2;
+  wire [63:0] a3;
+  wire [63:0] a4;
+  wire [63:0] a5;
+  wire [63:0] a6;
+  wire [63:0] a7;
+  wire [63:0] a8;
+  wire [63:0] a9;
+  wire [63:0] a10;
+  wire [63:0] a11;
+  wire [63:0] a12;
+  wire [63:0] a13;
+  wire [63:0] a14;
+  wire [63:0] a15;
+  wire [63:0] a16;
+  wire [63:0] a17;
+  wire [63:0] a18;
+  wire [63:0] a19;
+  wire [63:0] a20;
+  wire [63:0] a21;
+  wire [63:0] a22;
+  wire [63:0] a23;
+  wire [63:0] a24;
+  wire [63:0] a25;
+  wire [63:0] a26;
+  wire [63:0] a27;
+  wire [63:0] a28;
+  wire [63:0] a29;
+  wire [63:0] a30;
+  wire [63:0] a31;
+  wire [63:0] a32;
+  wire [63:0] a33;
+  wire [63:0] a34;
+  wire [63:0] a35;
+  wire [63:0] a36;
+  wire [63:0] a37;
+  wire [63:0] a38;
+  wire [63:0] a39;
+  wire [63:0] a40;
+  wire [63:0] a41;
+  wire [63:0] a42;
+  wire [63:0] a43;
+  wire [63:0] a44;
+  wire [63:0] a45;
+  wire [63:0] a46;
+  wire [63:0] a47;
+  wire [63:0] a48;
+  wire [63:0] a49;
+  wire [63:0] a50;
+  wire [63:0] a51;
+  wire [63:0] a52;
+  wire [63:0] a53;
+  wire [63:0] a54;
+  wire [63:0] a55;
+  wire [63:0] a56;
+  wire [63:0] a57;
+  wire [63:0] a58;
+  wire [63:0] a59;
+  wire [63:0] a60;
+  wire [63:0] a61;
+  wire [63"

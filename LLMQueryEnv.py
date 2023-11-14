@@ -71,7 +71,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         compilation_output = None
         self.compilable = False
         self.functional = False
-        self.first_successful_product = 0
+        self.first_successful_product = None
         #self.top_token_ids = None
             #self.ep_length = NUM_LENGTH_EPISODES # not required
 
@@ -104,14 +104,14 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         #print('decoded state',repr(decoded))
         for w in sorted(self.stopwords, key=len, reverse=True):
             if decoded.endswith(w):
-                #TMP EDIT!
+                #if(self.tb_path = ""):  
                 self.verilogFunctionalityCheck(currentState)
                 if self.compilable:     #if compilable, finish prompt generation.
                     return True
                 #elif self.non_compilable_attempts >= 2:    #if continued generation of module 2+ times, finish.
                 #    return True
                 elif b'Unknown module type' in self.compilation_output:    #if unknown module, continue generation.
-                    self.non_compilable_attempts += 1
+                    #self.non_compilable_attempts += 1
                     return False
                 else:   #if compilation error is of origin other than "undefined module", finish generation.
                     return True
@@ -134,18 +134,19 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         output_verilog_file = str(os.getpid()) + "_" + self.orig_module + ".v"       
 
         output_file_path = os.path.join(module_dump_folder, output_verilog_file)
-        try:
-            module_name = "module " + self.orig_module
-            #print("MODULE NAME: ", module_name)
-            module_index = verilog_code.find(module_name)
-            verilog_code = verilog_code[module_index:]
-        except:
-            print("Prompt does not contain the term 'module' - please readjust.")   
+        #try:
+        #    module_name = "module " + self.orig_module
+        #    #print("MODULE NAME: ", module_name)
+        #    module_index = verilog_code.find(module_name)
+        #    verilog_code = verilog_code[module_index:]
+        #except:
+        #    print("Prompt does not contain the term 'module' - please readjust.")   
 
         with open(output_file_path, 'w') as temp_file:
             temp_file.write(verilog_code)
         #TMP
-        self.row_data['verilog'] = verilog_code
+        if(self.tb_path != ""):
+            self.row_data['verilog'] = verilog_code
 
         os.chmod(output_file_path, 0o777)
         #Setting the testbench file path (assuming in same location as prompt file).
@@ -157,7 +158,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         #Call functionality check if compilable.
         
         
-        if self.compilable:
+        if self.compilable and self.tb_path != "":
             self.functional = self.functionality_check()
         
         return 0
@@ -168,15 +169,15 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         if not self.compilable:
             self.row_data['area'] = 'N/A'
             self.row_data['delay'] = 'N/A'
-            self.row_data['score'] = -1
-            return -1
+            self.row_data['score'] = -2
+            return -2
         
         #TMP EDIT!
         if not self.functional:
             self.row_data['area'] = 'N/A'
             self.row_data['delay'] = 'N/A'
-            self.row_data['score'] = -.5
-            return  -.5
+            self.row_data['score'] = -1
+            return  -1
         
         #TMP EDIT
         #Specify your bash script to be utilized here.
@@ -217,14 +218,15 @@ class LLMQueryEnv(gym.Env, StaticEnv):
                 area_value = float(area_value)
                 delay_value = float(delay_value)
                 current_area_delay_product = area_value * delay_value
-                if(self.first_successful_product == 0):
+                if(self.first_successful_product == None):
                     self.first_successful_product = current_area_delay_product
-                    reward = 1
-                else: 
-                    if current_area_delay_product == self.first_successful_product:
-                        reward = 1
-                    else:
-                        reward = 1 + (((current_area_delay_product - self.first_successful_product) / self.first_successful_product) * -1)
+                
+                reward = .5 + (1 - (current_area_delay_product / self.first_successful_product))
+              
+                    #if current_area_delay_product == self.first_successful_product:
+                    #    reward = 1
+                    #else:
+                    #    reward = 1 + (((current_area_delay_product - self.first_successful_product) / self.first_successful_product) * -1)
                 print()
                 print("Currently displaying area/delay scores for ", self.orig_module, " module.")
                 print("Area of the chip design is: ", area_value)
@@ -240,8 +242,8 @@ class LLMQueryEnv(gym.Env, StaticEnv):
                 print("Error retrieving area/delay from results.")
                 self.row_data['area'] ='N/A'
                 self.row_data['delay'] = 'N/A'
-                self.row_data['score'] = -.75
-                return -.75
+                self.row_data['score'] = -1.5
+                return -1.5
         else:
             print("Filepath of Yosys results not recognized.")
             return None
@@ -250,8 +252,10 @@ class LLMQueryEnv(gym.Env, StaticEnv):
          # Compile the Verilog code using the iVerilog
         try:
             #TMP EDIT!!
-            compile_output = subprocess.check_output(['iverilog', '-o', os.path.join(self.dumppath + "/" + str(os.getpid()) + "_" + self.orig_module, str(os.getpid()) + '_simulation'), testbench_path, module_path], stderr=subprocess.STDOUT)
-            #compile_output = subprocess.check_output(['iverilog', '-o', os.path.join("tmp_output_files", str(os.getpid()) + '_simulation'), module_path], stderr=subprocess.STDOUT)
+            if(self.tb_path != ""):
+                compile_output = subprocess.check_output(['iverilog', '-o', os.path.join(self.dumppath + "/" + str(os.getpid()) + "_" + self.orig_module, str(os.getpid()) + '_simulation'), testbench_path, module_path], stderr=subprocess.STDOUT)
+            else:
+                compile_output = subprocess.check_output(['iverilog', '-o', os.path.join(self.dumppath + "/" + str(os.getpid()) + "_" + self.orig_module, str(os.getpid()) + '_simulation'), module_path], stderr=subprocess.STDOUT)
             compile_exit_code = 0  # Compilation successful
             self.compilation_output = None
             print("Output Verilog module compiles successfully.")
@@ -393,6 +397,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         # Implement a function to check if the token is a comment
         decoded_token = self.tokenizer.decode([token_id])
         return '//' in decoded_token or '/*' in decoded_token or '*/' in decoded_token
+    
     def get_best_terminal_state(self,state,depth):
         start_time = datetime.now()
         i = 0
@@ -400,7 +405,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         with torch.no_grad():
             torchState = torch.from_numpy(state).to(device)
             while not self.is_done_state(state,depth):
-                print("Token: ", i)
+                #print("Token: ", i)
                 #context_state = torchState[:,-500:]
                 output = self.model(input_ids=torchState)
 
@@ -466,29 +471,22 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='MCTS+LLM')
     parser.add_argument('--sims', type=int, required=True, default=1000,
                         help='Simulations per MCTS episode')
-    parser.add_argument('--mod_dir', type=str, required=False, default = "VGen-main/prompts-and-testbenches/intermediate1",
+    parser.add_argument('--dumpdir', type=str, required=True,default="",
+                        help='DUMP directory for storing output files.')
+    parser.add_argument('--prompt_path', type=str, required=False, default = "VGen-main/prompts-and-testbenches/intermediate1/prompt1_counter.v",
                         help="Directory of prompt files (ex: intermediate2)")
-    parser.add_argument('--mod_name', type=str, required=False, default = "prompt3_half_adder.v",
+    parser.add_argument('--module_name', type=str, required=False, default = "prompt3_half_adder",
                         help = "Name of prompt file (ex: prompt1_counter.v)")
     
     
     args = parser.parse_args()
-    file_dir = args.mod_dir
-    file_name = args.mod_name
+    promptfile_path = args.prompt_path
+    module_name = args.module_name
     sims = args.sims
+    dumpdir = args.dumpdir
 
     #Specify your prompt file to use as input.
-    promptfile_path = file_dir + "/" + file_name
-    #Reading input file data and finding the module name.
-    file_name_parts = file_name.split("_", 1)
-    if len(file_name_parts) > 1:
-        problem_name = "_".join(file_name_parts[1:])
-        if problem_name.endswith(".v"):
-                problem_name = problem_name.replace(".v","")
-    else:
-        print("Error parsing file name - check formatting (ex: prompt1_counter.v)")
-        exit(1)
-
+    
     try:
         with open(promptfile_path, "r") as prompt_file:
             prompt_str = prompt_file.read()
@@ -507,8 +505,8 @@ if __name__ == '__main__':
     for i in range(sims):
         print("ITERATION: ", i)
         print("---------------")
-        env = LLMQueryEnv(csv_logger=None, row_data=None, orig_prompt=prompt_str, orig_module=problem_name, file_path=file_dir,
-                                                model_name=model_name, tokenizer=tokenizer, model=model)
+        env = LLMQueryEnv(csv_logger=None, row_data=None, orig_prompt=prompt_str, orig_module=module_name, file_path=promptfile_path, tb_path = "", dump_path = dumpdir,
+                                                    model_name=model_name, tokenizer=tokenizer, model=model)
         init_state = env.get_initial_state()
         finalState = env.get_best_terminal_state(init_state,0)
         promptGen = env.get_prompt_from_state(finalState)

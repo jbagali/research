@@ -1,4 +1,0 @@
-
-11. Executing CHECK pass (checking for obvious problems).
-checking module adder_16..
-found and reported 0 problems.

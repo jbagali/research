@@ -14,9 +14,9 @@ export ABC_LOAD_IN_FF=3.898
 #export DESIGN_NICKNAME=gcd
 
 #DESIGN_NAME and VERILOG_FILE will be changed to current tested module in LLMQueryEnv.py.
-export DESIGN_NAME=ripple_carry_adder_16
-export VERILOG_FILE=${MODULE_DIR}/ripple_carry_adders_16.v
-export OUTPUT_NAME=ripple_carry_adders_16.v
+export DESIGN_NAME=adder_8
+export VERILOG_FILE=${MODULE_DIR}/adder_8.v
+export OUTPUT_NAME=adder_8.v
 export DUMP_DIR=${ROOT_DIR}/output_files
 export ABC_SPEED=0
 export ABC_AREA=1

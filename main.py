@@ -61,11 +61,11 @@ if __name__ == '__main__':
     #                    help = "Name of prompt file (ex: prompt1_counter.v)")
     parser.add_argument('--csv', type=str, required=False, default = "log.csv",
                         help = "Name of csv file. (ex: log.csv)")
-    parser.add_argument('--prompt_path', type=str, required=True, default = "VGen-main/prompts-and-testbenches/intermediate1/prompt3_half_adder.v",
+    parser.add_argument('--prompt_path', type=str, required=True, default = "",
                         help = "Filepath of prompt file from current directory (ex: filepath/prompt1_counter.v)")
-    parser.add_argument('--tb_path', type=str, required=True, default = "VGen-main/prompts-and-testbenches/intermediate1/tb_counter.v",
+    parser.add_argument('--tb_path', type=str, required=True, default = "",
                         help = "Filepath of counter filepath from current directory (ex: filepath/prompt1_counter.v)")
-    parser.add_argument('--module_name', type=str, required=True, default = "counter",
+    parser.add_argument('--module_name', type=str, required=True, default = "",
                         help = "Name of module in prompt for which the LLM will finish creating. Ex: counter")
 
     args = parser.parse_args()
