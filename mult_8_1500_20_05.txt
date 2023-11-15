@@ -1,0 +1,244 @@
+multipliers/multiplier_8.v
+Prompt str:  //Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+Loading LLM model...
+Initializing MCTS tree/LLM env...
+Episode not stated yet!
+Simulations per episode:  500
+******** EPISODE-1************
+ORIG MODILE:  multiplier_8
+Env seed:  303384
+Initializing MCTS tree.
+Initialize search (creating root node)
+Selection: finding leaf node.
+Leaf selection - depth:  0
+Getting LLM token estimates (probs/ids).
+Len original:  50295  Len new:  50278
+Expansion: next action:  0  corresponding to state:  198
+Getting rollout return of leaf.
+//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule
+Verilog compilation failed, error:  2
+Compilation output:  b'multipliers/tb_multiplier_16.v:12: error: Unknown module type: multiplier_16\n2 error(s) during elaboration.\n*** These modules were missing:\n        multiplier_16 referenced 1 times.\n***\n'
+//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule
+
+module multiplier_16(output [31:0] product, input [15:0] A, B);
+	wire [15:0] A_B;
+	wire [15:0] AB;
+	wire [15:0] AB_B;
+	wire [15:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Test 1 passed\nTest 2 failed\n'
+Tokens:  266
+LLM generates return in:  35.796227  seconds
+Running getPromptScore: 
+Backpropogation: incorporating estimates.
+Updated num:  1
+Selection: finding leaf node.
+Leaf selection - depth:  0
+Leaf selection - action scores:  [1.27425981e+00 3.25079635e-01 1.99472774e-02 7.88669539e-03
+ 3.44259687e-03 3.34945802e-03 2.15795773e-03 1.70751491e-03
+ 1.04272433e-03 9.98675126e-04 9.22245089e-04 5.45101160e-04
+ 5.01669109e-04 3.79414287e-04 2.96569941e-04 2.22112173e-04
+ 2.36959023e-01 1.80392783e-04 1.72970487e-04 5.57361318e-02]  taking action:  0
+Adding child.
+Leaf selection - depth:  1
+Getting LLM token estimates (probs/ids).
+Len original:  50295  Len new:  50278
+Expansion: next action:  0  corresponding to state:  197
+Getting rollout return of leaf.
+//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule
+Verilog compilation failed, error:  2
+Compilation output:  b'multipliers/tb_multiplier_16.v:12: error: Unknown module type: multiplier_16\n2 error(s) during elaboration.\n*** These modules were missing:\n        multiplier_16 referenced 1 times.\n***\n'
+//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule
+
+module multiplier_16(output [31:0] product, input [15:0] A, B);
+	wire [15:0] A_B;
+	wire [15:0] AB;
+	wire [15:0] AB_B;
+	wire [15:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Test 1 passed\nTest 2 failed\n'
+Tokens:  265
+LLM generates return in:  36.768372  seconds
+Running getPromptScore: 
+Backpropogation: incorporating estimates.
+Current runs:  2.0
+Selection: finding leaf node.
+Leaf selection - depth:  0
+Leaf selection - action scores:  [5.30321585e-01 3.98139616e-01 2.44303257e-02 9.65918973e-03
+ 4.21630286e-03 4.10223153e-03 2.64294766e-03 2.09127013e-03
+ 1.27707127e-03 1.22312224e-03 1.12951494e-03 6.67609850e-04
+ 6.14416668e-04 4.64685702e-04 3.63222514e-04 2.72030745e-04
+ 2.90214348e-01 2.20935136e-04 2.11844717e-04 6.82625416e-02]  taking action:  0
+Leaf selection - depth:  1
+Leaf selection - action scores:  [0.6949588  0.5312076  0.30890653 0.10232691 0.04184904 0.02337706
+ 0.01908387 0.01832186 0.01084293 0.00931771 0.00876187 0.00640245
+ 0.00528297 0.00409294 0.00329887 0.00315509 0.00314411 0.00252669
+ 0.0021089  0.00147727]  taking action:  0
+Adding child.
+Leaf selection - depth:  2
+Getting LLM token estimates (probs/ids).
+Len original:  50295  Len new:  50278
+Expansion: next action:  0  corresponding to state:  21809
+Getting rollout return of leaf.
+//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule
+Verilog compilation failed, error:  2
+Compilation output:  b'multipliers/tb_multiplier_16.v:12: error: Unknown module type: multiplier_16\n2 error(s) during elaboration.\n*** These modules were missing:\n        multiplier_16 referenced 1 times.\n***\n'
+//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule
+
+module multiplier_16(output [31:0] product, input [15:0] A, B);
+	wire [15:0] A_B;
+	wire [15:0] AB;
+	wire [15:0] AB_B;
+	wire [15:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Test 1 passed\nTest 2 failed\n'
+Tokens:  264
+LLM generates return in:  37.251342  seconds
+Running getPromptScore: 
+Backpropogation: incorporating estimates.
+Current runs:  3.0
+Selection: finding leaf node.
+Leaf selection - depth:  0
+Leaf selection - action scores:  [2.67358493e-01 4.59732029e-01 2.82097102e-02 1.11534716e-02
+ 4.86856719e-03 4.73684896e-03 3.05181309e-03 2.41479074e-03
+ 1.47463489e-03 1.41233991e-03 1.30425151e-03 7.70889453e-04
+ 7.09467258e-04 5.36572830e-04 4.19413233e-04 3.14114048e-04
+ 3.35110664e-01 2.55113920e-04 2.44617209e-04 7.88227935e-02]  taking action:  1
+Adding child.
+Leaf selection - depth:  1
+Getting LLM token estimates (probs/ids).
+Len original:  50295  Len new:  50278
+Expansion: next action:  0  corresponding to state:  197
+Getting rollout return of leaf.

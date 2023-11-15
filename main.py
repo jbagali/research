@@ -47,6 +47,8 @@ if __name__ == '__main__':
     #                    help='Initial prompt')
     parser.add_argument('--dumpdir', type=str, required=True,default="",
                         help='DUMP directory for storing output files.')
+    parser.add_argument('--op', type=str, required=True,default="",
+                        help = "Please state which operation to perform: 'mcts', 'beam', or 'greedy'.")
     parser.add_argument('--runID', type=int, required=True, default=0,
                         help='Run ID')
     parser.add_argument('--sims', type=int, required=True, default=1000,
@@ -76,6 +78,7 @@ if __name__ == '__main__':
     simulation_per_episode = args.sims
     num_episodes = args.ep
     num_processes = args.pr
+    operation = args.op
     #file_dir = args.mod_dir
     #file_name = args.mod_name
     csv_name = args.csv
@@ -146,39 +149,49 @@ if __name__ == '__main__':
     
     while idx_ep<num_episodes:
         print("******** EPISODE-{}************".format(idx_ep+1))
-        print("ORIG MODILE: ", module_name)
-        merged_tree = initialize_MCTS_tree(LLMQueryEnv(csv_logger, row_data, orig_prompt=prompt_str, orig_module=module_name, file_path=prompt_filepath, tb_path = tb_filepath, dump_path = rootDumpDir,
-                                                    model_name=model_name, tokenizer=tokenizer, model=model))
-        merged_tree = execute_episode(merged_tree,simulation_per_episode)
-        print("ROBUST FINAL VALUE:")
-        evalMctsRobustValue, evalMctsMaxValue = test_episode(merged_tree)
-        #csvFileHandler.write("{},{}\n".format(evalMctsRobustValue))
+        if(operation == "mcts"):
+            print("ORIG MODILE: ", module_name)
+            merged_tree = initialize_MCTS_tree(LLMQueryEnv(csv_logger, row_data, orig_prompt=prompt_str, op = operation, orig_module=module_name, file_path=prompt_filepath, tb_path = tb_filepath, dump_path = rootDumpDir,
+                                                        model_name=model_name, tokenizer=tokenizer, model=model))
+            merged_tree = execute_episode(merged_tree,simulation_per_episode)
+            print("ROBUST FINAL VALUE:")
+            evalMctsRobustValue, evalMctsMaxValue = test_episode(merged_tree)
+            ##csvFileHandler.write("{},{}\n".format(evalMctsRobustValue))
+
+        elif (operation == "beam"):
+            env = LLMQueryEnv(csv_logger, row_data, orig_prompt=prompt_str, op = operation, orig_module=module_name, file_path=prompt_filepath, tb_path = tb_filepath, dump_path = rootDumpDir,
+                                                        model_name=model_name, tokenizer=tokenizer, model=model)
+            for i in range(simulation_per_episode):
+                env.row_data['episode'] = idx_ep
+                env.row_data['currentRun'] = i
+                init_state = env.get_initial_state()
+                output = env.beam_search(init_state)
+                
+        elif (operation == "greedy"):
+            for i in range(simulation_per_episode):
+                print("----GREEDY LLM OUTPUT - ITERATION: ", i, " ----")
+                print("---------------")
+                env = LLMQueryEnv(csv_logger, row_data, orig_prompt=prompt_str, op = operation, orig_module=module_name, file_path=prompt_filepath, tb_path = "", dump_path = rootDumpDir,
+                                                            model_name=model_name, tokenizer=tokenizer, model=model)
+                env.row_data['episode'] = idx_ep
+                env.row_data['currentRun'] = i
+                init_state = env.get_initial_state()
+                finalState = env.get_best_terminal_state(init_state,0)
+                promptGen = env.get_prompt_from_state(finalState)
+                filteredGen=env.trim_with_stopwords(promptGen)
+                score = env.getPromptScore(filteredGen)
+                #print('Filtered relevant code with stop words {}-->\n{}\n'.format(env.stopwords, filteredGen))
+                #print("Error please correct the operation type.")
+            break
+        else:
+            print("Error reading --op parameter. Please only state 'beam', 'greedy', or 'mcts' as your input.")
+            exit(1)
+
         idx_ep+=1
 
-    print("Num simulations: ", merged_tree.num_simulations)
+    #print("Num simulations: ", merged_tree.num_simulations)
     
 
 
-
-
-
-
-    #test
-    #merge
-    #while idx_ep<num_episodes:
-    #    with ProcessPoolExecutor(max_workers=simulation_per_episode) as executor:
-   #         futures = [executor.submit(execute_episode, mctsTree, 1) for _ in range(simulation_per_episode)]
-    #        #results = [future.result() for future in futures]
-    #    idx_ep+=1  
-    
-    #while idx_ep<num_episodes:
-    #    with ProcessPoolExecutor(max_workers=simulation_per_episode) as executor:
-    #        futures = [executor.submit(execute_episode, mctsTree, 1) for _ in range(simulation_per_episode)]
-    #        #results = [future.result() for future in futures]
-    #   idx_ep+=1  
-    
-   # print(mctsTree.num_simulations)
-    
-    
 
     

@@ -10,19 +10,33 @@ import pandas as pd
 from transformers import AutoTokenizer, AutoModelForCausalLM
 from datetime import datetime
 
-def seed_everything():  
-    #seed = random.randint(1, 1000000)     
-    seed = 42                                          
-    random.seed(seed)                                                     
-    torch.manual_seed(seed)
-    np.random.seed(seed)
-    print("Env seed: ", seed)
-    os.environ['PYTHONHASHSEED'] = str(seed)
-    if torch.cuda.is_available():
-        torch.cuda.manual_seed(seed)                                                   
-        torch.cuda.manual_seed_all(seed)                                             
-        torch.backends.cudnn.deterministic = True
-        torch.backends.cudnn.benchmark = False
+def seed_everything(operation):  
+    if(operation == "beam" or operation == "greedy"):
+        seed = random.randint(1, 1000000)     
+        random.seed(seed)                                                     
+        torch.manual_seed(seed)
+        np.random.seed(seed)
+        print("Env seed: ", seed)
+        os.environ['PYTHONHASHSEED'] = str(seed)
+        if torch.cuda.is_available():
+            torch.cuda.manual_seed(seed)                                                   
+            torch.cuda.manual_seed_all(seed)                                             
+            torch.backends.cudnn.deterministic = False
+            torch.backends.cudnn.benchmark = False
+    elif(operation == "mcts"):
+        seed = 42                                          
+        random.seed(seed)                                                     
+        torch.manual_seed(seed)
+        np.random.seed(seed)
+        print("Env seed: ", seed)
+        os.environ['PYTHONHASHSEED'] = str(seed)
+        if torch.cuda.is_available():
+            torch.cuda.manual_seed(seed)                                                   
+            torch.cuda.manual_seed_all(seed)                                             
+            torch.backends.cudnn.deterministic = True
+            torch.backends.cudnn.benchmark = False
+    else:
+        print("Error in --op parameter. Please state 'mcts', 'greedy', or 'beam' as your decision.")
 
 if torch.cuda.is_available():
     device = torch.device("cuda")
@@ -46,9 +60,10 @@ class LLMQueryEnv(gym.Env, StaticEnv):
 
     # origAIG incomplete prompt
     
-    def __init__(self, csv_logger=None, row_data=None, orig_prompt="def hello_world():", orig_module="hello_world", file_path = "", tb_path = "", dump_path = "",
+    def __init__(self, csv_logger=None, row_data=None, op = "mcts", orig_prompt="def hello_world():", orig_module="hello_world", file_path = "", tb_path = "", dump_path = "",
                  model_name=None, tokenizer=None, model=None):
-        seed_everything()
+        self.op = op
+        seed_everything(self.op)
 
         self.csv_logger = csv_logger
         self.row_data = row_data
@@ -58,7 +73,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         self.orig_prompt = orig_prompt
         self.init_state = self.get_tokenized_state(self.orig_prompt)
         self.num_tokens=0
-        self.n_actions = 10 #self.tokenizer.vocab_size
+        self.n_actions = 20 #self.tokenizer.vocab_size
         #self.stopwords = ['\n\n']
         self.stopwords = ['endmodule']
         #Limit to token generation before cutoff.
@@ -72,6 +87,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         self.compilable = False
         self.functional = False
         self.first_successful_product = None
+        self.beam_count = 0
         #self.top_token_ids = None
             #self.ep_length = NUM_LENGTH_EPISODES # not required
 
@@ -145,8 +161,8 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         with open(output_file_path, 'w') as temp_file:
             temp_file.write(verilog_code)
         #TMP
-        if(self.tb_path != ""):
-            self.row_data['verilog'] = verilog_code
+        #if(self.tb_path != ""):
+        self.row_data['verilog'] = verilog_code
 
         os.chmod(output_file_path, 0o777)
         #Setting the testbench file path (assuming in same location as prompt file).
@@ -158,7 +174,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         #Call functionality check if compilable.
         
         
-        if self.compilable and self.tb_path != "":
+        if self.compilable:
             self.functional = self.functionality_check()
         
         return 0
@@ -169,15 +185,15 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         if not self.compilable:
             self.row_data['area'] = 'N/A'
             self.row_data['delay'] = 'N/A'
-            self.row_data['score'] = -2
-            return -2
+            self.row_data['score'] = -1
+            return -1
         
         #TMP EDIT!
         if not self.functional:
             self.row_data['area'] = 'N/A'
             self.row_data['delay'] = 'N/A'
-            self.row_data['score'] = -1
-            return  -1
+            self.row_data['score'] = -.1
+            return  -.1
         
         #TMP EDIT
         #Specify your bash script to be utilized here.
@@ -221,7 +237,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
                 if(self.first_successful_product == None):
                     self.first_successful_product = current_area_delay_product
                 
-                reward = .5 + (1 - (current_area_delay_product / self.first_successful_product))
+                reward = .1 + (1 - (current_area_delay_product / self.first_successful_product))
               
                     #if current_area_delay_product == self.first_successful_product:
                     #    reward = 1
@@ -242,8 +258,8 @@ class LLMQueryEnv(gym.Env, StaticEnv):
                 print("Error retrieving area/delay from results.")
                 self.row_data['area'] ='N/A'
                 self.row_data['delay'] = 'N/A'
-                self.row_data['score'] = -1.5
-                return -1.5
+                self.row_data['score'] = -.75
+                return -.75
         else:
             print("Filepath of Yosys results not recognized.")
             return None
@@ -392,7 +408,72 @@ class LLMQueryEnv(gym.Env, StaticEnv):
             #print("All decoded: ", decoded_tokens)
             
             return non_comment_probs, non_comment_ids
-        
+    
+    def check_sequence_in_ids(self, ids, target_sequence):
+        instances = 0
+        id_list = ids[0].tolist()
+        if len(id_list) < len(target_sequence):
+            return False
+        for i in range(len(id_list) - len(target_sequence) + 1):
+            if id_list[i:i+len(target_sequence)] == target_sequence:
+                instances += 1
+                if(instances > self.beam_count):
+                    self.beam_count += 1
+                
+                    print("BEAM SEARCH: ID TYPE: ", type(ids))
+                    self.verilogFunctionalityCheck(ids.detach().cpu().numpy())
+                    if self.compilable:     #if compilable, finish prompt generation.
+                        return True
+                    #elif self.non_compilable_attempts >= 2:    #if continued generation of module 2+ times, finish.
+                    #    return True
+                    elif b'Unknown module type' in self.compilation_output:    #if unknown module, continue generation.
+                        #self.non_compilable_attempts += 1
+                        return False
+                    else:   #if compilation error is of origin other than "undefined module", finish generation.
+                        return True
+                #return True
+        return False
+    
+    def beam_search(self, state):
+        #State is self.init_state
+        self.beam_count = 0
+        target_sequence = [
+        self.tokenizer.convert_tokens_to_ids("end"),
+        self.tokenizer.convert_tokens_to_ids("module")
+        ]
+        intermediate_states = []
+        def custom_stopping_criterion(input_ids, state):
+            #input_ids = state.get("input_ids", None)
+            #if input_ids is None:
+            #    return False
+            #ids = input_ids[0].tolist()  # Extract the generated token IDs
+            #current_output = input_ids[0]  # Extract the current output sequence
+            return self.check_sequence_in_ids(input_ids, target_sequence)
+
+        torchState = torch.from_numpy(state).to(device)
+        #for _ in range(300):
+        beam_output = self.model.generate(
+            input_ids = torchState,
+            max_length=torchState.size(1) + self.depth,
+            num_beams=3,
+            #no_repeat_ngram_size=2,
+            #early_stopping = True,
+            #eos_token_id = eos_tokens
+            stopping_criteria=[custom_stopping_criterion],
+            return_full_text=True,
+
+        )
+        best_beam_output = beam_output[0]
+        best_beam_output_np = best_beam_output.cpu().numpy()
+        decoded_tokens = self.tokenizer.decode(best_beam_output_np, skip_special_tokens=True)
+        decoded_tokens = decoded_tokens.rstrip("#")
+        self.getPromptScore()
+        print("Beam token ids: ", best_beam_output_np.tolist())
+        print("Beam results: ", decoded_tokens)
+        self.csv_logger.log(self.row_data)
+        return True
+
+
     def is_comment(self, token_id):
         # Implement a function to check if the token is a comment
         decoded_token = self.tokenizer.decode([token_id])
@@ -418,12 +499,14 @@ class LLMQueryEnv(gym.Env, StaticEnv):
                 selected_token = sorted_ids[0].unsqueeze(0).unsqueeze(0)
                 chosen_id = selected_token
                 chosen_index = 0
-                while (self.is_comment(chosen_id.item()) and chosen_index < sorted_ids.size(-1)):
-                    #
-                    # print("Comment: ", chosen_id.item())
-                    #print("Incrementing: ", chosen_index)
-                    chosen_index += 1
-                    chosen_id = sorted_ids[i].unsqueeze(0).unsqueeze(0)
+                
+                if(self.op == "mcts"):
+                    while (self.is_comment(chosen_id.item()) and chosen_index < sorted_ids.size(-1)):
+                        #
+                        # print("Comment: ", chosen_id.item())
+                        #print("Incrementing: ", chosen_index)
+                        chosen_index += 1
+                        chosen_id = sorted_ids[chosen_index].unsqueeze(0).unsqueeze(0)
                     #print(chosen_id.item())
 
                 selected_token = chosen_id
@@ -500,24 +583,25 @@ if __name__ == '__main__':
     tokenizer = AutoTokenizer.from_pretrained("shailja/fine-tuned-codegen-2B-Verilog")
     model = AutoModelForCausalLM.from_pretrained("shailja/fine-tuned-codegen-2B-Verilog").to(device)
 
+
     print("env created")
     start_time = datetime.now()
     for i in range(sims):
         print("ITERATION: ", i)
         print("---------------")
         env = LLMQueryEnv(csv_logger=None, row_data=None, orig_prompt=prompt_str, orig_module=module_name, file_path=promptfile_path, tb_path = "", dump_path = dumpdir,
-                                                    model_name=model_name, tokenizer=tokenizer, model=model)
+                                                     model_name=model_name, tokenizer=tokenizer, model=model)
         init_state = env.get_initial_state()
         finalState = env.get_best_terminal_state(init_state,0)
         promptGen = env.get_prompt_from_state(finalState)
         filteredGen=env.trim_with_stopwords(promptGen)
         print('Filtered relevant code with stop words {}-->\n{}\n'.format(env.stopwords, filteredGen))
     
-    end_time = datetime.now()
-    time_difference = end_time - start_time
-    print("Final end time: ", time_difference)
+    # end_time = datetime.now()
+    # time_difference = end_time - start_time
+    # print("Final end time: ", time_difference)
     
-    
+    #--End---
     
     
     # #### Get next best state ###

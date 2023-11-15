@@ -1,0 +1,190 @@
+adders/ripple_carry/prompt1_adder_8.v
+Prompt str:  //Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+Loading LLM model...
+Initializing MCTS tree/LLM env...
+Episode not stated yet!
+Simulations per episode:  500
+******** EPISODE-1************
+ORIG MODILE:  adder_8
+Env seed:  42
+Initializing MCTS tree.
+Initialize search (creating root node)
+Selection: finding leaf node.
+Leaf selection - depth:  0
+Getting LLM token estimates (probs/ids).
+Len original:  50295  Len new:  50278
+Expansion: next action:  0  corresponding to state:  198
+Getting rollout return of leaf.
+//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1, c2, c3, c4, c5, c6, c7;
+  wire [7:0] sum;
+  
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+Verilog compilation failed, error:  9
+Compilation output:  b'adders/ripple_carry/tb_adder_8.v:30: warning: extra digits given for sized hex constant.\noutput_files/1177473_adder_8/1177473_adder_8.v:12: error: Unknown module type: full_adder_1\noutput_files/1177473_adder_8/1177473_adder_8.v:13: error: Unknown module type: full_adder_1\noutput_files/1177473_adder_8/1177473_adder_8.v:14: error: Unknown module type: full_adder_1\noutput_files/1177473_adder_8/1177473_adder_8.v:15: error: Unknown module type: full_adder_1\noutput_files/1177473_adder_8/1177473_adder_8.v:16: error: Unknown module type: full_adder_1\noutput_files/1177473_adder_8/1177473_adder_8.v:17: error: Unknown module type: full_adder_1\noutput_files/1177473_adder_8/1177473_adder_8.v:18: error: Unknown module type: full_adder_1\noutput_files/1177473_adder_8/1177473_adder_8.v:19: error: Unknown module type: full_adder_1\n9 error(s) during elaboration.\n*** These modules were missing:\n        full_adder_1 referenced 8 times.\n***\n'
+//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1, c2, c3, c4, c5, c6, c7;
+  wire [7:0] sum;
+  
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+All testbench tests passed!
+Tokens:  390
+LLM generates return in:  71.194486  seconds
+Running getPromptScore: 
+adder_8
+output_files/1177473_adder_8/synth_script.sh
+Running bash in x seconds:  0.694872
+
+Currently displaying area/delay scores for  adder_8  module.
+Area of the chip design is:  73.416
+Delay value for the chip design is:  346.83
+Product:  25462.87128
+Score (1/chip area):  0.1
+Backpropogation: incorporating estimates.
+Updated num:  1
+Selection: finding leaf node.
+Leaf selection - depth:  0
+Leaf selection - action scores:  [1.02324226e+00 5.99572955e-01 9.69199332e-03 2.20297561e-03
+ 1.93674218e-03 1.09775608e-03 3.05121424e-03 7.87835827e-04
+ 7.02299867e-04 6.60656375e-04 6.49801441e-04 6.14550943e-04
+ 5.03940864e-04 4.82495428e-04 4.51461403e-04 4.30075593e-04
+ 4.12221853e-04 2.91017714e-01 3.51895995e-04 3.16293498e-04]  taking action:  0
+Adding child.
+Leaf selection - depth:  1
+Getting LLM token estimates (probs/ids).
+Len original:  50295  Len new:  50278
+Expansion: next action:  0  corresponding to state:  50286
+Getting rollout return of leaf.
+//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1, c2, c3, c4, c5, c6, c7;
+  wire [7:0] sum;
+  
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+Verilog compilation failed, error:  9
+Compilation output:  b'adders/ripple_carry/tb_adder_8.v:30: warning: extra digits given for sized hex constant.\noutput_files/1177473_adder_8/1177473_adder_8.v:12: error: Unknown module type: full_adder_1\noutput_files/1177473_adder_8/1177473_adder_8.v:13: error: Unknown module type: full_adder_1\noutput_files/1177473_adder_8/1177473_adder_8.v:14: error: Unknown module type: full_adder_1\noutput_files/1177473_adder_8/1177473_adder_8.v:15: error: Unknown module type: full_adder_1\noutput_files/1177473_adder_8/1177473_adder_8.v:16: error: Unknown module type: full_adder_1\noutput_files/1177473_adder_8/1177473_adder_8.v:17: error: Unknown module type: full_adder_1\noutput_files/1177473_adder_8/1177473_adder_8.v:18: error: Unknown module type: full_adder_1\noutput_files/1177473_adder_8/1177473_adder_8.v:19: error: Unknown module type: full_adder_1\n9 error(s) during elaboration.\n*** These modules were missing:\n        full_adder_1 referenced 8 times.\n***\n'
+//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1, c2, c3, c4, c5, c6, c7;
+  wire [7:0] sum;
+  
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+All testbench tests passed!
+Tokens:  389
+LLM generates return in:  72.801621  seconds
+Running getPromptScore: 
+adder_8
+output_files/1177473_adder_8/synth_script.sh
+Running bash in x seconds:  0.700787
+
+Currently displaying area/delay scores for  adder_8  module.
+Area of the chip design is:  73.416
+Delay value for the chip design is:  346.83
+Product:  25462.87128
+Score (1/chip area):  0.1
+Backpropogation: incorporating estimates.
+Current runs:  2.0
+Selection: finding leaf node.
+Leaf selection - depth:  0
+Leaf selection - action scores:  [6.76605354e-01 7.34323902e-01 1.18702191e-02 2.69808308e-03
+ 2.37201505e-03 1.34447113e-03 3.73695899e-03 9.64897888e-04
+ 8.60138160e-04 8.09135507e-04 7.95840982e-04 7.52668116e-04
+ 6.17198989e-04 5.90933800e-04 5.52925038e-04 5.26732876e-04
+ 5.04866600e-04 3.56422453e-01 4.30982815e-04 3.87378839e-04]  taking action:  1
+Adding child.
+Leaf selection - depth:  1
+Getting LLM token estimates (probs/ids).
+Len original:  50295  Len new:  50278
+Expansion: next action:  0  corresponding to state:  50284
+Getting rollout return of leaf.
