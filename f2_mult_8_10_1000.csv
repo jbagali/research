@@ -1,0 +1,2640 @@
+Area,Delay,Score,Current Run,Episode,Verilog
+N/A,N/A,-1,8.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+    wire [7:0] pp0;
+    wire [7:0] pp1;
+    wire [7:0] pp2;
+    wire [7:0] pp3;
+    wire [7:0] pp4;
+    wire [7:0] pp5;
+    wire [7:0] pp6;
+    wire [7:0] pp7;
+    
+    assign pp0 = A[0]? B : 8'b00000000;
+    assign pp1 = A[1]? B : 8'b00000000;
+    assign pp2 = A[2]? B : 8'b00000000;
+    assign pp3 = A[3]? B : 8'b00000000;
+    assign pp4 = A[4]? B : 8'b00000000;
+    assign pp5 = A[5]? B : 8'b00000000;
+    assign pp6 = A[6]? B : 8'b00000000;
+    assign pp7 = A[7]? B : 8'b00000000;
+    
+    assign product[0] = pp0[0];
+    
+    half_adder HA0(product[1], c0, pp0[1], pp1[0]);
+    full_adder FA0(s0, c1, pp0[2], pp1[1], pp2[0], c0);
+    full_adder FA1(s1, c2, pp0[3], pp1[2], pp2[1], c1);
+    full_adder FA2(s2, c3, pp0[4], pp1[3], pp2[2], c2);
+    full_adder FA3(s3, c4, pp0[5], pp1[4], pp2[3], c3);
+    full_adder FA4(s4, c5, pp0[6], pp1[5], pp2[4], c4);
+    full_adder FA5(s5, c6, pp0[7], pp1[6], pp2[5], c5);
+    full_adder FA6(s6, c7, pp1[7], pp2[6], pp3[5], c6);
+    half_adder HA7(s7, c8, pp2[7], pp3[6]);
+    
+    assign product[7] = s7;
+    assign product[8] = s6;
+    assign product[9] = s5;
+    assign product[10] = s4;
+    assign product[11] = s3;
+    assign product[12] = s2;
+    assign product[13] = s1;
+    assign product[14] = s0;
+    assign product[15] = pp7[7];
+endmodule
+
+module half_adder(output wire sum,
+                  output wire cout,
+                  input wire in1,
+                  input wire in2);
+    xor(sum, in1, in2);
+    and(cout, in1, in2);
+endmodule
+
+module full_adder(output wire sum,
+                  output wire cout,
+                  input wire in1,
+                  input wire in2,
+                  input wire cin);
+    wire temp1;
+    wire temp2;
+    wire temp3;
+    xor(sum, in1, in2, cin);
+    and(temp1,in1,in2);
+    and(temp2,in1,cin);
+    and(temp3,in2,cin);
+    or(cout,temp1,temp2,temp3);
+endmodule"
+N/A,N/A,-0.1,9.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);		
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_M;
+	
+	assign A_B = A & B;
+	assign AB = A | B;
+	
+	assign AB_M = AB << 1;
+	
+	assign product = A_B ^ AB_M;
+endmodule"
+N/A,N/A,-0.1,10.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+
+wire [7:0] A_temp;
+wire [7:0] B_temp;
+
+assign A_temp = A;
+assign B_temp = B;
+
+wire [7:0] product_temp;
+
+assign product_temp = A_temp * B_temp;
+
+assign product = product_temp;
+
+endmodule"
+N/A,N/A,-0.1,11.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,12.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+
+wire [7:0] A_temp;
+wire [7:0] B_temp;
+
+assign A_temp = A;
+assign B_temp = B;
+
+wire [7:0] product_temp;
+
+assign product_temp = A_temp * B_temp;
+
+assign product = product_temp;
+
+endmodule"
+N/A,N/A,-0.1,13.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);		
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_M;
+	
+	assign A_B = A & B;
+	assign AB = A | B;
+	
+	assign AB_M = AB << 1;
+	
+	assign product = A_B ^ AB_M;
+endmodule"
+N/A,N/A,-0.1,14.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	
+	wire [15:0] product_temp;
+	
+	multiplier_4 M1(product_temp, A_B, AB);
+	
+	assign product = product_temp;
+	
+endmodule
+
+module multiplier_4(output [3:0] product, input [3:0] A_B, input [3:0] AB);
+	
+	wire [3:0] A_B_temp;
+	wire [3:0] AB_temp;
+	
+	assign A_B_temp = A_B << 1;
+	assign AB_temp = AB << 1;
+	
+	wire [3:0] product_temp;
+	
+	multiplier_2 M1(product_temp, A_B_temp, AB_temp);
+	
+	assign product = product_temp;
+	
+endmodule
+
+module multiplier_2(output [1:0] product, input [1:0] A_B, input [1:0] AB);
+	
+	wire [1:0] A_B_temp;
+	wire [1:0] AB_temp;
+	
+	assign A_B_temp = A_B << 1;
+	assign AB_temp = AB << 1;
+	
+	wire [1:0] product_temp;
+	
+	multiplier_1 M1(product_temp, A_B_temp, AB_temp);
+	
+	assign product = product_temp;
+	
+endmodule
+
+module multiplier_1(output [0:0] product, input [0:0] A_B, input [0:0] AB);
+	
+	wire [0:0] A_B_temp;
+	wire [0:0] AB_temp;
+	
+	assign A_B_temp = A_B << 1;
+	assign AB_temp = AB << 1;
+	
+	wire [0:0] product_temp;
+	
+	multiplier_0 M1(product_temp, A_B_temp, AB_temp);
+	
+	assign product = product_temp;
+	
+endmodule
+
+module multiplier_0(output [0:0] product, input [0:0] A_B, input [0:0] AB);
+	
+	assign product = A_B * AB;
+	
+endmodule"
+641.858,789.49,0.1,15.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	assign product = A * B;
+endmodule"
+N/A,N/A,-1,16.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+  wire [7:0] pp0;
+  wire [7:0] pp1;
+  wire [7:0] pp2;
+  wire [7:0] pp3;
+  wire [7:0] pp4;
+  wire [7:0] pp5;
+  wire [7:0] pp6;
+  wire [7:0] pp7;
+  assign pp0 = A[0]? B : 8'b00000000;
+  assign pp1 = A[1]? B : 8'b00000000;
+  assign pp2 = A[2]? B : 8'b00000000;
+  assign pp3 = A[3]? B : 8'b00000000;
+  assign pp4 = A[4]? B : 8'b00000000;
+  assign pp5 = A[5]? B : 8'b00000000;
+  assign pp6 = A[6]? B : 8'b00000000;
+  assign pp7 = A[7]? B : 8'b00000000;
+  assign product[0] = pp0[0];
+  half_adder HA0(s0, c0, pp0[1], pp1[0]);
+  half_adder HA1(s1, c1, pp1[1], pp2[0]);
+  half_adder HA2(s2, c2, pp2[1], pp3[0]);
+  half_adder HA3(s3, c3, pp3[1], pp4[0]);
+  half_adder HA4(s4, c4, pp4[1], pp5[0]);
+  half_adder HA5(s5, c5, pp5[1], pp6[0]);
+  half_adder HA6(s6, c6, pp6[1], pp7[0]);
+  half_adder HA7(s7, c7, pp7[1], pp7[2]);
+  half_adder HA8(s8, c8, pp7[3], pp7[4]);
+  half_adder HA9(s9, c9, pp7[5], pp7[6]);
+  half_adder HA10(s10, c10, pp7[7], pp7[8]);
+  half_adder HA11(s11, c11, pp7[9], pp7[10]);
+  half_adder HA12(s12, c12, pp7[11], pp7[12]);
+  half_adder HA13(s13, c13, pp7[13], pp7[14]);
+  half_adder HA14(s14, c14, pp7[15], pp7[16]);
+  half_adder HA15(s15, c15, pp7[17], pp7[18]);
+  half_adder HA16(s16, c16, pp7[19], pp7[20]);
+  half_adder HA17(s17, c17, pp7[21], pp7[22]);
+  half_adder HA18(s18, c18, pp7[23], pp7[24]);
+  half_adder HA19(s19, c19, pp7[25], pp7[26]);
+  half_adder HA20(s20, c20, pp7[27], pp7[28]);
+  half_adder HA21(s21, c21, pp7[29], pp7[30]);
+  half_adder HA22(s22, c22, pp7[31], pp7[32]);
+  half_adder HA23(s23, c23, pp7[33], pp7[34]);
+  half_adder HA24(s24, c24, pp7[35], pp7[36]);
+  half_adder HA25(s25, c25, pp7[37], pp7[38]);
+  half_adder HA26(s26, c26, pp7[39], pp7[40]);
+  half_adder HA27(s27, c27, pp7[41], pp7[42]);
+  half_adder HA28(s28, c28, pp7[43], pp7[44]);
+  half_adder HA29(s29, c29, pp7[45], pp7[46]);
+  half_adder HA30(s30, c30, pp7[47], pp7[48]);
+  half_adder HA31(s31, c31, pp7[49], pp7[50]);
+  half_adder HA32(s32, c32, pp7[51], pp7[52]);
+  half_adder HA33(s33, c33, pp7[53], pp7[54]);
+  half_adder HA34(s34, c34, pp7[55], pp7[56]);
+  half_adder HA35(s35, c35, pp7[57], pp7[58]);
+  half_adder HA36(s36, c36, pp7[59], pp7[60]);
+  half_adder HA37(s37, c37, pp7[61], pp7[62]);
+  half_adder HA38(s38, c38, pp7[63], pp7[64]);
+  half_adder HA39(s39, c39, pp7[65], pp7[66]);
+  half_adder HA40(s40, c40, pp7[67], pp7[68]);
+  half_adder HA41(s41, c41, pp7[69], pp7[70]);
+  half_adder HA42(s42, c42, pp7[71], pp7[72]);
+  half_adder HA43(s43, c43, pp7[73], pp7[74]);
+  half_adder HA44(s44, c44, pp7[75], pp7[76]);
+  half_adder HA45(s45, c45, pp7[77], pp7[78]);
+  half_adder HA46(s46, c46, pp7[79], pp7[80]);
+  half_adder HA47(s47, c47, pp7[81], pp7[82]);
+  half_adder HA48(s48, c48, pp7[83], pp7[84]);
+  half_adder HA49(s49, c49, pp7[85], pp7[86]);
+  half_adder HA50(s50, c50, pp7[87], pp7[88]);
+  half_adder HA51(s51, c51, pp7[89], pp7["
+N/A,N/A,-0.1,17.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);		
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_M;
+	
+	assign A_B = A & B;
+	assign AB = A | B;
+	
+	assign AB_M = AB << 1;
+	
+	assign product = A_B ^ AB_M;
+endmodule"
+N/A,N/A,-1,18.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);		
+
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_M;
+	wire [7:0] AB_M_ADD;
+	wire [7:0] AB_M_SUB;
+	wire [7:0] AB_M_SUB_INV;
+	wire [7:0] AB_M_ADD_INV;
+	wire [7:0] AB_M_ADD_INV_SUB;
+	wire [7:0] AB_M_SUB_INV_ADD;
+	wire [7:0] AB_M_SUB_INV_ADD_SUB;
+	wire [7:0] AB_M_SUB_INV_ADD_SUB_INV;
+	wire [7:0] AB_M_SUB_INV_ADD_SUB_INV_SUB;
+	wire [7:0] AB_M_SUB_INV_ADD_SUB_INV_SUB_INV;
+	wire [7:0] AB_M_SUB_INV_ADD_SUB_INV_SUB_INV_SUB;
+	wire [7:0] AB_M_SUB_INV_ADD_SUB_INV_SUB_INV_SUB_INV;
+	wire [7:0] AB_M_SUB_INV_ADD_SUB_INV_SUB_INV_SUB_INV_SUB;
+	wire [7:0] AB_M_SUB_INV_ADD_SUB_INV_SUB_INV_SUB_INV_SUB_INV;
+	wire [7:0] AB_M_SUB_INV_ADD_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB;
+	wire [7:0] AB_M_SUB_INV_ADD_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV;
+	wire [7:0] AB_M_SUB_INV_ADD_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB;
+	wire [7:0] AB_M_SUB_INV_ADD_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV;
+	wire [7:0] AB_M_SUB_INV_ADD_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB;
+	wire [7:0] AB_M_SUB_INV_ADD_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV;
+	wire [7:0] AB_M_SUB_INV_ADD_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB;
+	wire [7:0] AB_M_SUB_INV_ADD_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV;
+	wire [7:0] AB_M_SUB_INV_ADD_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB;
+	wire [7:0] AB_M_SUB_INV_ADD_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV;
+	wire [7:0] AB_M_SUB_INV_ADD_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB;
+	wire [7:0] AB_M_SUB_INV_ADD_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV;
+	wire [7:0] AB_M_SUB_INV_ADD_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV;
+	wire [7:0] AB_M_SUB_INV_ADD_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV;
+	wire [7:0] AB_M_SUB_INV_ADD_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV;
+	wire [7:0] AB_M_SUB_INV_ADD_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV_SUB_INV;
+	wire [7:0] AB_M"
+N/A,N/A,-0.1,19.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+
+wire [7:0] A_temp;
+wire [7:0] B_temp;
+
+assign A_temp = A;
+assign B_temp = B;
+
+wire [7:0] product_temp;
+
+assign product_temp = A_temp * B_temp;
+
+assign product = product_temp;
+
+endmodule"
+N/A,N/A,-0.1,20.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,21.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,22.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+
+wire [7:0] A_temp;
+wire [7:0] B_temp;
+
+assign A_temp = A;
+assign B_temp = B;
+
+wire [7:0] product_temp;
+
+assign product_temp = A_temp * B_temp;
+
+assign product = product_temp;
+
+endmodule"
+641.858,789.49,0.1,23.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	assign product = A * B;
+endmodule"
+N/A,N/A,-0.1,24.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	
+	wire [15:0] product_temp;
+	
+	multiplier_4 M1(product_temp, A_B, AB);
+	
+	assign product = product_temp;
+	
+endmodule
+
+module multiplier_4(output [3:0] product, input [3:0] A_B, input [3:0] AB);
+	
+	wire [3:0] A_B_temp;
+	wire [3:0] AB_temp;
+	
+	assign A_B_temp = A_B << 1;
+	assign AB_temp = AB << 1;
+	
+	wire [3:0] product_temp;
+	
+	multiplier_2 M1(product_temp, A_B_temp, AB_temp);
+	
+	assign product = product_temp;
+	
+endmodule
+
+module multiplier_2(output [1:0] product, input [1:0] A_B, input [1:0] AB);
+	
+	wire [1:0] A_B_temp;
+	wire [1:0] AB_temp;
+	
+	assign A_B_temp = A_B << 1;
+	assign AB_temp = AB << 1;
+	
+	wire [1:0] product_temp;
+	
+	multiplier_1 M1(product_temp, A_B_temp, AB_temp);
+	
+	assign product = product_temp;
+	
+endmodule
+
+module multiplier_1(output [0:0] product, input [0:0] A_B, input [0:0] AB);
+	
+	wire [0:0] A_B_temp;
+	wire [0:0] AB_temp;
+	
+	assign A_B_temp = A_B << 1;
+	assign AB_temp = AB << 1;
+	
+	wire [0:0] product_temp;
+	
+	multiplier_0 M1(product_temp, A_B_temp, AB_temp);
+	
+	assign product = product_temp;
+	
+endmodule
+
+module multiplier_0(output [0:0] product, input [0:0] A_B, input [0:0] AB);
+	
+	assign product = A_B * AB;
+	
+endmodule"
+N/A,N/A,-1,25.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+
+	wire [7:0] product_temp;
+	wire [7:0] A_temp;
+	wire [7:0] B_temp;
+	wire [7:0] A_temp_temp;
+	wire [7:0] B_temp_temp;
+	wire [7:0] A_temp_temp_temp;
+	wire [7:0] B_temp_temp_temp;
+	wire [7:0] A_temp_temp_temp_temp;
+	wire [7:0] B_temp_temp_temp_temp;
+	wire [7:0] A_temp_temp_temp_temp_temp;
+	wire [7:0] B_temp_temp_temp_temp_temp;
+	wire [7:0] A_temp_temp_temp_temp_temp_temp;
+	wire [7:0] B_temp_temp_temp_temp_temp_temp;
+	wire [7:0] A_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] B_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] A_temp_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] B_temp_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] A_temp_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] B_temp_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] A_temp_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] B_temp_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] A_temp_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] B_temp_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] A_temp_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] B_temp_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] A_temp_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] B_temp_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] A_temp_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] B_temp_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] A_temp_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] B_temp_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] A_temp_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] B_temp_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] A_temp_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] B_temp_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] A_temp_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] B_temp_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] A_temp_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] B_temp_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] A_temp_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] B_temp_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] A_temp_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] B_temp_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] A_temp_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] B_temp_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] A_temp_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] B_temp_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] A_temp_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] B_temp_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] A_temp_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] B_temp_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] A_temp_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] B_temp_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] A_temp_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] B_temp_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] A_temp_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] B_temp_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] A_temp_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] B_temp_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] A_temp_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] B_temp_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] A_temp_temp_temp_temp_temp_temp_temp_temp;
+	wire [7:0] B_temp_temp_"
+N/A,N/A,-0.1,26.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+
+wire [7:0] A_temp;
+wire [7:0] B_temp;
+
+assign A_temp = A;
+assign B_temp = B;
+
+wire [7:0] product_temp;
+
+assign product_temp = A_temp * B_temp;
+
+assign product = product_temp;
+
+endmodule"
+N/A,N/A,-0.1,27.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,28.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B); 
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,29.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+
+wire [7:0] A_temp;
+wire [7:0] B_temp;
+
+assign A_temp = A;
+assign B_temp = B;
+
+wire [7:0] product_temp;
+
+assign product_temp = A_temp * B_temp;
+
+assign product = product_temp;
+
+endmodule"
+641.858,789.49,0.1,30.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	assign product = A * B;
+endmodule"
+N/A,N/A,-0.1,31.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-1,32.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+   
+   wire [7:0] pp0;
+   wire [7:0] pp1;
+   wire [7:0] pp2;
+   wire [7:0] pp3;
+   wire [7:0] pp4;
+   wire [7:0] pp5;
+   wire [7:0] pp6;
+   wire [7:0] pp7;
+   
+   assign pp0 = A[0]? B : 8'b00000000;
+   assign pp1 = A[1]? B : 8'b00000000;
+   assign pp2 = A[2]? B : 8'b00000000;
+   assign pp3 = A[3]? B : 8'b00000000;
+   assign pp4 = A[4]? B : 8'b00000000;
+   assign pp5 = A[5]? B : 8'b00000000;
+   assign pp6 = A[6]? B : 8'b00000000;
+   assign pp7 = A[7]? B : 8'b00000000;
+   
+   assign product[0] = pp0[0];
+   
+   wire [7:0] s1;
+   wire [7:0] s2;
+   wire [7:0] s3;
+   wire [7:0] s4;
+   wire [7:0] s5;
+   wire [7:0] s6;
+   wire [7:0] s7;
+   
+   assign s1 = pp0[1]? pp1[0] : pp1[1];
+   assign s2 = pp0[2]? pp1[1] : pp1[2];
+   assign s3 = pp0[3]? pp1[2] : pp1[3];
+   assign s4 = pp0[4]? pp1[3] : pp1[4];
+   assign s5 = pp0[5]? pp1[4] : pp1[5];
+   assign s6 = pp0[6]? pp1[5] : pp1[6];
+   assign s7 = pp0[7]? pp1[6] : pp1[7];
+   
+   assign product[1] = s1;
+   
+   wire [7:0] s8;
+   wire [7:0] s9;
+   wire [7:0] sA;
+   wire [7:0] sB;
+   
+   assign s8 = pp2[0]? s2 : pp2[1]? s3 : pp2[2]? s4 : pp2[3]? s5 : pp2[4]? s6 : pp2[5]? s7 : pp2[6]? s7 : pp2[7]? s7 : 8'b00000000;
+   assign s9 = pp3[0]? s3 : pp3[1]? s4 : pp3[2]? s5 : pp3[3]? s6 : pp3[4]? s7 : pp3[5]? s7 : pp3[6]? s7 : pp3[7]? s7 : 8'b00000000;
+   assign sA = pp4[0]? s4 : pp4[1]? s5 : pp4[2]? s6 : pp4[3]? s7 : pp4[4]? s7 : pp4[5]? s7 : pp4[6]? s7 : pp4[7]? s7 : 8'b00000000;
+   assign sB = pp5[0]? s5 : pp5[1]? s6 : pp5[2]? s7 : pp5[3]? s7 : pp5[4]? s7 : pp5[5]? s7 : pp5[6]? s7 : pp5[7]? s7 : 8'b00000000;
+   
+   assign product[2] = s8;
+   
+   wire [7:0] sC;
+   wire [7:0] sD;
+   wire [7:0] sE;
+   wire [7:0] sF;
+   
+   assign sC = pp6[0]? s2 : pp6[1]? s3 : pp6[2]? s4 : pp6[3]? s5 : pp6[4]? s6 : pp6[5]? s7 : pp6[6]? s7 : pp6[7]? s7 : 8'b00000000;
+   assign sD = pp7[0]? s3 : pp7[1]? s4 : pp7[2]? s5 : pp7[3]? s6 : pp7[4]? s7 : pp7[5]? s7 : pp7[6]? s7 : pp7[7]? s7 : 8'b00000000;
+   assign sE = pp8[0]? s4 : pp8[1]? s5 : pp8[2]? s6 : pp8[3]? s7 : pp8[4]? s7 : pp8[5]? s7 : pp8[6]? s7 : pp8[7]? s7 : 8'b00000000;
+   assign sF = pp9[0]? s5 : pp9[1]? s6 : pp9[2]? s7 : pp9[3]? s7 : pp9[4]? s7 : pp9[5]? s7 : pp9[6]? s7 : pp9[7]? s7 : 8'b00000000;
+   
+   assign product[3] = sC;
+   
+   wire [7:0] sG;
+   wire [7:0] sH;
+   wire [7:0] sI;
+   wire [7:0] sJ;
+   
+   assign sG = pp10[0]? s4 : pp10[1]? s5 : pp10[2]? s6 : pp10[3]? s7 : pp10[4]? s7 : pp10[5]? s7 : pp10[6]? s7 : pp10[7]? s7 : 8'b00000000;
+   assign sH = pp11[0]? s5 : pp11[1]? s6 : pp11[2]? s7 : pp11[3]? s7 : pp11[4]?"
+641.858,789.49,0.1,33.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+
+assign product = A * B;
+
+endmodule"
+641.858,789.49,0.1,34.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	assign product = A * B;
+endmodule"
+641.858,789.49,0.1,35.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+
+wire [15:0] product_temp;
+
+assign product_temp = A * B;
+
+assign product = product_temp[15:0];
+
+endmodule"
+641.858,789.49,0.1,36.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	assign product = A * B;
+endmodule"
+N/A,N/A,-0.1,37.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+
+wire [7:0] A_temp;
+wire [7:0] B_temp;
+
+assign A_temp = A;
+assign B_temp = B;
+
+wire [7:0] product_temp;
+
+assign product_temp = A_temp * B_temp;
+
+assign product = product_temp;
+
+endmodule"
+N/A,N/A,-1,38.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [15:0] product;
+	wire [7:0] A, B;
+	
+	wire [7:0] A_B;
+	
+	assign A_B = A & B;
+	
+	wire [7:0] A_B_re;
+	
+	assign A_B_re = A_B >> 1;
+	
+	wire [7:0] A_B_im;
+	
+	assign A_B_im = A_B << 1;
+	
+	wire [7:0] A_B_re_re;
+	
+	assign A_B_re_re = A_B_re >> 1;
+	
+	wire [7:0] A_B_im_im;
+	
+	assign A_B_im_im = A_B_im << 1;
+	
+	wire [7:0] A_B_re_im;
+	
+	assign A_B_re_im = A_B_re << 1;
+	
+	wire [7:0] A_B_re_im_re;
+	
+	assign A_B_re_im_re = A_B_re_im >> 1;
+	
+	wire [7:0] A_B_im_im_im;
+	
+	assign A_B_im_im_im = A_B_im_im << 1;
+	
+	wire [7:0] A_B_re_im_im;
+	
+	assign A_B_re_im_im = A_B_re_im << 1;
+	
+	wire [7:0] A_B_re_im_re_re;
+	
+	assign A_B_re_im_re_re = A_B_re_im_re >> 1;
+	
+	wire [7:0] A_B_im_im_im_im;
+	
+	assign A_B_im_im_im_im = A_B_im_im << 1;
+	
+	wire [7:0] A_B_re_im_re_im;
+	
+	assign A_B_re_im_re_im = A_B_re_im << 1;
+	
+	wire [7:0] A_B_re_im_re_im_re;
+	
+	assign A_B_re_im_re_im_re = A_B_re_im_re >> 1;
+	
+	wire [7:0] A_B_im_im_im_im_im;
+	
+	assign A_B_im_im_im_im_im = A_B_im_im << 1;
+	
+	wire [7:0] A_B_re_im_re_im_im_im;
+	
+	assign A_B_re_im_re_im_im_im = A_B_re_im_re << 1;
+	
+	wire [7:0] A_B_re_im_re_im_im_im_re;
+	
+	assign A_B_re_im_re_im_im_im_re = A_B_re_im_re >> 1;
+	
+	wire [7:0] A_B_im_im_im_im_im_im;
+	
+	assign A_B_im_im_im_im_im_im = A_B_im_im << 1;
+	
+	wire [7:0] A_B_re_im_re_im_im_im_im;
+	
+	assign A_B_re_im_re_im_im_im_im = A_B_re_im_re << 1;
+	
+	wire [7:0] A_B_re_im_re_im_im_im_re;
+	
+	assign A_B_re_im_re_im_im_im_re = A_B_re_im_re >> 1;
+	
+	wire [7:0] A_B_im_im_im_im_im_im;
+	
+	assign A_B_im_im_im_im_im_im = A_B_im_im << 1;
+	
+	wire [7:0] A_B_re_im_re_im_im_im_im;
+	
+	assign A_B_re_im_re_im_im_im_im = A_B_re_im_re << 1;
+	
+	wire [7:0] A_B_re_im_re_im_im_im_re;
+	
+	assign A_B_re_im_re_im_im_im_re = A_B_re_im_re >> 1;
+	
+	wire [7:0] A_B_im_im_im_im_im_im;
+	
+	assign A_B_im_im_im_im_im_im = A_B_im_im << 1;
+	
+	wire [7:0] A_B_re_im_re_im_im_im_im;
+	
+	assign A_B_re_im_re_im_im_im_im = A_B_re_im_re << 1;
+	
+	wire [7:0] A_B_re_im_re_im_im_im_re;
+	
+	assign A_B_re_im_re_im_im_im_re = A_B_re_im_re >> 1;
+	
+	wire [7:0] A_B_im_im_im_im_im_im;
+	
+	assign A_B_im_im_im_im_im_im = A_B_im_im << 1;
+	
+	wire [7:0] A_B_re_im_re_im_im_im_im;
+	
+	assign A_B_re_im_re_im_im_im_im = A_B_re_im_re << 1;
+	
+	wire [7:0] A_B_re_im_re_im_im_im_re;
+	
+	assign A_B_re_im_re_im_im_im_re = A_B_re_"
+N/A,N/A,-0.1,39.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);	
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_M;
+	
+	assign A_B = A & B;
+	assign AB = A | B;
+	
+	assign AB_M = AB << 1;
+	
+	assign product = A_B ^ AB_M;
+endmodule"
+N/A,N/A,-1,40.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+
+wire [7:0] pp0;
+wire [7:0] pp1;
+wire [7:0] pp2;
+wire [7:0] pp3;
+wire [7:0] pp4;
+wire [7:0] pp5;
+wire [7:0] pp6;
+wire [7:0] pp7;
+
+assign pp0 = A[0]? B : 8'b00000000;
+assign pp1 = A[1]? B : 8'b00000000;
+assign pp2 = A[2]? B : 8'b00000000;
+assign pp3 = A[3]? B : 8'b00000000;
+assign pp4 = A[4]? B : 8'b00000000;
+assign pp5 = A[5]? B : 8'b00000000;
+assign pp6 = A[6]? B : 8'b00000000;
+assign pp7 = A[7]? B : 8'b00000000;
+
+assign product[0] = pp0[0];
+
+wire [7:0] s1;
+wire [7:0] s2;
+wire [7:0] s3;
+wire [7:0] s4;
+wire [7:0] s5;
+wire [7:0] s6;
+wire [7:0] s7;
+
+assign s1 = pp0[1] ^ pp1[0];
+assign s2 = pp0[2] ^ pp1[1] ^ pp2[0];
+assign s3 = pp0[3] ^ pp1[2] ^ pp2[1] ^ pp3[0];
+assign s4 = pp0[4] ^ pp1[3] ^ pp2[2] ^ pp3[1] ^ pp4[0];
+assign s5 = pp0[5] ^ pp1[4] ^ pp2[3] ^ pp3[2] ^ pp4[1] ^ pp5[0];
+assign s6 = pp0[6] ^ pp1[5] ^ pp2[4] ^ pp3[3] ^ pp4[2] ^ pp5[1] ^ pp6[0];
+assign s7 = pp0[7] ^ pp1[6] ^ pp2[5] ^ pp3[4] ^ pp4[3] ^ pp5[2] ^ pp6[1] ^ pp7[0];
+
+assign product[1] = s1;
+
+wire [7:0] s8;
+wire [7:0] s9;
+wire [7:0] s10;
+wire [7:0] s11;
+wire [7:0] s12;
+wire [7:0] s13;
+wire [7:0] s14;
+wire [7:0] s15;
+
+assign s8 = s2 ^ s3;
+assign s9 = s4 ^ s5;
+assign s10 = s6 ^ s7;
+
+assign s11 = pp2[0] ^ s1;
+assign s12 = pp3[0] ^ s2;
+assign s13 = pp4[0] ^ s3;
+assign s14 = pp5[0] ^ s4;
+assign s15 = pp6[0] ^ s5;
+
+assign product[2] = s8;
+
+wire [7:0] s16;
+wire [7:0] s17;
+wire [7:0] s18;
+wire [7:0] s19;
+wire [7:0] s20;
+wire [7:0] s21;
+wire [7:0] s22;
+wire [7:0] s23;
+
+assign s16 = s9 ^ s10;
+assign s17 = s11 ^ s12;
+assign s18 = s13 ^ s14;
+assign s19 = s15 ^ s16;
+assign s20 = pp7[1] ^ s17;
+assign s21 = pp6[2] ^ s18;
+assign s22 = pp5[3] ^ s19;
+assign s23 = pp4[4] ^ s20;
+
+assign product[3] = s9;
+
+wire [7:0] s24;
+wire [7:0] s25;
+wire [7:0] s26;
+wire [7:0] s27;
+wire [7:0] s28;
+wire [7:0] s29;
+wire [7:0] s30;
+wire [7:0] s31;
+
+assign s24 = s10 ^ s11;
+assign s25 = s12 ^ s13;
+assign s26 = s14 ^ s15;
+assign s27 = s16 ^ s17;
+assign s28 = pp7[2] ^ s18;
+assign s29 = pp6[3] ^ s19;
+assign s30 = pp5[4] ^ s20;
+assign s31 = pp4[5] ^ s21;
+
+assign product[4] = s10;
+
+wire [7:0] s32;
+wire [7:0] s33;
+wire [7:0] s34;
+wire [7:0] s35;
+wire [7:0] s36;
+wire [7:0] s37;
+wire [7:0] s38;
+wire [7:0] s39;
+
+assign s32 = s11 ^ s12;
+assign s33 = s13 ^ s14;
+assign s34 = s15 ^ s16;
+assign s35 = s17 ^ s18;
+assign s36 = pp7[3] ^ s19;
+assign s37 = pp6[4] ^ s20;
+assign s38 = pp5[5] ^ s21;
+assign s39 = pp4[6] ^ s22;
+
+assign product[5] = s11;
+
+wire [7:0] s40;
+wire [7:0] s41;
+wire [7:0] s42;
+wire [7:0] s43;
+wire [7:0] s44;
+wire [7:0] s45;
+wire [7:0] s46;
+wire [7:0] s47;
+
+assign s40 = s12 ^ s13;
+assign s41 = s14 ^ s15;
+assign s42 = s16 ^ s17;
+"
+N/A,N/A,-1,41.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);    
+    wire [7:0] pp0;
+    wire [7:0] pp1;
+    wire [7:0] pp2;
+    wire [7:0] pp3;
+    wire [7:0] pp4;
+    wire [7:0] pp5;
+    wire [7:0] pp6;
+    wire [7:0] pp7;
+    
+    assign pp0 = A[0]? B : 8'b00000000;
+    assign pp1 = A[1]? B : 8'b00000000;
+    assign pp2 = A[2]? B : 8'b00000000;
+    assign pp3 = A[3]? B : 8'b00000000;
+    assign pp4 = A[4]? B : 8'b00000000;
+    assign pp5 = A[5]? B : 8'b00000000;
+    assign pp6 = A[6]? B : 8'b00000000;
+    assign pp7 = A[7]? B : 8'b00000000;
+    
+    assign product[0] = pp0[0];
+    
+    half_adder HA0(product[1], c0, pp0[1], pp1[0]);
+    full_adder FA0(s0, c1, pp0[2], pp1[1], pp2[0], c0);
+    full_adder FA1(s1, c2, pp0[3], pp1[2], pp2[1], c1);
+    full_adder FA2(s2, c3, pp0[4], pp1[3], pp2[2], c2);
+    full_adder FA3(s3, c4, pp0[5], pp1[4], pp2[3], c3);
+    full_adder FA4(s4, c5, pp0[6], pp1[5], pp2[4], c4);
+    full_adder FA5(s5, c6, pp0[7], pp1[6], pp2[5], c5);
+    full_adder FA6(s6, c7, pp1[7], pp2[6], pp3[5], c6);
+    half_adder HA7(s7, c8, pp2[7], pp3[6]);
+    
+    assign product[7] = s7;
+    assign product[8] = s6;
+    assign product[9] = s5;
+    assign product[10] = s4;
+    assign product[11] = s3;
+    assign product[12] = s2;
+    assign product[13] = s1;
+    assign product[14] = s0;
+    assign product[15] = pp7[7];
+endmodule
+
+module half_adder(output wire sum,
+                  output wire cout,
+                  input wire in1,
+                  input wire in2);
+    xor(sum, in1, in2);
+    and(cout, in1, in2);
+endmodule
+
+module full_adder(output wire sum,
+                  output wire cout,
+                  input wire in1,
+                  input wire in2,
+                  input wire cin,
+                  );
+    wire temp1;
+    wire temp2;
+    wire temp3;
+    xor(sum, in1, in2, cin);
+    and(temp1,in1,in2);
+    and(temp2,in1,cin);
+    and(temp3,in2,cin);
+    or(cout,temp1,temp2,temp3);
+endmodule"
+N/A,N/A,-0.1,42.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);  
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_M;
+	
+	assign A_B = A & B;
+	assign AB = A | B;
+	
+	assign AB_M = AB << 1;
+	
+	assign product = A_B ^ AB_M;
+endmodule"
+N/A,N/A,-1,43.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);   
+    wire [7:0] pp0, pp1, pp2, pp3, pp4, pp5, pp6, pp7;
+    assign pp0 = A[0]? B : 8'b00000000;
+    assign pp1 = A[1]? B : 8'b00000000;
+    assign pp2 = A[2]? B : 8'b00000000;
+    assign pp3 = A[3]? B : 8'b00000000;
+    assign pp4 = A[4]? B : 8'b00000000;
+    assign pp5 = A[5]? B : 8'b00000000;
+    assign pp6 = A[6]? B : 8'b00000000;
+    assign pp7 = A[7]? B : 8'b00000000;
+    assign product[0] = pp0[0];
+    
+    wire s1, s2, s3, s4, s5, s6, s7;
+    wire c1, c2, c3, c4, c5, c6, c7;
+    
+    assign s1 = pp0[1] ^ pp1[0];
+    assign s2 = pp2[0] ^ s1;
+    assign s3 = pp3[1] ^ pp2[1];
+    assign s4 = pp4[0] ^ s3;
+    assign s5 = pp5[1] ^ pp4[1];
+    assign s6 = pp6[0] ^ s5;
+    assign s7 = pp7[1] ^ pp6[1];
+    
+    assign c1 = pp0[1] & pp1[0];
+    assign c2 = pp2[0] & s1;
+    assign c3 = pp3[1] & pp2[1];
+    assign c4 = pp4[0] & s3;
+    assign c5 = pp5[1] & pp4[1];
+    assign c6 = pp6[0] & s5;
+    assign c7 = pp7[1] & pp6[1];
+    
+    assign product[1] = s2 ^ c1;
+    assign product[2] = s3 ^ c2;
+    assign product[3] = s4 ^ c3;
+    assign product[4] = s5 ^ c4;
+    assign product[5] = s6 ^ c5;
+    assign product[6] = s7 ^ c6;
+    assign product[7] = pp7[1] & pp6[1];
+    assign product[8] = pp7[0] & pp6[0];
+    
+    assign product[9] = pp5[3] & pp4[5];
+    assign product[10] = pp5[4] & pp4[6];
+    assign product[11] = pp5[5] & pp4[7];
+    assign product[12] = pp5[6] & pp4[8];
+    assign product[13] = pp5[7] & pp4[9];
+    assign product[14] = pp5[8] & pp4[10];
+    assign product[15] = pp5[9] & pp4[11];
+    assign product[16] = pp5[10] & pp4[12];
+    assign product[17] = pp5[11] & pp4[13];
+    assign product[18] = pp5[12] & pp4[14];
+    assign product[19] = pp5[13] & pp4[15];
+    assign product[20] = pp5[14] & pp4[16];
+    assign product[21] = pp5[15] & pp4[17];
+    assign product[22] = pp5[16] & pp4[18];
+    assign product[23] = pp5[17] & pp4[19];
+    assign product[24] = pp5[18] & pp4[20];
+    assign product[25] = pp5[19] & pp4[21];
+    assign product[26] = pp5[20] & pp4[22];
+    assign product[27] = pp5[21] & pp4[23];
+    assign product[28] = pp5[22] & pp4[24];
+    assign product[29] = pp5[23] & pp4[25];
+    assign product[30] = pp5[24] & pp4[26];
+    assign product[31] = pp5[25] & pp4[27];
+    assign product[32] = pp5[26] & pp4[28];
+    assign product[33] = pp5[27] & pp4[29];
+    assign product[34] = pp5[28] & pp4[30];
+    assign product[35] = pp5[29] & pp4[31];
+    assign product[36] = pp5[30] & pp4[32];
+    assign product[37] = pp5[31] & pp4[33];
+    assign product[38] = pp5[32] & pp4[34];
+    assign product[39] = pp5[33] & pp4[35];
+    assign product[40] = pp5[34] & pp4[36];
+    assign product[41] = pp5[35] & pp4[37];
+    assign product[42] = pp5[36] & pp4[38];
+    assign product[43] = pp5[37] & pp4[39];
+    assign product[44] = pp5[38] & pp4[40];
+    assign product[45] = pp5[39] & pp4[41];
+    assign product[46] = pp5[40] & pp4[42];
+    assign product[47] = pp5[41] & pp4[43];
+    assign product[48] = pp5[42] & pp4[44];
+    assign product[49] = pp5[43] & pp4[45];
+    assign product[50] = pp5[44] & pp4[46];
+    assign product[51] = pp5[45] & pp4[47];
+    assign product[52] = pp5[46"
+N/A,N/A,-1,44.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);        
+    wire [7:0] pp0;
+    wire [7:0] pp1;
+    wire [7:0] pp2;
+    wire [7:0] pp3;
+    wire [7:0] pp4;
+    wire [7:0] pp5;
+    wire [7:0] pp6;
+    wire [7:0] pp7;
+    
+    assign pp0 = A[0]? B : 8'b00000000;
+    assign pp1 = A[1]? B : 8'b00000000;
+    assign pp2 = A[2]? B : 8'b00000000;
+    assign pp3 = A[3]? B : 8'b00000000;
+    assign pp4 = A[4]? B : 8'b00000000;
+    assign pp5 = A[5]? B : 8'b00000000;
+    assign pp6 = A[6]? B : 8'b00000000;
+    assign pp7 = A[7]? B : 8'b00000000;
+    
+    assign product[0] = pp0[0];
+    
+    half_adder HA0(product[1], c0, pp0[1], pp1[0]);
+    full_adder FA0(s0, c1, pp0[2], pp1[1], pp2[0], c0);
+    full_adder FA1(s1, c2, pp0[3], pp1[2], pp2[1], c1);
+    full_adder FA2(s2, c3, pp0[4], pp1[3], pp2[2], c2);
+    full_adder FA3(s3, c4, pp0[5], pp1[4], pp2[3], c3);
+    full_adder FA4(s4, c5, pp0[6], pp1[5], pp2[4], c4);
+    full_adder FA5(s5, c6, pp0[7], pp1[6], pp2[5], c5);
+    full_adder FA6(s6, c7, pp1[7], pp2[6], pp3[5], c6);
+    half_adder HA7(s7, c8, pp2[7], pp3[6]);
+    
+    assign product[7] = s7;
+    assign product[8] = s6;
+    assign product[9] = s5;
+    assign product[10] = s4;
+    assign product[11] = s3;
+    assign product[12] = s2;
+    assign product[13] = s1;
+    assign product[14] = s0;
+    assign product[15] = pp7[7];
+endmodule
+
+module half_adder(output wire sum,
+                  output wire cout,
+                  input wire in1,
+                  input wire in2);
+    xor(sum, in1, in2);
+    and(cout, in1, in2);
+endmodule
+
+module full_adder(output wire sum,
+                  output wire cout,
+                  input wire in1,
+                  input wire in2,
+                  input wire cin);
+    wire temp1;
+    wire temp2;
+    wire temp3;
+    xor(sum, in1, in2, cin);
+    and(temp1,in1,in2);
+    and(temp2,in1,cin);
+    and(temp3,in2,cin);
+    or(cout,temp1,temp2,temp3);
+endmodule"
+N/A,N/A,-1,45.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);                                   
+    wire [7:0] pp0;
+    wire [7:0] pp1;
+    wire [7:0] pp2;
+    wire [7:0] pp3;
+    wire [7:0] pp4;
+    wire [7:0] pp5;
+    wire [7:0] pp6;
+    wire [7:0] pp7;
+    
+    assign pp0 = A[0]? B : 8'b00000000;
+    assign pp1 = A[1]? B : 8'b00000000;
+    assign pp2 = A[2]? B : 8'b00000000;
+    assign pp3 = A[3]? B : 8'b00000000;
+    assign pp4 = A[4]? B : 8'b00000000;
+    assign pp5 = A[5]? B : 8'b00000000;
+    assign pp6 = A[6]? B : 8'b00000000;
+    assign pp7 = A[7]? B : 8'b00000000;
+    
+    assign product[0] = pp0[0];
+    
+    half_adder HA0(product[1], c0, pp0[1], pp1[0]);
+    full_adder FA0(s0, c1, pp0[2], pp1[1], pp2[0], c0);
+    full_adder FA1(s1, c2, pp0[3], pp1[2], pp2[1], c1);
+    full_adder FA2(s2, c3, pp0[4], pp1[3], pp2[2], c2);
+    full_adder FA3(s3, c4, pp0[5], pp1[4], pp2[3], c3);
+    full_adder FA4(s4, c5, pp0[6], pp1[5], pp2[4], c4);
+    full_adder FA5(s5, c6, pp0[7], pp1[6], pp2[5], c5);
+    full_adder FA6(s6, c7, pp1[7], pp2[6], pp3[5], c6);
+    half_adder HA7(s7, c8, pp2[7], pp3[6]);
+    
+    assign product[7] = s7;
+    assign product[8] = s6;
+    assign product[9] = s5;
+    assign product[10] = s4;
+    assign product[11] = s3;
+    assign product[12] = s2;
+    assign product[13] = s1;
+    assign product[14] = s0;
+    assign product[15] = pp7[7];
+endmodule
+
+module half_adder(output wire sum,
+                  output wire cout,
+                  input wire in1,
+                  input wire in2);
+    xor(sum, in1, in2);
+    and(cout, in1, in2);
+endmodule
+
+module full_adder(output wire sum,
+                  output wire cout,
+                  input wire in1,
+                  input wire in2,
+                  input wire cin,
+                  );
+    wire temp1;
+    wire temp2;
+    wire temp3;
+    xor(sum, in1, in2, cin);
+    and(temp1,in1,in2);
+    and(temp2,in1,cin);
+    and(temp3,in2,cin);
+    or(cout,temp1,temp2,temp3);
+endmodule"
+N/A,N/A,-1,46.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+    wire [7:0] pp0;
+    wire [7:0] pp1;
+    wire [7:0] pp2;
+    wire [7:0] pp3;
+    wire [7:0] pp4;
+    wire [7:0] pp5;
+    wire [7:0] pp6;
+    wire [7:0] pp7;
+    
+    assign pp0 = A[0]? B : 8'b00000000;
+    assign pp1 = A[1]? B : 8'b00000000;
+    assign pp2 = A[2]? B : 8'b00000000;
+    assign pp3 = A[3]? B : 8'b00000000;
+    assign pp4 = A[4]? B : 8'b00000000;
+    assign pp5 = A[5]? B : 8'b00000000;
+    assign pp6 = A[6]? B : 8'b00000000;
+    assign pp7 = A[7]? B : 8'b00000000;
+    
+    assign product[0] = pp0[0];
+    
+    half_adder HA0(product[1], c0, pp0[1], pp1[0]);
+    full_adder FA0(s0, c1, pp0[2], pp1[1], pp2[0], c0);
+    full_adder FA1(s1, c2, pp0[3], pp1[2], pp2[1], c1);
+    full_adder FA2(s2, c3, pp0[4], pp1[3], pp2[2], c2);
+    full_adder FA3(s3, c4, pp0[5], pp1[4], pp2[3], c3);
+    full_adder FA4(s4, c5, pp0[6], pp1[5], pp2[4], c4);
+    full_adder FA5(s5, c6, pp0[7], pp1[6], pp2[5], c5);
+    full_adder FA6(s6, c7, pp1[7], pp2[6], pp3[5], c6);
+    half_adder HA7(s7, c8, pp2[7], pp3[6]);
+    
+    assign product[7] = s7;
+    assign product[8] = s6;
+    assign product[9] = s5;
+    assign product[10] = s4;
+    assign product[11] = s3;
+    assign product[12] = s2;
+    assign product[13] = s1;
+    assign product[14] = s0;
+    assign product[15] = pp7[7];
+endmodule
+
+module half_adder(output wire sum,
+                  output wire cout,
+                  input wire in1,
+                  input wire in2);
+    xor(sum, in1, in2);
+    and(cout, in1, in2);
+endmodule
+
+module full_adder(output wire sum,
+                  output wire cout,
+                  input wire in1,
+                  input wire in2,
+                  input wire cin);
+    wire temp1;
+    wire temp2;
+    wire temp3;
+    xor(sum, in1, in2, cin);
+    and(temp1,in1,in2);
+    and(temp2,in1,cin);
+    and(temp3,in2,cin);
+    or(cout,temp1,temp2,temp3);
+endmodule"
+N/A,N/A,-0.1,47.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);		
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_M;
+	
+	assign A_B = A & B;
+	assign AB = A | B;
+	
+	assign AB_M = AB << 1;
+	
+	assign product = A_B ^ AB_M;
+endmodule"
+N/A,N/A,-0.1,48.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B); 
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-1,49.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);		
+	
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	
+	wire [15:0] product_temp;
+	
+	multiplier_4 m1(product_temp, A_B, AB);
+	
+	assign product = product_temp;
+	
+endmodule
+
+module multiplier_4(output [7:0] product, input [3:0] A_B, input [7:0] AB);
+	
+	wire [3:0] A_B_temp;
+	wire [7:0] AB_temp;
+	
+	assign A_B_temp = A_B;
+	assign AB_temp = AB;
+	
+	wire [7:0] product_temp;
+	
+	multiplier_2 m1(product_temp, A_B_temp, AB_temp);
+	
+	assign product = product_temp;
+	
+endmodule
+
+module multiplier_2(output [7:0] product, input [3:0] A_B, input [7:0] AB);
+	
+	wire [3:0] A_B_temp;
+	wire [7:0] AB_temp;
+	
+	assign A_B_temp = A_B;
+	assign AB_temp = AB;
+	
+	wire [7:0] product_temp;
+	
+	multiplier_1 m1(product_temp, A_B_temp, AB_temp);
+	
+	assign product = product_temp;
+	
+endmodule
+
+module multiplier_1(output [7:0] product, input [3:0] A_B, input [7:0] AB);
+	
+	wire [3:0] A_B_temp;
+	wire [7:0] AB_temp;
+	
+	assign A_B_temp = A_B;
+	assign AB_temp = AB;
+	
+	wire [7:0] product_temp;
+	
+	multiplier_0 m1(product_temp, A_B_temp, AB_temp);
+	
+	assign product = product_temp;
+	
+endmodule
+
+module multiplier_0(output [7:0] product, input [3:0] A_B, input [7:0] AB);
+	
+	wire [3:0] A_B_temp;
+	wire [7:0] AB_temp;
+	
+	assign A_B_temp = A_B;
+	assign AB_temp = AB;
+	
+	wire [7:0] product_temp;
+	
+	multiplier_0 m1(product_temp, A_B_temp, AB_temp);
+	
+	assign product = product_temp;
+	
+endmodule"
+N/A,N/A,-1,50.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+reg [7:0] pp0, pp1, pp2, pp3, pp4, pp5, pp6, pp7;
+always @(A or B)
+begin
+	pp0 = A[0]? B : 8'b00000000;
+	pp1 = A[1]? B : 8'b00000000;
+	pp2 = A[2]? B : 8'b00000000;
+	pp3 = A[3]? B : 8'b00000000;
+	pp4 = A[4]? B : 8'b00000000;
+	pp5 = A[5]? B : 8'b00000000;
+	pp6 = A[6]? B : 8'b00000000;
+	pp7 = A[7]? B : 8'b00000000;
+	product[0] = pp0[0];
+	
+	assign product[1] = pp0[1] ^ pp1[0];
+	assign product[2] = pp0[2] ^ pp1[1];
+	assign product[3] = pp0[3] ^ pp1[2];
+	assign product[4] = pp0[4] ^ pp1[3];
+	assign product[5] = pp0[5] ^ pp1[4];
+	assign product[6] = pp0[6] ^ pp1[5];
+	assign product[7] = pp0[7] ^ pp1[6];
+	assign product[8] = pp2[0] ^ pp3[1];
+	assign product[9] = pp2[1] ^ pp3[2];
+	assign product[10] = pp2[2] ^ pp3[3];
+	assign product[11] = pp2[3] ^ pp3[4];
+	assign product[12] = pp2[4] ^ pp3[5];
+	assign product[13] = pp2[5] ^ pp3[6];
+	assign product[14] = pp2[6] ^ pp3[7];
+	assign product[15] = pp2[7] ^ pp3[8];
+	assign product[16] = pp4[0] ^ pp5[1];
+	assign product[17] = pp4[1] ^ pp5[2];
+	assign product[18] = pp4[2] ^ pp5[3];
+	assign product[19] = pp4[3] ^ pp5[4];
+	assign product[20] = pp4[4] ^ pp5[5];
+	assign product[21] = pp4[5] ^ pp5[6];
+	assign product[22] = pp4[6] ^ pp5[7];
+	assign product[23] = pp4[7] ^ pp5[8];
+	assign product[24] = pp6[0] ^ pp7[1];
+	assign product[25] = pp6[1] ^ pp7[2];
+	assign product[26] = pp6[2] ^ pp7[3];
+	assign product[27] = pp6[3] ^ pp7[4];
+	assign product[28] = pp6[4] ^ pp7[5];
+	assign product[29] = pp6[5] ^ pp7[6];
+	assign product[30] = pp6[6] ^ pp7[7];
+	assign product[31] = pp6[7] ^ pp7[8];
+	assign product[32] = pp7[0];
+	assign product[33] = pp7[1];
+	assign product[34] = pp7[2];
+	assign product[35] = pp7[3];
+	assign product[36] = pp7[4];
+	assign product[37] = pp7[5];
+	assign product[38] = pp7[6];
+	assign product[39] = pp7[7];
+	assign product[40] = pp8[0];
+	assign product[41] = pp8[1];
+	assign product[42] = pp8[2];
+	assign product[43] = pp8[3];
+	assign product[44] = pp8[4];
+	assign product[45] = pp8[5];
+	assign product[46] = pp8[6];
+	assign product[47] = pp8[7];
+	assign product[48] = pp9[0];
+	assign product[49] = pp9[1];
+	assign product[50] = pp9[2];
+	assign product[51] = pp9[3];
+	assign product[52] = pp9[4];
+	assign product[53] = pp9[5];
+	assign product[54] = pp9[6];
+	assign product[55] = pp9[7];
+	assign product[56] = pp10[0];
+	assign product[57] = pp10[1];
+	assign product[58] = pp10[2];
+	assign product[59] = pp10[3];
+	assign product[60] = pp10[4];
+	assign product[61] = pp10[5];
+	assign product[62] = pp10[6];
+	assign product[63] = pp10[7];
+	assign product[64] = pp11[0];
+	assign product[65] = pp11[1];
+	assign product[66] = pp11[2];
+	assign product[67] = pp11[3];
+	assign product[68] = pp11[4];
+	assign product[69] = pp11[5];
+	assign product[70] = pp11[6];
+	assign product[71] = pp11[7];
+	assign product[72] = pp12[0];
+	assign product[73] = pp12[1];
+	assign product[74] = pp12[2];
+	assign product[75] = pp12[3];
+	assign product[76] = pp12[4];
+	assign product[77] = pp12[5];
+	assign product[78] = pp12[6];
+	assign product[79] = pp12[7];
+	assign product[80] = pp13[0];
+	ass"
+N/A,N/A,-0.1,51.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);	
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_M;
+	
+	assign A_B = A & B;
+	assign AB = A | B;
+	
+	assign AB_M = AB << 1;
+	
+	assign product = A_B ^ AB_M;
+endmodule"
+N/A,N/A,-0.1,52.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B); 
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,53.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);  
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_M;
+	
+	assign A_B = A & B;
+	assign AB = A | B;
+	
+	assign AB_M = AB << 1;
+	
+	assign product = A_B ^ AB_M;
+endmodule"
+N/A,N/A,-0.1,54.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	
+	wire [15:0] product_temp;
+	
+	multiplier_4 M1(product_temp, A_B, AB);
+	
+	assign product = product_temp;
+	
+endmodule
+
+module multiplier_4(output [3:0] product, input [3:0] A_B, input [3:0] AB);
+	
+	wire [3:0] A_B_temp;
+	wire [3:0] AB_temp;
+	
+	assign A_B_temp = A_B << 1;
+	assign AB_temp = AB << 1;
+	
+	wire [3:0] product_temp;
+	
+	multiplier_2 M1(product_temp, A_B_temp, AB_temp);
+	
+	assign product = product_temp;
+	
+endmodule
+
+module multiplier_2(output [1:0] product, input [1:0] A_B, input [1:0] AB);
+	
+	wire [1:0] A_B_temp;
+	wire [1:0] AB_temp;
+	
+	assign A_B_temp = A_B << 1;
+	assign AB_temp = AB << 1;
+	
+	wire [1:0] product_temp;
+	
+	multiplier_1 M1(product_temp, A_B_temp, AB_temp);
+	
+	assign product = product_temp;
+	
+endmodule
+
+module multiplier_1(output [0:0] product, input [0:0] A_B, input [0:0] AB);
+	
+	wire [0:0] A_B_temp;
+	wire [0:0] AB_temp;
+	
+	assign A_B_temp = A_B << 1;
+	assign AB_temp = AB << 1;
+	
+	wire [0:0] product_temp;
+	
+	multiplier_0 M1(product_temp, A_B_temp, AB_temp);
+	
+	assign product = product_temp;
+	
+endmodule
+
+module multiplier_0(output [0:0] product, input [0:0] A_B, input [0:0] AB);
+	
+	assign product = A_B * AB;
+	
+endmodule"
+641.858,789.49,0.1,55.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	assign product = A * B;
+endmodule"
+N/A,N/A,-1,56.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	assign product[0] = A[0] & B[0];
+	assign product[1] = A[0] & B[1];
+	assign product[2] = A[0] & B[2];
+	assign product[3] = A[0] & B[3];
+	assign product[4] = A[0] & B[4];
+	assign product[5] = A[0] & B[5];
+	assign product[6] = A[0] & B[6];
+	assign product[7] = A[0] & B[7];
+	assign product[8] = A[1] & B[0];
+	assign product[9] = A[1] & B[1];
+	assign product[10] = A[1] & B[2];
+	assign product[11] = A[1] & B[3];
+	assign product[12] = A[1] & B[4];
+	assign product[13] = A[1] & B[5];
+	assign product[14] = A[1] & B[6];
+	assign product[15] = A[1] & B[7];
+	assign product[16] = A[2] & B[0];
+	assign product[17] = A[2] & B[1];
+	assign product[18] = A[2] & B[2];
+	assign product[19] = A[2] & B[3];
+	assign product[20] = A[2] & B[4];
+	assign product[21] = A[2] & B[5];
+	assign product[22] = A[2] & B[6];
+	assign product[23] = A[2] & B[7];
+	assign product[24] = A[3] & B[0];
+	assign product[25] = A[3] & B[1];
+	assign product[26] = A[3] & B[2];
+	assign product[27] = A[3] & B[3];
+	assign product[28] = A[3] & B[4];
+	assign product[29] = A[3] & B[5];
+	assign product[30] = A[3] & B[6];
+	assign product[31] = A[3] & B[7];
+	assign product[32] = A[4] & B[0];
+	assign product[33] = A[4] & B[1];
+	assign product[34] = A[4] & B[2];
+	assign product[35] = A[4] & B[3];
+	assign product[36] = A[4] & B[4];
+	assign product[37] = A[4] & B[5];
+	assign product[38] = A[4] & B[6];
+	assign product[39] = A[4] & B[7];
+	assign product[40] = A[5] & B[0];
+	assign product[41] = A[5] & B[1];
+	assign product[42] = A[5] & B[2];
+	assign product[43] = A[5] & B[3];
+	assign product[44] = A[5] & B[4];
+	assign product[45] = A[5] & B[5];
+	assign product[46] = A[5] & B[6];
+	assign product[47] = A[5] & B[7];
+	assign product[48] = A[6] & B[0];
+	assign product[49] = A[6] & B[1];
+	assign product[50] = A[6] & B[2];
+	assign product[51] = A[6] & B[3];
+	assign product[52] = A[6] & B[4];
+	assign product[53] = A[6] & B[5];
+	assign product[54] = A[6] & B[6];
+	assign product[55] = A[6] & B[7];
+	assign product[56] = A[7] & B[0];
+	assign product[57] = A[7] & B[1];
+	assign product[58] = A[7] & B[2];
+	assign product[59] = A[7] & B[3];
+	assign product[60] = A[7] & B[4];
+	assign product[61] = A[7] & B[5];
+	assign product[62] = A[7] & B[6];
+	assign product[63] = A[7] & B[7];
+endmodule"
+N/A,N/A,-0.1,57.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B); 
+
+wire [7:0] A_temp;
+wire [7:0] B_temp;
+
+assign A_temp = A;
+assign B_temp = B;
+
+wire [7:0] product_temp;
+
+assign product_temp = A_temp * B_temp;
+
+assign product = product_temp;
+
+endmodule"
+N/A,N/A,-0.1,58.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);	
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_M;
+	
+	assign A_B = A & B;
+	assign AB = A | B;
+	
+	assign AB_M = AB << 1;
+	
+	assign product = A_B ^ AB_M;
+endmodule"
+N/A,N/A,-0.1,59.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B); 
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,60.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+ 
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_M;
+	wire [7:0] AB_M_1;
+	wire [7:0] AB_M_2;
+	wire [7:0] AB_M_3;
+	wire [7:0] AB_M_4;
+	wire [7:0] AB_M_5;
+	wire [7:0] AB_M_6;
+	wire [7:0] AB_M_7;
+	
+	assign A_B = A * B;
+	assign AB = A * B;
+	
+	assign AB_M = AB[7:0] << 1;
+	assign AB_M_1 = AB_M[7:0] + AB_M[7:0];
+	assign AB_M_2 = AB_M_1[7:0] + AB_M_1[7:0];
+	assign AB_M_3 = AB_M_2[7:0] + AB_M_2[7:0];
+	assign AB_M_4 = AB_M_3[7:0] + AB_M_3[7:0];
+	assign AB_M_5 = AB_M_4[7:0] + AB_M_4[7:0];
+	assign AB_M_6 = AB_M_5[7:0] + AB_M_5[7:0];
+	assign AB_M_7 = AB_M_6[7:0] + AB_M_6[7:0];
+	
+	assign product[7:0] = AB_M_7[7:0];
+	
+endmodule"
+641.858,789.49,0.1,61.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+assign product = A * B;
+endmodule"
+641.858,789.49,0.1,62.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+assign product = A * B;
+endmodule"
+641.858,789.49,0.1,63.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+assign product = A * B;
+endmodule"
+641.858,789.49,0.1,64.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+assign product = A * B;
+endmodule"
+641.858,789.49,0.1,65.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+assign product = A * B;
+endmodule"
+641.858,789.49,0.1,66.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+assign product = A * B;
+endmodule"
+N/A,N/A,-1,67.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+assign product[0] = A[0] & B[0];
+assign product[1] = A[0] & B[1];
+assign product[2] = A[0] & B[2];
+assign product[3] = A[0] & B[3];
+assign product[4] = A[0] & B[4];
+assign product[5] = A[0] & B[5];
+assign product[6] = A[0] & B[6];
+assign product[7] = A[0] & B[7];
+assign product[8] = A[1] & B[0];
+assign product[9] = A[1] & B[1];
+assign product[10] = A[1] & B[2];
+assign product[11] = A[1] & B[3];
+assign product[12] = A[1] & B[4];
+assign product[13] = A[1] & B[5];
+assign product[14] = A[1] & B[6];
+assign product[15] = A[1] & B[7];
+assign product[16] = A[2] & B[0];
+assign product[17] = A[2] & B[1];
+assign product[18] = A[2] & B[2];
+assign product[19] = A[2] & B[3];
+assign product[20] = A[2] & B[4];
+assign product[21] = A[2] & B[5];
+assign product[22] = A[2] & B[6];
+assign product[23] = A[2] & B[7];
+assign product[24] = A[3] & B[0];
+assign product[25] = A[3] & B[1];
+assign product[26] = A[3] & B[2];
+assign product[27] = A[3] & B[3];
+assign product[28] = A[3] & B[4];
+assign product[29] = A[3] & B[5];
+assign product[30] = A[3] & B[6];
+assign product[31] = A[3] & B[7];
+assign product[32] = A[4] & B[0];
+assign product[33] = A[4] & B[1];
+assign product[34] = A[4] & B[2];
+assign product[35] = A[4] & B[3];
+assign product[36] = A[4] & B[4];
+assign product[37] = A[4] & B[5];
+assign product[38] = A[4] & B[6];
+assign product[39] = A[4] & B[7];
+assign product[40] = A[5] & B[0];
+assign product[41] = A[5] & B[1];
+assign product[42] = A[5] & B[2];
+assign product[43] = A[5] & B[3];
+assign product[44] = A[5] & B[4];
+assign product[45] = A[5] & B[5];
+assign product[46] = A[5] & B[6];
+assign product[47] = A[5] & B[7];
+assign product[48] = A[6] & B[0];
+assign product[49] = A[6] & B[1];
+assign product[50] = A[6] & B[2];
+assign product[51] = A[6] & B[3];
+assign product[52] = A[6] & B[4];
+assign product[53] = A[6] & B[5];
+assign product[54] = A[6] & B[6];
+assign product[55] = A[6] & B[7];
+assign product[56] = A[7] & B[0];
+assign product[57] = A[7] & B[1];
+assign product[58] = A[7] & B[2];
+assign product[59] = A[7] & B[3];
+assign product[60] = A[7] & B[4];
+assign product[61] = A[7] & B[5];
+assign product[62] = A[7] & B[6];
+assign product[63] = A[7] & B[7];
+assign product[64] = A[8] & B[0];
+assign product[65] = A[8] & B[1];
+assign product[66] = A[8] & B[2];
+assign product[67] = A[8] & B[3];
+assign product[68] = A[8] & B[4];
+assign product[69] = A[8] & B[5];
+assign product[70] = A[8] & B[6];
+assign product[71] = A[8] & B[7];
+assign product[72] = A[9] & B[0];
+assign product[73] = A[9] & B[1];
+assign product[74] = A[9] & B[2];
+assign product[75] = A[9] & B[3];
+assign product[76] = A[9] & B[4];
+assign product[77] = A[9] & B[5];
+assign product[78] = A[9] & B[6];
+assign product[79] = A[9] & B[7];
+assign product[80] = A[10] & B[0];
+assign product[81] = A[10] & B[1];
+assign product[82] = A[10] & B[2];
+assign product[83] = A[10] & B[3];
+assign product[84] = A[10] & B[4];
+assign product[85] = A[10] & B[5];
+assign product[86] = A[10] & B[6];
+assign product[87] = A[10] & B[7];
+assign product"
+N/A,N/A,-1,68.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+
+    wire [7:0] pp0;
+    wire [7:0] pp1;
+    wire [7:0] pp2;
+    wire [7:0] pp3;
+    wire [7:0] pp4;
+    wire [7:0] pp5;
+    wire [7:0] pp6;
+    wire [7:0] pp7;
+
+    assign pp0 = A[0]? B : 8'b00000000;
+    assign pp1 = A[1]? B : 8'b00000000;
+    assign pp2 = A[2]? B : 8'b00000000;
+    assign pp3 = A[3]? B : 8'b00000000;
+    assign pp4 = A[4]? B : 8'b00000000;
+    assign pp5 = A[5]? B : 8'b00000000;
+    assign pp6 = A[6]? B : 8'b00000000;
+    assign pp7 = A[7]? B : 8'b00000000;
+
+    assign product[0] = pp0[0];
+
+    wire [7:0] s1;
+    wire [7:0] s2;
+    wire [7:0] s3;
+    wire [7:0] s4;
+    wire [7:0] s5;
+    wire [7:0] s6;
+    wire [7:0] s7;
+
+    assign s1 = {pp0[1], pp0[2], pp0[3], pp0[4], pp0[5], pp0[6], pp0[7], 1'b0};
+    assign s2 = {pp1[0], pp1[1], pp1[2], pp1[3], pp1[4], pp1[5], pp1[6], pp1[7]};
+    assign s3 = {pp2[0], pp2[1], pp2[2], pp2[3], pp2[4], pp2[5], pp2[6], pp2[7]};
+    assign s4 = {pp3[0], pp3[1], pp3[2], pp3[3], pp3[4], pp3[5], pp3[6], pp3[7]};
+    assign s5 = {pp4[0], pp4[1], pp4[2], pp4[3], pp4[4], pp4[5], pp4[6], pp4[7]};
+    assign s6 = {pp5[0], pp5[1], pp5[2], pp5[3], pp5[4], pp5[5], pp5[6], pp5[7]};
+    assign s7 = {pp6[0], pp6[1], pp6[2], pp6[3], pp6[4], pp6[5], pp6[6], pp6[7]};
+
+    assign product[1] = s1[0];
+
+    wire [6:0] s8;
+    wire [6:0] s9;
+    wire [6:0] sA;
+    wire [6:0] sB;
+
+    assign s8 = {s1[1], s1[2], s1[3], s1[4], s1[5], s1[6], s1[7], 1'b0};
+    assign s9 = {s2[0], s2[1], s2[2], s2[3], s2[4], s2[5], s2[6], s2[7]};
+    assign sA = {s3[0], s3[1], s3[2], s3[3], s3[4], s3[5], s3[6], s3[7]};
+    assign sB = {s4[0], s4[1], s4[2], s4[3], s4[4], s4[5], s4[6], s4[7]};
+
+    assign product[2] = s8[0];
+
+    wire [5:0] sC;
+    wire [5:0] sD;
+    wire [5:0] sE;
+    wire [5:0] sF;
+
+    assign sC = {s8[1], s8[2], s8[3], s8[4], s8[5], s8[6], s8[7], 1'b0};
+    assign sD = {s9[0], s9[1], s9[2], s9[3], s9[4], s9[5], s9[6], s9[7]};
+    assign sE = {sA[0], sA[1], sA[2], sA[3], sA[4], sA[5], sA[6], sA[7]};
+    assign sF = {sB[0], sB[1], sB[2], sB[3], sB[4], sB[5], sB[6], sB[7]};
+
+    assign product[3] = sC[0];
+
+    wire [4:0] sG;
+    wire [4:0] sH;
+    wire [4:0] sI;
+    wire [4:0] sJ;
+
+    assign sG = {sC[1], sC[2], sC[3], sC[4], sC[5], sC[6], sC[7], 1'b0};
+    assign sH = {sD[0], sD[1], sD[2], sD[3], sD[4], sD[5], sD[6], sD[7]};
+    assign sI = {sE[0], sE[1], sE[2], sE[3], sE[4], sE[5], sE[6], sE[7]};
+    assign sJ = {sF[0], sF[1], sF[2], sF[3], sF[4], sF[5], sF[6], sF[7]};
+
+    assign product[4] = sG[0];
+
+    wire [3:0] sK;
+    wire [3:0] sL;
+    wire [3:0] sM;
+    wire [3:0] sN;
+
+    assign sK = {sG"
+641.858,789.49,0.1,69.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+
+assign product = A * B;
+
+endmodule"
+641.858,789.49,0.1,70.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+
+assign product = A * B;
+
+endmodule"
+641.858,789.49,0.1,71.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+
+assign product = A * B;
+
+endmodule"
+N/A,N/A,-1,72.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+
+and(product[0], A[0], B[0]);
+and(product[1], A[1], B[0]);
+and(product[2], A[2], B[0]);
+and(product[3], A[3], B[0]);
+and(product[4], A[4], B[0]);
+and(product[5], A[5], B[0]);
+and(product[6], A[6], B[0]);
+and(product[7], A[7], B[0]);
+and(product[8], A[0], B[1]);
+and(product[9], A[1], B[1]);
+and(product[10], A[2], B[1]);
+and(product[11], A[3], B[1]);
+and(product[12], A[4], B[1]);
+and(product[13], A[5], B[1]);
+and(product[14], A[6], B[1]);
+and(product[15], A[7], B[1]);
+and(product[16], A[0], B[2]);
+and(product[17], A[1], B[2]);
+and(product[18], A[2], B[2]);
+and(product[19], A[3], B[2]);
+and(product[20], A[4], B[2]);
+and(product[21], A[5], B[2]);
+and(product[22], A[6], B[2]);
+and(product[23], A[7], B[2]);
+and(product[24], A[0], B[3]);
+and(product[25], A[1], B[3]);
+and(product[26], A[2], B[3]);
+and(product[27], A[3], B[3]);
+and(product[28], A[4], B[3]);
+and(product[29], A[5], B[3]);
+and(product[30], A[6], B[3]);
+and(product[31], A[7], B[3]);
+and(product[32], A[0], B[4]);
+and(product[33], A[1], B[4]);
+and(product[34], A[2], B[4]);
+and(product[35], A[3], B[4]);
+and(product[36], A[4], B[4]);
+and(product[37], A[5], B[4]);
+and(product[38], A[6], B[4]);
+and(product[39], A[7], B[4]);
+and(product[40], A[0], B[5]);
+and(product[41], A[1], B[5]);
+and(product[42], A[2], B[5]);
+and(product[43], A[3], B[5]);
+and(product[44], A[4], B[5]);
+and(product[45], A[5], B[5]);
+and(product[46], A[6], B[5]);
+and(product[47], A[7], B[5]);
+and(product[48], A[0], B[6]);
+and(product[49], A[1], B[6]);
+and(product[50], A[2], B[6]);
+and(product[51], A[3], B[6]);
+and(product[52], A[4], B[6]);
+and(product[53], A[5], B[6]);
+and(product[54], A[6], B[6]);
+and(product[55], A[7], B[6]);
+and(product[56], A[0], B[7]);
+and(product[57], A[1], B[7]);
+and(product[58], A[2], B[7]);
+and(product[59], A[3], B[7]);
+and(product[60], A[4], B[7]);
+and(product[61], A[5], B[7]);
+and(product[62], A[6], B[7]);
+and(product[63], A[7], B[7]);
+
+endmodule"
+N/A,N/A,-1,73.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+        wire [7:0] pp0;
+        wire [7:0] pp1;
+        wire [7:0] pp2;
+        wire [7:0] pp3;
+        wire [7:0] pp4;
+        wire [7:0] pp5;
+        wire [7:0] pp6;
+        wire [7:0] pp7;
+        assign pp0 = A[0]? B : 8'b00000000;
+        assign pp1 = A[1]? B : 8'b00000000;
+        assign pp2 = A[2]? B : 8'b00000000;
+        assign pp3 = A[3]? B : 8'b00000000;
+        assign pp4 = A[4]? B : 8'b00000000;
+        assign pp5 = A[5]? B : 8'b00000000;
+        assign pp6 = A[6]? B : 8'b00000000;
+        assign pp7 = A[7]? B : 8'b00000000;
+        assign product[0] = pp0[0];
+        half_adder HA0(s0, c0, pp0[1], pp1[0]);
+        half_adder HA1(s1, c1, pp1[1], pp2[0]);
+        half_adder HA2(s2, c2, pp2[1], pp3[0]);
+        half_adder HA3(s3, c3, pp3[1], pp4[0]);
+        half_adder HA4(s4, c4, pp4[1], pp5[0]);
+        half_adder HA5(s5, c5, pp5[1], pp6[0]);
+        half_adder HA6(s6, c6, pp6[1], pp7[0]);
+        half_adder HA7(s7, c7, pp7[1], pp0[2]);
+        half_adder HA8(s8, c8, pp1[2], pp2[1]);
+        half_adder HA9(s9, c9, pp2[2], pp3[1]);
+        half_adder HA10(s10, c10, pp3[2], pp4[1]);
+        half_adder HA11(s11, c11, pp4[2], pp5[1]);
+        half_adder HA12(s12, c12, pp5[2], pp6[1]);
+        half_adder HA13(s13, c13, pp6[2], pp7[1]);
+        half_adder HA14(s14, c14, pp7[2], pp0[3]);
+        half_adder HA15(s15, c15, pp1[3], pp2[2]);
+        half_adder HA16(s16, c16, pp2[3], pp3[2]);
+        half_adder HA17(s17, c17, pp3[3], pp4[2]);
+        half_adder HA18(s18, c18, pp4[3], pp5[2]);
+        half_adder HA19(s19, c19, pp5[3], pp6[2]);
+        half_adder HA20(s20, c20, pp6[3], pp7[2]);
+        half_adder HA21(s21, c21, pp7[3], pp0[4]);
+        half_adder HA22(s22, c22, pp1[4], pp2[3]);
+        half_adder HA23(s23, c23, pp2[4], pp3[3]);
+        half_adder HA24(s24, c24, pp3[4], pp4[3]);
+        half_adder HA25(s25, c25, pp4[4], pp5[3]);
+        half_adder HA26(s26, c26, pp5[4], pp6[3]);
+        half_adder HA27(s27, c27, pp6[4], pp7[3]);
+        half_adder HA28(s28, c28, pp7[4], pp0[5]);
+        half_adder HA29(s29, c29, pp1[5], pp2[4]);
+        half_adder HA30(s30, c30, pp2[5], pp3[4]);
+        half_adder HA31(s31, c31, pp3[5], pp4[4]);
+        half_adder HA32(s32, c32, pp4[5], pp5[4]);
+        half_adder HA33(s33, c33, pp5[5], pp6[4]);
+        half_adder HA34(s34, c34, pp6[5], pp7[4]);
+        half_adder HA35(s35, c35, pp7[5], pp0[6]);
+        half_adder HA36(s36, c36, pp1[6], pp2[5]);
+        half_adder HA37(s37, c37, pp2[6], pp3[5]);
+        half_adder HA38(s38, c38, pp3[6], pp4[5]);
+        half_adder HA39(s39, c39, pp4[6], pp5[5]);
+        half_adder HA40(s40, c40, pp5[6], pp6[5]);
+        half_adder HA41(s41, c41, pp6[6], pp7[5]);
+        half_adder HA42(s42, c42, pp7[6], pp0[7]);
+        half_adder HA43(s43, c43, pp1[7], pp2[6]);
+        half_adder HA44(s44, c44, pp2[7], pp3[6]);
+        half_adder HA45(s45, c45, pp3[7], pp4[6]);
+        half_adder HA46(s46, c46, pp4[7], pp5[6]);
+        half_adder HA47(s47, c47, pp5[7], pp6[6]);
+        half_adder HA48(s48, c48, pp6[7], pp7[6]);
+        half_adder HA49(s49, c49, pp7[7], pp0[8]);
+        half_adder HA50(s50, c50, pp1[8], pp2[7]);
+        half_adder HA51(s51, c51, pp2[8], pp3["
+N/A,N/A,-0.1,74.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);  
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_M;
+	
+	assign A_B = A & B;
+	assign AB = A | B;
+	
+	assign AB_M = AB << 1;
+	
+	assign product = A_B ^ AB_M;
+endmodule"
+N/A,N/A,-0.1,75.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);	
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_M;
+	
+	assign A_B = A & B;
+	assign AB = A | B;
+	
+	assign AB_M = AB << 1;
+	
+	assign product = A_B ^ AB_M;
+endmodule"
+N/A,N/A,-0.1,76.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B); 
+
+	wire [7:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[7:0], product_temp[15:8]};
+	
+endmodule"
+N/A,N/A,-0.1,77.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B); 
+    wire [7:0] pp0, pp1, pp2, pp3, pp4, pp5, pp6, pp7;
+    assign pp0 = A[0]? B : 8'b00000000;
+    assign pp1 = A[1]? B : 8'b00000000;
+    assign pp2 = A[2]? B : 8'b00000000;
+    assign pp3 = A[3]? B : 8'b00000000;
+    assign pp4 = A[4]? B : 8'b00000000;
+    assign pp5 = A[5]? B : 8'b00000000;
+    assign pp6 = A[6]? B : 8'b00000000;
+    assign pp7 = A[7]? B : 8'b00000000;
+    assign product[0] = pp0[0];
+    
+    wire s1, s2, s3, s4, s5, s6, s7;
+    wire c1, c2, c3, c4, c5, c6, c7;
+    
+    assign s1 = pp0[1] ^ pp1[0];
+    assign s2 = pp2[0] ^ s1;
+    assign s3 = pp3[1] ^ pp2[1];
+    assign s4 = pp4[0] ^ s3;
+    assign s5 = pp5[1] ^ pp4[1];
+    assign s6 = pp6[0] ^ s5;
+    assign s7 = pp7[1] ^ pp6[1];
+    
+    assign c1 = pp0[1] & pp1[0];
+    assign c2 = pp2[0] & s1;
+    assign c3 = pp3[1] & pp2[1];
+    assign c4 = pp4[0] & s3;
+    assign c5 = pp5[1] & pp4[1];
+    assign c6 = pp6[0] & s5;
+    assign c7 = pp7[1] & pp6[1];
+    
+    assign product[1] = s2 ^ c1;
+    assign product[2] = s3 ^ c2;
+    assign product[3] = s4 ^ c3;
+    assign product[4] = s5 ^ c4;
+    assign product[5] = s6 ^ c5;
+    assign product[6] = s7 ^ c6;
+    assign product[7] = pp7[1] & pp6[1];
+    assign product[8] = pp7[0] & pp6[0];
+    
+endmodule"
+N/A,N/A,-0.1,78.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	
+	wire [15:0] product_temp;
+	
+	multiplier_4 M1(product_temp, A_B, AB);
+	
+	assign product = product_temp;
+	
+endmodule
+
+module multiplier_4(output [3:0] product, input [3:0] A_B, input [3:0] AB);
+	
+	wire [3:0] A_B_temp;
+	wire [3:0] AB_temp;
+	
+	assign A_B_temp = A_B << 1;
+	assign AB_temp = AB << 1;
+	
+	wire [3:0] product_temp;
+	
+	multiplier_2 M1(product_temp, A_B_temp, AB_temp);
+	
+	assign product = product_temp;
+	
+endmodule
+
+module multiplier_2(output [1:0] product, input [1:0] A_B, input [1:0] AB);
+	
+	wire [1:0] A_B_temp;
+	wire [1:0] AB_temp;
+	
+	assign A_B_temp = A_B << 1;
+	assign AB_temp = AB << 1;
+	
+	wire [1:0] product_temp;
+	
+	multiplier_1 M1(product_temp, A_B_temp, AB_temp);
+	
+	assign product = product_temp;
+	
+endmodule
+
+module multiplier_1(output [0:0] product, input [0:0] A_B, input [0:0] AB);
+	
+	wire [0:0] A_B_temp;
+	wire [0:0] AB_temp;
+	
+	assign A_B_temp = A_B << 1;
+	assign AB_temp = AB << 1;
+	
+	wire [0:0] product_temp;
+	
+	multiplier_0 M1(product_temp, A_B_temp, AB_temp);
+	
+	assign product = product_temp;
+	
+endmodule
+
+module multiplier_0(output [0:0] product, input [0:0] A_B, input [0:0] AB);
+	
+	assign product = A_B * AB;
+	
+endmodule"
+N/A,N/A,-0.1,79.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	
+	wire [15:0] product_temp;
+	
+	multiplier_4 M1(product_temp, A_B, AB);
+	
+	assign product = product_temp;
+	
+endmodule
+
+module multiplier_4(output [3:0] product, input [3:0] A_B, input [3:0] AB);
+	
+	wire [3:0] A_B_temp;
+	wire [3:0] AB_temp;
+	
+	assign A_B_temp = A_B << 1;
+	assign AB_temp = AB << 1;
+	
+	wire [3:0] product_temp;
+	
+	multiplier_2 M1(product_temp, A_B_temp, AB_temp);
+	
+	assign product = product_temp;
+	
+endmodule
+
+module multiplier_2(output [1:0] product, input [1:0] A_B, input [1:0] AB);
+	
+	wire [1:0] A_B_temp;
+	wire [1:0] AB_temp;
+	
+	assign A_B_temp = A_B << 1;
+	assign AB_temp = AB << 1;
+	
+	wire [1:0] product_temp;
+	
+	multiplier_1 M1(product_temp, A_B_temp, AB_temp);
+	
+	assign product = product_temp;
+	
+endmodule
+
+module multiplier_1(output [0:0] product, input [0:0] A_B, input [0:0] AB);
+	
+	wire [0:0] A_B_temp;
+	wire [0:0] AB_temp;
+	
+	assign A_B_temp = A_B << 1;
+	assign AB_temp = AB << 1;
+	
+	wire [0:0] product_temp;
+	
+	multiplier_0 M1(product_temp, A_B_temp, AB_temp);
+	
+	assign product = product_temp;
+	
+endmodule
+
+module multiplier_0(output [0:0] product, input [0:0] A_B, input [0:0] AB);
+	
+	assign product = A_B * AB;
+	
+endmodule"
+N/A,N/A,-0.1,80.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+wire [7:0] A_B;
+wire [7:0] AB;
+
+assign A_B = A & B;
+assign AB = A_B << 1;
+
+assign product = AB ^ {8{A_B[7]}};
+
+endmodule"
+N/A,N/A,-0.1,81.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-1,82.0,1,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire c0, c1, c2, c3, c4, c5, c6, c7;
+	
+	assign product[0] = A[0] & B[0];
+	
+	half_adder HA0(product[1], c0, A[0] & B[1], A[1] & B[0]);
+	half_adder HA1(product[2], c1, A[1] & B[1], A[2] & B[0]);
+	half_adder HA2(product[3], c2, A[2] & B[1], A[3] & B[0]);
+	half_adder HA3(product[4], c3, A[3] & B[1], A[4] & B[0]);
+	half_adder HA4(product[5], c4, A[4] & B[1], A[5] & B[0]);
+	half_adder HA5(product[6], c5, A[5] & B[1], A[6] & B[0]);
+	half_adder HA6(product[7], c6, A[6] & B[1], A[7] & B[0]);
+	half_adder HA7(product[8], c7, A[7] & B[1], A[8] & B[0]);
+	half_adder HA8(product[9], product[16], A[8] & B[1], A[9] & B[0]);
+	half_adder HA9(product[10], product[17], A[9] & B[1], A[10] & B[0]);
+	half_adder HA10(product[11], product[18], A[10] & B[1], A[11] & B[0]);
+	half_adder HA11(product[12], product[19], A[11] & B[1], A[12] & B[0]);
+	half_adder HA12(product[13], product[20], A[12] & B[1], A[13] & B[0]);
+	half_adder HA13(product[14], product[21], A[13] & B[1], A[14] & B[0]);
+	half_adder HA14(product[15], product[22], A[14] & B[1], A[15] & B[0]);
+	
+	assign product[15] = c7;
+	
+endmodule
+
+module multiplier_16(output [31:0] product, input [15:0] A, B);
+	wire c0, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15;
+	
+	assign product[0] = A[0] & B[0];
+	
+	multiplier_8 m8_1(product[15:1], A[0:7], B[0:7]);
+	multiplier_8 m8_2(product[31:16], A[0:7], B[0:7]);
+	
+	assign product[15] = c7;
+	
+	assign product[31] = c15;
+	
+endmodule
+
+module multiplier_32(output [31:0] product, input [31:0] A, B);
+	wire c0, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16, c17, c18, c19, c20, c21, c22, c23, c24, c25, c26, c27, c28, c29, c30, c31;
+	
+	assign product[0] = A[0] & B[0];
+	
+	multiplier_16 m16_1(product[31:1], A[0:15], B[0:15]);
+	multiplier_16 m16_2(product[63:32], A[0:15], B[0:15]);
+	
+	assign product[31] = c31;
+	
+endmodule
+
+module multiplier_64(output [63:0] product, input [63:0] A, B);
+	wire c0, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16, c17, c18, c19, c20, c21, c22, c23, c24, c25, c26, c27, c28, c29, c30, c31;
+	
+	assign product[0] = A[0] & B[0];
+	
+	multiplier_32 m32_1(product[63:1], A[0:31], B[0:31]);
+	multiplier_32 m32_2(product[95:64], A[0:31], B[0:31]);
+	
+	assign product[63] = c31;
+	
+endmodule
+
+module multiplier_128(output [127:0] product, input [127:0] A, B);
+	wire c0, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16, c17, c18, c19, c20, c21, c22, c23, c24, c25, c26, c27, c28, c29, c30, c31;
+	
+	assign product[0] = A[0] & B[0];
+	
+	multiplier_64 m64_1(product[127:1], A[0:63], B[0:63]);
+	multiplier_64 m64_2(product[159:128], A[0:63], B[0:63]);
+	
+	assign product[127] = c31;
+	
+endmodule
+
+module multiplier_256(output [255:0] product, input [255:0] A, B);
+	wire c0, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14"

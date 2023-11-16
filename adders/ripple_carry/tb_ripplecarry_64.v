@@ -63,7 +63,7 @@ module tb_ripplecarry_64;
     in2 = 64'h0000000000000001;
     cin = 1;
     #period;
-    if (cout !== 1 || sum !== 64'h0000000000000001) begin
+    if (cout !== 1 || sum != 64'h0000000000000001) begin
       $display("Test 4 failed");
       $finish;
     end else

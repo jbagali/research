@@ -20,6 +20,7 @@ import csv
 from mcts import MCTS, initialize_thread_tree
 from transformers import AutoTokenizer, AutoModelForCausalLM
 from torch.nn.parallel import DistributedDataParallel
+from datetime import datetime
 os.environ['TOKENIZERS_PARALLELISM'] = 'false'
 
 class CsvLogger:
@@ -148,7 +149,8 @@ if __name__ == '__main__':
     
     
     while idx_ep<num_episodes:
-        print("******** EPISODE-{}************".format(idx_ep+1))
+        print("********-- EPISODE-{}--************".format(idx_ep+1))
+        start_time = datetime.now()
         if(operation == "mcts"):
             print("ORIG MODILE: ", module_name)
             merged_tree = initialize_MCTS_tree(LLMQueryEnv(csv_logger, row_data, orig_prompt=prompt_str, op = operation, orig_module=module_name, file_path=prompt_filepath, tb_path = tb_filepath, dump_path = rootDumpDir,
@@ -156,12 +158,16 @@ if __name__ == '__main__':
             merged_tree = execute_episode(merged_tree,simulation_per_episode)
             print("ROBUST FINAL VALUE:")
             evalMctsRobustValue, evalMctsMaxValue = test_episode(merged_tree)
+            end_time = datetime.now()
+            time_difference = end_time - start_time
+            seconds = time_difference.total_seconds()
+            print("MCTS Total Time: ", seconds)
             ##csvFileHandler.write("{},{}\n".format(evalMctsRobustValue))
 
         elif (operation == "beam"):
-            env = LLMQueryEnv(csv_logger, row_data, orig_prompt=prompt_str, op = operation, orig_module=module_name, file_path=prompt_filepath, tb_path = tb_filepath, dump_path = rootDumpDir,
-                                                        model_name=model_name, tokenizer=tokenizer, model=model)
             for i in range(simulation_per_episode):
+                env = LLMQueryEnv(csv_logger, row_data, orig_prompt=prompt_str, op = operation, orig_module=module_name, file_path=prompt_filepath, tb_path = tb_filepath, dump_path = rootDumpDir,
+                                                        model_name=model_name, tokenizer=tokenizer, model=model)
                 env.row_data['episode'] = idx_ep
                 env.row_data['currentRun'] = i
                 init_state = env.get_initial_state()
@@ -171,8 +177,9 @@ if __name__ == '__main__':
             for i in range(simulation_per_episode):
                 print("----GREEDY LLM OUTPUT - ITERATION: ", i, " ----")
                 print("---------------")
-                env = LLMQueryEnv(csv_logger, row_data, orig_prompt=prompt_str, op = operation, orig_module=module_name, file_path=prompt_filepath, tb_path = "", dump_path = rootDumpDir,
+                env = LLMQueryEnv(csv_logger, row_data, orig_prompt=prompt_str, op = operation, orig_module=module_name, file_path=prompt_filepath, tb_path = tb_filepath, dump_path = rootDumpDir,
                                                             model_name=model_name, tokenizer=tokenizer, model=model)
+                print("Done setting up env.")
                 env.row_data['episode'] = idx_ep
                 env.row_data['currentRun'] = i
                 init_state = env.get_initial_state()

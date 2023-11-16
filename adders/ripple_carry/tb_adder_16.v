@@ -21,7 +21,7 @@ module tb_adder_16;
 
   // Clock generation
   reg clk;
-  always #5 clk = ~clk;
+  always #10 clk = ~clk;
 
   // Test cases
   initial begin
@@ -30,7 +30,7 @@ module tb_adder_16;
     in2 = 16'h0000;
     cin = 0;
     #period;
-    if (cout !== 0 || sum !== 16'h0000) begin
+    if (cout!==0 || sum!==16'h0000) begin
       $display("Test 1 failed");
       $finish;
     end else
@@ -41,7 +41,7 @@ module tb_adder_16;
     in2 = 16'h0001;
     cin = 1;
     #period;
-    if (cout !== 0 || sum !== 16'h0003) begin
+    if (cout!==0 || sum!==16'h0003) begin
       $display("Test 2 failed");
       $finish;
     end else
@@ -52,7 +52,7 @@ module tb_adder_16;
     in2 = 16'h0001;
     cin = 0;
     #period;
-    if (cout !== 1 || sum !== 16'h0000) begin
+    if (cout!==1 || sum!==16'h0000) begin
       $display("Test 3 failed");
       $finish;
     end else
@@ -63,7 +63,7 @@ module tb_adder_16;
     in2 = 16'h0001;
     cin = 1;
     #period;
-    if (cout !== 1 || sum !== 16'h0001) begin
+    if (cout!==1 || sum!==16'h0001) begin
       $display("Test 4 failed");
       $finish;
     end else
@@ -74,7 +74,7 @@ module tb_adder_16;
     in2 = 16'hFFFF;
     cin = 0;
     #period;
-    if (cout !== 1 || sum !== 16'hFFFE) begin
+    if (cout!==1 || sum!==16'hFFFE) begin
       $display("Test 5 failed");
       $finish;
     end else
@@ -85,7 +85,7 @@ module tb_adder_16;
     in2 = 16'hFFFF;
     cin = 1;
     #period;
-    if (cout !== 1 || sum !== 16'hFFFF) begin
+    if (cout!==1 || sum!==16'hFFFF) begin
       $display("Test 6 failed");
       $finish;
     end else
@@ -96,7 +96,7 @@ module tb_adder_16;
     in2 = 16'h5555;
     cin = 0;
     #period;
-    if (cout !== 0 || sum !== 16'hFFFF) begin
+    if (cout!==0 || sum!==16'hFFFF) begin
       $display("Test 7 failed");
       $finish;
     end else
@@ -107,11 +107,34 @@ module tb_adder_16;
     in2 = 16'h5555;
     cin = 1;
     #period;
-    if (cout !== 1 || sum !== 16'h0000) begin
+    if (cout!==1 || sum!==16'h0000) begin
       $display("Test 8 failed");
       $finish;
     end else
       $display("Test 8 passed");
+
+    // Test case 8: 55939 + 17327
+    in1 = 16'hDA83;
+    in2 = 16'h43AF;
+    cin = 0;
+    #period;
+    if (cout!==1 || sum!==16'h1E32) begin
+      $display("Test 9 failed");
+      $finish;
+    end else
+      $display("Test 9 passed");
+
+    // Test case 9: 55939 + 17327
+    in1 = 16'hDA83;
+    in2 = 16'h43AF;
+    cin = 1;
+    #period;
+    if (cout!==1 || sum!==16'h1E33) begin
+      $display("Test 9 failed");
+      $finish;
+    end else
+      $display("Test 9 passed");
+
 
     // Add more test cases as needed.
 

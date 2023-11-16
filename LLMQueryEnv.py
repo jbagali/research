@@ -73,11 +73,10 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         self.orig_prompt = orig_prompt
         self.init_state = self.get_tokenized_state(self.orig_prompt)
         self.num_tokens=0
-        self.n_actions = 20 #self.tokenizer.vocab_size
-        #self.stopwords = ['\n\n']
+        self.n_actions = 10 #self.tokenizer.vocab_size
         self.stopwords = ['endmodule']
         #Limit to token generation before cutoff.
-        self.depth=1500
+        self.depth=1000
         self.orig_module = orig_module
         self.prompt_path = file_path
         self.tb_path = tb_path
@@ -252,6 +251,12 @@ class LLMQueryEnv(gym.Env, StaticEnv):
                 self.row_data['area'] = area_value
                 self.row_data['delay'] = delay_value
                 self.row_data['score'] = reward
+                             #Currently returning area and delay values.
+                #try:
+                #    print("Removing dump files...")
+                #    os.remove(logfile_path)
+                #except OSError as e:
+                #    print(f"Error deleting log file: {e}")
 
                 return reward
             else:
@@ -267,11 +272,8 @@ class LLMQueryEnv(gym.Env, StaticEnv):
     def compilation_check(self, module_path, testbench_path=None):
          # Compile the Verilog code using the iVerilog
         try:
-            #TMP EDIT!!
-            if(self.tb_path != ""):
-                compile_output = subprocess.check_output(['iverilog', '-o', os.path.join(self.dumppath + "/" + str(os.getpid()) + "_" + self.orig_module, str(os.getpid()) + '_simulation'), testbench_path, module_path], stderr=subprocess.STDOUT)
-            else:
-                compile_output = subprocess.check_output(['iverilog', '-o', os.path.join(self.dumppath + "/" + str(os.getpid()) + "_" + self.orig_module, str(os.getpid()) + '_simulation'), module_path], stderr=subprocess.STDOUT)
+            print("Path: ", os.path.join(self.dumppath + "/" + str(os.getpid()) + "_" + self.orig_module, str(os.getpid()) + '_simulation'))
+            compile_output = subprocess.check_output(['iverilog', '-o', os.path.join(self.dumppath + "/" + str(os.getpid()) + "_" + self.orig_module, str(os.getpid()) + '_simulation'), testbench_path, module_path], stderr=subprocess.STDOUT)
             compile_exit_code = 0  # Compilation successful
             self.compilation_output = None
             print("Output Verilog module compiles successfully.")
@@ -281,7 +283,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
             compile_output = e.output
             compile_exit_code = e.returncode
             print("Verilog compilation failed, error: ", compile_exit_code)
-            print("Compilation output: ", compile_output)
+            #print("Compilation output: ", compile_output)
             self.compilation_output = compile_output
             return False
 
@@ -298,6 +300,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         if simulation_exit_code == 0:
             print("Verilog testbench simulation ran successfully.")
             if b"all tests passed" in simulation_output or b"All tests passed" in simulation_output:
+                print("Simulation output: ", simulation_output)
                 print("All testbench tests passed!")
                 return True
             else:
@@ -443,22 +446,14 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         ]
         intermediate_states = []
         def custom_stopping_criterion(input_ids, state):
-            #input_ids = state.get("input_ids", None)
-            #if input_ids is None:
-            #    return False
-            #ids = input_ids[0].tolist()  # Extract the generated token IDs
-            #current_output = input_ids[0]  # Extract the current output sequence
             return self.check_sequence_in_ids(input_ids, target_sequence)
 
         torchState = torch.from_numpy(state).to(device)
-        #for _ in range(300):
         beam_output = self.model.generate(
             input_ids = torchState,
             max_length=torchState.size(1) + self.depth,
             num_beams=3,
-            #no_repeat_ngram_size=2,
-            #early_stopping = True,
-            #eos_token_id = eos_tokens
+
             stopping_criteria=[custom_stopping_criterion],
             return_full_text=True,
 
