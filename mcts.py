@@ -453,22 +453,13 @@ def execute_episode(mctsTree,simulation_budget):
     #print("Current runs: ", current_runs)
     #print("Simulation budget", simulation_budget)
     while mctsTree.root.N < current_runs+simulation_budget:
+        if mctsTree.root.N > 0 and mctsTree.root.N % 100 == 0:
+            print("ROBUST FINAL VALUE, ITERATION: ", current_runs)
+            evalMctsRobustValue, evalMctsMaxValue = test_episode(mctsTree)
+
         mctsTree.tree_search()
         print("Current runs: ", mctsTree.root.N)
 
-        #for filename in os.listdir("tmp_output_files"):
-        #    filepath = os.path.join("tmp_output_files", filename)
-        #    if os.path.isfile(filepath):
-        #        os.remove(filepath)
-        #    elif os.path.isdir(filepath):
-        #        shutil.rmtree(filepath)
-
-        #for filename in os.listdir("scripts/dump"):
-        #    filepath = os.path.join("scripts/dump", filename)
-        #    if os.path.isfile(filepath):
-        #        os.remove(filepath)
-        #    elif os.path.isdir(filepath):
-        #        shutil.rmtree(filepath)
         mctsTree.TreeEnv.row_data['episode'] = mctsTree.num_simulations
         mctsTree.TreeEnv.row_data['currentRun'] = mctsTree.root.N
         

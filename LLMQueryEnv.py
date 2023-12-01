@@ -76,7 +76,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         self.n_actions = 10 #self.tokenizer.vocab_size
         self.stopwords = ['endmodule']
         #Limit to token generation before cutoff.
-        self.depth=1000
+        self.depth=250
         self.orig_module = orig_module
         self.prompt_path = file_path
         self.tb_path = tb_path
@@ -87,6 +87,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         self.functional = False
         self.first_successful_product = None
         self.beam_count = 0
+        self.cumul_token_time = 0
         #self.top_token_ids = None
             #self.ep_length = NUM_LENGTH_EPISODES # not required
 
@@ -149,13 +150,6 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         output_verilog_file = str(os.getpid()) + "_" + self.orig_module + ".v"       
 
         output_file_path = os.path.join(module_dump_folder, output_verilog_file)
-        #try:
-        #    module_name = "module " + self.orig_module
-        #    #print("MODULE NAME: ", module_name)
-        #    module_index = verilog_code.find(module_name)
-        #    verilog_code = verilog_code[module_index:]
-        #except:
-        #    print("Prompt does not contain the term 'module' - please readjust.")   
 
         with open(output_file_path, 'w') as temp_file:
             temp_file.write(verilog_code)
@@ -237,11 +231,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
                     self.first_successful_product = current_area_delay_product
                 
                 reward = .1 + (1 - (current_area_delay_product / self.first_successful_product))
-              
-                    #if current_area_delay_product == self.first_successful_product:
-                    #    reward = 1
-                    #else:
-                    #    reward = 1 + (((current_area_delay_product - self.first_successful_product) / self.first_successful_product) * -1)
+
                 print()
                 print("Currently displaying area/delay scores for ", self.orig_module, " module.")
                 print("Area of the chip design is: ", area_value)
@@ -283,7 +273,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
             compile_output = e.output
             compile_exit_code = e.returncode
             print("Verilog compilation failed, error: ", compile_exit_code)
-            #print("Compilation output: ", compile_output)
+            print("Compilation output: ", compile_output)
             self.compilation_output = compile_output
             return False
 
@@ -402,14 +392,6 @@ class LLMQueryEnv(gym.Env, StaticEnv):
            
             decoded_tokens = [self.tokenizer.decode([prob]) for prob in non_comment_all_ids]
             
-            #top_ids = sorted_ids[:self.n_actions].detach().cpu().numpy()
-            #top_probs = sorted_probs[:self.n_actions].detach().cpu().numpy() # Get the top 5 probabilities
-            #ecoded_tokens = [self.tokenizer.decode([sorted_id]) for sorted_id in sorted_ids]
-            
-            #print("Probabilities: ", non_comment_probs)
-            #print("Ids: ", non_comment_ids)
-            #print("All decoded: ", decoded_tokens)
-            
             return non_comment_probs, non_comment_ids
     
     def check_sequence_in_ids(self, ids, target_sequence):
@@ -431,6 +413,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
                     #    return True
                     elif b'Unknown module type' in self.compilation_output:    #if unknown module, continue generation.
                         #self.non_compilable_attempts += 1
+                        print("Continuing generation.")
                         return False
                     else:   #if compilation error is of origin other than "undefined module", finish generation.
                         return True
@@ -462,6 +445,12 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         best_beam_output_np = best_beam_output.cpu().numpy()
         decoded_tokens = self.tokenizer.decode(best_beam_output_np, skip_special_tokens=True)
         decoded_tokens = decoded_tokens.rstrip("#")
+
+        #print("Type: ", type(best_beam_output))
+        #print("Out: ", best_beam_output)
+        #print("Final input_ids: ", final_input_ids)
+        print(best_beam_output_np)
+        #self.verilogFunctionalityCheck(best_beam_output_np)
         self.getPromptScore()
         print("Beam token ids: ", best_beam_output_np.tolist())
         print("Beam results: ", decoded_tokens)
@@ -476,6 +465,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
     
     def get_best_terminal_state(self,state,depth):
         start_time = datetime.now()
+        #cumul_token_time = 0
         i = 0
         self.non_compilable_attempts = 0
         with torch.no_grad():
@@ -483,6 +473,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
             while not self.is_done_state(state,depth):
                 #print("Token: ", i)
                 #context_state = torchState[:,-500:]
+                start_time = datetime.now()
                 output = self.model(input_ids=torchState)
 
                 next_token_logits = output.logits[0, -1, :]
@@ -506,6 +497,12 @@ class LLMQueryEnv(gym.Env, StaticEnv):
 
                 selected_token = chosen_id
 
+                end_time = datetime.now()
+                time_difference = end_time - start_time
+                seconds = time_difference.total_seconds()
+                self.cumul_token_time += seconds
+                #print(self.cumul_token_time)
+
                 #print("Good: ", self.tokenizer.decode(selected_token.item()))
                 #print("return in: ", seconds, " seconds")
                 
@@ -520,6 +517,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
                 decoded = self.tokenizer.decode(state[0])    
                 depth+=1
                 i += 1
+                #print("Token: ", i)
             print("Tokens: ", i)
             end_time = datetime.now()
             time_difference = end_time - start_time

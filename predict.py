@@ -13,7 +13,7 @@ def get_predictions(input_txt, n_steps, choices_per_step=5):
         #print("Using CPU")
 
     #model_name = "gpt2-xl"
-    model_name = "Salesforce/codegen-350M-multi"
+    model_name = "shailja/CodeGen_2B_Verilog"
 
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     model = AutoModelForCausalLM.from_pretrained(model_name).to(device)
@@ -61,7 +61,7 @@ def get_one_prediction(input_txt, n_steps=1, choices_per_step=5):
         #print("Using CPU")
 
     #model_name = "gpt2-xl"
-    model_name = "Salesforce/codegen-350M-multi"
+    model_name = "shailja/CodeGen_2B_Verilog"
 
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     model = AutoModelForCausalLM.from_pretrained(model_name).to(device)

@@ -93,9 +93,6 @@ if __name__ == '__main__':
     prompt_str = ""
     #set_start_method("spawn")
 
-    #runFolder = osp.join(rootDumpDir,'run'+str(runID))
-    #csvResultFile = osp.join(rootDumpDir,'data_run'+str(runID)+".csv") # Data to store area obtained in each iteration and best so far
-    #logFilePath = osp.join(runFolder,'log_run'+str(runID)+".log")   # Log data to dump area and read
     
     if not osp.exists(rootDumpDir):
         os.mkdirs(rootDumpDir, mode=0o777 )
@@ -112,19 +109,6 @@ if __name__ == '__main__':
         device = torch.device("cpu")
 
 
-    #promptfile_path = file_dir + "/" + file_name
-    #Reading input file data and finding the module name.
-    #Parsing the file name for the problem name (counter, lfsr, etc).
-    # file_name_parts = file_name.split("_", 1)
-    # if len(file_name_parts) > 1:
-    #     problem_name = "_".join(file_name_parts[1:])
-    #     print("Problem: ", problem_name)
-    #     print("Joined problem name: ", problem_name)
-    #     if problem_name.endswith(".v"):
-    #             problem_name = problem_name.replace(".v","")
-    # else:
-    #     print("Error parsing file name - check formatting (ex: prompt1_counter.v)")
-    #     exit(1)
 
     print(prompt_filepath)
     try:
@@ -153,10 +137,11 @@ if __name__ == '__main__':
         start_time = datetime.now()
         if(operation == "mcts"):
             print("ORIG MODILE: ", module_name)
+            print("--------MCTS-------")
             merged_tree = initialize_MCTS_tree(LLMQueryEnv(csv_logger, row_data, orig_prompt=prompt_str, op = operation, orig_module=module_name, file_path=prompt_filepath, tb_path = tb_filepath, dump_path = rootDumpDir,
                                                         model_name=model_name, tokenizer=tokenizer, model=model))
             merged_tree = execute_episode(merged_tree,simulation_per_episode)
-            print("ROBUST FINAL VALUE:")
+            print("END ROBUST/MAX VALUES:")
             evalMctsRobustValue, evalMctsMaxValue = test_episode(merged_tree)
             end_time = datetime.now()
             time_difference = end_time - start_time
@@ -166,6 +151,7 @@ if __name__ == '__main__':
 
         elif (operation == "beam"):
             for i in range(simulation_per_episode):
+                print("----BEAM LLM OUTPUT - ITERATION: ", i, " ----")
                 env = LLMQueryEnv(csv_logger, row_data, orig_prompt=prompt_str, op = operation, orig_module=module_name, file_path=prompt_filepath, tb_path = tb_filepath, dump_path = rootDumpDir,
                                                         model_name=model_name, tokenizer=tokenizer, model=model)
                 env.row_data['episode'] = idx_ep
@@ -174,11 +160,13 @@ if __name__ == '__main__':
                 output = env.beam_search(init_state)
                 
         elif (operation == "greedy"):
+            env = LLMQueryEnv(csv_logger, row_data, orig_prompt=prompt_str, op = operation, orig_module=module_name, file_path=prompt_filepath, tb_path = tb_filepath, dump_path = rootDumpDir,
+                                                            model_name=model_name, tokenizer=tokenizer, model=model)
             for i in range(simulation_per_episode):
                 print("----GREEDY LLM OUTPUT - ITERATION: ", i, " ----")
                 print("---------------")
-                env = LLMQueryEnv(csv_logger, row_data, orig_prompt=prompt_str, op = operation, orig_module=module_name, file_path=prompt_filepath, tb_path = tb_filepath, dump_path = rootDumpDir,
-                                                            model_name=model_name, tokenizer=tokenizer, model=model)
+                #env = LLMQueryEnv(csv_logger, row_data, orig_prompt=prompt_str, op = operation, orig_module=module_name, file_path=prompt_filepath, tb_path = tb_filepath, dump_path = rootDumpDir,
+                #                                            model_name=model_name, tokenizer=tokenizer, model=model)
                 print("Done setting up env.")
                 env.row_data['episode'] = idx_ep
                 env.row_data['currentRun'] = i
@@ -187,6 +175,7 @@ if __name__ == '__main__':
                 promptGen = env.get_prompt_from_state(finalState)
                 filteredGen=env.trim_with_stopwords(promptGen)
                 score = env.getPromptScore(filteredGen)
+                env.csv_logger.log(env.row_data)
                 #print('Filtered relevant code with stop words {}-->\n{}\n'.format(env.stopwords, filteredGen))
                 #print("Error please correct the operation type.")
             break
