@@ -1,4 +1,4 @@
-# LLM with MCTS - README
+### LLM with MCTS - README
 
 This file describes the requirements, setup, and commands required to run the LLM with Monte Carlo Tree-Search (MCTS) and other operations.
 
