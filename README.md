@@ -22,11 +22,11 @@ python main.py --dumpdir output_files --sim 1 --ep 1 --prompt_path mac/register.
 
 Below are the parameters and their descriptions.
 
---dump_dir:    Filepath of the directory in which output files are stored.
---op:          Specifies which LLM operation to perform ('mcts', 'beam', or 'greedy').
---sims:        Simulations per MCTS episode.
---csv: 	       Name of CSV file to which results will be stored.
---prompt_path: Filepath of prompt file (.v) from current directory. (ex: filepath/prompt1_counter.v)
---tb_path:     Filepath of corresponding testbench file (to the prompt file) from current directory (ex: filepath/prompt1_counter.v).
---module_name: Name of module in prompt for which the LLM will finish generating. (Ex: counter)
+*--dump_dir:    Filepath of the directory in which output files are stored.
+*--op:          Specifies which LLM operation to perform ('mcts', 'beam', or 'greedy').
+*--sims:        Simulations per MCTS episode.
+*--csv: 	       Name of CSV file to which results will be stored.
+*--prompt_path: Filepath of prompt file (.v) from current directory. (ex: filepath/prompt1_counter.v)
+*--tb_path:     Filepath of corresponding testbench file (to the prompt file) from current directory (ex: filepath/prompt1_counter.v).
+*--module_name: Name of module in prompt for which the LLM will finish generating. (Ex: counter)
 
