@@ -81,15 +81,15 @@ module tb_multiplier_4;
     end else
       $display("Test 6 passed");
 
-    // Test case 8: Multiplying binary values 13 and 10
+    // Test case 7: Multiplying binary values 13 and 10
     A = 4'b1101; // Binary representation of 13
     B = 4'b1010; // Binary representation of 10
     #period;
     if (product !== 8'b10000010) begin
-      $display("Test 8 failed");
+      $display("Test 7 failed");
       $finish;
     end else
-      $display("Test 8 passed");
+      $display("Test 7 passed");
     
     $display("all tests passed");
     $finish;

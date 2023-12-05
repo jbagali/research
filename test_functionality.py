@@ -21,4 +21,5 @@ try:
 except subprocess.CalledProcessError as e:
     simulation_output = e.output
     simulation_exit_code = e.returncode
+    print(simulation_exit_code)
     print(simulation_output)

@@ -1,0 +1,282 @@
+adders/ripple_carry/prompt1_ripplecarry_32.v
+Prompt str:  //Design a 32-bit adder.
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+Loading LLM model...
+Initializing MCTS tree/LLM env...
+Episode not stated yet!
+Simulations per episode:  500
+********-- EPISODE-1--************
+Env seed:  603603
+----GREEDY LLM OUTPUT - ITERATION:  0  ----
+---------------
+Done setting up env.
+//Design a 32-bit adder.
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire [31:0] sum;
+  wire cout;
+  wire [31:0] in1;
+  wire [31:0] in2;
+  wire cin;
+  wire [31:0] carry;
+  // Create wires for each input and output.
+  wire [31:0] in1_w;
+  wire [31:0] in2_w;
+  wire cin_w;
+  wire [31:0] carry_w;
+  // Create wires for each adder.
+  wire [31:0] sum_w;
+  wire cout_w;
+  // Create a carry look-ahead adder.
+  adder_32_cout_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_
+Path:  output_files/3363396_adder64/3363396_simulation
+Verilog compilation failed, error:  2
+Compilation output:  b'output_files/3363396_adder64/3363396_adder64.v:24: syntax error\nI give up.\n'
+Tokens:  1500
+LLM generates return in:  1.05461  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  1  ----
+---------------
+Done setting up env.
+//Design a 32-bit adder.
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire [31:0] sum;
+  wire cout;
+  wire [31:0] in1;
+  wire [31:0] in2;
+  wire cin;
+  wire [31:0] carry;
+  // Create wires for each input and output.
+  wire [31:0] in1_w;
+  wire [31:0] in2_w;
+  wire cin_w;
+  wire [31:0] carry_w;
+  // Create wires for each adder.
+  wire [31:0] sum_w;
+  wire cout_w;
+  // Create a carry look-ahead adder.
+  adder_32_cout_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_
+Path:  output_files/3363396_adder64/3363396_simulation
+Verilog compilation failed, error:  2
+Compilation output:  b'output_files/3363396_adder64/3363396_adder64.v:24: syntax error\nI give up.\n'
+Tokens:  1500
+LLM generates return in:  1.053253  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  2  ----
+---------------
+Done setting up env.
+//Design a 32-bit adder.
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire [31:0] sum;
+  wire cout;
+  wire [31:0] in1;
+  wire [31:0] in2;
+  wire cin;
+  wire [31:0] carry;
+  // Create wires for each input and output.
+  wire [31:0] in1_w;
+  wire [31:0] in2_w;
+  wire cin_w;
+  wire [31:0] carry_w;
+  // Create wires for each adder.
+  wire [31:0] sum_w;
+  wire cout_w;
+  // Create a carry look-ahead adder.
+  adder_32_cout_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_
+Path:  output_files/3363396_adder64/3363396_simulation
+Verilog compilation failed, error:  2
+Compilation output:  b'output_files/3363396_adder64/3363396_adder64.v:24: syntax error\nI give up.\n'
+Tokens:  1500
+LLM generates return in:  1.052723  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  3  ----
+---------------
+Done setting up env.
+//Design a 32-bit adder.
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire [31:0] sum;
+  wire cout;
+  wire [31:0] in1;
+  wire [31:0] in2;
+  wire cin;
+  wire [31:0] carry;
+  // Create wires for each input and output.
+  wire [31:0] in1_w;
+  wire [31:0] in2_w;
+  wire cin_w;
+  wire [31:0] carry_w;
+  // Create wires for each adder.
+  wire [31:0] sum_w;
+  wire cout_w;
+  // Create a carry look-ahead adder.
+  adder_32_cout_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_
+Path:  output_files/3363396_adder64/3363396_simulation
+Verilog compilation failed, error:  2
+Compilation output:  b'output_files/3363396_adder64/3363396_adder64.v:24: syntax error\nI give up.\n'
+Tokens:  1500
+LLM generates return in:  1.055126  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  4  ----
+---------------
+Done setting up env.
+//Design a 32-bit adder.
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire [31:0] sum;
+  wire cout;
+  wire [31:0] in1;
+  wire [31:0] in2;
+  wire cin;
+  wire [31:0] carry;
+  // Create wires for each input and output.
+  wire [31:0] in1_w;
+  wire [31:0] in2_w;
+  wire cin_w;
+  wire [31:0] carry_w;
+  // Create wires for each adder.
+  wire [31:0] sum_w;
+  wire cout_w;
+  // Create a carry look-ahead adder.
+  adder_32_cout_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_
+Path:  output_files/3363396_adder64/3363396_simulation
+Verilog compilation failed, error:  2
+Compilation output:  b'output_files/3363396_adder64/3363396_adder64.v:24: syntax error\nI give up.\n'
+Tokens:  1500
+LLM generates return in:  1.050598  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  5  ----
+---------------
+Done setting up env.
+//Design a 32-bit adder.
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire [31:0] sum;
+  wire cout;
+  wire [31:0] in1;
+  wire [31:0] in2;
+  wire cin;
+  wire [31:0] carry;
+  // Create wires for each input and output.
+  wire [31:0] in1_w;
+  wire [31:0] in2_w;
+  wire cin_w;
+  wire [31:0] carry_w;
+  // Create wires for each adder.
+  wire [31:0] sum_w;
+  wire cout_w;
+  // Create a carry look-ahead adder.
+  adder_32_cout_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_
+Path:  output_files/3363396_adder64/3363396_simulation
+Verilog compilation failed, error:  2
+Compilation output:  b'output_files/3363396_adder64/3363396_adder64.v:24: syntax error\nI give up.\n'
+Tokens:  1500
+LLM generates return in:  1.049091  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  6  ----
+---------------
+Done setting up env.
+//Design a 32-bit adder.
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire [31:0] sum;
+  wire cout;
+  wire [31:0] in1;
+  wire [31:0] in2;
+  wire cin;
+  wire [31:0] carry;
+  // Create wires for each input and output.
+  wire [31:0] in1_w;
+  wire [31:0] in2_w;
+  wire cin_w;
+  wire [31:0] carry_w;
+  // Create wires for each adder.
+  wire [31:0] sum_w;
+  wire cout_w;
+  // Create a carry look-ahead adder.
+  adder_32_cout_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_
+Path:  output_files/3363396_adder64/3363396_simulation
+Verilog compilation failed, error:  2
+Compilation output:  b'output_files/3363396_adder64/3363396_adder64.v:24: syntax error\nI give up.\n'
+Tokens:  1500
+LLM generates return in:  1.050273  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  7  ----
+---------------
+Done setting up env.
+//Design a 32-bit adder.
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire [31:0] sum;
+  wire cout;
+  wire [31:0] in1;
+  wire [31:0] in2;
+  wire cin;
+  wire [31:0] carry;
+  // Create wires for each input and output.
+  wire [31:0] in1_w;
+  wire [31:0] in2_w;
+  wire cin_w;
+  wire [31:0] carry_w;
+  // Create wires for each adder.
+  wire [31:0] sum_w;
+  wire cout_w;
+  // Create a carry look-ahead adder.
+  adder_32_cout_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_c_adder_32_
+Path:  output_files/3363396_adder64/3363396_simulation
+Verilog compilation failed, error:  2
+Compilation output:  b'output_files/3363396_adder64/3363396_adder64.v:24: syntax error\nI give up.\n'
+Tokens:  1500
+LLM generates return in:  1.05178  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  8  ----
+---------------
+Done setting up env.

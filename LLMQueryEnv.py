@@ -76,7 +76,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         self.n_actions = 10 #self.tokenizer.vocab_size
         self.stopwords = ['endmodule']
         #Limit to token generation before cutoff.
-        self.depth=250
+        self.depth=1200
         self.orig_module = orig_module
         self.prompt_path = file_path
         self.tb_path = tb_path

@@ -113,6 +113,29 @@ module tb_ripplecarry_64;
     end else
       $display("Test 8 passed");
 
+
+    // Test case 9: Alternating 1's and 0's with Carry
+    in1 = 64'h401129BC3F98ACE0;
+    in2 = 64'hBA2210AAF48676BC;
+    cin = 0;
+    #period;
+    if (cout !== 0 || sum !== 64'hFA333A67341F239C) begin
+      $display("Test 9 failed");
+      $finish;
+    end else
+      $display("Test 9 passed");
+
+    // Test case 10: Alternating 1's and 0's with Carry
+    in1 = 64'h401129BC3F98ACE0;
+    in2 = 64'hBA2210AAF48676BC;
+    cin = 1;
+    #period;
+    if (cout !== 0 || sum !== 64'hFA333A67341F239D) begin
+      $display("Test 10 failed");
+      $finish;
+    end else
+      $display("Test 10 passed");
+
     // Add more test cases as needed.
 
     $display("all tests passed");

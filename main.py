@@ -1,9 +1,4 @@
-"""
-Example program that uses the single-player MCTS algorithm to train an agent
-to master the HillClimbingEnvironment, in which the agent has to reach the
-highest point on a map.
-"""
-#import imp
+
 import time
 import numpy as np
 import matplotlib.pyplot as plt
@@ -44,8 +39,6 @@ class CsvLogger:
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='MCTS+LLM')
-    #parser.add_argument('--init_prompt', type=str, required=False,
-    #                    help='Initial prompt')
     parser.add_argument('--dumpdir', type=str, required=True,default="",
                         help='DUMP directory for storing output files.')
     parser.add_argument('--op', type=str, required=True,default="",
@@ -58,10 +51,6 @@ if __name__ == '__main__':
                         help='#MCTS episode')
     parser.add_argument('--pr', type=int, required=False, default=1,
                         help='#processes executing MCTS')
-    #parser.add_argument('--mod_dir', type=str, required=False, default = "VGen-main/prompts-and-testbenches/intermediate1",
-    #                    help="Directory of prompt files (ex: intermediate2)")
-    #parser.add_argument('--mod_name', type=str, required=False, default = "prompt3_half_adder.v",
-    #                    help = "Name of prompt file (ex: prompt1_counter.v)")
     parser.add_argument('--csv', type=str, required=False, default = "log.csv",
                         help = "Name of csv file. (ex: log.csv)")
     parser.add_argument('--prompt_path', type=str, required=True, default = "",
@@ -72,16 +61,13 @@ if __name__ == '__main__':
                         help = "Name of module in prompt for which the LLM will finish creating. Ex: counter")
 
     args = parser.parse_args()
-    
-    #origPrompt = args.init_prompt
+
     rootDumpDir = args.dumpdir
     runID = args.runID
     simulation_per_episode = args.sims
     num_episodes = args.ep
     num_processes = args.pr
     operation = args.op
-    #file_dir = args.mod_dir
-    #file_name = args.mod_name
     csv_name = args.csv
     csv_logger = CsvLogger(csv_name)
     row_data = {}
@@ -91,20 +77,15 @@ if __name__ == '__main__':
     module_name = args.module_name
     
     prompt_str = ""
-    #set_start_method("spawn")
 
     
     if not osp.exists(rootDumpDir):
         os.mkdirs(rootDumpDir, mode=0o777 )
         
-    #if not osp.exists(runFolder):    
-    #    os.mkdir(runFolder)
-
-    #csvFileHandler = open(csvResultFile,'w')
     
     if torch.cuda.is_available():
         device = torch.device("cuda")
-        #print("Using GPU")
+        print("Using GPU")
     else:
         device = torch.device("cpu")
 
@@ -124,7 +105,6 @@ if __name__ == '__main__':
     model_name = "shailja/CodeGen_2B_Verilog"
     tokenizer = AutoTokenizer.from_pretrained("shailja/fine-tuned-codegen-2B-Verilog")
     model = AutoModelForCausalLM.from_pretrained("shailja/fine-tuned-codegen-2B-Verilog").to(device)
-    #model = DistributedDataParallel(model, device_ids=[0,1,2], find_unused_parameters=True)
     print("Initializing MCTS tree/LLM env...")
     idx_ep = 0
     
@@ -147,7 +127,6 @@ if __name__ == '__main__':
             time_difference = end_time - start_time
             seconds = time_difference.total_seconds()
             print("MCTS Total Time: ", seconds)
-            ##csvFileHandler.write("{},{}\n".format(evalMctsRobustValue))
 
         elif (operation == "beam"):
             for i in range(simulation_per_episode):
@@ -165,8 +144,6 @@ if __name__ == '__main__':
             for i in range(simulation_per_episode):
                 print("----GREEDY LLM OUTPUT - ITERATION: ", i, " ----")
                 print("---------------")
-                #env = LLMQueryEnv(csv_logger, row_data, orig_prompt=prompt_str, op = operation, orig_module=module_name, file_path=prompt_filepath, tb_path = tb_filepath, dump_path = rootDumpDir,
-                #                                            model_name=model_name, tokenizer=tokenizer, model=model)
                 print("Done setting up env.")
                 env.row_data['episode'] = idx_ep
                 env.row_data['currentRun'] = i
@@ -176,16 +153,12 @@ if __name__ == '__main__':
                 filteredGen=env.trim_with_stopwords(promptGen)
                 score = env.getPromptScore(filteredGen)
                 env.csv_logger.log(env.row_data)
-                #print('Filtered relevant code with stop words {}-->\n{}\n'.format(env.stopwords, filteredGen))
-                #print("Error please correct the operation type.")
             break
         else:
             print("Error reading --op parameter. Please only state 'beam', 'greedy', or 'mcts' as your input.")
             exit(1)
 
         idx_ep+=1
-
-    #print("Num simulations: ", merged_tree.num_simulations)
     
 
 

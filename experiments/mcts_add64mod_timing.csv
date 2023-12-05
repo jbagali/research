@@ -1,0 +1,231 @@
+Area,Delay,Score,Current Run,Episode,Verilog
+N/A,N/A,-0.75,2.0,1,"//Design a 64-bit adder module (defined as adder_64 below).
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The adder_64 module should utilize the 8 bit adder defined below (adder_8) in its implementation.
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c21,c22,c23,c24,c25,c26,c27,c28,c29,c30,c31,c32,c33,c34,c35,c36,c37,c38,c39,c40,c41,c42,c43,c44,c45,c46,c47,c48,c49,c50,c51,c52,c53,c54,c55,c56,c57,c58,c59,c60,c61,c62,c63;
+  adder_8 a1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 a2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 a3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 a4(sum[31:24], c4, in1[31:24], in2[31:24], c3);
+  adder_8 a5(sum[39:32], c5, in1[39:32], in2[39:32], c4);
+  adder_8 a6(sum[47:40], c6, in1[47:40], in2[47:40], c5);
+  adder_8 a7(sum[55:48], c7, in1[55:48], in2[55:48], c6);
+  adder_8 a8(sum[63:56], cout, in1[63:56], in2[63:56], c7);
+endmodule"
+N/A,N/A,-0.75,3.0,1,"//Design a 64-bit adder module (defined as adder_64 below).
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The adder_64 module should utilize the 8 bit adder defined below (adder_8) in its implementation.
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c21,c22,c23,c24,c25,c26,c27,c28,c29,c30,c31,c32,c33,c34,c35,c36,c37,c38,c39,c40,c41,c42,c43,c44,c45,c46,c47,c48,c49,c50,c51,c52,c53,c54,c55,c56,c57,c58,c59,c60,c61,c62,c63;
+  adder_8 a1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 a2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 a3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 a4(sum[31:24], c4, in1[31:24], in2[31:24], c3);
+  adder_8 a5(sum[39:32], c5, in1[39:32], in2[39:32], c4);
+  adder_8 a6(sum[47:40], c6, in1[47:40], in2[47:40], c5);
+  adder_8 a7(sum[55:48], c7, in1[55:48], in2[55:48], c6);
+  adder_8 a8(sum[63:56], cout, in1[63:56], in2[63:56], c7);
+endmodule"
+N/A,N/A,-0.75,4.0,1,"//Design a 64-bit adder module (defined as adder_64 below).
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The adder_64 module should utilize the 8 bit adder defined below (adder_8) in its implementation.
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+ 
+  wire c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c21,c22,c23,c24,c25,c26,c27,c28,c29,c30,c31,c32,c33,c34,c35,c36,c37,c38,c39,c40,c41,c42,c43,c44,c45,c46,c47,c48,c49,c50,c51,c52,c53,c54,c55,c56,c57,c58,c59,c60,c61,c62,c63;
+  
+  adder_8 a1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 a2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 a3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 a4(sum[31:24], c4, in1[31:24], in2[31:24], c3);
+  adder_8 a5(sum[39:32], c5, in1[39:32], in2[39:32], c4);
+  adder_8 a6(sum[47:40], c6, in1[47:40], in2[47:40], c5);
+  adder_8 a7(sum[55:48], c7, in1[55:48], in2[55:48], c6);
+  adder_8 a8(sum[63:56], cout, in1[63:56], in2[63:56], c7);
+endmodule"
+N/A,N/A,-0.75,5.0,1,"//Design a 64-bit adder module (defined as adder_64 below).
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The adder_64 module should utilize the 8 bit adder defined below (adder_8) in its implementation.
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c21,c22,c23,c24,c25,c26,c27,c28,c29,c30,c31,c32,c33,c34,c35,c36,c37,c38,c39,c40,c41,c42,c43,c44,c45,c46,c47,c48,c49,c50,c51,c52,c53,c54,c55,c56,c57,c58,c59,c60,c61,c62,c63;
+  adder_8 a1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 a2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 a3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 a4(sum[31:24], c4, in1[31:24], in2[31:24], c3);
+  adder_8 a5(sum[39:32], c5, in1[39:32], in2[39:32], c4);
+  adder_8 a6(sum[47:40], c6, in1[47:40], in2[47:40], c5);
+  adder_8 a7(sum[55:48], c7, in1[55:48], in2[55:48], c6);
+  adder_8 a8(sum[63:56], cout, in1[63:56], in2[63:56], c7);
+endmodule"
+N/A,N/A,-0.75,6.0,1,"//Design a 64-bit adder module (defined as adder_64 below).
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The adder_64 module should utilize the 8 bit adder defined below (adder_8) in its implementation.
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+  wire [63:0] carry;
+  wire [7:0] c1,c2,c3,c4,c5,c6,c7;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], c4, in1[31:24], in2[31:24], c3);
+  adder_8 A5(sum[39:32], c5, in1[39:32], in2[39:32], c4);
+  adder_8 A6(sum[47:40], c6, in1[47:40], in2[47:40], c5);
+  adder_8 A7(sum[55:48], c7, in1[55:48], in2[55:48], c6);
+  adder_8 A8(sum[63:56], cout, in1[63:56], in2[63:56], c7);
+  assign carry[7:0] = cin;
+  assign carry[63:8] = 0;
+endmodule"

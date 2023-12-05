@@ -1,0 +1,194 @@
+Area,Delay,Score,Current Run,Episode,Verilog
+41.23,195.95,0.1,2.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire c1, c2, c3;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+N/A,N/A,-0.1,3.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+	wire [3:0] sum;
+	wire cout;
+	wire [3:0] in1;
+	wire [3:0] in2;
+	wire cin;
+
+	assign sum = in1 + in2 + cin;
+	assign cout = (in1[3] & in2[3] & cin) | (in1[3] & cin) | (in2[3] & cin) | (cin & in1[3] & in2[3]);
+
+endmodule"
+41.23,195.95,0.1,4.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire c1, c2, c3;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+N/A,N/A,-1,5.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+	wire [3:0] carry;
+	
+	fa_adder fa_adder_0(sum[0], carry[0], in1[0], in2[0], cin);
+	fa_adder fa_adder_1(sum[1], carry[1], in1[1], in2[1], carry[0]);
+	fa_adder fa_adder_2(sum[2], carry[2], in1[2], in2[2], carry[1]);
+	fa_adder fa_adder_3(sum[3], cout, in1[3], in2[3], carry[2]);
+	
+endmodule
+
+module fa_adder(output sum, carry, input a, b, cin);
+	wire [3:0] carry_temp;
+	
+	fa_adder fa_adder_0(sum[0], carry_temp[0], a, b, cin);
+	fa_adder fa_adder_1(sum[1], carry_temp[1], carry_temp[0], a, b);
+	fa_adder fa_adder_2(sum[2], carry_temp[2], carry_temp[1], carry_temp[0], a);
+	fa_adder fa_adder_3(sum[3], carry, carry_temp[2], carry_temp[1], carry_temp[0]);
+	
+endmodule"
+41.23,196.03,0.09959173258484291,6.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);   
+
+wire c1, c2, c3;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, carry, input a, b, cin);
+
+wire x, y, z;
+
+xor(sum, a, b, cin);
+and(x, a, b);
+and(y, b, cin);
+and(z, a, cin);
+or(carry, x, y, z);
+
+endmodule"
+N/A,N/A,-0.1,7.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+	wire [3:0] sum;
+	wire cout;
+	wire [3:0] in1;
+	wire [3:0] in2;
+	wire cin;
+
+	assign sum = in1 + in2 + cin;
+	assign cout = (in1[3] & in2[3] & cin) | (in1[3] & cin) | (in2[3] & cin) | (cin & in1[3] & in2[3]);
+
+endmodule"
+41.23,196.03,0.09959173258484291,8.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);   
+
+wire c1, c2, c3;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, carry, input a, b, cin);
+
+wire x, y, z;
+
+xor(sum, a, b, cin);
+and(x, a, b);
+and(y, b, cin);
+and(z, a, cin);
+or(carry, x, y, z);
+
+endmodule"
+41.23,195.95,0.1,9.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire c1, c2, c3;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"

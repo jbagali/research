@@ -113,6 +113,28 @@ module tb_ripplecarry_32;
     end else
       $display("Test 8 passed");
 
+    // Test case 9: 
+    in1 = 32'hFF320012;
+    in2 = 32'hBD302991;
+    cin = 0;
+    #period;
+    if (cout !== 1 || sum !== 32'hBC6229A3) begin
+      $display("Test 9 failed");
+      $finish;
+    end else
+      $display("Test 9 passed");
+
+    // Test case 10:
+    in1 = 32'hFF320012;
+    in2 = 32'hBD302991;
+    cin = 1;
+    #period;
+    if (cout !== 1 || sum !== 32'hBC6229A4) begin
+      $display("Test 10 failed");
+      $finish;
+    end else
+      $display("Test 10 passed");
+
     // Add more test cases as needed.
 
     $display("all tests passed");
