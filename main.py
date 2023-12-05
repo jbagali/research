@@ -43,7 +43,7 @@ if __name__ == '__main__':
                         help='DUMP directory for storing output files.')
     parser.add_argument('--op', type=str, required=True,default="",
                         help = "Please state which operation to perform: 'mcts', 'beam', or 'greedy'.")
-    parser.add_argument('--runID', type=int, required=True, default=0,
+    parser.add_argument('--runID', type=int, required=False, default=0,
                         help='Run ID')
     parser.add_argument('--sims', type=int, required=True, default=1000,
                         help='Simulations per MCTS episode')
@@ -56,7 +56,7 @@ if __name__ == '__main__':
     parser.add_argument('--prompt_path', type=str, required=True, default = "",
                         help = "Filepath of prompt file from current directory (ex: filepath/prompt1_counter.v)")
     parser.add_argument('--tb_path', type=str, required=True, default = "",
-                        help = "Filepath of counter filepath from current directory (ex: filepath/prompt1_counter.v)")
+                        help = "Filepath of testbench file from current directory (ex: filepath/prompt1_counter.v)")
     parser.add_argument('--module_name', type=str, required=True, default = "",
                         help = "Name of module in prompt for which the LLM will finish creating. Ex: counter")
 
