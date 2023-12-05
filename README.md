@@ -17,7 +17,7 @@ The following instructions detail the terminal command parameters that can be ut
 to generate an LLM output for a given prompt file. This includes generating results for basic LLM results (greedy and beam search), as well as MCTS.
 Some additional parameters are described below.
 
-An example terminal command is the following:
+An example terminal command is the following:<br />
 python main.py --dumpdir output_files --sim 1 --ep 1 --prompt_path mac/mac_4.v --tb_path mac/tb_mac_4.v --op mcts --csv counter.csv
 
 ### Below are the parameters and their descriptions.
