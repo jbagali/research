@@ -357,30 +357,30 @@ class MCTS:
     def initialize_search(self, state=None):
         init_state = self.TreeEnv.get_initial_state()
         n_actions = self.TreeEnv.n_actions
-        print("Initialize search (creating root node)")
+        print("Initialize search (creating root node)", end='\n\n')
         self.root = MCTSNode(init_state,n_actions, self.TreeEnv,childType=self.childType)
         # Number of steps into the episode after which we always select the
         # action with highest action probability rather than selecting randomly
         self.temp_threshold = TEMP_THRESHOLD
 
     def tree_search(self):    
-        print("Selection: finding leaf node.")
+        print("MCTS Stage 1 - Selection: finding leaf node.", end='\n\n')
         leaf = self.root.select_leaf()
         if leaf.is_done():
             print("Leaf is terminal - getting return value.")
             value = self.TreeEnv.get_return(leaf.state,leaf.depth)
-            print("Backpropogation: incorporating estimates.")
+            print("MCTS Stage 4 - Backpropogation: incorporating estimates.", end='\n\n')
             leaf.backup_value(value,value,up_to=self.root)
         else:
             print("Getting LLM token estimates (probs/ids).")
             probs, ids = self.TreeEnv.getLLMestimates(leaf.state)
             leaf.child_ids = ids
             startingAction = leaf.child_ids[np.argmax(probs)]
-            print("Expansion: next action: ", np.argmax(probs), " corresponding to state: ", startingAction)
+            print("MCTS Stage 2 - Expansion: next action: ", np.argmax(probs), " corresponding to state: ", startingAction, end='\n\n')
             next_state = self.TreeEnv.next_state(leaf.state,startingAction)
-            print("Getting rollout return of leaf.")
+            print("MCTS Stage 3 - Rollout: Getting rollout return of leaf.", end='\n\n')
             rolloutReturn = self.TreeEnv.get_montecarlo_return(next_state,leaf.depth+1)
-            print("Backpropogation: incorporating estimates.")
+            print("MCTS Stage 4 - Backpropogation: incorporating estimates.", end='\n\n')
             leaf.incorporate_estimates(probs,rolloutReturn,rolloutReturn,up_to=self.root)
             
     def test_tree_search(self,cType):
@@ -408,7 +408,7 @@ def initialize_MCTS_tree(TreeEnv):
     print("Initializing MCTS tree.")
     mcts = MCTS(TreeEnv,childType=CHILD_TYPE)
     mcts.initialize_search()
-    print("Selection: finding leaf node.")
+    print("MCTS Stage 1 - Selection: finding leaf node.", end='\n\n')
     first_node = mcts.root.select_leaf()
     print("Getting LLM token estimates (probs/ids).")
     probs, ids = TreeEnv.getLLMestimates(first_node.state)
@@ -416,11 +416,11 @@ def initialize_MCTS_tree(TreeEnv):
     ## Compute montecarlo return using the policy's first best move followed by random rather than entirely random policy
     first_node.child_ids = ids
     startingAction = first_node.child_ids[np.argmax(probs)]
-    print("Expansion: next action: ", np.argmax(probs), " corresponding to state: ", startingAction)
+    print("MCTS Stage 2 - Expansion: next action: ", np.argmax(probs), " corresponding to state: ", startingAction, end='\n\n')
     next_state = TreeEnv.next_state(first_node.state,startingAction)
-    print("Getting rollout return of leaf.")
+    print("MCTS Stage 3 - Rollout: Getting rollout return of leaf.", end='\n\n')
     first_node_rolloutReturn = TreeEnv.get_montecarlo_return(next_state,first_node.depth+1) #resyn2 output will lead to DRAW or 0.
-    print("Backpropogation: incorporating estimates.")
+    print("MCTS Stage 4 - Backpropogation: incorporating estimates.", end='\n\n')
     first_node.incorporate_estimates(probs, first_node_rolloutReturn, first_node_rolloutReturn,first_node)
     mcts.root.inject_noise()
     return mcts
@@ -448,7 +448,6 @@ def execute_episode(mctsTree,simulation_budget):
     this episode.
     """
     mctsTree.num_simulations += 1
-    print("Updated num: ", mctsTree.num_simulations)
     current_runs = mctsTree.root.N
     #print("Current runs: ", current_runs)
     #print("Simulation budget", simulation_budget)
@@ -458,7 +457,8 @@ def execute_episode(mctsTree,simulation_budget):
             evalMctsRobustValue, evalMctsMaxValue = test_episode(mctsTree)
 
         mctsTree.tree_search()
-        print("Current runs: ", mctsTree.root.N)
+        print("-------------------------------------------------------")
+        print("MCTS Iteration: ", mctsTree.root.N)
 
         mctsTree.TreeEnv.row_data['episode'] = mctsTree.num_simulations
         mctsTree.TreeEnv.row_data['currentRun'] = mctsTree.root.N

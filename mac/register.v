@@ -1,2 +1,0 @@
-//Design a Verilog module where the hex value 32'hABCDEFF0 is assigned to a 32 bit register, and shows the value of the bit accessed at each index.
-module BitAccessExample(output reg [31:0] myRegister);

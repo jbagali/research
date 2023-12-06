@@ -76,7 +76,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         self.n_actions = 10 #self.tokenizer.vocab_size
         self.stopwords = ['endmodule']
         #Limit to token generation before cutoff.
-        self.depth=1200
+        self.depth=1000
         self.orig_module = orig_module
         self.prompt_path = file_path
         self.tb_path = tb_path
@@ -117,7 +117,9 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         with torch.no_grad():
             torchState = torch.from_numpy(currentState).to(device)
             decoded = self.tokenizer.decode(currentState[0])    
-        #print('decoded state',repr(decoded))
+        #print("")
+        #print("")
+        #print('Decoded state: ',repr(decoded))
         for w in sorted(self.stopwords, key=len, reverse=True):
             if decoded.endswith(w):
                 #if(self.tb_path = ""):  
@@ -241,7 +243,6 @@ class LLMQueryEnv(gym.Env, StaticEnv):
                 self.row_data['area'] = area_value
                 self.row_data['delay'] = delay_value
                 self.row_data['score'] = reward
-                             #Currently returning area and delay values.
                 #try:
                 #    print("Removing dump files...")
                 #    os.remove(logfile_path)
@@ -250,6 +251,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
 
                 return reward
             else:
+                #This should not occur - error in retrieving results.
                 print("Error retrieving area/delay from results.")
                 self.row_data['area'] ='N/A'
                 self.row_data['delay'] = 'N/A'
@@ -262,7 +264,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
     def compilation_check(self, module_path, testbench_path=None):
          # Compile the Verilog code using the iVerilog
         try:
-            print("Path: ", os.path.join(self.dumppath + "/" + str(os.getpid()) + "_" + self.orig_module, str(os.getpid()) + '_simulation'))
+            #print("Path: ", os.path.join(self.dumppath + "/" + str(os.getpid()) + "_" + self.orig_module, str(os.getpid()) + '_simulation'))
             compile_output = subprocess.check_output(['iverilog', '-o', os.path.join(self.dumppath + "/" + str(os.getpid()) + "_" + self.orig_module, str(os.getpid()) + '_simulation'), testbench_path, module_path], stderr=subprocess.STDOUT)
             compile_exit_code = 0  # Compilation successful
             self.compilation_output = None
@@ -290,16 +292,16 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         if simulation_exit_code == 0:
             print("Verilog testbench simulation ran successfully.")
             if b"all tests passed" in simulation_output or b"All tests passed" in simulation_output:
-                print("Simulation output: ", simulation_output)
+                print("Simulation output: ", simulation_output, end='\n\n')
                 print("All testbench tests passed!")
                 return True
             else:
                 print("Some testbench tests failed.")
-                print("Simulation output: ", simulation_output)
+                print("Simulation output: ", simulation_output,end='\n\n')
                 return False
         else: 
             print("Verilog testbench simulation failed.")
-            print("Simulation output: ", simulation_output)
+            print("Simulation output: ", simulation_output,end='\n\n')
             return False
         
     #Helper - writes to the bash script to run the specific design/verilog file being synthesized.
@@ -348,7 +350,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
                     if len(parts) >= 2:
                         chip_area = parts[-1].strip()
                         return chip_area
-        print("Error: Chip area ont found in syntheis results.")
+        print("Error: Chip area not found in syntheis results.")
         return None
 
     def next_state(self,state,action):
@@ -385,7 +387,8 @@ class LLMQueryEnv(gym.Env, StaticEnv):
 
             
             non_comment_all_ids = sorted_ids_arr[non_comment_mask]
-            print("Len original: ", len(sorted_ids_arr), " Len new: ", len(non_comment_all_ids))
+
+            #print("Len original: ", len(sorted_ids_arr), " Len new: ", len(non_comment_all_ids))
             # Apply the mask to get non-comment IDs and their probabilities
             non_comment_ids = non_comment_all_ids[:self.n_actions]
             non_comment_probs = sorted_probs_arr[non_comment_mask][:self.n_actions]
