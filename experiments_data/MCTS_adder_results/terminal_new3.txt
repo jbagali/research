@@ -1,0 +1,1388 @@
+adders/ripple_carry/prompt1_ripplecarry_64.v
+Prompt str:  //Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+Loading LLM model...
+Initializing MCTS tree/LLM env...
+Episode not stated yet!
+Simulations per episode:  200
+******** EPISODE-1************
+ORIG MODILE:  adder_64
+Env seed:  42
+Initializing MCTS tree.
+Initialize search (creating root node)
+Selection: finding leaf node.
+Leaf selection - depth:  0
+Getting LLM token estimates (probs/ids).
+Len original:  50295  Len new:  50278
+Expansion: next action:  0  corresponding to state:  198
+Getting rollout return of leaf.
+Comment:  1003
+Incrementing:  0
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+  wire [63:0] sum;
+  wire cout;
+  wire [63:0] in1;
+  wire [63:0] in2;
+  wire cin;
+  wire [63:0] carry;
+  input [63:0] carry;
+  assign carry[63] = cin;
+  genvar i;
+  generate
+    for (i = 0; i < 64; i = i + 1)
+      begin : adder_bits
+        if (i == 0)
+          full_adder fa (sum[i], carry[i], in1[i], in2[i], carry[i]);
+        else
+          full_adder fa (sum[i], carry[i], sum[i-1], in1[i], carry[i-1]);
+      end
+    assign cout = carry[64];
+  endgenerate
+endmodule
+Verilog compilation failed, error:  1
+Compilation output:  b'output_files/3756903_adder_64/3756903_adder_64.v:11: error: port carry is not in the port list.\n'
+Tokens:  203
+LLM generates return in:  27.410491  seconds
+Running getPromptScore: 
+Backpropogation: incorporating estimates.
+Updated num:  1
+Selection: finding leaf node.
+Leaf selection - depth:  0
+Leaf selection - action scores:  [9.37701516e-01 6.95051948e-01 8.93355053e-03 1.62310171e-03
+ 1.62300432e-03 1.06678947e-03 2.89622137e-01 6.10031126e-04
+ 5.42796522e-04 5.36738894e-04]  taking action:  0
+Adding child.
+Leaf selection - depth:  1
+Getting LLM token estimates (probs/ids).
+Len original:  50295  Len new:  50278
+Expansion: next action:  0  corresponding to state:  50286
+Getting rollout return of leaf.
+Comment:  1003
+Incrementing:  0
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+  wire [63:0] sum;
+  wire cout;
+  wire [63:0] in1;
+  wire [63:0] in2;
+  wire cin;
+  wire [63:0] carry;
+  vadd v1(sum[0], in1[0], in2[0], cin);
+  vadd v2(sum[1], in1[1], in2[1], carry[0]);
+  vadd v3(sum[2], in1[2], in2[2], carry[1]);
+  vadd v4(sum[3], in1[3], in2[3], carry[2]);
+  vadd v5(sum[4], in1[4], in2[4], carry[3]);
+  vadd v6(sum[5], in1[5], in2[5], carry[4]);
+  vadd v7(sum[6], in1[6], in2[6], carry[5]);
+  vadd v8(sum[7], in1[7], in2[7], carry[6]);
+  vadd v9(sum[8], in1[8], in2[8], carry[7]);
+  vadd v10(sum[9], in1[9], in2[9], carry[8]);
+  vadd v11(sum[10], in1[10], in2[10], carry[9]);
+  vadd v12(sum[11], in1[11], in2[11], carry[10]);
+  vadd v13(sum[12], in1[12], in2[12], carry[11]);
+  vadd v14(sum[13], in1[13], in2[13], carry[12]);
+  vadd v15(sum[14], in1[14], in2[14], carry[13]);
+  vadd v16(sum[15], in1[15], in2[15], carry[14]);
+  vadd v17(sum[16], in1[16], in2[16], carry[15]);
+  vadd v18(sum[17], in1[17], in2[17], carry[16]);
+  vadd v19(sum[18], in1[18], in2[18], carry[17]);
+  vadd v20(sum[19], in1[19], in2[19], carry[18]);
+  vadd v21(sum[20], in1[20], in2[20], carry[19]);
+  vadd v22(sum[21], in1[21], in2[21], carry[20]);
+  vadd v23(sum[22], in1[22], in2[22], carry[21]);
+  vadd v24(sum[23], in1[23], in2[23], carry[22]);
+  vadd v25(sum[24], in1[24], in2[24], carry[23]);
+  vadd v26(sum[25], in1[25], in2[25], carry[24]);
+  vadd v27(sum[26], in1[26], in2[26], carry[25]);
+  vadd v28(sum[27], in1[27], in2[27], carry[
+Verilog compilation failed, error:  2
+Compilation output:  b'output_files/3756903_adder_64/3756903_adder_64.v:38: syntax error\nI give up.\n'
+Tokens:  748
+LLM generates return in:  208.547163  seconds
+Running getPromptScore: 
+Backpropogation: incorporating estimates.
+Current runs:  2.0
+Selection: finding leaf node.
+Leaf selection - depth:  0
+Leaf selection - action scores:  [7.42225611e-02 8.51261308e-01 1.09413202e-02 1.98788549e-03
+ 1.98776622e-03 1.30654493e-03 3.54713227e-01 7.47132493e-04
+ 6.64787256e-04 6.57368207e-04]  taking action:  1
+Adding child.
+Leaf selection - depth:  1
+Getting LLM token estimates (probs/ids).
+Len original:  50295  Len new:  50278
+Expansion: next action:  0  corresponding to state:  50284
+Getting rollout return of leaf.
+Comment:  1003
+Incrementing:  0
+Comment:  1003
+Incrementing:  0
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+
+    logic [63:0] sum;
+    logic cout;
+    logic [63:0] in1;
+    logic [63:0] in2;
+    logic cin;
+
+    hier_adder_64 HA1(sum[0], c1, in1[0], in2[0], cin);
+    hier_adder_64 HA2(sum[1], c2, in1[1], in2[1], c1);
+    hier_adder_64 HA3(sum[2], c3, in1[2], in2[2], c2);
+    hier_adder_64 HA4(sum[3], c4, in1[3], in2[3], c3);
+    hier_adder_64 HA5(sum[4], c5, in1[4], in2[4], c4);
+    hier_adder_64 HA6(sum[5], c6, in1[5], in2[5], c5);
+    hier_adder_64 HA7(sum[6], c7, in1[6], in2[6], c6);
+    hier_adder_64 HA8(sum[7], c8, in1[7], in2[7], c7);
+    hier_adder_64 HA9(sum[8], c9, in1[8], in2[8], c8);
+    hier_adder_64 HA10(sum[9], c10, in1[9], in2[9], c9);
+    hier_adder_64 HA11(sum[10], c11, in1[10], in2[10], c10);
+    hier_adder_64 HA12(sum[11], c12, in1[11], in2[11], c11);
+    hier_adder_64 HA13(sum[12], c13, in1[12], in2[12], c12);
+    hier_adder_64 HA14(sum[13], c14, in1[13], in2[13], c13);
+    hier_adder_64 HA15(sum[14], c15, in1[14], in2[14], c14);
+    hier_adder_64 HA16(sum[15], c16, in1[15], in2[15], c15);
+    hier_adder_64 HA17(sum[16], c17, in1[16], in2[16], c16);
+    hier_adder_64 HA18(sum[17], c18, in1[17], in2[17], c17);
+    hier_adder_64 HA19(sum[18], c19, in1[18], in2[18], c18);
+    hier_adder_64 HA20(sum[19], c20, in1[19], in2[19], c19);
+    hier_adder_64 HA21(sum[20], c21, in1[20], in2[20], c20);
+    hier_adder_64
+Verilog compilation failed, error:  7
+Compilation output:  b"output_files/3756903_adder_64/3756903_adder_64.v:12: error: duplicate declaration for net or variable 'sum' in 'adder_64'.\noutput_files/3756903_adder_64/3756903_adder_64.v:13: error: duplicate declaration for net or variable 'cout' in 'adder_64'.\noutput_files/3756903_adder_64/3756903_adder_64.v:14: error: duplicate declaration for net or variable 'in1' in 'adder_64'.\noutput_files/3756903_adder_64/3756903_adder_64.v:15: error: duplicate declaration for net or variable 'in2' in 'adder_64'.\noutput_files/3756903_adder_64/3756903_adder_64.v:16: error: duplicate declaration for net or variable 'cin' in 'adder_64'.\noutput_files/3756903_adder_64/3756903_adder_64.v:39: syntax error\nI give up.\n"
+Tokens:  748
+LLM generates return in:  209.584133  seconds
+Running getPromptScore: 
+Backpropogation: incorporating estimates.
+Current runs:  3.0
+Selection: finding leaf node.
+Leaf selection - depth:  0
+Leaf selection - action scores:  [ 0.1630551  -0.00852405  0.01263395  0.00229541  0.00229527  0.00150867
+  0.40958755  0.00086271  0.00076763  0.00075906]  taking action:  6
+Adding child.
+Leaf selection - depth:  1
+Getting LLM token estimates (probs/ids).
+Len original:  50295  Len new:  50278
+Expansion: next action:  0  corresponding to state:  198
+Getting rollout return of leaf.
+Comment:  1003
+Incrementing:  0
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);    
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1, in2;
+    wire cin;
+    
+    part1_64 p1(sum, cout, in1, in2, cin);
+    
+endmodule
+Verilog compilation failed, error:  2
+Compilation output:  b'output_files/3756903_adder_64/3756903_adder_64.v:10: error: Unknown module type: part1_64\n2 error(s) during elaboration.\n*** These modules were missing:\n        part1_64 referenced 1 times.\n***\n'
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);    
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1, in2;
+    wire cin;
+    
+    part1_64 p1(sum, cout, in1, in2, cin);
+    
+endmodule
+
+module part1_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1, in2;
+    wire cin;
+    
+    wire [63:0] sum_temp;
+    wire cout_temp;
+    
+    adder_64 a1(sum_temp, cout_temp, in1, in2, cin);
+    
+    assign sum = sum_temp[63:0];
+    assign cout = cout_temp;
+    
+endmodule
+Verilog compilation failed, error:  2
+Compilation output:  b'output_files/3756903_adder_64/3756903_adder_64.v:26: error: You can not instantiate module adder_64 within itself.\noutput_files/3756903_adder_64/3756903_adder_64.v:26:      : The offending instance is a1 within tb_ripplecarry_64.uut.\n2 error(s) during elaboration.\n'
+Tokens:  218
+LLM generates return in:  31.796939  seconds
+Running getPromptScore: 
+Backpropogation: incorporating estimates.
+Current runs:  4.0
+Selection: finding leaf node.
+Leaf selection - depth:  0
+Leaf selection - action scores:  [ 0.24131814  0.04948681  0.01412518  0.00256635  0.0025662   0.00168674
+ -0.2710336   0.00096454  0.00085824  0.00084866]  taking action:  0
+Leaf selection - depth:  1
+Leaf selection - action scores:  [0.49206394 0.40120816 0.39761698 0.06173816 0.06149207 0.05456298
+ 0.04373518 0.0408153  0.03858115 0.02579271]  taking action:  0
+Adding child.
+Leaf selection - depth:  2
+Getting LLM token estimates (probs/ids).
+Len original:  50295  Len new:  50278
+Expansion: next action:  0  corresponding to state:  21809
+Getting rollout return of leaf.
+Comment:  1003
+Incrementing:  0
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+  wire [63:0] sum;
+  wire cout;
+  wire [63:0] in1;
+  wire [63:0] in2;
+  wire cin;
+  wire [63:0] carry;
+  SUB_64 SUB_64_0(sum[63:0], in1[63:0], in2[63:0], cin);
+  FA_64 FA_64_0(sum[63:0], carry[63:0], in1[63:0], in2[63:0], cin);
+  MUX_64 MUX_64_0(sum[63:0], carry[63:0], carry[63:0], cin);
+  CARRY_64 CARRY_64_0(carry[63:0], cout, cin);
+endmodule
+Verilog compilation failed, error:  5
+Compilation output:  b'output_files/3756903_adder_64/3756903_adder_64.v:11: error: Unknown module type: SUB_64\noutput_files/3756903_adder_64/3756903_adder_64.v:12: error: Unknown module type: FA_64\noutput_files/3756903_adder_64/3756903_adder_64.v:13: error: Unknown module type: MUX_64\noutput_files/3756903_adder_64/3756903_adder_64.v:14: error: Unknown module type: CARRY_64\n5 error(s) during elaboration.\n*** These modules were missing:\n        CARRY_64 referenced 1 times.\n        FA_64 referenced 1 times.\n        MUX_64 referenced 1 times.\n        SUB_64 referenced 1 times.\n***\n'
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+  wire [63:0] sum;
+  wire cout;
+  wire [63:0] in1;
+  wire [63:0] in2;
+  wire cin;
+  wire [63:0] carry;
+  SUB_64 SUB_64_0(sum[63:0], in1[63:0], in2[63:0], cin);
+  FA_64 FA_64_0(sum[63:0], carry[63:0], in1[63:0], in2[63:0], cin);
+  MUX_64 MUX_64_0(sum[63:0], carry[63:0], carry[63:0], cin);
+  CARRY_64 CARRY_64_0(carry[63:0], cout, cin);
+endmodule
+
+module carry_select_adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+  wire [63:0] sum;
+  wire cout;
+  wire [63:0] in1;
+  wire [63:0] in2;
+  wire cin;
+  wire [63:0] carry;
+  wire [63:0] carry_in;
+  assign carry_in[0] = cin;
+  assign carry_in[63:1] = in1[62:0] & in2[62:0];
+  adder_64 ADD_64_0(sum[63:0], carry[63:0], in1[63:0], in2[63:0], carry_in[63]);
+  FA_64 FA_64_1(sum[63:0], carry[63:0], in1[63:0], in2[63:0], carry_in[63]);
+  MUX_64 MUX_64_1(sum[63:0], carry[63:0], carry[63:0], cin);
+  CARRY_64 CARRY_64_1(carry[63:0], cout, cin);
+endmodule
+Verilog compilation failed, error:  13
+Compilation output:  b'output_files/3756903_adder_64/3756903_adder_64.v:11: error: Unknown module type: SUB_64\noutput_files/3756903_adder_64/3756903_adder_64.v:12: error: Unknown module type: FA_64\noutput_files/3756903_adder_64/3756903_adder_64.v:13: error: Unknown module type: MUX_64\noutput_files/3756903_adder_64/3756903_adder_64.v:14: error: Unknown module type: CARRY_64\noutput_files/3756903_adder_64/3756903_adder_64.v:31: error: Unknown module type: FA_64\noutput_files/3756903_adder_64/3756903_adder_64.v:32: error: Unknown module type: MUX_64\noutput_files/3756903_adder_64/3756903_adder_64.v:33: error: Unknown module type: CARRY_64\noutput_files/3756903_adder_64/3756903_adder_64.v:11: error: Unknown module type: SUB_64\noutput_files/3756903_adder_64/3756903_adder_64.v:12: error: Unknown module type: FA_64\noutput_files/3756903_adder_64/3756903_adder_64.v:13: error: Unknown module type: MUX_64\noutput_files/3756903_adder_64/3756903_adder_64.v:14: error: Unknown module type: CARRY_64\n13 error(s) during elaboration.\n*** These modules were missing:\n        CARRY_64 referenced 3 times.\n        FA_64 referenced 3 times.\n        MUX_64 referenced 3 times.\n        SUB_64 referenced 2 times.\n***\n'
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+  wire [63:0] sum;
+  wire cout;
+  wire [63:0] in1;
+  wire [63:0] in2;
+  wire cin;
+  wire [63:0] carry;
+  SUB_64 SUB_64_0(sum[63:0], in1[63:0], in2[63:0], cin);
+  FA_64 FA_64_0(sum[63:0], carry[63:0], in1[63:0], in2[63:0], cin);
+  MUX_64 MUX_64_0(sum[63:0], carry[63:0], carry[63:0], cin);
+  CARRY_64 CARRY_64_0(carry[63:0], cout, cin);
+endmodule
+
+module carry_select_adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+  wire [63:0] sum;
+  wire cout;
+  wire [63:0] in1;
+  wire [63:0] in2;
+  wire cin;
+  wire [63:0] carry;
+  wire [63:0] carry_in;
+  assign carry_in[0] = cin;
+  assign carry_in[63:1] = in1[62:0] & in2[62:0];
+  adder_64 ADD_64_0(sum[63:0], carry[63:0], in1[63:0], in2[63:0], carry_in[63]);
+  FA_64 FA_64_1(sum[63:0], carry[63:0], in1[63:0], in2[63:0], carry_in[63]);
+  MUX_64 MUX_64_1(sum[63:0], carry[63:0], carry[63:0], cin);
+  CARRY_64 CARRY_64_1(carry[63:0], cout, cin);
+endmodule
+
+module carry_select_adder_64_tb;
+  reg [63:0] in1;
+  reg [63:0] in2;
+  reg cin;
+  wire [63:0] sum;
+  wire cout;
+  carry_select_adder_64 CS_64_0(sum, cout, in1, in2, cin);
+  initial begin
+    in1 = 64'h0000000000000001;
+    in2 = 64'h0000000000000010;
+    cin = 1'b0;
+    #10 in1 = 64'h0000000000000011;
+    in2 = 64'h0000000000000100;
+    cin = 1'b0;
+    #10 in1 = 64'h0000000000000101;
+    in2 = 64'h0000000000000110;
+    cin = 1'b0;
+    #10 in1 = 64'h0000000000000111;
+    in2 = 64'h0000000000001000;
+    cin = 1'b0;
+    #10 in1 = 64'h0000000000001001;
+    in2 = 64'h0000000000001010;
+    cin = 1'
+Verilog compilation failed, error:  2
+Compilation output:  b'output_files/3756903_adder_64/3756903_adder_64.v:58: syntax error\nI give up.\n'
+Tokens:  747
+LLM generates return in:  209.609818  seconds
+Running getPromptScore: 
+Backpropogation: incorporating estimates.
+Current runs:  5.0
+Selection: finding leaf node.
+Leaf selection - depth:  0
+Leaf selection - action scores:  [-0.12528446  0.10193264  0.01547336  0.00281129  0.00281113  0.00184773
+ -0.24917987  0.0010566   0.00094015  0.00092966]  taking action:  1
+Leaf selection - depth:  1
+Leaf selection - action scores:  [0.7730848  0.71155274 0.1822184  0.06972496 0.0373208  0.02518575
+ 0.02243847 0.01128475 0.01076963 0.00945693]  taking action:  0
+Adding child.
+Leaf selection - depth:  2
+Getting LLM token estimates (probs/ids).
+Len original:  50295  Len new:  50278
+Expansion: next action:  0  corresponding to state:  21809
+Getting rollout return of leaf.
+Comment:  1003
+Incrementing:  0
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+
+    parameter [63:0] adder_tree_1 = in1 ^ in2;
+    parameter [63:0] adder_tree_2 = (in1 & in2) ^ (in1 & cin) ^ (in2 & cin);
+    parameter [63:0] adder_tree_3 = (in1 & in2) ^ (in1 & cin) ^ (in2 & cin);
+
+    assign sum = adder_tree_1 + adder_tree_2 + adder_tree_3;
+    assign cout = (adder_tree_2[63] & adder_tree_3[63]) | (adder_tree_1[63] & adder_tree_2[63] & adder_tree_3[63]);
+
+endmodule
+Verilog compilation failed, error:  14
+Compilation output:  b"output_files/3756903_adder_64/3756903_adder_64.v:12: error: Unable to bind parameter `in1' in `tb_ripplecarry_64.uut'\noutput_files/3756903_adder_64/3756903_adder_64.v:12: error: Unable to bind parameter `in2' in `tb_ripplecarry_64.uut'\noutput_files/3756903_adder_64/3756903_adder_64.v:13: error: Unable to bind parameter `in1' in `tb_ripplecarry_64.uut'\noutput_files/3756903_adder_64/3756903_adder_64.v:13: error: Unable to bind parameter `in2' in `tb_ripplecarry_64.uut'\noutput_files/3756903_adder_64/3756903_adder_64.v:13: error: Unable to bind parameter `in1' in `tb_ripplecarry_64.uut'\noutput_files/3756903_adder_64/3756903_adder_64.v:13: error: Unable to bind parameter `cin' in `tb_ripplecarry_64.uut'\noutput_files/3756903_adder_64/3756903_adder_64.v:13: error: Unable to bind parameter `in2' in `tb_ripplecarry_64.uut'\noutput_files/3756903_adder_64/3756903_adder_64.v:13: error: Unable to bind parameter `cin' in `tb_ripplecarry_64.uut'\noutput_files/3756903_adder_64/3756903_adder_64.v:14: error: Unable to bind parameter `in1' in `tb_ripplecarry_64.uut'\noutput_files/3756903_adder_64/3756903_adder_64.v:14: error: Unable to bind parameter `in2' in `tb_ripplecarry_64.uut'\noutput_files/3756903_adder_64/3756903_adder_64.v:14: error: Unable to bind parameter `in1' in `tb_ripplecarry_64.uut'\noutput_files/3756903_adder_64/3756903_adder_64.v:14: error: Unable to bind parameter `cin' in `tb_ripplecarry_64.uut'\noutput_files/3756903_adder_64/3756903_adder_64.v:14: error: Unable to bind parameter `in2' in `tb_ripplecarry_64.uut'\noutput_files/3756903_adder_64/3756903_adder_64.v:14: error: Unable to bind parameter `cin' in `tb_ripplecarry_64.uut'\n14 error(s) during elaboration.\n"
+Tokens:  226
+LLM generates return in:  33.406448  seconds
+Running getPromptScore: 
+Backpropogation: incorporating estimates.
+Current runs:  6.0
+Selection: finding leaf node.
+Leaf selection - depth:  0
+Leaf selection - action scores:  [-0.08190705 -0.23322564  0.01671314  0.00303655  0.00303636  0.00199578
+ -0.2290833   0.00114126  0.00101548  0.00100415]  taking action:  2
+Adding child.
+Leaf selection - depth:  1
+Getting LLM token estimates (probs/ids).
+Len original:  50295  Len new:  50278
+Expansion: next action:  0  corresponding to state:  198
+Getting rollout return of leaf.
+Comment:  1003
+Incrementing:  0
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin); 
+  wire [63:0] sum;
+  wire cout;
+  wire [63:0] in1;
+  wire [63:0] in2;
+  wire cin;
+  multiplier_64 m1(sum[63:0], cout, in1[63:0], in2[63:0], cin);
+endmodule
+Verilog compilation failed, error:  2
+Compilation output:  b'output_files/3756903_adder_64/3756903_adder_64.v:10: error: Unknown module type: multiplier_64\n2 error(s) during elaboration.\n*** These modules were missing:\n        multiplier_64 referenced 1 times.\n***\n'
+Comment:  1003
+Incrementing:  0
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin); 
+  wire [63:0] sum;
+  wire cout;
+  wire [63:0] in1;
+  wire [63:0] in2;
+  wire cin;
+  multiplier_64 m1(sum[63:0], cout, in1[63:0], in2[63:0], cin);
+endmodule
+
+altmult_add_top #(
+ .DIN_WIDTH(64),
+ .DIN_POINT(64),
+ .FIXED_POINT(8),
+ .ACC_WIDTH(64),
+ .ACC_POINT(64),
+ .OUT_WIDTH(64),
+ .OUT_POINT(64),
+ .MULT_TYPE(0),
+ .MUX_TYPE(0),
+ .USE_CLA(0),
+ .MEM_TYPE(0),
+ .SRC_WIDTH(1),
+ .DST_WIDTH(1),
+ .CONST_WIDTH(0),
+ .CONST_VALUE(0.0)
+)
+adder_64_inst (
+ .clk(clk),
+ .din1(din1),
+ .din2(din2),
+ .din_valid(din_valid),
+ .dout(dout),
+ .dout_valid(dout_valid)
+);
+
+endmodule
+Verilog compilation failed, error:  2
+Compilation output:  b'output_files/3756903_adder_64/3756903_adder_64.v:13: syntax error\nI give up.\n'
+Tokens:  327
+LLM generates return in:  56.420501  seconds
+Running getPromptScore: 
+Backpropogation: incorporating estimates.
+Current runs:  7.0
+Selection: finding leaf node.
+Leaf selection - depth:  0
+Leaf selection - action scores:  [-0.04153234 -0.20329872 -0.49106645  0.0032462   0.00324601  0.00213358
+ -0.21037786  0.00122006  0.00108559  0.00107348]  taking action:  3
+Adding child.
+Leaf selection - depth:  1
+Getting LLM token estimates (probs/ids).
+Len original:  50295  Len new:  50278
+Expansion: next action:  0  corresponding to state:  198
+Getting rollout return of leaf.
+Comment:  1003
+Incrementing:  0
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);  
+  wire [63:0] sum;
+  wire cout;
+  wire [63:0] in1;
+  wire [63:0] in2;
+  wire cin;
+  one_bit_full_adder adder_1(sum[0], c1, in1[0], in2[0], cin);
+  one_bit_full_adder adder_2(sum[1], c2, in1[1], in2[1], c1);
+  one_bit_full_adder adder_3(sum[2], c3, in1[2], in2[2], c2);
+  one_bit_full_adder adder_4(sum[3], c4, in1[3], in2[3], c3);
+  one_bit_full_adder adder_5(sum[4], c5, in1[4], in2[4], c4);
+  one_bit_full_adder adder_6(sum[5], c6, in1[5], in2[5], c5);
+  one_bit_full_adder adder_7(sum[6], c7, in1[6], in2[6], c6);
+  one_bit_full_adder adder_8(sum[7], c8, in1[7], in2[7], c7);
+  one_bit_full_adder adder_9(sum[8], c9, in1[8], in2[8], c8);
+  one_bit_full_adder adder_10(sum[9], c10, in1[9], in2[9], c9);
+  one_bit_full_adder adder_11(sum[10], c11, in1[10], in2[10], c10);
+  one_bit_full_adder adder_12(sum[11], c12, in1[11], in2[11], c11);
+  one_bit_full_adder adder_13(sum[12], c13, in1[12], in2[12], c12);
+  one_bit_full_adder adder_14(sum[13], c14, in1[13], in2[13], c13);
+  one_bit_full_adder adder_15(sum[14], c15, in1[14], in2[14], c14);
+  one_bit_full_adder adder_16(sum[15], c16, in1[15], in2[15], c15);
+  one_bit_full_adder adder_17(sum[16], c17, in1[16], in2[16], c16);
+  one_bit_full_adder adder_18(sum[17], c18, in1[17], in2[17], c17);
+  one_bit_full_adder adder_19(sum[18], c19, in1[18], in2[18], c18);
+  one_bit_full_adder adder_20(sum[19], c20, in1[19], in2[19], c19);
+  one_bit_full_adder adder_21(sum[20], c21, in1[20],
+Verilog compilation failed, error:  2
+Compilation output:  b'output_files/3756903_adder_64/3756903_adder_64.v:30: syntax error\nI give up.\n'
+Tokens:  748
+LLM generates return in:  209.556108  seconds
+Running getPromptScore: 
+Backpropogation: incorporating estimates.
+Current runs:  8.0
+Selection: finding leaf node.
+Leaf selection - depth:  0
+Leaf selection - action scores:  [-0.00361159 -0.17519074 -0.49052454 -0.49827844  0.00344291  0.002263
+ -0.19280933  0.00129407  0.00115145  0.0011386 ]  taking action:  4
+Adding child.
+Leaf selection - depth:  1
+Getting LLM token estimates (probs/ids).
+Len original:  50295  Len new:  50278
+Expansion: next action:  0  corresponding to state:  50284
+Getting rollout return of leaf.
+Comment:  1003
+Incrementing:  0
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);                                   
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+    
+    multiplier_64 m1(sum[63:0], cout, in1[63:0], in2[63:0], cin);
+    adder_64_bitwise a1(sum[63:0], cout, in1[63:0], in2[63:0], cin);
+endmodule
+Verilog compilation failed, error:  3
+Compilation output:  b'output_files/3756903_adder_64/3756903_adder_64.v:11: error: Unknown module type: multiplier_64\noutput_files/3756903_adder_64/3756903_adder_64.v:12: error: Unknown module type: adder_64_bitwise\n3 error(s) during elaboration.\n*** These modules were missing:\n        adder_64_bitwise referenced 1 times.\n        multiplier_64 referenced 1 times.\n***\n'
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);                                   
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+    
+    multiplier_64 m1(sum[63:0], cout, in1[63:0], in2[63:0], cin);
+    adder_64_bitwise a1(sum[63:0], cout, in1[63:0], in2[63:0], cin);
+endmodule
+
+module multiplier_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+    
+    wire [63:0] in1_bitwise;
+    wire [63:0] in2_bitwise;
+    wire cin_bitwise;
+    
+    assign in1_bitwise = in1;
+    assign in2_bitwise = in2;
+    assign cin_bitwise = cin;
+    
+    bitwise_multiplier_64 m1(sum[63:0], cout, in1_bitwise, in2_bitwise, cin_bitwise);
+endmodule
+Verilog compilation failed, error:  3
+Compilation output:  b'output_files/3756903_adder_64/3756903_adder_64.v:33: error: Unknown module type: bitwise_multiplier_64\noutput_files/3756903_adder_64/3756903_adder_64.v:12: error: Unknown module type: adder_64_bitwise\n3 error(s) during elaboration.\n*** These modules were missing:\n        adder_64_bitwise referenced 1 times.\n        bitwise_multiplier_64 referenced 1 times.\n***\n'
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);                                   
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+    
+    multiplier_64 m1(sum[63:0], cout, in1[63:0], in2[63:0], cin);
+    adder_64_bitwise a1(sum[63:0], cout, in1[63:0], in2[63:0], cin);
+endmodule
+
+module multiplier_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+    
+    wire [63:0] in1_bitwise;
+    wire [63:0] in2_bitwise;
+    wire cin_bitwise;
+    
+    assign in1_bitwise = in1;
+    assign in2_bitwise = in2;
+    assign cin_bitwise = cin;
+    
+    bitwise_multiplier_64 m1(sum[63:0], cout, in1_bitwise, in2_bitwise, cin_bitwise);
+endmodule
+
+module bitwise_multiplier_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+    
+    wire [63:0] in1_bitwise;
+    wire [63:0] in2_bitwise;
+    wire cin_bitwise;
+    
+    assign in1_bitwise = in1;
+    assign in2_bitwise = in2;
+    assign cin_bitwise = cin;
+    
+    bitwise_multiplier_64_bitwise m1(sum[63:0], cout, in1_bitwise, in2_bitwise, cin_bitwise);
+endmodule
+Verilog compilation failed, error:  3
+Compilation output:  b'output_files/3756903_adder_64/3756903_adder_64.v:54: error: Unknown module type: bitwise_multiplier_64_bitwise\noutput_files/3756903_adder_64/3756903_adder_64.v:12: error: Unknown module type: adder_64_bitwise\n3 error(s) during elaboration.\n*** These modules were missing:\n        adder_64_bitwise referenced 1 times.\n        bitwise_multiplier_64_bitwise referenced 1 times.\n***\n'
+Tokens:  537
+LLM generates return in:  121.115559  seconds
+Running getPromptScore: 
+Backpropogation: incorporating estimates.
+Current runs:  9.0
+Selection: finding leaf node.
+Leaf selection - depth:  0
+Leaf selection - action scores:  [ 0.03225476 -0.14860555 -0.49001199 -0.49818532 -0.49818543  0.00238541
+ -0.17619261  0.00136407  0.00121373  0.00120018]  taking action:  0
+Leaf selection - depth:  1
+Leaf selection - action scores:  [-0.1986736   0.49137762  0.48697937  0.0756135   0.0753121   0.06682573
+  0.05356443  0.04998834  0.04725206  0.03158949]  taking action:  1
+Adding child.
+Leaf selection - depth:  2
+Getting LLM token estimates (probs/ids).
+Len original:  50295  Len new:  50278
+Expansion: next action:  0  corresponding to state:  21809
+Getting rollout return of leaf.
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+wire [63:0] sum_temp;
+wire [63:0] in1_temp;
+wire [63:0] in2_temp;
+
+assign sum_temp = in1 + in2;
+assign in1_temp = in1;
+assign in2_temp = in2;
+
+assign cout = cin;
+
+assign sum = sum_temp[63:0];
+
+endmodule
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Test 1 passed\nTest 2 failed\n'
+Tokens:  96
+LLM generates return in:  11.258049  seconds
+Running getPromptScore: 
+Backpropogation: incorporating estimates.
+Current runs:  10.0
+Selection: finding leaf node.
+Leaf selection - depth:  0
+Leaf selection - action scores:  [-0.07522375 -0.12331959 -0.48952448 -0.49809674 -0.49809686  0.00250184
+ -0.16038794  0.00143065  0.00127297  0.00125876]  taking action:  5
+Adding child.
+Leaf selection - depth:  1
+Getting LLM token estimates (probs/ids).
+Len original:  50295  Len new:  50278
+Expansion: next action:  0  corresponding to state:  198
+Getting rollout return of leaf.
+Comment:  1003
+Incrementing:  0
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);                      
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+    
+    comparator_64 c1(.a(in1),.b(in2),.cin(cin),.a_eq_b(sum[0]),.a_gt_b(sum[1]),.a_lt_b(sum[2]),.b_eq_a(sum[3]),.b_gt_a(sum[4]),.b_lt_a(sum[5]),.cin_eq_cout(sum[6]),.cin_gt_cout(sum[7]),.cin_lt_cout(sum[8]),.cout(cout));
+    
+    adder_64_bit a1(.sum(sum[63:0]),.cout(cout),.in1(in1),.in2(in2),.cin(cin));
+endmodule
+Verilog compilation failed, error:  3
+Compilation output:  b'output_files/3756903_adder_64/3756903_adder_64.v:11: error: Unknown module type: comparator_64\noutput_files/3756903_adder_64/3756903_adder_64.v:13: error: Unknown module type: adder_64_bit\n3 error(s) during elaboration.\n*** These modules were missing:\n        adder_64_bit referenced 1 times.\n        comparator_64 referenced 1 times.\n***\n'
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);                      
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+    
+    comparator_64 c1(.a(in1),.b(in2),.cin(cin),.a_eq_b(sum[0]),.a_gt_b(sum[1]),.a_lt_b(sum[2]),.b_eq_a(sum[3]),.b_gt_a(sum[4]),.b_lt_a(sum[5]),.cin_eq_cout(sum[6]),.cin_gt_cout(sum[7]),.cin_lt_cout(sum[8]),.cout(cout));
+    
+    adder_64_bit a1(.sum(sum[63:0]),.cout(cout),.in1(in1),.in2(in2),.cin(cin));
+endmodule
+
+module comparator_64(output [63:0] a_eq_b,
+                      output a_gt_b,
+                      output a_lt_b,
+                      output b_eq_a,
+                      output b_gt_a,
+                      output b_lt_a,
+                      input cin_eq_cout,
+                      input cin_gt_cout,
+                      input cin_lt_cout,
+                      input [63:0] a,
+                      input [63:0] b,
+                      input cin);
+    wire [63:0] a;
+    wire [63:0] b;
+    wire cin;
+    
+    assign a_eq_b = (a == b)? 1 : 0;
+    assign b_eq_a = (b == a)? 1 : 0;
+    assign a_gt_b = (a > b)? 1 : 0;
+    assign b_gt_a = (b > a)? 1 : 0;
+    assign a_lt_b = (a < b)? 1 : 0;
+    assign cin_eq_cout = (cin == 1)? 1 : 0;
+    assign cin_gt_cout = (cin == 0)? 1 : 0;
+    assign cin_lt_cout = (cin == 1)? 0 : 1;
+endmodule
+Verilog compilation failed, error:  2
+Compilation output:  b'output_files/3756903_adder_64/3756903_adder_64.v:13: error: Unknown module type: adder_64_bit\n2 error(s) during elaboration.\n*** These modules were missing:\n        adder_64_bit referenced 1 times.\n***\n'
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);                      
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+    
+    comparator_64 c1(.a(in1),.b(in2),.cin(cin),.a_eq_b(sum[0]),.a_gt_b(sum[1]),.a_lt_b(sum[2]),.b_eq_a(sum[3]),.b_gt_a(sum[4]),.b_lt_a(sum[5]),.cin_eq_cout(sum[6]),.cin_gt_cout(sum[7]),.cin_lt_cout(sum[8]),.cout(cout));
+    
+    adder_64_bit a1(.sum(sum[63:0]),.cout(cout),.in1(in1),.in2(in2),.cin(cin));
+endmodule
+
+module comparator_64(output [63:0] a_eq_b,
+                      output a_gt_b,
+                      output a_lt_b,
+                      output b_eq_a,
+                      output b_gt_a,
+                      output b_lt_a,
+                      input cin_eq_cout,
+                      input cin_gt_cout,
+                      input cin_lt_cout,
+                      input [63:0] a,
+                      input [63:0] b,
+                      input cin);
+    wire [63:0] a;
+    wire [63:0] b;
+    wire cin;
+    
+    assign a_eq_b = (a == b)? 1 : 0;
+    assign b_eq_a = (b == a)? 1 : 0;
+    assign a_gt_b = (a > b)? 1 : 0;
+    assign b_gt_a = (b > a)? 1 : 0;
+    assign a_lt_b = (a < b)? 1 : 0;
+    assign cin_eq_cout = (cin == 1)? 1 : 0;
+    assign cin_gt_cout = (cin == 0)? 1 : 0;
+    assign cin_lt_cout = (cin == 1)? 0 : 1;
+endmodule
+
+module adder_64_bit(output [63:0] sum,
+                     output cout,
+                     input [63:0] in1, in2,
+                     input cin);
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+    
+    adder_64 a1(.sum(sum[63:0]),.cout(cout),.in1(in1),.in2(in2),.cin(cin));
+endmodule
+Verilog compilation failed, error:  2
+Compilation output:  b'output_files/3756903_adder_64/3756903_adder_64.v:52: error: You can not instantiate module adder_64 within itself.\noutput_files/3756903_adder_64/3756903_adder_64.v:52:      : The offending instance is a1 within tb_ripplecarry_64.uut.\n2 error(s) during elaboration.\n'
+Tokens:  685
+LLM generates return in:  180.690515  seconds
+Running getPromptScore: 
+Backpropogation: incorporating estimates.
+Current runs:  11.0
+Selection: finding leaf node.
+Leaf selection - depth:  0
+Leaf selection - action scores:  [-0.05077744 -0.09915915 -0.48905868 -0.49801211 -0.49801223 -0.49869346
+ -0.14528677  0.00149426  0.00132957  0.00131474]  taking action:  7
+Adding child.
+Leaf selection - depth:  1
+Getting LLM token estimates (probs/ids).
+Len original:  50295  Len new:  50278
+Expansion: next action:  0  corresponding to state:  198
+Getting rollout return of leaf.
+Comment:  1003
+Incrementing:  0
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);   
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+    
+    cla64 cla(sum, cout, in1, in2, cin);
+
+endmodule
+Verilog compilation failed, error:  2
+Compilation output:  b'output_files/3756903_adder_64/3756903_adder_64.v:11: error: Unknown module type: cla64\n2 error(s) during elaboration.\n*** These modules were missing:\n        cla64 referenced 1 times.\n***\n'
+Comment:  1003
+Incrementing:  0
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);   
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+    
+    cla64 cla(sum, cout, in1, in2, cin);
+
+endmodule
+
+alu_64 alu_64_inst(output [63:0] alu_out,
+                    output cout,
+                    input [63:0] alu_in1, alu_in2,
+                    input [2:0] alu_op);
+    wire [63:0] alu_out;
+    wire cout;
+    wire [63:0] alu_in1;
+    wire [63:0] alu_in2;
+    wire [2:0] alu_op;
+    
+    adder_64 adder_64_inst(alu_out, cout, alu_in1, alu_in2, alu_op);
+
+endmodule
+Verilog compilation failed, error:  2
+Compilation output:  b'output_files/3756903_adder_64/3756903_adder_64.v:15: syntax error\nI give up.\n'
+Tokens:  231
+LLM generates return in:  34.367288  seconds
+Running getPromptScore: 
+Backpropogation: incorporating estimates.
+Current runs:  12.0
+Selection: finding leaf node.
+Leaf selection - depth:  0
+Leaf selection - action scores:  [-0.02733021 -0.07598611 -0.48861191 -0.49793094 -0.49793107 -0.4986401
+ -0.13080277 -0.49922236  0.00138387  0.00136842]  taking action:  8
+Adding child.
+Leaf selection - depth:  1
+Getting LLM token estimates (probs/ids).
+Len original:  50295  Len new:  50278
+Expansion: next action:  0  corresponding to state:  198
+Getting rollout return of leaf.
+Comment:  1003
+Incrementing:  0
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);                              
+  wire [63:0] sum;
+  wire cout;
+  wire [63:0] in1;
+  wire [63:0] in2;
+  wire cin;
+  wire [63:0] carry;
+  
+  Carry_Select_Adder_64 CS_Adder(sum, carry, in1, in2, cin);
+  FA_64 FA_0(sum[0], c1, in1[0], in2[0], cin);
+  FA_64 FA_1(sum[1], c2, in1[1], in2[1], c1);
+  FA_64 FA_2(sum[2], c3, in1[2], in2[2], c2);
+  FA_64 FA_3(sum[3], c4, in1[3], in2[3], c3);
+  FA_64 FA_4(sum[4], c5, in1[4], in2[4], c4);
+  FA_64 FA_5(sum[5], c6, in1[5], in2[5], c5);
+  FA_64 FA_6(sum[6], c7, in1[6], in2[6], c6);
+  FA_64 FA_7(sum[7], c8, in1[7], in2[7], c7);
+  FA_64 FA_8(sum[8], c9, in1[8], in2[8], c8);
+  FA_64 FA_9(sum[9], c10, in1[9], in2[9], c9);
+  FA_64 FA_10(sum[10], c11, in1[10], in2[10], c10);
+  FA_64 FA_11(sum[11], c12, in1[11], in2[11], c11);
+  FA_64 FA_12(sum[12], c13, in1[12], in2[12], c12);
+  FA_64 FA_13(sum[13], c14, in1[13], in2[13], c13);
+  FA_64 FA_14(sum[14], c15, in1[14], in2[14], c14);
+  FA_64 FA_15(sum[15], c16, in1[15], in2[15], c15);
+  FA_64 FA_16(sum[16], c17, in1[16], in2[16], c16);
+  FA_64 FA_17(sum[17], c18, in1[17], in2[17], c17);
+  FA_64 FA_18(sum[18], c19, in1[18], in2[18], c18);
+  FA_64 FA_19(sum[19], c20, in1[19], in2[19], c19);
+  FA_64 FA_20(sum[20], c21, in1[20], in2[20], c20);
+  FA_64 FA_21(sum[21], c22, in1[21], in2[21], c21);
+  FA_64 FA_22(sum[22], c23, in1[22], in2[22], c
+Verilog compilation failed, error:  2
+Compilation output:  b'output_files/3756903_adder_64/3756903_adder_64.v:35: syntax error\nI give up.\n'
+Tokens:  748
+LLM generates return in:  209.719444  seconds
+Running getPromptScore: 
+Backpropogation: incorporating estimates.
+Current runs:  13.0
+Selection: finding leaf node.
+Leaf selection - depth:  0
+Leaf selection - action scores:  [-0.00476875 -0.05368849 -0.48818202 -0.49785284 -0.49785297 -0.49858877
+ -0.11686593 -0.499193   -0.49928195  0.00142008]  taking action:  9
+Adding child.
+Leaf selection - depth:  1
+Getting LLM token estimates (probs/ids).
+Len original:  50295  Len new:  50278
+Expansion: next action:  0  corresponding to state:  198
+Getting rollout return of leaf.
+Comment:  1003
+Incrementing:  0
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);        
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+    
+    cla64 cla(sum, cout, in1, in2, cin);
+
+endmodule
+Verilog compilation failed, error:  2
+Compilation output:  b'output_files/3756903_adder_64/3756903_adder_64.v:11: error: Unknown module type: cla64\n2 error(s) during elaboration.\n*** These modules were missing:\n        cla64 referenced 1 times.\n***\n'
+Comment:  1003
+Incrementing:  0
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);        
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+    
+    cla64 cla(sum, cout, in1, in2, cin);
+
+endmodule
+
+alu_64 alu_64_inst(output [63:0] alu_out,
+                    output cout,
+                    input [63:0] alu_in1, alu_in2,
+                    input [2:0] alu_op);
+    wire [63:0] alu_out;
+    wire cout;
+    wire [63:0] alu_in1;
+    wire [63:0] alu_in2;
+    wire [2:0] alu_op;
+    
+    adder_64 adder_64_inst(alu_out, cout, alu_in1, alu_in2, alu_op);
+
+endmodule
+Verilog compilation failed, error:  2
+Compilation output:  b'output_files/3756903_adder_64/3756903_adder_64.v:15: syntax error\nI give up.\n'
+Tokens:  231
+LLM generates return in:  34.365852  seconds
+Running getPromptScore: 
+Backpropogation: incorporating estimates.
+Current runs:  14.0
+Selection: finding leaf node.
+Leaf selection - depth:  0
+Leaf selection - action scores:  [ 0.01700034 -0.03217397 -0.48776723 -0.49777748 -0.49777761 -0.49853924
+ -0.10341856 -0.49916468 -0.49925675 -0.49926504]  taking action:  0
+Leaf selection - depth:  1
+Leaf selection - action scores:  [-0.15205824  0.03369701  0.56231534  0.08731095  0.08696292  0.0771637
+  0.06185088  0.05772156  0.05456198  0.0364764 ]  taking action:  2
+Adding child.
+Leaf selection - depth:  2
+Getting LLM token estimates (probs/ids).
+Len original:  50295  Len new:  50278
+Expansion: next action:  0  corresponding to state:  21809
+Getting rollout return of leaf.
+Comment:  1003
+Incrementing:  0
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+    
+    multiplier_64 m1(sum[63:0], cout, in1[63:0], in2[63:0], cin);
+    adder_64_bitwise a1(sum[63:0], cout, in1[63:0], in2[63:0], cin);
+endmodule
+Verilog compilation failed, error:  3
+Compilation output:  b'output_files/3756903_adder_64/3756903_adder_64.v:11: error: Unknown module type: multiplier_64\noutput_files/3756903_adder_64/3756903_adder_64.v:12: error: Unknown module type: adder_64_bitwise\n3 error(s) during elaboration.\n*** These modules were missing:\n        adder_64_bitwise referenced 1 times.\n        multiplier_64 referenced 1 times.\n***\n'
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+    
+    multiplier_64 m1(sum[63:0], cout, in1[63:0], in2[63:0], cin);
+    adder_64_bitwise a1(sum[63:0], cout, in1[63:0], in2[63:0], cin);
+endmodule
+
+module multiplier_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+    
+    wire [63:0] in1_bitwise;
+    wire [63:0] in2_bitwise;
+    wire cin_bitwise;
+    
+    assign in1_bitwise = in1;
+    assign in2_bitwise = in2;
+    assign cin_bitwise = cin;
+    
+    bitwise_multiplier_64 m1(sum[63:0], cout, in1_bitwise, in2_bitwise, cin_bitwise);
+endmodule
+Verilog compilation failed, error:  3
+Compilation output:  b'output_files/3756903_adder_64/3756903_adder_64.v:33: error: Unknown module type: bitwise_multiplier_64\noutput_files/3756903_adder_64/3756903_adder_64.v:12: error: Unknown module type: adder_64_bitwise\n3 error(s) during elaboration.\n*** These modules were missing:\n        adder_64_bitwise referenced 1 times.\n        bitwise_multiplier_64 referenced 1 times.\n***\n'
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+    
+    multiplier_64 m1(sum[63:0], cout, in1[63:0], in2[63:0], cin);
+    adder_64_bitwise a1(sum[63:0], cout, in1[63:0], in2[63:0], cin);
+endmodule
+
+module multiplier_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+    
+    wire [63:0] in1_bitwise;
+    wire [63:0] in2_bitwise;
+    wire cin_bitwise;
+    
+    assign in1_bitwise = in1;
+    assign in2_bitwise = in2;
+    assign cin_bitwise = cin;
+    
+    bitwise_multiplier_64 m1(sum[63:0], cout, in1_bitwise, in2_bitwise, cin_bitwise);
+endmodule
+
+module bitwise_multiplier_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+    
+    wire [63:0] in1_bitwise;
+    wire [63:0] in2_bitwise;
+    wire cin_bitwise;
+    
+    assign in1_bitwise = in1;
+    assign in2_bitwise = in2;
+    assign cin_bitwise = cin;
+    
+    bitwise_multiplier_64_bitwise m1(sum[63:0], cout, in1_bitwise, in2_bitwise, cin_bitwise);
+endmodule
+Verilog compilation failed, error:  3
+Compilation output:  b'output_files/3756903_adder_64/3756903_adder_64.v:54: error: Unknown module type: bitwise_multiplier_64_bitwise\noutput_files/3756903_adder_64/3756903_adder_64.v:12: error: Unknown module type: adder_64_bitwise\n3 error(s) during elaboration.\n*** These modules were missing:\n        adder_64_bitwise referenced 1 times.\n        bitwise_multiplier_64_bitwise referenced 1 times.\n***\n'
+Tokens:  534
+LLM generates return in:  120.325047  seconds
+Running getPromptScore: 
+Backpropogation: incorporating estimates.
+Current runs:  15.0
+Selection: finding leaf node.
+Leaf selection - depth:  0
+Leaf selection - action scores:  [-0.16955591 -0.01136543 -0.48736605 -0.49770459 -0.49770473 -0.49849133
+ -0.09041245 -0.49913729 -0.49923237 -0.49924094]  taking action:  1
+Leaf selection - depth:  1
+Leaf selection - action scores:  [-0.02658415  0.8714706   0.22317106  0.08539529  0.04570846  0.03084612
+  0.02748141  0.01382094  0.01319005  0.01158233]  taking action:  1
+Adding child.
+Leaf selection - depth:  2
+Getting LLM token estimates (probs/ids).
+Len original:  50295  Len new:  50278
+Expansion: next action:  0  corresponding to state:  21809
+Getting rollout return of leaf.
+Comment:  1003
+Incrementing:  0
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+  wire [63:0] sum;
+  wire cout;
+  wire [63:0] in1;
+  wire [63:0] in2;
+  wire cin;
+
+  three_bit_ripple_adder adder_1(sum[0], c1, in1[0], in2[0], cin);
+  three_bit_ripple_adder adder_2(sum[1], c2, in1[1], in2[1], c1);
+  three_bit_ripple_adder adder_3(sum[2], c3, in1[2], in2[2], c2);
+  three_bit_ripple_adder adder_4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+Verilog compilation failed, error:  5
+Compilation output:  b'output_files/3756903_adder_64/3756903_adder_64.v:12: error: Unknown module type: three_bit_ripple_adder\noutput_files/3756903_adder_64/3756903_adder_64.v:13: error: Unknown module type: three_bit_ripple_adder\noutput_files/3756903_adder_64/3756903_adder_64.v:14: error: Unknown module type: three_bit_ripple_adder\noutput_files/3756903_adder_64/3756903_adder_64.v:15: error: Unknown module type: three_bit_ripple_adder\n5 error(s) during elaboration.\n*** These modules were missing:\n        three_bit_ripple_adder referenced 4 times.\n***\n'
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+  wire [63:0] sum;
+  wire cout;
+  wire [63:0] in1;
+  wire [63:0] in2;
+  wire cin;
+
+  three_bit_ripple_adder adder_1(sum[0], c1, in1[0], in2[0], cin);
+  three_bit_ripple_adder adder_2(sum[1], c2, in1[1], in2[1], c1);
+  three_bit_ripple_adder adder_3(sum[2], c3, in1[2], in2[2], c2);
+  three_bit_ripple_adder adder_4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module three_bit_ripple_adder(output wire sum,
+                               output wire cout,
+                               input wire in1, in2, cin);
+
+  wire c1, c2, c3;
+  full_adder adder_1(sum, c1, in1, in2, cin);
+  full_adder adder_2(sum, c2, c1, in1, in2);
+  full_adder adder_3(sum, cout, c2, in1, in2);
+
+endmodule
+Verilog compilation failed, error:  13
+Compilation output:  b'output_files/3756903_adder_64/3756903_adder_64.v:24: error: Unknown module type: full_adder\noutput_files/3756903_adder_64/3756903_adder_64.v:25: error: Unknown module type: full_adder\noutput_files/3756903_adder_64/3756903_adder_64.v:26: error: Unknown module type: full_adder\noutput_files/3756903_adder_64/3756903_adder_64.v:24: error: Unknown module type: full_adder\noutput_files/3756903_adder_64/3756903_adder_64.v:25: error: Unknown module type: full_adder\noutput_files/3756903_adder_64/3756903_adder_64.v:26: error: Unknown module type: full_adder\noutput_files/3756903_adder_64/3756903_adder_64.v:24: error: Unknown module type: full_adder\noutput_files/3756903_adder_64/3756903_adder_64.v:25: error: Unknown module type: full_adder\noutput_files/3756903_adder_64/3756903_adder_64.v:26: error: Unknown module type: full_adder\noutput_files/3756903_adder_64/3756903_adder_64.v:24: error: Unknown module type: full_adder\noutput_files/3756903_adder_64/3756903_adder_64.v:25: error: Unknown module type: full_adder\noutput_files/3756903_adder_64/3756903_adder_64.v:26: error: Unknown module type: full_adder\n13 error(s) during elaboration.\n*** These modules were missing:\n        full_adder referenced 12 times.\n***\n'
+//Design a 64-bit adder.
+//There are two 64 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 64 bit value, [63:0] sum, and a single carry-out output bit, cout.
+//The module should add the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+  wire [63:0] sum;
+  wire cout;
+  wire [63:0] in1;
+  wire [63:0] in2;
+  wire cin;
+
+  three_bit_ripple_adder adder_1(sum[0], c1, in1[0], in2[0], cin);
+  three_bit_ripple_adder adder_2(sum[1], c2, in1[1], in2[1], c1);
+  three_bit_ripple_adder adder_3(sum[2], c3, in1[2], in2[2], c2);
+  three_bit_ripple_adder adder_4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module three_bit_ripple_adder(output wire sum,
+                               output wire cout,
+                               input wire in1, in2, cin);
+
+  wire c1, c2, c3;
+  full_adder adder_1(sum, c1, in1, in2, cin);
+  full_adder adder_2(sum, c2, c1, in1, in2);
+  full_adder adder_3(sum, cout, c2, in1, in2);
+
+endmodule
+
+module full_adder(output wire sum,
+                   output wire cout,
+                   input wire in1, in2, cin);
+
+  wire a, b, c;
+  xor(a, in1, in2);
+  xor(sum, a, cin);
+  and(b, a, cin);
+  and(c, in1, in2);
+  or(cout, b, c);
+
+endmodule
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Test 1 failed\n'
+Tokens:  407
+LLM generates return in:  78.506361  seconds
+Running getPromptScore: 
+Backpropogation: incorporating estimates.
+Current runs:  16.0
+Selection: finding leaf node.
+Leaf selection - depth:  0
+Leaf selection - action scores:  [-0.15323075 -0.11839819 -0.48697722 -0.49763394 -0.49763408 -0.4984449
+ -0.07780681 -0.49911073 -0.49920874 -0.49921758]  taking action:  6
+Leaf selection - depth:  1
+Leaf selection - action scores:  [1.3937421e+00 3.9573503e-01 4.2172032e-03 7.4252032e-04 5.4474600e-04
+ 3.8882557e-04 3.3996612e-04 3.1815263e-04 1.6217197e-04 1.5686141e-04]  taking action:  0
+Adding child.
+Leaf selection - depth:  2
+Getting LLM token estimates (probs/ids).
+Len original:  50295  Len new:  50278
+Expansion: next action:  0  corresponding to state:  50284
+Getting rollout return of leaf.
+Comment:  1003
+Incrementing:  0

@@ -1,0 +1,759 @@
+mac/mac_8.v
+Prompt str:  //Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_8(
+    input wire clk,
+    input wire reset,
+    input wire [3:0] A,
+    input wire [3:0] B,
+    output reg [7:0] accumulator
+);
+
+Loading LLM model...
+Initializing MCTS tree/LLM env...
+Episode not stated yet!
+Simulations per episode:  500
+********-- EPISODE-1--************
+----GREEDY LLM OUTPUT - ITERATION:  0  ----
+---------------
+Env seed:  557221
+Done setting up env.
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_8(
+    input wire clk,
+    input wire reset,
+    input wire [3:0] A,
+    input wire [3:0] B,
+    output reg [7:0] accumulator
+);
+    reg [7:0] accumulator_temp;
+    always @(posedge clk)
+    begin
+        if (reset)
+            accumulator_temp <= 8'b0;
+        else
+            accumulator_temp <= accumulator_temp + {accumulator_temp[6:0],A} + {B,1'b0};
+        accumulator <= accumulator_temp;
+    end
+endmodule
+Path:  output_files/2785592_mac_8/2785592_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 0, B: 0, Accumulator: xx\nTime:                15000, A: 0, B: 0, Accumulator: xx\nTime:                25000, A: 0, B: 0, Accumulator: 00\nTest 1 passed\nTime:                35000, A: 2, B: 3, Accumulator: 00\nTime:                45000, A: 2, B: 3, Accumulator: 00\nTest 2 failed\n'
+Tokens:  99
+LLM generates return in:  13.039002  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  1  ----
+---------------
+Env seed:  18874
+Done setting up env.
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_8(
+    input wire clk,
+    input wire reset,
+    input wire [3:0] A,
+    input wire [3:0] B,
+    output reg [7:0] accumulator
+);
+    reg [7:0] accumulator_temp;
+    always @(posedge clk)
+    begin
+        if (reset)
+            accumulator_temp <= 8'b0;
+        else
+            accumulator_temp <= accumulator_temp + {accumulator_temp[6:0],A} + {B,1'b0};
+        accumulator <= accumulator_temp;
+    end
+endmodule
+Path:  output_files/2785592_mac_8/2785592_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 0, B: 0, Accumulator: xx\nTime:                15000, A: 0, B: 0, Accumulator: xx\nTime:                25000, A: 0, B: 0, Accumulator: 00\nTest 1 passed\nTime:                35000, A: 2, B: 3, Accumulator: 00\nTime:                45000, A: 2, B: 3, Accumulator: 00\nTest 2 failed\n'
+Tokens:  99
+LLM generates return in:  12.559254  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  2  ----
+---------------
+Env seed:  620358
+Done setting up env.
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_8(
+    input wire clk,
+    input wire reset,
+    input wire [3:0] A,
+    input wire [3:0] B,
+    output reg [7:0] accumulator
+);
+    reg [7:0] accumulator_temp;
+    always @(posedge clk)
+    begin
+        if (reset)
+            accumulator_temp <= 8'b0;
+        else
+            accumulator_temp <= accumulator_temp + {accumulator_temp[6:0],A} + {B,1'b0};
+        accumulator <= accumulator_temp;
+    end
+endmodule
+Path:  output_files/2785592_mac_8/2785592_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 0, B: 0, Accumulator: xx\nTime:                15000, A: 0, B: 0, Accumulator: xx\nTime:                25000, A: 0, B: 0, Accumulator: 00\nTest 1 passed\nTime:                35000, A: 2, B: 3, Accumulator: 00\nTime:                45000, A: 2, B: 3, Accumulator: 00\nTest 2 failed\n'
+Tokens:  99
+LLM generates return in:  12.730702  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  3  ----
+---------------
+Env seed:  423142
+Done setting up env.
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_8(
+    input wire clk,
+    input wire reset,
+    input wire [3:0] A,
+    input wire [3:0] B,
+    output reg [7:0] accumulator
+);
+    reg [7:0] accumulator_temp;
+    always @(posedge clk)
+    begin
+        if (reset)
+            accumulator_temp <= 8'b0;
+        else
+            accumulator_temp <= accumulator_temp + {accumulator_temp[6:0],A} + {B,1'b0};
+        accumulator <= accumulator_temp;
+    end
+endmodule
+Path:  output_files/2785592_mac_8/2785592_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 0, B: 0, Accumulator: xx\nTime:                15000, A: 0, B: 0, Accumulator: xx\nTime:                25000, A: 0, B: 0, Accumulator: 00\nTest 1 passed\nTime:                35000, A: 2, B: 3, Accumulator: 00\nTime:                45000, A: 2, B: 3, Accumulator: 00\nTest 2 failed\n'
+Tokens:  99
+LLM generates return in:  12.853146  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  4  ----
+---------------
+Env seed:  877519
+Done setting up env.
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_8(
+    input wire clk,
+    input wire reset,
+    input wire [3:0] A,
+    input wire [3:0] B,
+    output reg [7:0] accumulator
+);
+    reg [7:0] accumulator_temp;
+    always @(posedge clk)
+    begin
+        if (reset)
+            accumulator_temp <= 8'b0;
+        else
+            accumulator_temp <= accumulator_temp + {accumulator_temp[6:0],A} + {B,1'b0};
+        accumulator <= accumulator_temp;
+    end
+endmodule
+Path:  output_files/2785592_mac_8/2785592_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 0, B: 0, Accumulator: xx\nTime:                15000, A: 0, B: 0, Accumulator: xx\nTime:                25000, A: 0, B: 0, Accumulator: 00\nTest 1 passed\nTime:                35000, A: 2, B: 3, Accumulator: 00\nTime:                45000, A: 2, B: 3, Accumulator: 00\nTest 2 failed\n'
+Tokens:  99
+LLM generates return in:  13.030882  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  5  ----
+---------------
+Env seed:  367066
+Done setting up env.
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_8(
+    input wire clk,
+    input wire reset,
+    input wire [3:0] A,
+    input wire [3:0] B,
+    output reg [7:0] accumulator
+);
+    reg [7:0] accumulator_temp;
+    always @(posedge clk)
+    begin
+        if (reset)
+            accumulator_temp <= 8'b0;
+        else
+            accumulator_temp <= accumulator_temp + {accumulator_temp[6:0],A} + {B,1'b0};
+        accumulator <= accumulator_temp;
+    end
+endmodule
+Path:  output_files/2785592_mac_8/2785592_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 0, B: 0, Accumulator: xx\nTime:                15000, A: 0, B: 0, Accumulator: xx\nTime:                25000, A: 0, B: 0, Accumulator: 00\nTest 1 passed\nTime:                35000, A: 2, B: 3, Accumulator: 00\nTime:                45000, A: 2, B: 3, Accumulator: 00\nTest 2 failed\n'
+Tokens:  99
+LLM generates return in:  13.148174  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  6  ----
+---------------
+Env seed:  749981
+Done setting up env.
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_8(
+    input wire clk,
+    input wire reset,
+    input wire [3:0] A,
+    input wire [3:0] B,
+    output reg [7:0] accumulator
+);
+    reg [7:0] accumulator_temp;
+    always @(posedge clk)
+    begin
+        if (reset)
+            accumulator_temp <= 8'b0;
+        else
+            accumulator_temp <= accumulator_temp + {accumulator_temp[6:0],A} + {B,1'b0};
+        accumulator <= accumulator_temp;
+    end
+endmodule
+Path:  output_files/2785592_mac_8/2785592_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 0, B: 0, Accumulator: xx\nTime:                15000, A: 0, B: 0, Accumulator: xx\nTime:                25000, A: 0, B: 0, Accumulator: 00\nTest 1 passed\nTime:                35000, A: 2, B: 3, Accumulator: 00\nTime:                45000, A: 2, B: 3, Accumulator: 00\nTest 2 failed\n'
+Tokens:  99
+LLM generates return in:  13.225259  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  7  ----
+---------------
+Env seed:  934928
+Done setting up env.
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_8(
+    input wire clk,
+    input wire reset,
+    input wire [3:0] A,
+    input wire [3:0] B,
+    output reg [7:0] accumulator
+);
+    reg [7:0] accumulator_temp;
+    always @(posedge clk)
+    begin
+        if (reset)
+            accumulator_temp <= 8'b0;
+        else
+            accumulator_temp <= accumulator_temp + {accumulator_temp[6:0],A} + {B,1'b0};
+        accumulator <= accumulator_temp;
+    end
+endmodule
+Path:  output_files/2785592_mac_8/2785592_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 0, B: 0, Accumulator: xx\nTime:                15000, A: 0, B: 0, Accumulator: xx\nTime:                25000, A: 0, B: 0, Accumulator: 00\nTest 1 passed\nTime:                35000, A: 2, B: 3, Accumulator: 00\nTime:                45000, A: 2, B: 3, Accumulator: 00\nTest 2 failed\n'
+Tokens:  99
+LLM generates return in:  13.269518  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  8  ----
+---------------
+Env seed:  697501
+Done setting up env.
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_8(
+    input wire clk,
+    input wire reset,
+    input wire [3:0] A,
+    input wire [3:0] B,
+    output reg [7:0] accumulator
+);
+    reg [7:0] accumulator_temp;
+    always @(posedge clk)
+    begin
+        if (reset)
+            accumulator_temp <= 8'b0;
+        else
+            accumulator_temp <= accumulator_temp + {accumulator_temp[6:0],A} + {B,1'b0};
+        accumulator <= accumulator_temp;
+    end
+endmodule
+Path:  output_files/2785592_mac_8/2785592_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 0, B: 0, Accumulator: xx\nTime:                15000, A: 0, B: 0, Accumulator: xx\nTime:                25000, A: 0, B: 0, Accumulator: 00\nTest 1 passed\nTime:                35000, A: 2, B: 3, Accumulator: 00\nTime:                45000, A: 2, B: 3, Accumulator: 00\nTest 2 failed\n'
+Tokens:  99
+LLM generates return in:  13.311273  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  9  ----
+---------------
+Env seed:  34901
+Done setting up env.
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_8(
+    input wire clk,
+    input wire reset,
+    input wire [3:0] A,
+    input wire [3:0] B,
+    output reg [7:0] accumulator
+);
+    reg [7:0] accumulator_temp;
+    always @(posedge clk)
+    begin
+        if (reset)
+            accumulator_temp <= 8'b0;
+        else
+            accumulator_temp <= accumulator_temp + {accumulator_temp[6:0],A} + {B,1'b0};
+        accumulator <= accumulator_temp;
+    end
+endmodule
+Path:  output_files/2785592_mac_8/2785592_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 0, B: 0, Accumulator: xx\nTime:                15000, A: 0, B: 0, Accumulator: xx\nTime:                25000, A: 0, B: 0, Accumulator: 00\nTest 1 passed\nTime:                35000, A: 2, B: 3, Accumulator: 00\nTime:                45000, A: 2, B: 3, Accumulator: 00\nTest 2 failed\n'
+Tokens:  99
+LLM generates return in:  13.343849  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  10  ----
+---------------
+Env seed:  532738
+Done setting up env.
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_8(
+    input wire clk,
+    input wire reset,
+    input wire [3:0] A,
+    input wire [3:0] B,
+    output reg [7:0] accumulator
+);
+    reg [7:0] accumulator_temp;
+    always @(posedge clk)
+    begin
+        if (reset)
+            accumulator_temp <= 8'b0;
+        else
+            accumulator_temp <= accumulator_temp + {accumulator_temp[6:0],A} + {B,1'b0};
+        accumulator <= accumulator_temp;
+    end
+endmodule
+Path:  output_files/2785592_mac_8/2785592_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 0, B: 0, Accumulator: xx\nTime:                15000, A: 0, B: 0, Accumulator: xx\nTime:                25000, A: 0, B: 0, Accumulator: 00\nTest 1 passed\nTime:                35000, A: 2, B: 3, Accumulator: 00\nTime:                45000, A: 2, B: 3, Accumulator: 00\nTest 2 failed\n'
+Tokens:  99
+LLM generates return in:  13.359722  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  11  ----
+---------------
+Env seed:  48851
+Done setting up env.
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_8(
+    input wire clk,
+    input wire reset,
+    input wire [3:0] A,
+    input wire [3:0] B,
+    output reg [7:0] accumulator
+);
+    reg [7:0] accumulator_temp;
+    always @(posedge clk)
+    begin
+        if (reset)
+            accumulator_temp <= 8'b0;
+        else
+            accumulator_temp <= accumulator_temp + {accumulator_temp[6:0],A} + {B,1'b0};
+        accumulator <= accumulator_temp;
+    end
+endmodule
+Path:  output_files/2785592_mac_8/2785592_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 0, B: 0, Accumulator: xx\nTime:                15000, A: 0, B: 0, Accumulator: xx\nTime:                25000, A: 0, B: 0, Accumulator: 00\nTest 1 passed\nTime:                35000, A: 2, B: 3, Accumulator: 00\nTime:                45000, A: 2, B: 3, Accumulator: 00\nTest 2 failed\n'
+Tokens:  99
+LLM generates return in:  13.382993  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  12  ----
+---------------
+Env seed:  646046
+Done setting up env.
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_8(
+    input wire clk,
+    input wire reset,
+    input wire [3:0] A,
+    input wire [3:0] B,
+    output reg [7:0] accumulator
+);
+    reg [7:0] accumulator_temp;
+    always @(posedge clk)
+    begin
+        if (reset)
+            accumulator_temp <= 8'b0;
+        else
+            accumulator_temp <= accumulator_temp + {accumulator_temp[6:0],A} + {B,1'b0};
+        accumulator <= accumulator_temp;
+    end
+endmodule
+Path:  output_files/2785592_mac_8/2785592_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 0, B: 0, Accumulator: xx\nTime:                15000, A: 0, B: 0, Accumulator: xx\nTime:                25000, A: 0, B: 0, Accumulator: 00\nTest 1 passed\nTime:                35000, A: 2, B: 3, Accumulator: 00\nTime:                45000, A: 2, B: 3, Accumulator: 00\nTest 2 failed\n'
+Tokens:  99
+LLM generates return in:  13.388469  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  13  ----
+---------------
+Env seed:  264906
+Done setting up env.
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_8(
+    input wire clk,
+    input wire reset,
+    input wire [3:0] A,
+    input wire [3:0] B,
+    output reg [7:0] accumulator
+);
+    reg [7:0] accumulator_temp;
+    always @(posedge clk)
+    begin
+        if (reset)
+            accumulator_temp <= 8'b0;
+        else
+            accumulator_temp <= accumulator_temp + {accumulator_temp[6:0],A} + {B,1'b0};
+        accumulator <= accumulator_temp;
+    end
+endmodule
+Path:  output_files/2785592_mac_8/2785592_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 0, B: 0, Accumulator: xx\nTime:                15000, A: 0, B: 0, Accumulator: xx\nTime:                25000, A: 0, B: 0, Accumulator: 00\nTest 1 passed\nTime:                35000, A: 2, B: 3, Accumulator: 00\nTime:                45000, A: 2, B: 3, Accumulator: 00\nTest 2 failed\n'
+Tokens:  99
+LLM generates return in:  13.39291  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  14  ----
+---------------
+Env seed:  79139
+Done setting up env.
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_8(
+    input wire clk,
+    input wire reset,
+    input wire [3:0] A,
+    input wire [3:0] B,
+    output reg [7:0] accumulator
+);
+    reg [7:0] accumulator_temp;
+    always @(posedge clk)
+    begin
+        if (reset)
+            accumulator_temp <= 8'b0;
+        else
+            accumulator_temp <= accumulator_temp + {accumulator_temp[6:0],A} + {B,1'b0};
+        accumulator <= accumulator_temp;
+    end
+endmodule
+Path:  output_files/2785592_mac_8/2785592_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 0, B: 0, Accumulator: xx\nTime:                15000, A: 0, B: 0, Accumulator: xx\nTime:                25000, A: 0, B: 0, Accumulator: 00\nTest 1 passed\nTime:                35000, A: 2, B: 3, Accumulator: 00\nTime:                45000, A: 2, B: 3, Accumulator: 00\nTest 2 failed\n'
+Tokens:  99
+LLM generates return in:  13.412424  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  15  ----
+---------------
+Env seed:  11332
+Done setting up env.
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_8(
+    input wire clk,
+    input wire reset,
+    input wire [3:0] A,
+    input wire [3:0] B,
+    output reg [7:0] accumulator
+);
+    reg [7:0] accumulator_temp;
+    always @(posedge clk)
+    begin
+        if (reset)
+            accumulator_temp <= 8'b0;
+        else
+            accumulator_temp <= accumulator_temp + {accumulator_temp[6:0],A} + {B,1'b0};
+        accumulator <= accumulator_temp;
+    end
+endmodule
+Path:  output_files/2785592_mac_8/2785592_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 0, B: 0, Accumulator: xx\nTime:                15000, A: 0, B: 0, Accumulator: xx\nTime:                25000, A: 0, B: 0, Accumulator: 00\nTest 1 passed\nTime:                35000, A: 2, B: 3, Accumulator: 00\nTime:                45000, A: 2, B: 3, Accumulator: 00\nTest 2 failed\n'
+Tokens:  99
+LLM generates return in:  13.419834  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  16  ----
+---------------
+Env seed:  997712
+Done setting up env.
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_8(
+    input wire clk,
+    input wire reset,
+    input wire [3:0] A,
+    input wire [3:0] B,
+    output reg [7:0] accumulator
+);
+    reg [7:0] accumulator_temp;
+    always @(posedge clk)
+    begin
+        if (reset)
+            accumulator_temp <= 8'b0;
+        else
+            accumulator_temp <= accumulator_temp + {accumulator_temp[6:0],A} + {B,1'b0};
+        accumulator <= accumulator_temp;
+    end
+endmodule
+Path:  output_files/2785592_mac_8/2785592_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 0, B: 0, Accumulator: xx\nTime:                15000, A: 0, B: 0, Accumulator: xx\nTime:                25000, A: 0, B: 0, Accumulator: 00\nTest 1 passed\nTime:                35000, A: 2, B: 3, Accumulator: 00\nTime:                45000, A: 2, B: 3, Accumulator: 00\nTest 2 failed\n'
+Tokens:  99
+LLM generates return in:  13.411741  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  17  ----
+---------------
+Env seed:  798206
+Done setting up env.
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_8(
+    input wire clk,
+    input wire reset,
+    input wire [3:0] A,
+    input wire [3:0] B,
+    output reg [7:0] accumulator
+);
+    reg [7:0] accumulator_temp;
+    always @(posedge clk)
+    begin
+        if (reset)
+            accumulator_temp <= 8'b0;
+        else
+            accumulator_temp <= accumulator_temp + {accumulator_temp[6:0],A} + {B,1'b0};
+        accumulator <= accumulator_temp;
+    end
+endmodule
+Path:  output_files/2785592_mac_8/2785592_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 0, B: 0, Accumulator: xx\nTime:                15000, A: 0, B: 0, Accumulator: xx\nTime:                25000, A: 0, B: 0, Accumulator: 00\nTest 1 passed\nTime:                35000, A: 2, B: 3, Accumulator: 00\nTime:                45000, A: 2, B: 3, Accumulator: 00\nTest 2 failed\n'
+Tokens:  99
+LLM generates return in:  13.403308  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  18  ----
+---------------
+Env seed:  130263
+Done setting up env.
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_8(
+    input wire clk,
+    input wire reset,
+    input wire [3:0] A,
+    input wire [3:0] B,
+    output reg [7:0] accumulator
+);
+    reg [7:0] accumulator_temp;
+    always @(posedge clk)
+    begin
+        if (reset)
+            accumulator_temp <= 8'b0;
+        else
+            accumulator_temp <= accumulator_temp + {accumulator_temp[6:0],A} + {B,1'b0};
+        accumulator <= accumulator_temp;
+    end
+endmodule
+Path:  output_files/2785592_mac_8/2785592_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 0, B: 0, Accumulator: xx\nTime:                15000, A: 0, B: 0, Accumulator: xx\nTime:                25000, A: 0, B: 0, Accumulator: 00\nTest 1 passed\nTime:                35000, A: 2, B: 3, Accumulator: 00\nTime:                45000, A: 2, B: 3, Accumulator: 00\nTest 2 failed\n'
+Tokens:  99
+LLM generates return in:  13.392509  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  19  ----
+---------------
+Env seed:  343345
+Done setting up env.
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_8(
+    input wire clk,
+    input wire reset,
+    input wire [3:0] A,
+    input wire [3:0] B,
+    output reg [7:0] accumulator
+);
+    reg [7:0] accumulator_temp;
+    always @(posedge clk)
+    begin
+        if (reset)
+            accumulator_temp <= 8'b0;
+        else
+            accumulator_temp <= accumulator_temp + {accumulator_temp[6:0],A} + {B,1'b0};
+        accumulator <= accumulator_temp;
+    end
+endmodule
+Path:  output_files/2785592_mac_8/2785592_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 0, B: 0, Accumulator: xx\nTime:                15000, A: 0, B: 0, Accumulator: xx\nTime:                25000, A: 0, B: 0, Accumulator: 00\nTest 1 passed\nTime:                35000, A: 2, B: 3, Accumulator: 00\nTime:                45000, A: 2, B: 3, Accumulator: 00\nTest 2 failed\n'
+Tokens:  99
+LLM generates return in:  13.421981  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  20  ----
+---------------
+Env seed:  458573
+Done setting up env.
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_8(
+    input wire clk,
+    input wire reset,
+    input wire [3:0] A,
+    input wire [3:0] B,
+    output reg [7:0] accumulator
+);
+    reg [7:0] accumulator_temp;
+    always @(posedge clk)
+    begin
+        if (reset)
+            accumulator_temp <= 8'b0;
+        else
+            accumulator_temp <= accumulator_temp + {accumulator_temp[6:0],A} + {B,1'b0};
+        accumulator <= accumulator_temp;
+    end
+endmodule
+Path:  output_files/2785592_mac_8/2785592_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 0, B: 0, Accumulator: xx\nTime:                15000, A: 0, B: 0, Accumulator: xx\nTime:                25000, A: 0, B: 0, Accumulator: 00\nTest 1 passed\nTime:                35000, A: 2, B: 3, Accumulator: 00\nTime:                45000, A: 2, B: 3, Accumulator: 00\nTest 2 failed\n'
+Tokens:  99
+LLM generates return in:  13.418452  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  21  ----
+---------------
+Env seed:  539802
+Done setting up env.

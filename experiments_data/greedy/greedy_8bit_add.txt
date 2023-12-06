@@ -1,0 +1,97 @@
+//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1, c2, c3, c4, c5, c6, c7;
+  wire [7:0] sum;
+  
+  //Create the first carry bit
+  half_adder_8 h1(sum[7:0], c1, in1[7:0], in2[7:0]);
+  half_adder_8 h2(sum[15:8], c2, in1[7:0], in2[7:0]);
+  half_adder_8 h3(sum[23:16], c3, in1[7:0], in2[7:0]);
+  half_adder_8 h4(sum[31:24], c4, in1[7:0], in2[7:0]);
+  
+  //Create the second carry bit
+  half_adder_8 h5(sum[7:0], c5, in1[7:0], in2[7:0]);
+  half_adder_8 h6(sum[15:8], c6, in1[7:0], in2[7:0]);
+  half_adder_8 h7(sum[23:16], c7, in1[7:0], in2[7:0]);
+  
+  //Create the final carry bit
+  half_adder_8 h8(sum[31:24], cout, in1[7:0], in2[7:0]);
+  
+endmodule
+
+//Design an 8-bit subtractor
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] diff, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output diff and cout values.
+module subtractor_8(output [7:0] diff,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1, c2, c3, c4, c5, c6, c7;
+  wire [7:0] diff;
+  
+  //Create the first carry bit
+  half_adder_8 h1(diff[7:0], c1, in1[7:0], in2[7:0]);
+  half_adder_8 h2(diff[15:8], c2, in1[7:0], in2[7:0]);
+  half_adder_8 h3(diff[23:16], c3, in1[7:0], in2[7:0]);
+  half_adder_8 h4(diff[31:24], c4, in1[7:0], in2[7:0]);
+  
+  //Create the second carry bit
+  half_adder_8 h5(diff[7:0], c5, in1[7:0], in2[7:0]);
+  half_adder_8 h6(diff[15:8], c6, in1[7:0], in2[7:0]);
+  half_adder_8 h7(diff[23:16], c7, in1[7:0], in2[7:0]);
+  
+  //Create the final carry bit
+  half_adder_8 h8(diff[31:24], cout, in1[7:0], in2[7:0]);
+  
+endmodule
+
+//Design an 8-bit multiplier
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] product, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output product and cout values.
+module multiplier_8(output [7:0] product,
+                     output cout,
+                     input [7:0] in1, in2,
+                     input cin);
+  wire c1, c2, c3, c4, c5, c6, c7;
+  wire [7:0] product;
+  
+  //Create the first carry bit
+  half_adder_8 h1(product[7:0], c1, in1[7:0], in2[7:0]);
+  half_adder_8 h2(product[15:8], c2, in1[7:0], in2[7:0]);
+  half_adder_8 h3(product[23:16], c3, in1[7:0], in2[7:0]);
+  half_adder_8 h4(product[31:24], c4, in1[7:0], in2[7:0]);
+  
+  //Create the second carry bit
+  half_adder_8 h5(product[7:0], c5, in1[7:0], in2[7:0]);
+  half_adder_8 h6(product[15:8], c6, in1[7:0], in2[7:0]);
+  half_adder_8 h7(product[23:16], c7, in1[7:0], in2[7:0]);
+  
+  //Create the final carry bit
+  half_adder_8 h8(product[31:24], cout, in1[7:0], in2[7:0]);
+  
+endmodule
+
+//Design an 8-bit comparator
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a single bit, [7:0] result, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output result and cout values.
+module comparator_8(output [7:0] result,
+                     output cout,
+                     input [7:0] in1, in2,
+                     input cin);
+  wire c1, c2, c3, c4, c5, c6, c7;
+  wire [7:0] result;
+  
+  //Create the first carry bit
+  half_adder_8 h1(result[7:0], c1, in1[7:0], in2[7:0]);
+  half_adder_8 h2(result[15:8], c2, in1[7:0], in2
+Verilog compilation failed, error:  2
+Compilation output:  b'output_files/1180546_adder_8/1180546_adder_8.v:95: syntax error\nI give up.\n'

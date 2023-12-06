@@ -1,0 +1,427 @@
+adders/ripple_carry/prompt1_adder_16.v
+Prompt str:  //Design a 16-bit adder.
+//There are two 16 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 16 bit value, [15:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_16(output [15:0] sum,
+                      output cout,
+                      input [15:0] in1, in2,
+                      input cin);
+Loading LLM model...
+Initializing MCTS tree/LLM env...
+Episode not stated yet!
+Simulations per episode:  100
+********-- EPISODE-1--************
+Env seed:  391430
+BEAM SEARCH: ID TYPE:  <class 'torch.Tensor'>
+//Design a 16-bit adder.
+//There are two 16 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 16 bit value, [15:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_16(output [15:0] sum,
+                      output cout,
+                      input [15:0] in1, in2,
+                      input cin);
+  wire c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15;
+  wire [15:0] sum1, sum2, sum3, sum4, sum5, sum6, sum7, sum8, sum9, sum10, sum11, sum12, sum13, sum14, sum15;
+  full_adder FA1(sum1[0], c1, in1[0], in2[0], cin);
+  full_adder FA2(sum1[1], c2, in1[1], in2[1], c1);
+  full_adder FA3(sum1[2], c3, in1[2], in2[2], c2);
+  full_adder FA4(sum1[3], c4, in1[3], in2[3], c3);
+  full_adder FA5(sum1[4], c5, in1[4], in2[4], c4);
+  full_adder FA6(sum1[5], c6, in1[5], in2[5], c5);
+  full_adder FA7(sum1[6], c7, in1[6], in2[6], c6);
+  full_adder FA8(sum1[7], c8, in1[7], in2[7], c7);
+  full_adder FA9(sum1[8], c9, in1[8], in2[8], c8);
+  full_adder FA10(sum1[9], c10, in1[9], in2[9], c9);
+  full_adder FA11(sum1[10], c11, in1[10], in2[10], c10);
+  full_adder FA12(sum1[11], c12, in1[11], in2[11], c11);
+  full_adder FA13(sum1[12], c13, in1[12], in2[12], c12);
+  full_adder FA14(sum1[13], c14, in1[13], in2[13], c13);
+  full_adder FA15(sum1[14], c15, in1[14], in2[14], c14);
+  full_adder FA16(sum1[15], cout, in1[15], in2[15], c15);
+endmodule
+Path:  output_files/3096729_adder_16/3096729_simulation
+Verilog compilation failed, error:  17
+Compilation output:  b'output_files/3096729_adder_16/3096729_adder_16.v:11: error: Unknown module type: full_adder\noutput_files/3096729_adder_16/3096729_adder_16.v:12: error: Unknown module type: full_adder\noutput_files/3096729_adder_16/3096729_adder_16.v:13: error: Unknown module type: full_adder\noutput_files/3096729_adder_16/3096729_adder_16.v:14: error: Unknown module type: full_adder\noutput_files/3096729_adder_16/3096729_adder_16.v:15: error: Unknown module type: full_adder\noutput_files/3096729_adder_16/3096729_adder_16.v:16: error: Unknown module type: full_adder\noutput_files/3096729_adder_16/3096729_adder_16.v:17: error: Unknown module type: full_adder\noutput_files/3096729_adder_16/3096729_adder_16.v:18: error: Unknown module type: full_adder\noutput_files/3096729_adder_16/3096729_adder_16.v:19: error: Unknown module type: full_adder\noutput_files/3096729_adder_16/3096729_adder_16.v:20: error: Unknown module type: full_adder\noutput_files/3096729_adder_16/3096729_adder_16.v:21: error: Unknown module type: full_adder\noutput_files/3096729_adder_16/3096729_adder_16.v:22: error: Unknown module type: full_adder\noutput_files/3096729_adder_16/3096729_adder_16.v:23: error: Unknown module type: full_adder\noutput_files/3096729_adder_16/3096729_adder_16.v:24: error: Unknown module type: full_adder\noutput_files/3096729_adder_16/3096729_adder_16.v:25: error: Unknown module type: full_adder\noutput_files/3096729_adder_16/3096729_adder_16.v:26: error: Unknown module type: full_adder\n17 error(s) during elaboration.\n*** These modules were missing:\n        full_adder referenced 16 times.\n***\n'
+Continuing generation.
+BEAM SEARCH: ID TYPE:  <class 'torch.Tensor'>
+//Design a 16-bit adder.
+//There are two 16 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 16 bit value, [15:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_16(output [15:0] sum,
+                      output cout,
+                      input [15:0] in1, in2,
+                      input cin);
+  wire c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15;
+  wire [15:0] sum1, sum2, sum3, sum4, sum5, sum6, sum7, sum8, sum9, sum10, sum11, sum12, sum13, sum14, sum15;
+  full_adder FA1(sum1[0], c1, in1[0], in2[0], cin);
+  full_adder FA2(sum1[1], c2, in1[1], in2[1], c1);
+  full_adder FA3(sum1[2], c3, in1[2], in2[2], c2);
+  full_adder FA4(sum1[3], c4, in1[3], in2[3], c3);
+  full_adder FA5(sum1[4], c5, in1[4], in2[4], c4);
+  full_adder FA6(sum1[5], c6, in1[5], in2[5], c5);
+  full_adder FA7(sum1[6], c7, in1[6], in2[6], c6);
+  full_adder FA8(sum1[7], c8, in1[7], in2[7], c7);
+  full_adder FA9(sum1[8], c9, in1[8], in2[8], c8);
+  full_adder FA10(sum1[9], c10, in1[9], in2[9], c9);
+  full_adder FA11(sum1[10], c11, in1[10], in2[10], c10);
+  full_adder FA12(sum1[11], c12, in1[11], in2[11], c11);
+  full_adder FA13(sum1[12], c13, in1[12], in2[12], c12);
+  full_adder FA14(sum1[13], c14, in1[13], in2[13], c13);
+  full_adder FA15(sum1[14], c15, in1[14], in2[14], c14);
+  full_adder FA16(sum1[15], cout, in1[15], in2[15], c15);
+  assign sum = sum1;
+endmodule
+
+module full_adder(output wire sum,
+                  output wire cout,
+                  input wire in1,
+                  input wire in2,
+                  input wire cin);
+  wire temp1;
+  wire temp2;
+  wire temp3;
+  xor(sum, in1, in2, cin);
+  and(temp1,in1,in2);
+  and(temp2,in1,cin);
+  and(temp3,in2,cin);
+  or(cout,temp1,temp2,temp3);
+endmodule
+Path:  output_files/3096729_adder_16/3096729_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Simulation output:  b'Test 1 passed\nTest 2 passed\nTest 3 passed\nTest 4 passed\nTest 5 passed\nTest 6 passed\nTest 7 passed\nTest 8 passed\nTest 9 passed\nTest 9 passed\nall tests passed\n'
+All testbench tests passed!
+[ 1003 23067   257  1467    12  2545   751   263    13   198  1003  1858
+   389   734  1467  1643 17311   357   259    16   290   287    17     8
+   290   257  2060  3283    12   259  5128  1643    11   269   259    13
+   198  1003   464 23862   389   257  1467  1643  1988    11   685  1314
+    25    15    60  2160    11   290   257  2060  3283    12   448  5072
+  1643    11 42304    13   198  1003   464  8265   815 17624   262 17311
+   357   259    16   290   287    17     8   290   262   269   259  1643
+   284  7330   262  5072  2160   290 42304  3815    13   198 21412   751
+   263    62  1433     7 22915   685  1314    25    15    60  2160    11
+   198 50266 22915 42304    11   198 50266 15414   685  1314    25    15
+    60   287    16    11   287    17    11   198 50266 15414   269   259
+  1776   198 50286 21809   269    16    11   269    17    11   269    18
+    11   269    19    11   269    20    11   269    21    11   269    22
+    11   269    23    11   269    24    11   269   940    11   269  1157
+    11   269  1065    11   269  1485    11   269  1415    11   269  1314
+    26   198 50286 21809   685  1314    25    15    60  2160    16    11
+  2160    17    11  2160    18    11  2160    19    11  2160    20    11
+  2160    21    11  2160    22    11  2160    23    11  2160    24    11
+  2160   940    11  2160  1157    11  2160  1065    11  2160  1485    11
+  2160  1415    11  2160  1314    26   198 50286 12853    62 26676  9677
+    16     7 16345    16    58    15  4357   269    16    11   287    16
+    58    15  4357   287    17    58    15  4357   269   259  1776   198
+ 50286 12853    62 26676  9677    17     7 16345    16    58    16  4357
+   269    17    11   287    16    58    16  4357   287    17    58    16
+  4357   269    16  1776   198 50286 12853    62 26676  9677    18     7
+ 16345    16    58    17  4357   269    18    11   287    16    58    17
+  4357   287    17    58    17  4357   269    17  1776   198 50286 12853
+    62 26676  9677    19     7 16345    16    58    18  4357   269    19
+    11   287    16    58    18  4357   287    17    58    18  4357   269
+    18  1776   198 50286 12853    62 26676  9677    20     7 16345    16
+    58    19  4357   269    20    11   287    16    58    19  4357   287
+    17    58    19  4357   269    19  1776   198 50286 12853    62 26676
+  9677    21     7 16345    16    58    20  4357   269    21    11   287
+    16    58    20  4357   287    17    58    20  4357   269    20  1776
+   198 50286 12853    62 26676  9677    22     7 16345    16    58    21
+  4357   269    22    11   287    16    58    21  4357   287    17    58
+    21  4357   269    21  1776   198 50286 12853    62 26676  9677    23
+     7 16345    16    58    22  4357   269    23    11   287    16    58
+    22  4357   287    17    58    22  4357   269    22  1776   198 50286
+ 12853    62 26676  9677    24     7 16345    16    58    23  4357   269
+    24    11   287    16    58    23  4357   287    17    58    23  4357
+   269    23  1776   198 50286 12853    62 26676  9677   940     7 16345
+    16    58    24  4357   269   940    11   287    16    58    24  4357
+   287    17    58    24  4357   269    24  1776   198 50286 12853    62
+ 26676  9677  1157     7 16345    16    58   940  4357   269  1157    11
+   287    16    58   940  4357   287    17    58   940  4357   269   940
+  1776   198 50286 12853    62 26676  9677  1065     7 16345    16    58
+  1157  4357   269  1065    11   287    16    58  1157  4357   287    17
+    58  1157  4357   269  1157  1776   198 50286 12853    62 26676  9677
+  1485     7 16345    16    58  1065  4357   269  1485    11   287    16
+    58  1065  4357   287    17    58  1065  4357   269  1065  1776   198
+ 50286 12853    62 26676  9677  1415     7 16345    16    58  1485  4357
+   269  1415    11   287    16    58  1485  4357   287    17    58  1485
+  4357   269  1485  1776   198 50286 12853    62 26676  9677  1314     7
+ 16345    16    58  1415  4357   269  1314    11   287    16    58  1415
+  4357   287    17    58  1415  4357   269  1415  1776   198 50286 12853
+    62 26676  9677  1433     7 16345    16    58  1314  4357 42304    11
+   287    16    58  1314  4357   287    17    58  1314  4357   269  1314
+  1776   198 50286   562   570  2160   796  2160    16    26   198   437
+ 21412   198   198 21412  1336    62 26676     7 22915  6503  2160    11
+   198 50270 22915  6503 42304    11   198 50270 15414  6503   287    16
+    11   198 50270 15414  6503   287    17    11   198 50270 15414  6503
+   269   259  1776   198 50286 21809 20218    16    26   198 50286 21809
+ 20218    17    26   198 50286 21809 20218    18    26   198 50286    87
+   273     7 16345    11   287    16    11   287    17    11   269   259
+  1776   198 50286   392     7 29510    16    11   259    16    11   259
+    17  1776   198 50286   392     7 29510    17    11   259    16    11
+ 17879  1776   198 50286   392     7 29510    18    11   259    17    11
+ 17879  1776   198 50286   273     7    66   448    11 29510    16    11
+ 29510    17    11 29510    18  1776   198   437 21412     2]
+Running getPromptScore: 
+adder_16
+output_files/3096729_adder_16/synth_script.sh
+Running bash in x seconds:  0.826201
+
+Currently displaying area/delay scores for  adder_16  module.
+Area of the chip design is:  186.2
+Delay value for the chip design is:  743.67
+Product:  138471.354
+Score (1/chip area):  0.5
+Beam token ids:  [1003, 23067, 257, 1467, 12, 2545, 751, 263, 13, 198, 1003, 1858, 389, 734, 1467, 1643, 17311, 357, 259, 16, 290, 287, 17, 8, 290, 257, 2060, 3283, 12, 259, 5128, 1643, 11, 269, 259, 13, 198, 1003, 464, 23862, 389, 257, 1467, 1643, 1988, 11, 685, 1314, 25, 15, 60, 2160, 11, 290, 257, 2060, 3283, 12, 448, 5072, 1643, 11, 42304, 13, 198, 1003, 464, 8265, 815, 17624, 262, 17311, 357, 259, 16, 290, 287, 17, 8, 290, 262, 269, 259, 1643, 284, 7330, 262, 5072, 2160, 290, 42304, 3815, 13, 198, 21412, 751, 263, 62, 1433, 7, 22915, 685, 1314, 25, 15, 60, 2160, 11, 198, 50266, 22915, 42304, 11, 198, 50266, 15414, 685, 1314, 25, 15, 60, 287, 16, 11, 287, 17, 11, 198, 50266, 15414, 269, 259, 1776, 198, 50286, 21809, 269, 16, 11, 269, 17, 11, 269, 18, 11, 269, 19, 11, 269, 20, 11, 269, 21, 11, 269, 22, 11, 269, 23, 11, 269, 24, 11, 269, 940, 11, 269, 1157, 11, 269, 1065, 11, 269, 1485, 11, 269, 1415, 11, 269, 1314, 26, 198, 50286, 21809, 685, 1314, 25, 15, 60, 2160, 16, 11, 2160, 17, 11, 2160, 18, 11, 2160, 19, 11, 2160, 20, 11, 2160, 21, 11, 2160, 22, 11, 2160, 23, 11, 2160, 24, 11, 2160, 940, 11, 2160, 1157, 11, 2160, 1065, 11, 2160, 1485, 11, 2160, 1415, 11, 2160, 1314, 26, 198, 50286, 12853, 62, 26676, 9677, 16, 7, 16345, 16, 58, 15, 4357, 269, 16, 11, 287, 16, 58, 15, 4357, 287, 17, 58, 15, 4357, 269, 259, 1776, 198, 50286, 12853, 62, 26676, 9677, 17, 7, 16345, 16, 58, 16, 4357, 269, 17, 11, 287, 16, 58, 16, 4357, 287, 17, 58, 16, 4357, 269, 16, 1776, 198, 50286, 12853, 62, 26676, 9677, 18, 7, 16345, 16, 58, 17, 4357, 269, 18, 11, 287, 16, 58, 17, 4357, 287, 17, 58, 17, 4357, 269, 17, 1776, 198, 50286, 12853, 62, 26676, 9677, 19, 7, 16345, 16, 58, 18, 4357, 269, 19, 11, 287, 16, 58, 18, 4357, 287, 17, 58, 18, 4357, 269, 18, 1776, 198, 50286, 12853, 62, 26676, 9677, 20, 7, 16345, 16, 58, 19, 4357, 269, 20, 11, 287, 16, 58, 19, 4357, 287, 17, 58, 19, 4357, 269, 19, 1776, 198, 50286, 12853, 62, 26676, 9677, 21, 7, 16345, 16, 58, 20, 4357, 269, 21, 11, 287, 16, 58, 20, 4357, 287, 17, 58, 20, 4357, 269, 20, 1776, 198, 50286, 12853, 62, 26676, 9677, 22, 7, 16345, 16, 58, 21, 4357, 269, 22, 11, 287, 16, 58, 21, 4357, 287, 17, 58, 21, 4357, 269, 21, 1776, 198, 50286, 12853, 62, 26676, 9677, 23, 7, 16345, 16, 58, 22, 4357, 269, 23, 11, 287, 16, 58, 22, 4357, 287, 17, 58, 22, 4357, 269, 22, 1776, 198, 50286, 12853, 62, 26676, 9677, 24, 7, 16345, 16, 58, 23, 4357, 269, 24, 11, 287, 16, 58, 23, 4357, 287, 17, 58, 23, 4357, 269, 23, 1776, 198, 50286, 12853, 62, 26676, 9677, 940, 7, 16345, 16, 58, 24, 4357, 269, 940, 11, 287, 16, 58, 24, 4357, 287, 17, 58, 24, 4357, 269, 24, 1776, 198, 50286, 12853, 62, 26676, 9677, 1157, 7, 16345, 16, 58, 940, 4357, 269, 1157, 11, 287, 16, 58, 940, 4357, 287, 17, 58, 940, 4357, 269, 940, 1776, 198, 50286, 12853, 62, 26676, 9677, 1065, 7, 16345, 16, 58, 1157, 4357, 269, 1065, 11, 287, 16, 58, 1157, 4357, 287, 17, 58, 1157, 4357, 269, 1157, 1776, 198, 50286, 12853, 62, 26676, 9677, 1485, 7, 16345, 16, 58, 1065, 4357, 269, 1485, 11, 287, 16, 58, 1065, 4357, 287, 17, 58, 1065, 4357, 269, 1065, 1776, 198, 50286, 12853, 62, 26676, 9677, 1415, 7, 16345, 16, 58, 1485, 4357, 269, 1415, 11, 287, 16, 58, 1485, 4357, 287, 17, 58, 1485, 4357, 269, 1485, 1776, 198, 50286, 12853, 62, 26676, 9677, 1314, 7, 16345, 16, 58, 1415, 4357, 269, 1314, 11, 287, 16, 58, 1415, 4357, 287, 17, 58, 1415, 4357, 269, 1415, 1776, 198, 50286, 12853, 62, 26676, 9677, 1433, 7, 16345, 16, 58, 1314, 4357, 42304, 11, 287, 16, 58, 1314, 4357, 287, 17, 58, 1314, 4357, 269, 1314, 1776, 198, 50286, 562, 570, 2160, 796, 2160, 16, 26, 198, 437, 21412, 198, 198, 21412, 1336, 62, 26676, 7, 22915, 6503, 2160, 11, 198, 50270, 22915, 6503, 42304, 11, 198, 50270, 15414, 6503, 287, 16, 11, 198, 50270, 15414, 6503, 287, 17, 11, 198, 50270, 15414, 6503, 269, 259, 1776, 198, 50286, 21809, 20218, 16, 26, 198, 50286, 21809, 20218, 17, 26, 198, 50286, 21809, 20218, 18, 26, 198, 50286, 87, 273, 7, 16345, 11, 287, 16, 11, 287, 17, 11, 269, 259, 1776, 198, 50286, 392, 7, 29510, 16, 11, 259, 16, 11, 259, 17, 1776, 198, 50286, 392, 7, 29510, 17, 11, 259, 16, 11, 17879, 1776, 198, 50286, 392, 7, 29510, 18, 11, 259, 17, 11, 17879, 1776, 198, 50286, 273, 7, 66, 448, 11, 29510, 16, 11, 29510, 17, 11, 29510, 18, 1776, 198, 437, 21412, 2]
+Beam results:  //Design a 16-bit adder.
+//There are two 16 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 16 bit value, [15:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_16(output [15:0] sum,
+                      output cout,
+                      input [15:0] in1, in2,
+                      input cin);
+  wire c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15;
+  wire [15:0] sum1, sum2, sum3, sum4, sum5, sum6, sum7, sum8, sum9, sum10, sum11, sum12, sum13, sum14, sum15;
+  full_adder FA1(sum1[0], c1, in1[0], in2[0], cin);
+  full_adder FA2(sum1[1], c2, in1[1], in2[1], c1);
+  full_adder FA3(sum1[2], c3, in1[2], in2[2], c2);
+  full_adder FA4(sum1[3], c4, in1[3], in2[3], c3);
+  full_adder FA5(sum1[4], c5, in1[4], in2[4], c4);
+  full_adder FA6(sum1[5], c6, in1[5], in2[5], c5);
+  full_adder FA7(sum1[6], c7, in1[6], in2[6], c6);
+  full_adder FA8(sum1[7], c8, in1[7], in2[7], c7);
+  full_adder FA9(sum1[8], c9, in1[8], in2[8], c8);
+  full_adder FA10(sum1[9], c10, in1[9], in2[9], c9);
+  full_adder FA11(sum1[10], c11, in1[10], in2[10], c10);
+  full_adder FA12(sum1[11], c12, in1[11], in2[11], c11);
+  full_adder FA13(sum1[12], c13, in1[12], in2[12], c12);
+  full_adder FA14(sum1[13], c14, in1[13], in2[13], c13);
+  full_adder FA15(sum1[14], c15, in1[14], in2[14], c14);
+  full_adder FA16(sum1[15], cout, in1[15], in2[15], c15);
+  assign sum = sum1;
+endmodule
+
+module full_adder(output wire sum,
+                  output wire cout,
+                  input wire in1,
+                  input wire in2,
+                  input wire cin);
+  wire temp1;
+  wire temp2;
+  wire temp3;
+  xor(sum, in1, in2, cin);
+  and(temp1,in1,in2);
+  and(temp2,in1,cin);
+  and(temp3,in2,cin);
+  or(cout,temp1,temp2,temp3);
+endmodule
+Env seed:  871299
+BEAM SEARCH: ID TYPE:  <class 'torch.Tensor'>
+//Design a 16-bit adder.
+//There are two 16 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 16 bit value, [15:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_16(output [15:0] sum,
+                      output cout,
+                      input [15:0] in1, in2,
+                      input cin);
+  wire c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15;
+  wire [15:0] sum1, sum2, sum3, sum4, sum5, sum6, sum7, sum8, sum9, sum10, sum11, sum12, sum13, sum14, sum15;
+  full_adder FA1(sum1[0], c1, in1[0], in2[0], cin);
+  full_adder FA2(sum1[1], c2, in1[1], in2[1], c1);
+  full_adder FA3(sum1[2], c3, in1[2], in2[2], c2);
+  full_adder FA4(sum1[3], c4, in1[3], in2[3], c3);
+  full_adder FA5(sum1[4], c5, in1[4], in2[4], c4);
+  full_adder FA6(sum1[5], c6, in1[5], in2[5], c5);
+  full_adder FA7(sum1[6], c7, in1[6], in2[6], c6);
+  full_adder FA8(sum1[7], c8, in1[7], in2[7], c7);
+  full_adder FA9(sum1[8], c9, in1[8], in2[8], c8);
+  full_adder FA10(sum1[9], c10, in1[9], in2[9], c9);
+  full_adder FA11(sum1[10], c11, in1[10], in2[10], c10);
+  full_adder FA12(sum1[11], c12, in1[11], in2[11], c11);
+  full_adder FA13(sum1[12], c13, in1[12], in2[12], c12);
+  full_adder FA14(sum1[13], c14, in1[13], in2[13], c13);
+  full_adder FA15(sum1[14], c15, in1[14], in2[14], c14);
+  full_adder FA16(sum1[15], cout, in1[15], in2[15], c15);
+endmodule
+Path:  output_files/3096729_adder_16/3096729_simulation
+Verilog compilation failed, error:  17
+Compilation output:  b'output_files/3096729_adder_16/3096729_adder_16.v:11: error: Unknown module type: full_adder\noutput_files/3096729_adder_16/3096729_adder_16.v:12: error: Unknown module type: full_adder\noutput_files/3096729_adder_16/3096729_adder_16.v:13: error: Unknown module type: full_adder\noutput_files/3096729_adder_16/3096729_adder_16.v:14: error: Unknown module type: full_adder\noutput_files/3096729_adder_16/3096729_adder_16.v:15: error: Unknown module type: full_adder\noutput_files/3096729_adder_16/3096729_adder_16.v:16: error: Unknown module type: full_adder\noutput_files/3096729_adder_16/3096729_adder_16.v:17: error: Unknown module type: full_adder\noutput_files/3096729_adder_16/3096729_adder_16.v:18: error: Unknown module type: full_adder\noutput_files/3096729_adder_16/3096729_adder_16.v:19: error: Unknown module type: full_adder\noutput_files/3096729_adder_16/3096729_adder_16.v:20: error: Unknown module type: full_adder\noutput_files/3096729_adder_16/3096729_adder_16.v:21: error: Unknown module type: full_adder\noutput_files/3096729_adder_16/3096729_adder_16.v:22: error: Unknown module type: full_adder\noutput_files/3096729_adder_16/3096729_adder_16.v:23: error: Unknown module type: full_adder\noutput_files/3096729_adder_16/3096729_adder_16.v:24: error: Unknown module type: full_adder\noutput_files/3096729_adder_16/3096729_adder_16.v:25: error: Unknown module type: full_adder\noutput_files/3096729_adder_16/3096729_adder_16.v:26: error: Unknown module type: full_adder\n17 error(s) during elaboration.\n*** These modules were missing:\n        full_adder referenced 16 times.\n***\n'
+Continuing generation.
+BEAM SEARCH: ID TYPE:  <class 'torch.Tensor'>
+//Design a 16-bit adder.
+//There are two 16 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 16 bit value, [15:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_16(output [15:0] sum,
+                      output cout,
+                      input [15:0] in1, in2,
+                      input cin);
+  wire c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15;
+  wire [15:0] sum1, sum2, sum3, sum4, sum5, sum6, sum7, sum8, sum9, sum10, sum11, sum12, sum13, sum14, sum15;
+  full_adder FA1(sum1[0], c1, in1[0], in2[0], cin);
+  full_adder FA2(sum1[1], c2, in1[1], in2[1], c1);
+  full_adder FA3(sum1[2], c3, in1[2], in2[2], c2);
+  full_adder FA4(sum1[3], c4, in1[3], in2[3], c3);
+  full_adder FA5(sum1[4], c5, in1[4], in2[4], c4);
+  full_adder FA6(sum1[5], c6, in1[5], in2[5], c5);
+  full_adder FA7(sum1[6], c7, in1[6], in2[6], c6);
+  full_adder FA8(sum1[7], c8, in1[7], in2[7], c7);
+  full_adder FA9(sum1[8], c9, in1[8], in2[8], c8);
+  full_adder FA10(sum1[9], c10, in1[9], in2[9], c9);
+  full_adder FA11(sum1[10], c11, in1[10], in2[10], c10);
+  full_adder FA12(sum1[11], c12, in1[11], in2[11], c11);
+  full_adder FA13(sum1[12], c13, in1[12], in2[12], c12);
+  full_adder FA14(sum1[13], c14, in1[13], in2[13], c13);
+  full_adder FA15(sum1[14], c15, in1[14], in2[14], c14);
+  full_adder FA16(sum1[15], cout, in1[15], in2[15], c15);
+  assign sum = sum1;
+endmodule
+
+module full_adder(output wire sum,
+                  output wire cout,
+                  input wire in1,
+                  input wire in2,
+                  input wire cin);
+  wire temp1;
+  wire temp2;
+  wire temp3;
+  xor(sum, in1, in2, cin);
+  and(temp1,in1,in2);
+  and(temp2,in1,cin);
+  and(temp3,in2,cin);
+  or(cout,temp1,temp2,temp3);
+endmodule
+Path:  output_files/3096729_adder_16/3096729_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Simulation output:  b'Test 1 passed\nTest 2 passed\nTest 3 passed\nTest 4 passed\nTest 5 passed\nTest 6 passed\nTest 7 passed\nTest 8 passed\nTest 9 passed\nTest 9 passed\nall tests passed\n'
+All testbench tests passed!
+[ 1003 23067   257  1467    12  2545   751   263    13   198  1003  1858
+   389   734  1467  1643 17311   357   259    16   290   287    17     8
+   290   257  2060  3283    12   259  5128  1643    11   269   259    13
+   198  1003   464 23862   389   257  1467  1643  1988    11   685  1314
+    25    15    60  2160    11   290   257  2060  3283    12   448  5072
+  1643    11 42304    13   198  1003   464  8265   815 17624   262 17311
+   357   259    16   290   287    17     8   290   262   269   259  1643
+   284  7330   262  5072  2160   290 42304  3815    13   198 21412   751
+   263    62  1433     7 22915   685  1314    25    15    60  2160    11
+   198 50266 22915 42304    11   198 50266 15414   685  1314    25    15
+    60   287    16    11   287    17    11   198 50266 15414   269   259
+  1776   198 50286 21809   269    16    11   269    17    11   269    18
+    11   269    19    11   269    20    11   269    21    11   269    22
+    11   269    23    11   269    24    11   269   940    11   269  1157
+    11   269  1065    11   269  1485    11   269  1415    11   269  1314
+    26   198 50286 21809   685  1314    25    15    60  2160    16    11
+  2160    17    11  2160    18    11  2160    19    11  2160    20    11
+  2160    21    11  2160    22    11  2160    23    11  2160    24    11
+  2160   940    11  2160  1157    11  2160  1065    11  2160  1485    11
+  2160  1415    11  2160  1314    26   198 50286 12853    62 26676  9677
+    16     7 16345    16    58    15  4357   269    16    11   287    16
+    58    15  4357   287    17    58    15  4357   269   259  1776   198
+ 50286 12853    62 26676  9677    17     7 16345    16    58    16  4357
+   269    17    11   287    16    58    16  4357   287    17    58    16
+  4357   269    16  1776   198 50286 12853    62 26676  9677    18     7
+ 16345    16    58    17  4357   269    18    11   287    16    58    17
+  4357   287    17    58    17  4357   269    17  1776   198 50286 12853
+    62 26676  9677    19     7 16345    16    58    18  4357   269    19
+    11   287    16    58    18  4357   287    17    58    18  4357   269
+    18  1776   198 50286 12853    62 26676  9677    20     7 16345    16
+    58    19  4357   269    20    11   287    16    58    19  4357   287
+    17    58    19  4357   269    19  1776   198 50286 12853    62 26676
+  9677    21     7 16345    16    58    20  4357   269    21    11   287
+    16    58    20  4357   287    17    58    20  4357   269    20  1776
+   198 50286 12853    62 26676  9677    22     7 16345    16    58    21
+  4357   269    22    11   287    16    58    21  4357   287    17    58
+    21  4357   269    21  1776   198 50286 12853    62 26676  9677    23
+     7 16345    16    58    22  4357   269    23    11   287    16    58
+    22  4357   287    17    58    22  4357   269    22  1776   198 50286
+ 12853    62 26676  9677    24     7 16345    16    58    23  4357   269
+    24    11   287    16    58    23  4357   287    17    58    23  4357
+   269    23  1776   198 50286 12853    62 26676  9677   940     7 16345
+    16    58    24  4357   269   940    11   287    16    58    24  4357
+   287    17    58    24  4357   269    24  1776   198 50286 12853    62
+ 26676  9677  1157     7 16345    16    58   940  4357   269  1157    11
+   287    16    58   940  4357   287    17    58   940  4357   269   940
+  1776   198 50286 12853    62 26676  9677  1065     7 16345    16    58
+  1157  4357   269  1065    11   287    16    58  1157  4357   287    17
+    58  1157  4357   269  1157  1776   198 50286 12853    62 26676  9677
+  1485     7 16345    16    58  1065  4357   269  1485    11   287    16
+    58  1065  4357   287    17    58  1065  4357   269  1065  1776   198
+ 50286 12853    62 26676  9677  1415     7 16345    16    58  1485  4357
+   269  1415    11   287    16    58  1485  4357   287    17    58  1485
+  4357   269  1485  1776   198 50286 12853    62 26676  9677  1314     7
+ 16345    16    58  1415  4357   269  1314    11   287    16    58  1415
+  4357   287    17    58  1415  4357   269  1415  1776   198 50286 12853
+    62 26676  9677  1433     7 16345    16    58  1314  4357 42304    11
+   287    16    58  1314  4357   287    17    58  1314  4357   269  1314
+  1776   198 50286   562   570  2160   796  2160    16    26   198   437
+ 21412   198   198 21412  1336    62 26676     7 22915  6503  2160    11
+   198 50270 22915  6503 42304    11   198 50270 15414  6503   287    16
+    11   198 50270 15414  6503   287    17    11   198 50270 15414  6503
+   269   259  1776   198 50286 21809 20218    16    26   198 50286 21809
+ 20218    17    26   198 50286 21809 20218    18    26   198 50286    87
+   273     7 16345    11   287    16    11   287    17    11   269   259
+  1776   198 50286   392     7 29510    16    11   259    16    11   259
+    17  1776   198 50286   392     7 29510    17    11   259    16    11
+ 17879  1776   198 50286   392     7 29510    18    11   259    17    11
+ 17879  1776   198 50286   273     7    66   448    11 29510    16    11
+ 29510    17    11 29510    18  1776   198   437 21412     2]
+Running getPromptScore: 
+adder_16
+output_files/3096729_adder_16/synth_script.sh
+Running bash in x seconds:  0.823721
+
+Currently displaying area/delay scores for  adder_16  module.
+Area of the chip design is:  186.2
+Delay value for the chip design is:  743.67
+Product:  138471.354
+Score (1/chip area):  0.5
+Beam token ids:  [1003, 23067, 257, 1467, 12, 2545, 751, 263, 13, 198, 1003, 1858, 389, 734, 1467, 1643, 17311, 357, 259, 16, 290, 287, 17, 8, 290, 257, 2060, 3283, 12, 259, 5128, 1643, 11, 269, 259, 13, 198, 1003, 464, 23862, 389, 257, 1467, 1643, 1988, 11, 685, 1314, 25, 15, 60, 2160, 11, 290, 257, 2060, 3283, 12, 448, 5072, 1643, 11, 42304, 13, 198, 1003, 464, 8265, 815, 17624, 262, 17311, 357, 259, 16, 290, 287, 17, 8, 290, 262, 269, 259, 1643, 284, 7330, 262, 5072, 2160, 290, 42304, 3815, 13, 198, 21412, 751, 263, 62, 1433, 7, 22915, 685, 1314, 25, 15, 60, 2160, 11, 198, 50266, 22915, 42304, 11, 198, 50266, 15414, 685, 1314, 25, 15, 60, 287, 16, 11, 287, 17, 11, 198, 50266, 15414, 269, 259, 1776, 198, 50286, 21809, 269, 16, 11, 269, 17, 11, 269, 18, 11, 269, 19, 11, 269, 20, 11, 269, 21, 11, 269, 22, 11, 269, 23, 11, 269, 24, 11, 269, 940, 11, 269, 1157, 11, 269, 1065, 11, 269, 1485, 11, 269, 1415, 11, 269, 1314, 26, 198, 50286, 21809, 685, 1314, 25, 15, 60, 2160, 16, 11, 2160, 17, 11, 2160, 18, 11, 2160, 19, 11, 2160, 20, 11, 2160, 21, 11, 2160, 22, 11, 2160, 23, 11, 2160, 24, 11, 2160, 940, 11, 2160, 1157, 11, 2160, 1065, 11, 2160, 1485, 11, 2160, 1415, 11, 2160, 1314, 26, 198, 50286, 12853, 62, 26676, 9677, 16, 7, 16345, 16, 58, 15, 4357, 269, 16, 11, 287, 16, 58, 15, 4357, 287, 17, 58, 15, 4357, 269, 259, 1776, 198, 50286, 12853, 62, 26676, 9677, 17, 7, 16345, 16, 58, 16, 4357, 269, 17, 11, 287, 16, 58, 16, 4357, 287, 17, 58, 16, 4357, 269, 16, 1776, 198, 50286, 12853, 62, 26676, 9677, 18, 7, 16345, 16, 58, 17, 4357, 269, 18, 11, 287, 16, 58, 17, 4357, 287, 17, 58, 17, 4357, 269, 17, 1776, 198, 50286, 12853, 62, 26676, 9677, 19, 7, 16345, 16, 58, 18, 4357, 269, 19, 11, 287, 16, 58, 18, 4357, 287, 17, 58, 18, 4357, 269, 18, 1776, 198, 50286, 12853, 62, 26676, 9677, 20, 7, 16345, 16, 58, 19, 4357, 269, 20, 11, 287, 16, 58, 19, 4357, 287, 17, 58, 19, 4357, 269, 19, 1776, 198, 50286, 12853, 62, 26676, 9677, 21, 7, 16345, 16, 58, 20, 4357, 269, 21, 11, 287, 16, 58, 20, 4357, 287, 17, 58, 20, 4357, 269, 20, 1776, 198, 50286, 12853, 62, 26676, 9677, 22, 7, 16345, 16, 58, 21, 4357, 269, 22, 11, 287, 16, 58, 21, 4357, 287, 17, 58, 21, 4357, 269, 21, 1776, 198, 50286, 12853, 62, 26676, 9677, 23, 7, 16345, 16, 58, 22, 4357, 269, 23, 11, 287, 16, 58, 22, 4357, 287, 17, 58, 22, 4357, 269, 22, 1776, 198, 50286, 12853, 62, 26676, 9677, 24, 7, 16345, 16, 58, 23, 4357, 269, 24, 11, 287, 16, 58, 23, 4357, 287, 17, 58, 23, 4357, 269, 23, 1776, 198, 50286, 12853, 62, 26676, 9677, 940, 7, 16345, 16, 58, 24, 4357, 269, 940, 11, 287, 16, 58, 24, 4357, 287, 17, 58, 24, 4357, 269, 24, 1776, 198, 50286, 12853, 62, 26676, 9677, 1157, 7, 16345, 16, 58, 940, 4357, 269, 1157, 11, 287, 16, 58, 940, 4357, 287, 17, 58, 940, 4357, 269, 940, 1776, 198, 50286, 12853, 62, 26676, 9677, 1065, 7, 16345, 16, 58, 1157, 4357, 269, 1065, 11, 287, 16, 58, 1157, 4357, 287, 17, 58, 1157, 4357, 269, 1157, 1776, 198, 50286, 12853, 62, 26676, 9677, 1485, 7, 16345, 16, 58, 1065, 4357, 269, 1485, 11, 287, 16, 58, 1065, 4357, 287, 17, 58, 1065, 4357, 269, 1065, 1776, 198, 50286, 12853, 62, 26676, 9677, 1415, 7, 16345, 16, 58, 1485, 4357, 269, 1415, 11, 287, 16, 58, 1485, 4357, 287, 17, 58, 1485, 4357, 269, 1485, 1776, 198, 50286, 12853, 62, 26676, 9677, 1314, 7, 16345, 16, 58, 1415, 4357, 269, 1314, 11, 287, 16, 58, 1415, 4357, 287, 17, 58, 1415, 4357, 269, 1415, 1776, 198, 50286, 12853, 62, 26676, 9677, 1433, 7, 16345, 16, 58, 1314, 4357, 42304, 11, 287, 16, 58, 1314, 4357, 287, 17, 58, 1314, 4357, 269, 1314, 1776, 198, 50286, 562, 570, 2160, 796, 2160, 16, 26, 198, 437, 21412, 198, 198, 21412, 1336, 62, 26676, 7, 22915, 6503, 2160, 11, 198, 50270, 22915, 6503, 42304, 11, 198, 50270, 15414, 6503, 287, 16, 11, 198, 50270, 15414, 6503, 287, 17, 11, 198, 50270, 15414, 6503, 269, 259, 1776, 198, 50286, 21809, 20218, 16, 26, 198, 50286, 21809, 20218, 17, 26, 198, 50286, 21809, 20218, 18, 26, 198, 50286, 87, 273, 7, 16345, 11, 287, 16, 11, 287, 17, 11, 269, 259, 1776, 198, 50286, 392, 7, 29510, 16, 11, 259, 16, 11, 259, 17, 1776, 198, 50286, 392, 7, 29510, 17, 11, 259, 16, 11, 17879, 1776, 198, 50286, 392, 7, 29510, 18, 11, 259, 17, 11, 17879, 1776, 198, 50286, 273, 7, 66, 448, 11, 29510, 16, 11, 29510, 17, 11, 29510, 18, 1776, 198, 437, 21412, 2]
+Beam results:  //Design a 16-bit adder.
+//There are two 16 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 16 bit value, [15:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_16(output [15:0] sum,
+                      output cout,
+                      input [15:0] in1, in2,
+                      input cin);
+  wire c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15;
+  wire [15:0] sum1, sum2, sum3, sum4, sum5, sum6, sum7, sum8, sum9, sum10, sum11, sum12, sum13, sum14, sum15;
+  full_adder FA1(sum1[0], c1, in1[0], in2[0], cin);
+  full_adder FA2(sum1[1], c2, in1[1], in2[1], c1);
+  full_adder FA3(sum1[2], c3, in1[2], in2[2], c2);
+  full_adder FA4(sum1[3], c4, in1[3], in2[3], c3);
+  full_adder FA5(sum1[4], c5, in1[4], in2[4], c4);
+  full_adder FA6(sum1[5], c6, in1[5], in2[5], c5);
+  full_adder FA7(sum1[6], c7, in1[6], in2[6], c6);
+  full_adder FA8(sum1[7], c8, in1[7], in2[7], c7);
+  full_adder FA9(sum1[8], c9, in1[8], in2[8], c8);
+  full_adder FA10(sum1[9], c10, in1[9], in2[9], c9);
+  full_adder FA11(sum1[10], c11, in1[10], in2[10], c10);
+  full_adder FA12(sum1[11], c12, in1[11], in2[11], c11);
+  full_adder FA13(sum1[12], c13, in1[12], in2[12], c12);
+  full_adder FA14(sum1[13], c14, in1[13], in2[13], c13);
+  full_adder FA15(sum1[14], c15, in1[14], in2[14], c14);
+  full_adder FA16(sum1[15], cout, in1[15], in2[15], c15);
+  assign sum = sum1;
+endmodule
+
+module full_adder(output wire sum,
+                  output wire cout,
+                  input wire in1,
+                  input wire in2,
+                  input wire cin);
+  wire temp1;
+  wire temp2;
+  wire temp3;
+  xor(sum, in1, in2, cin);
+  and(temp1,in1,in2);
+  and(temp2,in1,cin);
+  and(temp3,in2,cin);
+  or(cout,temp1,temp2,temp3);
+endmodule
+Env seed:  699092

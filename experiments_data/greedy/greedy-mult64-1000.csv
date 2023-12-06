@@ -1,0 +1,309 @@
+Area,Delay,Score,Current Run,Episode,Verilog
+N/A,N/A,-0.1,0,0,"//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule"
+N/A,N/A,-0.1,1,0,"//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule"
+N/A,N/A,-0.1,2,0,"//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule"
+N/A,N/A,-0.1,3,0,"//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule"
+N/A,N/A,-0.1,4,0,"//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule"
+N/A,N/A,-0.1,5,0,"//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule"
+N/A,N/A,-0.1,6,0,"//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule"
+N/A,N/A,-0.1,7,0,"//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule"
+N/A,N/A,-0.1,8,0,"//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule"
+N/A,N/A,-0.1,9,0,"//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule"
+N/A,N/A,-0.1,10,0,"//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule"
+N/A,N/A,-0.1,11,0,"//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule"
+N/A,N/A,-0.1,12,0,"//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule"
+N/A,N/A,-0.1,13,0,"//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule"
+N/A,N/A,-0.1,14,0,"//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule"
+N/A,N/A,-0.1,15,0,"//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule"
+N/A,N/A,-0.1,16,0,"//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule"
+N/A,N/A,-0.1,17,0,"//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule"
+N/A,N/A,-0.1,18,0,"//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule"
+N/A,N/A,-0.1,19,0,"//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule"
+N/A,N/A,-0.1,20,0,"//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule"
+N/A,N/A,-0.1,21,0,"//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule"
+N/A,N/A,-0.1,22,0,"//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule"
+N/A,N/A,-0.1,23,0,"//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule"
+N/A,N/A,-0.1,24,0,"//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule"
+N/A,N/A,-0.1,25,0,"//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule"
+N/A,N/A,-0.1,26,0,"//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule"
+N/A,N/A,-0.1,27,0,"//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule"

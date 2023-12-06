@@ -1,0 +1,4176 @@
+Area,Delay,Score,Current Run,Episode,Verilog
+N/A,N/A,-1,2.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+  wire [63:0] sum;
+  wire cout;
+  wire [63:0] in1;
+  wire [63:0] in2;
+  wire cin;
+  wire [63:0] carry;
+  vadd v1(sum[0], in1[0], in2[0], cin);
+  vadd v2(sum[1], in1[1], in2[1], carry[0]);
+  vadd v3(sum[2], in1[2], in2[2], carry[1]);
+  vadd v4(sum[3], in1[3], in2[3], carry[2]);
+  vadd v5(sum[4], in1[4], in2[4], carry[3]);
+  vadd v6(sum[5], in1[5], in2[5], carry[4]);
+  vadd v7(sum[6], in1[6], in2[6], carry[5]);
+  vadd v8(sum[7], in1[7], in2[7], carry[6]);
+  vadd v9(sum[8], in1[8], in2[8], carry[7]);
+  vadd v10(sum[9], in1[9], in2[9], carry[8]);
+  vadd v11(sum[10], in1[10], in2[10], carry[9]);
+  vadd v12(sum[11], in1[11], in2[11], carry[10]);
+  vadd v13(sum[12], in1[12], in2[12], carry[11]);
+  vadd v14(sum[13], in1[13], in2[13], carry[12]);
+  vadd v15(sum[14], in1[14], in2[14], carry[13]);
+  vadd v16(sum[15], in1[15], in2[15], carry[14]);
+  vadd v17(sum[16], in1[16], in2[16], carry[15]);
+  vadd v18(sum[17], in1[17], in2[17], carry[16]);
+  vadd v19(sum[18], in1[18], in2[18], carry[17]);
+  vadd v20(sum[19], in1[19], in2[19], carry[18]);
+  vadd v21(sum[20], in1[20], in2[20], carry[19]);
+  vadd v22(sum[21], in1[21], in2[21], carry[20]);
+  vadd v23(sum[22], in1[22], in2[22], carry[21]);
+  vadd v24(sum[23], in1[23], in2[23], carry[22]);
+  vadd v25(sum[24], in1[24], in2[24], carry[23]);
+  vadd v26(sum[25], in1[25], in2[25], carry[24]);
+  vadd v27(sum[26], in1[26], in2[26], carry[25]);
+  vadd v28(sum[27], in1[27], in2[27], carry[26]);
+  vadd v29(sum[28], in1[28], in2[28], carry[27]);
+  vadd v30(sum[29], in1[29], in2[29], carry[28]);
+  vadd v31(sum[30], in1[30], in2[30], carry[29]);
+  vadd v32(sum[31], in1[31], in2[31], carry[30]);
+  vadd v33(sum[32], in1[32], in2[32], carry[31]);
+  vadd v34(sum[33], in1[33], in2[33], carry[32]);
+  vadd v35(sum[34], in1[34], in2[34], carry[33]);
+  vadd v36(sum[35], in1[35], in2[35], carry[34]);
+  vadd v37(sum[36], in1[36], in2[36], carry[35]);
+  vadd v38(sum[37], in1[37], in2[37], carry["
+N/A,N/A,-1,3.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+
+    logic [63:0] sum;
+    logic cout;
+    logic [63:0] in1;
+    logic [63:0] in2;
+    logic cin;
+
+    hier_adder_64 HA1(sum[0], c1, in1[0], in2[0], cin);
+    hier_adder_64 HA2(sum[1], c2, in1[1], in2[1], c1);
+    hier_adder_64 HA3(sum[2], c3, in1[2], in2[2], c2);
+    hier_adder_64 HA4(sum[3], c4, in1[3], in2[3], c3);
+    hier_adder_64 HA5(sum[4], c5, in1[4], in2[4], c4);
+    hier_adder_64 HA6(sum[5], c6, in1[5], in2[5], c5);
+    hier_adder_64 HA7(sum[6], c7, in1[6], in2[6], c6);
+    hier_adder_64 HA8(sum[7], c8, in1[7], in2[7], c7);
+    hier_adder_64 HA9(sum[8], c9, in1[8], in2[8], c8);
+    hier_adder_64 HA10(sum[9], c10, in1[9], in2[9], c9);
+    hier_adder_64 HA11(sum[10], c11, in1[10], in2[10], c10);
+    hier_adder_64 HA12(sum[11], c12, in1[11], in2[11], c11);
+    hier_adder_64 HA13(sum[12], c13, in1[12], in2[12], c12);
+    hier_adder_64 HA14(sum[13], c14, in1[13], in2[13], c13);
+    hier_adder_64 HA15(sum[14], c15, in1[14], in2[14], c14);
+    hier_adder_64 HA16(sum[15], c16, in1[15], in2[15], c15);
+    hier_adder_64 HA17(sum[16], c17, in1[16], in2[16], c16);
+    hier_adder_64 HA18(sum[17], c18, in1[17], in2[17], c17);
+    hier_adder_64 HA19(sum[18], c19, in1[18], in2[18], c18);
+    hier_adder_64 HA20(sum[19], c20, in1[19], in2[19], c19);
+    hier_adder_64 HA21(sum[20], c21, in1[20], in2[20], c20);
+    hier_adder_64 HA22(sum[21], c22, in1[21], in2[21], c21);
+    hier_adder_64 HA23(sum[22], c23, in1[22], in2[22], c22);
+    hier_adder_64 HA24(sum[23], c24, in1[23], in2[23], c23);
+    hier_adder_64 HA25(sum[24], c25, in1[24], in2[24], c24);
+    hier_adder_64 HA26(sum[25], c26, in1[25], in2[25], c25);
+    hier_adder_64 HA27(sum[26], c27, in1[26], in2[26], c26);
+    hier_adder_64 HA28(sum[27], c28, in1[27], in2[27], c27);
+    hier_adder_64 HA29(sum[28], c29, in1[28], in2[28], c28);
+    hier_adder_64 HA30"
+N/A,N/A,-1,4.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);    
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1, in2;
+    wire cin;
+    
+    part1_64 p1(sum, cout, in1, in2, cin);
+    
+endmodule
+
+module part1_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1, in2;
+    wire cin;
+    
+    wire [63:0] sum_temp;
+    wire cout_temp;
+    
+    adder_64 a1(sum_temp, cout_temp, in1, in2, cin);
+    
+    assign sum = sum_temp[63:0];
+    assign cout = cout_temp;
+    
+endmodule"
+N/A,N/A,-1,5.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+  wire [63:0] sum;
+  wire cout;
+  wire [63:0] in1;
+  wire [63:0] in2;
+  wire cin;
+  wire [63:0] carry;
+  SUB_64 SUB_64_0(sum[63:0], in1[63:0], in2[63:0], cin);
+  FA_64 FA_64_0(sum[63:0], carry[63:0], in1[63:0], in2[63:0], cin);
+  MUX_64 MUX_64_0(sum[63:0], carry[63:0], carry[63:0], cin);
+  CARRY_64 CARRY_64_0(carry[63:0], cout, cin);
+endmodule
+
+module carry_select_adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+  wire [63:0] sum;
+  wire cout;
+  wire [63:0] in1;
+  wire [63:0] in2;
+  wire cin;
+  wire [63:0] carry;
+  wire [63:0] carry_in;
+  assign carry_in[0] = cin;
+  assign carry_in[63:1] = in1[62:0] & in2[62:0];
+  adder_64 ADD_64_0(sum[63:0], carry[63:0], in1[63:0], in2[63:0], carry_in[63]);
+  FA_64 FA_64_1(sum[63:0], carry[63:0], in1[63:0], in2[63:0], carry_in[63]);
+  MUX_64 MUX_64_1(sum[63:0], carry[63:0], carry[63:0], cin);
+  CARRY_64 CARRY_64_1(carry[63:0], cout, cin);
+endmodule
+
+module carry_select_adder_64_tb;
+  reg [63:0] in1;
+  reg [63:0] in2;
+  reg cin;
+  wire [63:0] sum;
+  wire cout;
+  carry_select_adder_64 CS_64_0(sum, cout, in1, in2, cin);
+  initial begin
+    in1 = 64'h0000000000000001;
+    in2 = 64'h0000000000000010;
+    cin = 1'b0;
+    #10 in1 = 64'h0000000000000011;
+    in2 = 64'h0000000000000100;
+    cin = 1'b0;
+    #10 in1 = 64'h0000000000000101;
+    in2 = 64'h0000000000000110;
+    cin = 1'b0;
+    #10 in1 = 64'h0000000000000111;
+    in2 = 64'h0000000000001000;
+    cin = 1'b0;
+    #10 in1 = 64'h0000000000001001;
+    in2 = 64'h0000000000001010;
+    cin = 1'b0;
+    #10 in1 = 64'h0000000000001011;
+    in2 = 64'h0000000000001100;
+    cin = 1'b0;
+    #10 in1 = 64'h0000000000001101;
+    in2 = 64'h0000000000001110;
+    cin = 1'b0;
+    #10 in1 = 64'h0000000000001111;
+    in2 = 64'h0000000000010000;
+    cin = 1'b0;
+    #10 in1 = 64'h0000000000010001;
+    in2 = 64'h0000000000010010;
+    cin = 1'b0;
+    #10 in1 = 64'h0000000000010011;
+    in2 = 64'h0000000000010100;
+    cin = 1'b0;
+    #10 in1 = 64'h0000000000010101;
+    in2 = 64'h0000000000010110;
+    cin = 1'b0;
+    #10 in1 = 64'h0000000000010111;
+    in2 = 64'h0000000000011000;
+    cin ="
+N/A,N/A,-1,6.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+
+    parameter [63:0] adder_tree_1 = in1 ^ in2;
+    parameter [63:0] adder_tree_2 = (in1 & in2) ^ (in1 & cin) ^ (in2 & cin);
+    parameter [63:0] adder_tree_3 = (in1 & in2) ^ (in1 & cin) ^ (in2 & cin);
+
+    assign sum = adder_tree_1 + adder_tree_2 + adder_tree_3;
+    assign cout = (adder_tree_2[63] & adder_tree_3[63]) | (adder_tree_1[63] & adder_tree_2[63] & adder_tree_3[63]);
+
+endmodule"
+N/A,N/A,-1,7.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin); 
+  wire [63:0] sum;
+  wire cout;
+  wire [63:0] in1;
+  wire [63:0] in2;
+  wire cin;
+  multiplier_64 m1(sum[63:0], cout, in1[63:0], in2[63:0], cin);
+endmodule
+
+altmult_add_top #(
+ .DIN_WIDTH(64),
+ .DIN_POINT(64),
+ .FIXED_POINT(8),
+ .ACC_WIDTH(64),
+ .ACC_POINT(64),
+ .OUT_WIDTH(64),
+ .OUT_POINT(64),
+ .MULT_TYPE(0),
+ .MUX_TYPE(0),
+ .USE_CLA(0),
+ .MEM_TYPE(0),
+ .SRC_WIDTH(1),
+ .DST_WIDTH(1),
+ .CONST_WIDTH(0),
+ .CONST_VALUE(0.0)
+)
+adder_64_inst (
+ .clk(clk),
+ .din1(din1),
+ .din2(din2),
+ .din_valid(din_valid),
+ .dout(dout),
+ .dout_valid(dout_valid)
+);
+
+endmodule"
+N/A,N/A,-1,8.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);  
+  wire [63:0] sum;
+  wire cout;
+  wire [63:0] in1;
+  wire [63:0] in2;
+  wire cin;
+  one_bit_full_adder adder_1(sum[0], c1, in1[0], in2[0], cin);
+  one_bit_full_adder adder_2(sum[1], c2, in1[1], in2[1], c1);
+  one_bit_full_adder adder_3(sum[2], c3, in1[2], in2[2], c2);
+  one_bit_full_adder adder_4(sum[3], c4, in1[3], in2[3], c3);
+  one_bit_full_adder adder_5(sum[4], c5, in1[4], in2[4], c4);
+  one_bit_full_adder adder_6(sum[5], c6, in1[5], in2[5], c5);
+  one_bit_full_adder adder_7(sum[6], c7, in1[6], in2[6], c6);
+  one_bit_full_adder adder_8(sum[7], c8, in1[7], in2[7], c7);
+  one_bit_full_adder adder_9(sum[8], c9, in1[8], in2[8], c8);
+  one_bit_full_adder adder_10(sum[9], c10, in1[9], in2[9], c9);
+  one_bit_full_adder adder_11(sum[10], c11, in1[10], in2[10], c10);
+  one_bit_full_adder adder_12(sum[11], c12, in1[11], in2[11], c11);
+  one_bit_full_adder adder_13(sum[12], c13, in1[12], in2[12], c12);
+  one_bit_full_adder adder_14(sum[13], c14, in1[13], in2[13], c13);
+  one_bit_full_adder adder_15(sum[14], c15, in1[14], in2[14], c14);
+  one_bit_full_adder adder_16(sum[15], c16, in1[15], in2[15], c15);
+  one_bit_full_adder adder_17(sum[16], c17, in1[16], in2[16], c16);
+  one_bit_full_adder adder_18(sum[17], c18, in1[17], in2[17], c17);
+  one_bit_full_adder adder_19(sum[18], c19, in1[18], in2[18], c18);
+  one_bit_full_adder adder_20(sum[19], c20, in1[19], in2[19], c19);
+  one_bit_full_adder adder_21(sum[20], c21, in1[20], in2[20], c20);
+  one_bit_full_adder adder_22(sum[21], c22, in1[21], in2[21], c21);
+  one_bit_full_adder adder_23(sum[22], c23, in1[22], in2[22], c22);
+  one_bit_full_adder adder_24(sum[23], c24, in1[23], in2[23], c23);
+  one_bit_full_adder adder_25(sum[24], c25, in1[24], in2[24], c24);
+  one_bit_full_adder adder_26(sum[25], c26, in1[25], in2[25], c25);
+  one_bit_full_adder adder_27(sum[26], c27, in1[26], in2[26], c26);
+  one_bit_full_adder adder_28(sum[27], c28, in1[27], in2[27], c27);
+  one_"
+N/A,N/A,-1,9.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);                                   
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+    
+    multiplier_64 m1(sum[63:0], cout, in1[63:0], in2[63:0], cin);
+    adder_64_bitwise a1(sum[63:0], cout, in1[63:0], in2[63:0], cin);
+endmodule
+
+module multiplier_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+    
+    wire [63:0] in1_bitwise;
+    wire [63:0] in2_bitwise;
+    wire cin_bitwise;
+    
+    assign in1_bitwise = in1;
+    assign in2_bitwise = in2;
+    assign cin_bitwise = cin;
+    
+    bitwise_multiplier_64 m1(sum[63:0], cout, in1_bitwise, in2_bitwise, cin_bitwise);
+endmodule
+
+module bitwise_multiplier_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+    
+    wire [63:0] in1_bitwise;
+    wire [63:0] in2_bitwise;
+    wire cin_bitwise;
+    
+    assign in1_bitwise = in1;
+    assign in2_bitwise = in2;
+    assign cin_bitwise = cin;
+    
+    bitwise_multiplier_64_bitwise m1(sum[63:0], cout, in1_bitwise, in2_bitwise, cin_bitwise);
+endmodule
+
+module bitwise_multiplier_64_bitwise(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+    
+    assign in1 = in1_bitwise;
+    assign in2 = in2_bitwise;
+    assign cin = cin_bitwise;
+    
+    bitwise_multiplier_64 m1(sum[63:0], cout, in1, in2, cin);
+endmodule
+
+module adder_64_bitwise(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+    
+    assign in1 = in1_bitwise;
+    assign in2 = in2_bitwise;
+    assign cin = cin_bitwise;
+    
+    bitwise_adder_64 m1(sum[63:0], cout, in1, in2, cin);
+endmodule
+
+module bitwise_adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+    
+    assign in1 = in1_bitwise;
+    assign in2 = in2_bitwise;
+    assign cin = cin_bitwise;
+    
+    bitwise_adder"
+N/A,N/A,-0.5,10.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+wire [63:0] sum_temp;
+wire [63:0] in1_temp;
+wire [63:0] in2_temp;
+
+assign sum_temp = in1 + in2;
+assign in1_temp = in1;
+assign in2_temp = in2;
+
+assign cout = cin;
+
+assign sum = sum_temp[63:0];
+
+endmodule"
+N/A,N/A,-1,11.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);                      
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+    
+    comparator_64 c1(.a(in1),.b(in2),.cin(cin),.a_eq_b(sum[0]),.a_gt_b(sum[1]),.a_lt_b(sum[2]),.b_eq_a(sum[3]),.b_gt_a(sum[4]),.b_lt_a(sum[5]),.cin_eq_cout(sum[6]),.cin_gt_cout(sum[7]),.cin_lt_cout(sum[8]),.cout(cout));
+    
+    adder_64_bit a1(.sum(sum[63:0]),.cout(cout),.in1(in1),.in2(in2),.cin(cin));
+endmodule
+
+module comparator_64(output [63:0] a_eq_b,
+                      output a_gt_b,
+                      output a_lt_b,
+                      output b_eq_a,
+                      output b_gt_a,
+                      output b_lt_a,
+                      input cin_eq_cout,
+                      input cin_gt_cout,
+                      input cin_lt_cout,
+                      input [63:0] a,
+                      input [63:0] b,
+                      input cin);
+    wire [63:0] a;
+    wire [63:0] b;
+    wire cin;
+    
+    assign a_eq_b = (a == b)? 1 : 0;
+    assign b_eq_a = (b == a)? 1 : 0;
+    assign a_gt_b = (a > b)? 1 : 0;
+    assign b_gt_a = (b > a)? 1 : 0;
+    assign a_lt_b = (a < b)? 1 : 0;
+    assign cin_eq_cout = (cin == 1)? 1 : 0;
+    assign cin_gt_cout = (cin == 0)? 1 : 0;
+    assign cin_lt_cout = (cin == 1)? 0 : 1;
+endmodule
+
+module adder_64_bit(output [63:0] sum,
+                     output cout,
+                     input [63:0] in1, in2,
+                     input cin);
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+    
+    adder_64 a1(.sum(sum[63:0]),.cout(cout),.in1(in1),.in2(in2),.cin(cin));
+endmodule"
+N/A,N/A,-1,12.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);   
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+    
+    cla64 cla(sum, cout, in1, in2, cin);
+
+endmodule
+
+alu_64 alu_64_inst(output [63:0] alu_out,
+                    output cout,
+                    input [63:0] alu_in1, alu_in2,
+                    input [2:0] alu_op);
+    wire [63:0] alu_out;
+    wire cout;
+    wire [63:0] alu_in1;
+    wire [63:0] alu_in2;
+    wire [2:0] alu_op;
+    
+    adder_64 adder_64_inst(alu_out, cout, alu_in1, alu_in2, alu_op);
+
+endmodule"
+N/A,N/A,-1,13.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);                              
+  wire [63:0] sum;
+  wire cout;
+  wire [63:0] in1;
+  wire [63:0] in2;
+  wire cin;
+  wire [63:0] carry;
+  
+  Carry_Select_Adder_64 CS_Adder(sum, carry, in1, in2, cin);
+  FA_64 FA_0(sum[0], c1, in1[0], in2[0], cin);
+  FA_64 FA_1(sum[1], c2, in1[1], in2[1], c1);
+  FA_64 FA_2(sum[2], c3, in1[2], in2[2], c2);
+  FA_64 FA_3(sum[3], c4, in1[3], in2[3], c3);
+  FA_64 FA_4(sum[4], c5, in1[4], in2[4], c4);
+  FA_64 FA_5(sum[5], c6, in1[5], in2[5], c5);
+  FA_64 FA_6(sum[6], c7, in1[6], in2[6], c6);
+  FA_64 FA_7(sum[7], c8, in1[7], in2[7], c7);
+  FA_64 FA_8(sum[8], c9, in1[8], in2[8], c8);
+  FA_64 FA_9(sum[9], c10, in1[9], in2[9], c9);
+  FA_64 FA_10(sum[10], c11, in1[10], in2[10], c10);
+  FA_64 FA_11(sum[11], c12, in1[11], in2[11], c11);
+  FA_64 FA_12(sum[12], c13, in1[12], in2[12], c12);
+  FA_64 FA_13(sum[13], c14, in1[13], in2[13], c13);
+  FA_64 FA_14(sum[14], c15, in1[14], in2[14], c14);
+  FA_64 FA_15(sum[15], c16, in1[15], in2[15], c15);
+  FA_64 FA_16(sum[16], c17, in1[16], in2[16], c16);
+  FA_64 FA_17(sum[17], c18, in1[17], in2[17], c17);
+  FA_64 FA_18(sum[18], c19, in1[18], in2[18], c18);
+  FA_64 FA_19(sum[19], c20, in1[19], in2[19], c19);
+  FA_64 FA_20(sum[20], c21, in1[20], in2[20], c20);
+  FA_64 FA_21(sum[21], c22, in1[21], in2[21], c21);
+  FA_64 FA_22(sum[22], c23, in1[22], in2[22], c22);
+  FA_64 FA_23(sum[23], c24, in1[23], in2[23], c23);
+  FA_64 FA_24(sum[24], c25, in1[24], in2[24], c24);
+  FA_64 FA_25(sum[25], c26, in1[25], in2[25], c25);
+  FA_64 FA_26(sum[26], c27, in1[26], in2[26], c26);
+  FA_64 FA_27(sum[27], c28, in1[27], in2[27], c27);
+  FA_64 FA_28(sum[28], c29, in1[28], in2[28], c28);
+  FA_64 FA_29(sum[29], c30, in1[29], in2[29], c29);
+  FA_64 FA_30(sum[30], c31, in1[30], in2[30], c30);
+  FA_64 FA_31(sum[31], c32,"
+N/A,N/A,-1,14.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);        
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+    
+    cla64 cla(sum, cout, in1, in2, cin);
+
+endmodule
+
+alu_64 alu_64_inst(output [63:0] alu_out,
+                    output cout,
+                    input [63:0] alu_in1, alu_in2,
+                    input [2:0] alu_op);
+    wire [63:0] alu_out;
+    wire cout;
+    wire [63:0] alu_in1;
+    wire [63:0] alu_in2;
+    wire [2:0] alu_op;
+    
+    adder_64 adder_64_inst(alu_out, cout, alu_in1, alu_in2, alu_op);
+
+endmodule"
+N/A,N/A,-1,15.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+    
+    multiplier_64 m1(sum[63:0], cout, in1[63:0], in2[63:0], cin);
+    adder_64_bitwise a1(sum[63:0], cout, in1[63:0], in2[63:0], cin);
+endmodule
+
+module multiplier_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+    
+    wire [63:0] in1_bitwise;
+    wire [63:0] in2_bitwise;
+    wire cin_bitwise;
+    
+    assign in1_bitwise = in1;
+    assign in2_bitwise = in2;
+    assign cin_bitwise = cin;
+    
+    bitwise_multiplier_64 m1(sum[63:0], cout, in1_bitwise, in2_bitwise, cin_bitwise);
+endmodule
+
+module bitwise_multiplier_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+    
+    wire [63:0] in1_bitwise;
+    wire [63:0] in2_bitwise;
+    wire cin_bitwise;
+    
+    assign in1_bitwise = in1;
+    assign in2_bitwise = in2;
+    assign cin_bitwise = cin;
+    
+    bitwise_multiplier_64_bitwise m1(sum[63:0], cout, in1_bitwise, in2_bitwise, cin_bitwise);
+endmodule
+
+module bitwise_multiplier_64_bitwise(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+    
+    assign in1 = in1_bitwise;
+    assign in2 = in2_bitwise;
+    assign cin = cin_bitwise;
+    
+    wire [63:0] in1_bitwise;
+    wire [63:0] in2_bitwise;
+    wire cin_bitwise;
+    
+    assign in1_bitwise = in1;
+    assign in2_bitwise = in2;
+    assign cin_bitwise = cin;
+    
+    bitwise_multiplier_64 m1(sum[63:0], cout, in1_bitwise, in2_bitwise, cin_bitwise);
+endmodule
+
+module adder_64_bitwise(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+    
+    assign in1 = in1_bitwise;
+    assign in2 = in2_bitwise;
+    assign cin = cin_bitwise;
+    
+    wire [63:0] in1_bitwise;
+    wire [63:0] in2_bitwise;
+    wire cin_bitwise;
+    
+    assign in1_bitwise = in1;
+    assign in2_bitwise = in2;
+    assign cin_bitwise = cin;
+"
+N/A,N/A,-0.5,16.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+  wire [63:0] sum;
+  wire cout;
+  wire [63:0] in1;
+  wire [63:0] in2;
+  wire cin;
+
+  three_bit_ripple_adder adder_1(sum[0], c1, in1[0], in2[0], cin);
+  three_bit_ripple_adder adder_2(sum[1], c2, in1[1], in2[1], c1);
+  three_bit_ripple_adder adder_3(sum[2], c3, in1[2], in2[2], c2);
+  three_bit_ripple_adder adder_4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module three_bit_ripple_adder(output wire sum,
+                               output wire cout,
+                               input wire in1, in2, cin);
+
+  wire c1, c2, c3;
+  full_adder adder_1(sum, c1, in1, in2, cin);
+  full_adder adder_2(sum, c2, c1, in1, in2);
+  full_adder adder_3(sum, cout, c2, in1, in2);
+
+endmodule
+
+module full_adder(output wire sum,
+                   output wire cout,
+                   input wire in1, in2, cin);
+
+  wire a, b, c;
+  xor(a, in1, in2);
+  xor(sum, a, cin);
+  and(b, a, cin);
+  and(c, in1, in2);
+  or(cout, b, c);
+
+endmodule"
+N/A,N/A,-1,17.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);    
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1, in2;
+    wire cin;
+    
+    kogge_stone_64(sum, cin, in1, in2);
+    
+    assign cout = cin;
+    
+endmodule
+
+s_adder_64 s_adder_64(sum, cout, in1, in2, cin);
+
+module kogge_stone_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2);
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1, in2;
+    
+    assign sum = in1 ^ in2;
+    assign cout = (in1 & in2) | (in1 ^ in2);
+    
+endmodule"
+N/A,N/A,-1,18.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+
+    logic [63:0] sum;
+    logic cout;
+    logic [63:0] in1;
+    logic [63:0] in2;
+    logic cin;
+
+    node_64 n1(sum, cout, in1, in2, cin);
+
+endmodule"
+N/A,N/A,-1,19.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+                      
+    wire [63:0] sum;
+    wire cout;
+    
+    wire [63:0] c;
+    
+    adder_32 a0(sum[31:0], c[0], in1[31:0], in2[31:0], cin);
+    adder_32 a1(sum[63:32], cout, in1[63:32], in2[63:32], c[0]);
+    
+endmodule
+
+divider_32 divider(output [31:0] quotient,
+                    output [31:0] remainder,
+                    input [31:0] dividend,
+                    input [31:0] divisor);
+                    
+    wire [31:0] quotient;
+    wire [31:0] remainder;
+    
+    wire [31:0] d;
+    
+    divider_32 d0(quotient[31:0], remainder[31:0], dividend[31:0], divisor[31:0]);
+    divider_32 d1(quotient[63:32], remainder[63:32], dividend[63:32], divisor[63:32]);
+    
+endmodule"
+N/A,N/A,-1,20.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+        wire [63:0] sum;
+        wire cout;
+        wire [63:0] in1;
+        wire [63:0] in2;
+        wire cin;
+        wire [63:0] carry;
+        
+        full_adder FA1(sum[0], carry[0], in1[0], in2[0], cin);
+        full_adder FA2(sum[1], carry[1], in1[1], in2[1], carry[0]);
+        full_adder FA3(sum[2], carry[2], in1[2], in2[2], carry[1]);
+        full_adder FA4(sum[3], carry[3], in1[3], in2[3], carry[2]);
+        full_adder FA5(sum[4], carry[4], in1[4], in2[4], carry[3]);
+        full_adder FA6(sum[5], carry[5], in1[5], in2[5], carry[4]);
+        full_adder FA7(sum[6], carry[6], in1[6], in2[6], carry[5]);
+        full_adder FA8(sum[7], carry[7], in1[7], in2[7], carry[6]);
+        full_adder FA9(sum[8], carry[8], in1[8], in2[8], carry[7]);
+        full_adder FA10(sum[9], carry[9], in1[9], in2[9], carry[8]);
+        full_adder FA11(sum[10], carry[10], in1[10], in2[10], carry[9]);
+        full_adder FA12(sum[11], carry[11], in1[11], in2[11], carry[10]);
+        full_adder FA13(sum[12], carry[12], in1[12], in2[12], carry[11]);
+        full_adder FA14(sum[13], carry[13], in1[13], in2[13], carry[12]);
+        full_adder FA15(sum[14], carry[14], in1[14], in2[14], carry[13]);
+        full_adder FA16(sum[15], carry[15], in1[15], in2[15], carry[14]);
+        full_adder FA17(sum[16], carry[16], in1[16], in2[16], carry[15]);
+        full_adder FA18(sum[17], carry[17], in1[17], in2[17], carry[16]);
+        full_adder FA19(sum[18], carry[18], in1[18], in2[18], carry[17]);
+        full_adder FA20(sum[19], carry[19], in1[19], in2[19], carry[18]);
+        full_adder FA21(sum[20], carry[20], in1[20], in2[20], carry[19]);
+        full_adder FA22(sum[21], carry[21], in1[21], in2[21], carry[20]);
+        full_adder FA23(sum[22], carry[22], in1[22], in2[22], carry[21]);
+        full_adder FA24(sum[23], carry[23], in1[23], in2[23], carry[22]);
+        full_adder FA25(sum[24], carry[24], in1[24], in2[24], carry[23]);
+        full_adder FA26(sum[25], carry[25], in1[25], in2[25], carry[24]);
+        full_adder FA27(sum[26], carry[26], in1[26], in2[26], carry[25]);
+        full_adder FA28(sum[27], carry[27], in1[27], in2[27], carry[26]);
+        full_adder FA29(sum[28], carry[28], in1[28], in2[28], carry[27]);
+        full_adder FA30(sum[29], carry[29], in1[29], in2[29], carry[28]);
+        full_adder FA31(sum[30], carry[30], in1[30], in2[30], carry[29]);
+        full_adder FA32(sum[31], carry[31],"
+N/A,N/A,-1,21.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+  wire [63:0] sum;
+  wire cout;
+  wire [63:0] in1;
+  wire [63:0] in2;
+  wire cin;
+
+  if (in1[63] == 1'b1 && in2[63] == 1'b0)
+    assign in1[63:1] = in1[63:1] + 1'b1;
+
+  if (in1[63] == 1'b0 && in2[63] == 1'b1)
+    assign in2[63:1] = in2[63:1] + 1'b1;
+
+  if (in1[63] == 1'b0 && in2[63] == 1'b0)
+    assign in1[63:1] = in1[63:1] + 1'b1;
+
+  if (in1[63] == 1'b1 && in2[63] == 1'b1)
+    assign in1[63:1] = in1[63:1] + 1'b1;
+
+  if (in1[63] == 1'b1 && in2[63] == 1'b0)
+    assign in2[63:1] = in2[63:1] + 1'b1;
+
+  if (in1[63] == 1'b0 && in2[63] == 1'b1)
+    assign in2[63:1] = in2[63:1] + 1'b1;
+
+  if (in1[63] == 1'b0 && in2[63] == 1'b0)
+    assign in1[63:1] = in1[63:1] + 1'b1;
+
+  if (in1[63] == 1'b1 && in2[63] == 1'b1)
+    assign in1[63:1] = in1[63:1] + 1'b1;
+
+  if (in1[63] == 1'b1 && in2[63] == 1'b0)
+    assign in2[63:1] = in2[63:1] + 1'b1;
+
+  if (in1[63] == 1'b0 && in2[63] == 1'b1)
+    assign in2[63:1] = in2[63:1] + 1'b1;
+
+  if (in1[63] == 1'b0 && in2[63] == 1'b0)
+    assign in1[63:1] = in1[63:1] + 1'b1;
+
+  if (in1[63] == 1'b1 && in2[63] == 1'b1)
+    assign in1[63:1] = in1[63:1] + 1'b1;
+
+  if (in1[63] == 1'b1 && in2[63] == 1'b0)
+    assign in2[63:1] = in2[63:1] + 1'b1;
+
+  if (in1[63] == 1'b0 && in2[63] == 1'b1)
+    assign in2[63:1] = in2[63:1] + 1'b1;
+
+  if (in1[63] == 1'b0 && in2[63] == 1'b0)
+    assign in1[63:1] = in1[63:1] + 1'b1;
+
+  if (in1[63] == 1'b1 && in2[63] == 1'b1)
+    assign in1[63:1] = in1[63:1] + 1'b1;
+
+  if (in1[63] == 1'b1 && in2[63] == 1'b0)
+    assign in2[63:1] = in2[63:1] + 1'b1;
+
+  if (in1[63] == 1'b0 && in2[63] == 1'b1)
+    assign in2[63:1] = in2[63:1] + 1'b1;
+
+  if (in1[63] == 1'b0 && in2[63] == 1'b0)
+    assign in1[63:1] = in"
+N/A,N/A,-0.5,22.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+wire [63:0] sum_temp;
+wire [63:0] in1_temp;
+wire [63:0] in2_temp;
+
+assign sum_temp = in1 + in2;
+assign in1_temp = in1;
+assign in2_temp = in2;
+
+assign cout = cin;
+
+assign sum = sum_temp[63:0];
+
+endmodule"
+N/A,N/A,-1,23.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);    
+
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+
+    HA_64 HA1(sum[63:0], c1, in1[63:0], in2[63:0]);
+    HA_64 HA2(sum[63:1], c2, in1[63:1], in2[63:1]);
+    HA_64 HA3(sum[63:2], c3, in1[63:2], in2[63:2]);
+    HA_64 HA4(sum[63:3], c4, in1[63:3], in2[63:3]);
+    HA_64 HA5(sum[63:4], c5, in1[63:4], in2[63:4]);
+    HA_64 HA6(sum[63:5], c6, in1[63:5], in2[63:5]);
+    HA_64 HA7(sum[63:6], c7, in1[63:6], in2[63:6]);
+    HA_64 HA8(sum[63:7], c8, in1[63:7], in2[63:7]);
+    HA_64 HA9(sum[63:8], c9, in1[63:8], in2[63:8]);
+    HA_64 HA10(sum[63:9], c10, in1[63:9], in2[63:9]);
+    HA_64 HA11(sum[63:10], c11, in1[63:10], in2[63:10]);
+    HA_64 HA12(sum[63:11], c12, in1[63:11], in2[63:11]);
+    HA_64 HA13(sum[63:12], c13, in1[63:12], in2[63:12]);
+    HA_64 HA14(sum[63:13], c14, in1[63:13], in2[63:13]);
+    HA_64 HA15(sum[63:14], c15, in1[63:14], in2[63:14]);
+    HA_64 HA16(sum[63:15], c16, in1[63:15], in2[63:15]);
+    HA_64 HA17(sum[63:16], c17, in1[63:16], in2[63:16]);
+    HA_64 HA18(sum[63:17], c18, in1[63:17], in2[63:17]);
+    HA_64 HA19(sum[63:18], c19, in1[63:18], in2[63:18]);
+    HA_64 HA20(sum[63:19], c20, in1[63:19], in2[63:19]);
+    HA_64 HA21(sum[63:20], c21, in1[63:20], in2[63:20]);
+    HA_64 HA22(sum[63:21], c22, in1[63:21], in2[63:21]);
+    HA_64 HA23(sum[63:22], c23, in1[63:22], in2[63:22]);
+    HA_64 HA24(sum[63:23], c24, in1[63:23], in2[63:23]);
+    HA_64 HA25(sum[63:24], c25, in1[63:24], in2[63:24]);
+    HA_64 HA26(sum[63:25], c26, in1[63:25], in2[63:25]);
+    HA_64 HA27(sum[63:26], c27, in1[63:26], in2[63:26]);
+    HA_64 HA28(sum[63:27], c28, in1[63:27], in2[63:27]);
+    HA_64 HA29(sum[63:28], c29, in1[63:28], in2[63:28]);
+    HA_64 HA30(sum[63:29], c30, in1[63:29], in2[63:29]);
+    HA_64 HA31(sum[63:30], c31, in1[63:30], in2"
+N/A,N/A,-1,24.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+ 
+  wire [63:0] sum;
+  wire cout;
+  wire [63:0] in1;
+  wire [63:0] in2;
+  wire cin;
+ 
+  mux_64 mux1(sum[63:0], in1[63:0], in2[63:0], cin, sum[63:0]);
+  mux_1 mux2(cout, in1[63], in2[63], cin, cout);
+ 
+endmodule
+ 
+""timescale 1ns / 1ps
+""""""
+
+module mux_64(output [63:0] out,
+               input [63:0] in1, in2,
+               input cin,
+               output [63:0] out_);
+ 
+  wire [63:0] in1;
+  wire [63:0] in2;
+  wire cin;
+  wire [63:0] out_;
+ 
+  mux_1 mux1(in1[63:0], in2[63:0], cin, out_[63:0]);
+  mux_1 mux2(in1[64], in2[64], cin, out_[64]);
+  mux_1 mux3(in1[65], in2[65], cin, out_[65]);
+  mux_1 mux4(in1[66], in2[66], cin, out_[66]);
+  mux_1 mux5(in1[67], in2[67], cin, out_[67]);
+  mux_1 mux6(in1[68], in2[68], cin, out_[68]);
+  mux_1 mux7(in1[69], in2[69], cin, out_[69]);
+  mux_1 mux8(in1[70], in2[70], cin, out_[70]);
+  mux_1 mux9(in1[71], in2[71], cin, out_[71]);
+  mux_1 mux10(in1[72], in2[72], cin, out_[72]);
+  mux_1 mux11(in1[73], in2[73], cin, out_[73]);
+  mux_1 mux12(in1[74], in2[74], cin, out_[74]);
+  mux_1 mux13(in1[75], in2[75], cin, out_[75]);
+  mux_1 mux14(in1[76], in2[76], cin, out_[76]);
+  mux_1 mux15(in1[77], in2[77], cin, out_[77]);
+  mux_1 mux16(in1[78], in2[78], cin, out_[78]);
+  mux_1 mux17(in1[79], in2[79], cin, out_[79]);
+  mux_1 mux18(in1[80], in2[80], cin, out_[80]);
+  mux_1 mux19(in1[81], in2[81], cin, out_[81]);
+  mux_1 mux20(in1[82], in2[82], cin, out_[82]);
+  mux_1 mux21(in1[83], in2[83], cin, out_[83]);
+  mux_1 mux22(in1[84], in2[84], cin, out_[84]);
+  mux_1 mux23(in1[85], in2[85], cin, out_[85]);
+  mux_1 mux24(in1[86], in2[86], cin, out_[86]);
+  mux_1 mux25(in1[87], in2[87], cin, out_[87]);
+  mux_1 mux26(in1[88], in2[88], cin, out_[88]);
+  mux_1 mux27(in1[89], in2[89], cin, out_[89]);
+  mux_1 mux28(in1[90], in"
+N/A,N/A,-1,25.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+
+    HA_64 HA1(sum[63:0], c1, in1[63:0], in2[63:0]);
+    HA_64 HA2(sum[63:1], c2, in1[63:1], in2[63:1]);
+    HA_64 HA3(sum[63:2], c3, in1[63:2], in2[63:2]);
+    HA_64 HA4(sum[63:3], c4, in1[63:3], in2[63:3]);
+    HA_64 HA5(sum[63:4], c5, in1[63:4], in2[63:4]);
+    HA_64 HA6(sum[63:5], c6, in1[63:5], in2[63:5]);
+    HA_64 HA7(sum[63:6], c7, in1[63:6], in2[63:6]);
+    HA_64 HA8(sum[63:7], c8, in1[63:7], in2[63:7]);
+    HA_64 HA9(sum[63:8], c9, in1[63:8], in2[63:8]);
+    HA_64 HA10(sum[63:9], c10, in1[63:9], in2[63:9]);
+    HA_64 HA11(sum[63:10], c11, in1[63:10], in2[63:10]);
+    HA_64 HA12(sum[63:11], c12, in1[63:11], in2[63:11]);
+    HA_64 HA13(sum[63:12], c13, in1[63:12], in2[63:12]);
+    HA_64 HA14(sum[63:13], c14, in1[63:13], in2[63:13]);
+    HA_64 HA15(sum[63:14], c15, in1[63:14], in2[63:14]);
+    HA_64 HA16(sum[63:15], c16, in1[63:15], in2[63:15]);
+    HA_64 HA17(sum[63:16], c17, in1[63:16], in2[63:16]);
+    HA_64 HA18(sum[63:17], c18, in1[63:17], in2[63:17]);
+    HA_64 HA19(sum[63:18], c19, in1[63:18], in2[63:18]);
+    HA_64 HA20(sum[63:19], c20, in1[63:19], in2[63:19]);
+    HA_64 HA21(sum[63:20], c21, in1[63:20], in2[63:20]);
+    HA_64 HA22(sum[63:21], c22, in1[63:21], in2[63:21]);
+    HA_64 HA23(sum[63:22], c23, in1[63:22], in2[63:22]);
+    HA_64 HA24(sum[63:23], c24, in1[63:23], in2[63:23]);
+    HA_64 HA25(sum[63:24], c25, in1[63:24], in2[63:24]);
+    HA_64 HA26(sum[63:25], c26, in1[63:25], in2[63:25]);
+    HA_64 HA27(sum[63:26], c27, in1[63:26], in2[63:26]);
+    HA_64 HA28(sum[63:27], c28, in1[63:27], in2[63:27]);
+    HA_64 HA29(sum[63:28], c29, in1[63:28], in2[63:28]);
+    HA_64 HA30(sum[63:29], c30, in1[63:29], in2[63:29]);
+    HA_64 HA31(sum[63:30], c31, in1[63:30], in2["
+N/A,N/A,-1,26.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+	wire [63:0] sum;
+	wire cout;
+	wire [63:0] in1;
+	wire [63:0] in2;
+	wire cin;
+	
+	full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+	full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+	full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+	full_adder FA4(sum[3], c4, in1[3], in2[3], c3);
+	full_adder FA5(sum[4], c5, in1[4], in2[4], c4);
+	full_adder FA6(sum[5], c6, in1[5], in2[5], c5);
+	full_adder FA7(sum[6], c7, in1[6], in2[6], c6);
+	full_adder FA8(sum[7], c8, in1[7], in2[7], c7);
+	full_adder FA9(sum[8], c9, in1[8], in2[8], c8);
+	full_adder FA10(sum[9], c10, in1[9], in2[9], c9);
+	full_adder FA11(sum[10], c11, in1[10], in2[10], c10);
+	full_adder FA12(sum[11], c12, in1[11], in2[11], c11);
+	full_adder FA13(sum[12], c13, in1[12], in2[12], c12);
+	full_adder FA14(sum[13], c14, in1[13], in2[13], c13);
+	full_adder FA15(sum[14], c15, in1[14], in2[14], c14);
+	full_adder FA16(sum[15], c16, in1[15], in2[15], c15);
+	full_adder FA17(sum[16], c17, in1[16], in2[16], c16);
+	full_adder FA18(sum[17], c18, in1[17], in2[17], c17);
+	full_adder FA19(sum[18], c19, in1[18], in2[18], c18);
+	full_adder FA20(sum[19], c20, in1[19], in2[19], c19);
+	full_adder FA21(sum[20], c21, in1[20], in2[20], c20);
+	full_adder FA22(sum[21], c22, in1[21], in2[21], c21);
+	full_adder FA23(sum[22], c23, in1[22], in2[22], c22);
+	full_adder FA24(sum[23], c24, in1[23], in2[23], c23);
+	full_adder FA25(sum[24], c25, in1[24], in2[24], c24);
+	full_adder FA26(sum[25], c26, in1[25], in2[25], c25);
+	full_adder FA27(sum[26], c27, in1[26], in2[26], c26);
+	full_adder FA28(sum[27], c28, in1[27], in2[27], c27);
+	full_adder FA29(sum[28], c29, in1[28], in2[28], c28);
+	full_adder FA30(sum[29], c30, in1[29], in2[29], c29);
+	full_adder FA31(sum[30], c31, in1[30], in2[30], c30);
+	full_adder FA32(sum[31], c32, in1[31], in2[31], c31);
+	full_adder FA33(sum[32], c33, in1[32], in2[32], c32);
+	full_adder FA34(sum[33], c34, in1[33], in2[33], c33);
+	full"
+N/A,N/A,-1,27.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+   wire [63:0] sum;
+   wire cout;
+   wire [63:0] in1;
+   wire [63:0] in2;
+   wire cin;
+
+   adder_64_bitwise adder_64_bitwise(sum, cout, in1, in2, cin);
+
+endmodule
+
+module adder_64_bitwise(output [63:0] sum,
+                        output cout,
+                        input [63:0] in1, in2,
+                        input cin);
+
+   wire [63:0] sum;
+   wire cout;
+   wire [63:0] in1;
+   wire [63:0] in2;
+   wire cin;
+
+   adder_64_bitwise_1 adder_64_bitwise_1(sum, cout, in1, in2, cin);
+
+endmodule
+
+module adder_64_bitwise_1(output [63:0] sum,
+                        output cout,
+                        input [63:0] in1, in2,
+                        input cin);
+
+   wire [63:0] sum;
+   wire cout;
+   wire [63:0] in1;
+   wire [63:0] in2;
+   wire cin;
+
+   adder_64_bitwise_2 adder_64_bitwise_2(sum, cout, in1, in2, cin);
+
+endmodule
+
+module adder_64_bitwise_2(output [63:0] sum,
+                        output cout,
+                        input [63:0] in1, in2,
+                        input cin);
+
+   wire [63:0] sum;
+   wire cout;
+   wire [63:0] in1;
+   wire [63:0] in2;
+   wire cin;
+
+   adder_64_bitwise_3 adder_64_bitwise_3(sum, cout, in1, in2, cin);
+
+endmodule
+
+module adder_64_bitwise_3(output [63:0] sum,
+                        output cout,
+                        input [63:0] in1, in2,
+                        input cin);
+
+   wire [63:0] sum;
+   wire cout;
+   wire [63:0] in1;
+   wire [63:0] in2;
+   wire cin;
+
+   adder_64_bitwise_4 adder_64_bitwise_4(sum, cout, in1, in2, cin);
+
+endmodule
+
+module adder_64_bitwise_4(output [63:0] sum,
+                        output cout,
+                        input [63:0] in1, in2,
+                        input cin);
+
+   wire [63:0] sum;
+   wire cout;
+   wire [63:0] in1;
+   wire [63:0] in2;
+   wire cin;
+
+   adder_64_bitwise_5 adder_64_bitwise_5(sum, cout, in1, in2, cin);
+
+endmodule
+
+module adder_64_bitwise_5(output [63:0] sum,
+                        output cout,
+                        input [63:0] in1, in2,
+                        input cin);
+
+   wire [63:0] sum;
+   wire cout;
+   wire [63:0] in1;
+   wire [63:0] in2;
+   wire cin;
+
+   adder_64_bitwise_6 adder_64_bitwise_6(sum, cout, in1, in2, cin);
+
+endmodule
+
+module adder_64_bitwise_6(output [63:0] sum,
+                        output cout,
+                        input [63:0] in1, in2,
+                        input cin);
+
+   wire [63:0] sum;
+   wire cout;
+   wire [63:0] in1;
+   wire [63:0] in2;
+   wire cin;
+
+   adder_64_bitwise_7 adder_64_bitwise_7(sum, cout, in1, in2, cin);
+
+endmodule
+
+module adder_64_bitwise_7(output [63:0] sum,
+                        output cout,
+                        input [63:0] in1, in2,
+                        input c"
+N/A,N/A,-1,28.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+      wire [63:0] sum;
+      wire cout;
+      wire [63:0] in1;
+      wire [63:0] in2;
+      wire cin;
+      
+      adder_32 a1(sum[31:0], cout, in1[31:0], in2[31:0], cin);
+      adder_32 a2(sum[63:32], cout, in1[63:32], in2[63:32], cout);
+
+endmodule
+
+vend_adder_64 v1(sum, cout, in1, in2, cin);
+
+controller_64 c1(sum, cout, in1, in2, cin);
+
+endmodule"
+N/A,N/A,-1,29.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);    
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1, in2;
+    wire cin;
+    
+    cla64bit c1(sum, cout, in1, in2, cin);
+
+endmodule
+
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module>
+<module"
+N/A,N/A,-1,30.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+        wire [63:0] sum;
+        wire cout;
+        wire [63:0] in1;
+        wire [63:0] in2;
+        wire cin;
+
+        input [63:0] in1;
+        input [63:0] in2;
+        input cin;
+
+        wire [63:0] sum;
+        wire cout;
+        wire [63:0] in1;
+        wire [63:0] in2;
+        wire cin;
+
+        wire [63:0] sum;
+        wire cout;
+        wire [63:0] in1;
+        wire [63:0] in2;
+        wire cin;
+
+        wire [63:0] sum;
+        wire cout;
+        wire [63:0] in1;
+        wire [63:0] in2;
+        wire cin;
+
+        wire [63:0] sum;
+        wire cout;
+        wire [63:0] in1;
+        wire [63:0] in2;
+        wire cin;
+
+        wire [63:0] sum;
+        wire cout;
+        wire [63:0] in1;
+        wire [63:0] in2;
+        wire cin;
+
+        wire [63:0] sum;
+        wire cout;
+        wire [63:0] in1;
+        wire [63:0] in2;
+        wire cin;
+
+        wire [63:0] sum;
+        wire cout;
+        wire [63:0] in1;
+        wire [63:0] in2;
+        wire cin;
+
+        wire [63:0] sum;
+        wire cout;
+        wire [63:0] in1;
+        wire [63:0] in2;
+        wire cin;
+
+        wire [63:0] sum;
+        wire cout;
+        wire [63:0] in1;
+        wire [63:0] in2;
+        wire cin;
+
+        wire [63:0] sum;
+        wire cout;
+        wire [63:0] in1;
+        wire [63:0] in2;
+        wire cin;
+
+        wire [63:0] sum;
+        wire cout;
+        wire [63:0] in1;
+        wire [63:0] in2;
+        wire cin;
+
+        wire [63:0] sum;
+        wire cout;
+        wire [63:0] in1;
+        wire [63:0] in2;
+        wire cin;
+
+        wire [63:0] sum;
+        wire cout;
+        wire [63:0] in1;
+        wire [63:0] in2;
+        wire cin;
+
+        wire [63:0] sum;
+        wire cout;
+        wire [63:0] in1;
+        wire [63:0] in2;
+        wire cin;
+
+        wire [63:0] sum;
+        wire cout;
+        wire [63:0] in1;
+        wire [63:0] in2;
+        wire cin;
+
+        wire [63:0] sum;
+        wire cout;
+        wire [63:0] in1;
+        wire [63:0] in2;
+        wire cin;
+
+        wire [63:0] sum;
+        wire cout;
+        wire [63:0] in1;
+        wire [63:0] in2;
+        wire cin;
+
+        wire [63:0] sum;
+        wire cout;
+        wire [63:0] in1;
+        wire [63:0] in2;
+        wire cin;
+
+        wire [63:0] sum;
+        wire cout;
+        wire [63:0] in1;
+        wire [63:0] in2;
+        wire cin;
+
+        wire [63:0] sum;
+        wire cout;
+        wire [63:0] in1;
+        wire [63:0] in2;
+        wire cin;
+
+        wire [63:0] sum;
+        wire cout;
+        wire [63:0] in1;
+        wire [63:0] in2;
+        wire cin;
+
+        wire [63:0] sum;
+        wire cout;
+        wire [63:0] in1;"
+N/A,N/A,-1,31.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin); 
+  wire [63:0] sum;
+  wire cout;
+  wire [63:0] in1;
+  wire [63:0] in2;
+  wire cin;
+  Carry_Select_Adder_64 CS_Adder(sum, cout, in1, in2, cin);
+endmodule
+
+module Carry_Select_Adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+  wire [63:0] sum;
+  wire cout;
+  wire [63:0] in1;
+  wire [63:0] in2;
+  wire cin;
+  wire [63:0] G; freq_div_64 F(G, in1, in2);
+  wire [63:0] P; partial_products_64 PP(P, in1, in2);
+  wire [63:0] C; carry_select_64 CS(C, in1, in2, cin);
+  wire [63:0] S;
+  wire [63:0] E;
+  wire [63:0] T;
+  wire [63:0] U;
+  wire [63:0] V;
+  wire [63:0] W;
+  wire [63:0] X;
+  wire [63:0] Y;
+  wire [63:0] Z;
+  wire [63:0] sum_temp;
+  wire [63:0] cout_temp;
+  wire [63:0] P_temp;
+  wire [63:0] G_temp;
+  wire [63:0] E_temp;
+  wire [63:0] T_temp;
+  wire [63:0] U_temp;
+  wire [63:0] V_temp;
+  wire [63:0] W_temp;
+  wire [63:0] X_temp;
+  wire [63:0] Y_temp;
+  wire [63:0] Z_temp;
+  wire [63:0] P_temp_temp;
+  wire [63:0] G_temp_temp;
+  wire [63:0] E_temp_temp;
+  wire [63:0] T_temp_temp;
+  wire [63:0] U_temp_temp;
+  wire [63:0] V_temp_temp;
+  wire [63:0] W_temp_temp;
+  wire [63:0] X_temp_temp;
+  wire [63:0] Y_temp_temp;
+  wire [63:0] Z_temp_temp;
+  wire [63:0] P_temp_temp_temp;
+  wire [63:0] G_temp_temp_temp;
+  wire [63:0] E_temp_temp_temp;
+  wire [63:0] T_temp_temp_temp;
+  wire [63:0] U_temp_temp_temp;
+  wire [63:0] V_temp_temp_temp;
+  wire [63:0] W_temp_temp_temp;
+  wire [63:0] X_temp_temp_temp;
+  wire [63:0] Y_temp_temp_temp;
+  wire [63:0] Z_temp_temp_temp;
+  wire [63:0] P_temp_temp_temp_temp;
+  wire [63:0] G_temp_temp_temp_temp;
+  wire [63:0] E_temp_temp_temp_temp;
+  wire [63:0] T_temp_temp_temp_temp;
+  wire [63:0] U_temp_temp_temp_temp;
+  wire [63:0] V_temp_temp_temp_temp;
+  wire [63:0] W_temp_temp_temp_temp;
+  wire [63:0] X_temp_temp_temp_temp;
+  wire [63:0] Y_temp_temp_temp_temp;
+  wire [63:0] Z_temp_temp_temp_temp;
+  wire [63:0] P_temp_temp_temp_temp;
+  wire [63:0] G_temp_temp_temp_temp;
+  wire [63:0"
+N/A,N/A,-1,32.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+   wire [63:0] sum;
+   wire cout;
+   wire [63:0] in1;
+   wire [63:0] in2;
+   wire cin;
+   //////// Use a ripple carry adder module here
+   ripple_carry_adder_64 rca1(sum[63:0], cout, in1[63:0], in2[63:0], cin);
+endmodule
+
+module ripple_carry_adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+   wire [63:0] sum;
+   wire cout;
+   wire [63:0] in1;
+   wire [63:0] in2;
+   wire cin;
+   wire [63:0] temp1;
+   wire [63:0] temp2;
+   wire [63:0] temp3;
+   wire [63:0] temp4;
+   wire [63:0] temp5;
+   wire [63:0] temp6;
+   wire [63:0] temp7;
+   wire [63:0] temp8;
+   wire [63:0] temp9;
+   wire [63:0] temp10;
+   wire [63:0] temp11;
+   wire [63:0] temp12;
+   wire [63:0] temp13;
+   wire [63:0] temp14;
+   wire [63:0] temp15;
+   wire [63:0] temp16;
+   wire [63:0] temp17;
+   wire [63:0] temp18;
+   wire [63:0] temp19;
+   wire [63:0] temp20;
+   wire [63:0] temp21;
+   wire [63:0] temp22;
+   wire [63:0] temp23;
+   wire [63:0] temp24;
+   wire [63:0] temp25;
+   wire [63:0] temp26;
+   wire [63:0] temp27;
+   wire [63:0] temp28;
+   wire [63:0] temp29;
+   wire [63:0] temp30;
+   wire [63:0] temp31;
+   wire [63:0] temp32;
+   wire [63:0] temp33;
+   wire [63:0] temp34;
+   wire [63:0] temp35;
+   wire [63:0] temp36;
+   wire [63:0] temp37;
+   wire [63:0] temp38;
+   wire [63:0] temp39;
+   wire [63:0] temp40;
+   wire [63:0] temp41;
+   wire [63:0] temp42;
+   wire [63:0] temp43;
+   wire [63:0] temp44;
+   wire [63:0] temp45;
+   wire [63:0] temp46;
+   wire [63:0] temp47;
+   wire [63:0] temp48;
+   wire [63:0] temp49;
+   wire [63:0] temp50;
+   wire [63:0] temp51;
+   wire [63:0] temp52;
+   wire [63:0] temp53;
+   wire [63:0] temp54;
+   wire [63:0] temp55;
+   wire [63:0] temp56;
+   wire [63:0] temp57;
+   wire [63:0] temp58;
+   wire [63:0] temp59;
+   wire [63:0] temp60;
+   wire [63:0] temp61;
+   wire [63:0] temp62;
+   wire [63:0] temp63;
+   wire [63:0] temp64;
+   wire [63:0] temp65;
+   wire [63:0] temp66;
+   wire [63:0] temp67;
+   wire [63:0] temp68;
+   wire [63:0] temp69;
+   wire [63:0] temp70;
+   wire [63:0] temp71;
+   wire [63:0] temp72;
+   wire [63:0] temp73;
+   wire [63:0] temp74;
+   wire"
+N/A,N/A,-1,33.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);  
+  wire [63:0] sum;
+  wire cout;
+  wire [63:0] in1;
+  wire [63:0] in2;
+  wire cin;
+  CARRY4 c1(.cout(cout),
+           .sum(sum[3:0]),
+           .in1(in1[3:0]),
+           .in2(in2[3:0]),
+           .cin(cin));
+  ADDER4 a1(.sum(sum[7:4]),
+           .in1(in1[7:4]),
+           .in2(in2[7:4]),
+           .cin(cin));
+  ADDER4 a2(.sum(sum[11:8]),
+           .in1(in1[11:8]),
+           .in2(in2[11:8]),
+           .cin(cin));
+  ADDER4 a3(.sum(sum[15:12]),
+           .in1(in1[15:12]),
+           .in2(in2[15:12]),
+           .cin(cin));
+  ADDER4 a4(.sum(sum[19:16]),
+           .in1(in1[19:16]),
+           .in2(in2[19:16]),
+           .cin(cin));
+  ADDER4 a5(.sum(sum[23:20]),
+           .in1(in1[23:20]),
+           .in2(in2[23:20]),
+           .cin(cin));
+  ADDER4 a6(.sum(sum[27:24]),
+           .in1(in1[27:24]),
+           .in2(in2[27:24]),
+           .cin(cin));
+  ADDER4 a7(.sum(sum[31:28]),
+           .in1(in1[31:28]),
+           .in2(in2[31:28]),
+           .cin(cin));
+  ADDER4 a8(.sum(sum[35:32]),
+           .in1(in1[35:32]),
+           .in2(in2[35:32]),
+           .cin(cin));
+  ADDER4 a9(.sum(sum[39:36]),
+           .in1(in1[39:36]),
+           .in2(in2[39:36]),
+           .cin(cin));
+  ADDER4 a10(.sum(sum[43:40]),
+           .in1(in1[43:40]),
+           .in2(in2[43:40]),
+           .cin(cin));
+  ADDER4 a11(.sum(sum[47:44]),
+           .in1(in1[47:44]),
+           .in2(in2[47:44]),
+           .cin(cin));
+  ADDER4 a12(.sum(sum[51:48]),
+           .in1(in1[51:48]),
+           .in2(in2[51:48]),
+           .cin(cin));
+  ADDER4 a13(.sum(sum[55:52]),
+           .in1(in1[55:52]),
+           .in2(in2[55:52]),
+           .cin(cin));
+  ADDER4 a14(.sum(sum[59:56]),
+           .in1(in1[59:56]),
+           .in2(in2[59:56]),
+           .cin(cin));
+  ADDER4 a15(.sum(sum[63:60]),
+           .in1(in1[63:60]),
+           .in2(in2[63:60]),
+           .cin(cin));
+endmodule
+
+module ADDER4(output [3:0] sum,
+                input [3:0] in1, in2,
+                input cin);
+  wire [3:0] in1;
+  wire [3:0] in2;
+  wire cin;
+  wire [3:0] sum;
+  wire c1, c2, c3;
+  wire [3:0] in1;
+  wire [3:0] in2;
+  wire cin;
+  wire [3:0] sum;
+  wire c1, c2, c3;
+  wire [3:0] in"
+N/A,N/A,-1,34.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);                                   
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+    
+    comparator_64 c1(.a(in1),.b(in2),.cin(cin),.a_eq_b(sum[0]),.a_gt_b(sum[1]),.a_lt_b(sum[2]),.b_eq_a(sum[3]),.b_gt_a(sum[4]),.b_lt_a(sum[5]),.cin_eq_cout(sum[6]),.cin_gt_cout(sum[7]),.cin_lt_cout(sum[8]),.cout(cout));
+    
+    adder_64_bit a1(.sum(sum[63:0]),.cout(cout),.in1(in1),.in2(in2),.cin(cin));
+endmodule
+
+module comparator_64(output [63:0] a_eq_b,
+                      output a_gt_b,
+                      output a_lt_b,
+                      output b_eq_a,
+                      output b_gt_a,
+                      output b_lt_a,
+                      input cin_eq_cout,
+                      input cin_gt_cout,
+                      input cin_lt_cout,
+                      input [63:0] a,
+                      input [63:0] b,
+                      input cin);
+    wire [63:0] a;
+    wire [63:0] b;
+    wire cin;
+    wire cin_eq_cout;
+    wire cin_gt_cout;
+    wire cin_lt_cout;
+    
+    assign a_eq_b = (a == b)? 1 : 0;
+    assign a_gt_b = (a > b)? 1 : 0;
+    assign a_lt_b = (a < b)? 1 : 0;
+    assign b_eq_a = (b == a)? 1 : 0;
+    assign b_gt_a = (b > a)? 1 : 0;
+    assign b_lt_a = (b < a)? 1 : 0;
+    
+    assign cin_eq_cout = (cin == 1)? 1 : 0;
+    assign cin_gt_cout = (cin == 0)? 1 : 0;
+    assign cin_lt_cout = (cin == 1)? 0 : 1;
+endmodule
+
+module adder_64_bit(output [63:0] sum,
+                     output cout,
+                     input [63:0] in1, in2,
+                     input cin);
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+    
+    adder_64 a1(.sum(sum[63:0]),.cout(cout),.in1(in1),.in2(in2),.cin(cin));
+endmodule"
+N/A,N/A,-1,35.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);                      
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+    
+    cla64 cla(sum, cout, in1, in2, cin);
+
+endmodule
+
+alu_64 alu_64_inst(output [63:0] alu_out,
+                    output alu_zero,
+                    input [63:0] alu_in1, alu_in2,
+                    input alu_cin);
+
+module alu_64(output [63:0] alu_out,
+               output alu_zero,
+               input [63:0] alu_in1, alu_in2,
+               input alu_cin);
+    wire [63:0] alu_out;
+    wire alu_zero;
+    wire [63:0] alu_in1;
+    wire [63:0] alu_in2;
+    wire alu_cin;
+    
+    wire [63:0] sum;
+    wire cout;
+    
+    adder_64 adder_64_inst(sum, cout, alu_in1, alu_in2, alu_cin);
+    
+    assign alu_out = cout? alu_in1 + alu_in2 : sum;
+    assign alu_zero =!cout;
+endmodule"
+N/A,N/A,-1,36.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);   
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+    
+    comparator_64 c1(.a(in1),.b(in2),.cin(cin),.a_eq_b(sum[0]),.a_gt_b(sum[1]),.a_lt_b(sum[2]),.b_eq_a(sum[3]),.b_gt_a(sum[4]),.b_lt_a(sum[5]),.cin_eq_cout(sum[6]),.cin_gt_cout(sum[7]),.cin_lt_cout(sum[8]),.cout(cout));
+    
+    adder_64_bit a1(.sum(sum[63:0]),.cout(cout),.in1(in1),.in2(in2),.cin(cin));
+endmodule
+
+module comparator_64(output [63:0] a_eq_b,
+                      output a_gt_b,
+                      output a_lt_b,
+                      output b_eq_a,
+                      output b_gt_a,
+                      output b_lt_a,
+                      input cin_eq_cout,
+                      input cin_gt_cout,
+                      input cin_lt_cout,
+                      input [63:0] a,
+                      input [63:0] b,
+                      input cin);
+    wire [63:0] a;
+    wire [63:0] b;
+    wire cin;
+    wire cin_eq_cout;
+    wire cin_gt_cout;
+    wire cin_lt_cout;
+    
+    assign a_eq_b = (a == b)? 1 : 0;
+    assign a_gt_b = (a > b)? 1 : 0;
+    assign a_lt_b = (a < b)? 1 : 0;
+    assign b_eq_a = (b == a)? 1 : 0;
+    assign b_gt_a = (b > a)? 1 : 0;
+    assign b_lt_a = (b < a)? 1 : 0;
+    
+    assign cin_eq_cout = (cin == 1)? 1 : 0;
+    assign cin_gt_cout = (cin == 0)? 1 : 0;
+    assign cin_lt_cout = (cin == 1)? 0 : 1;
+endmodule
+
+module adder_64_bit(output [63:0] sum,
+                     output cout,
+                     input [63:0] in1, in2,
+                     input cin);
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+    
+    adder_64 a1(.sum(sum[63:0]),.cout(cout),.in1(in1),.in2(in2),.cin(cin));
+endmodule"
+N/A,N/A,-1,37.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+  wire [63:0] sum;
+  wire cout;
+  wire [63:0] in1;
+  wire [63:0] in2;
+  wire cin;
+  wire [63:0] carry;
+  dadda_64b_trunc_0 adder1(sum[63:0], carry[63:0], in1[63:0], in2[63:0], cin);
+  fa_64b_1 adder2(sum[63:0], carry[63:0], in1[63:0], in2[63:0], cin);
+  dadda_64b_trunc_1 adder3(cout, carry[63:0], in1[63:0], in2[63:0], 1'b0);
+endmodule
+
+module dadda_64b_trunc_0(output [63:0] sum,
+                         output cout,
+                         input [63:0] in1, in2,
+                         input cin);
+  wire [63:0] in1;
+  wire [63:0] in2;
+  wire cin;
+  wire [63:0] carry;
+  wire [63:0] sum;
+  wire cout;
+  wire [63:0] g;
+  wire [63:0] c;
+  wire [63:0] p;
+  wire [63:0] a;
+  wire [63:0] b;
+  wire [63:0] d;
+  wire [63:0] e;
+  wire [63:0] f;
+  wire [63:0] g;
+  wire [63:0] c;
+  wire [63:0] p;
+  wire [63:0] a;
+  wire [63:0] b;
+  wire [63:0] d;
+  wire [63:0] e;
+  wire [63:0] f;
+  assign a[63:0] = in1[63:0];
+  assign b[63:0] = in2[63:0];
+  assign c[63:0] = in1[63:0];
+  assign d[63:0] = in2[63:0];
+  assign e[63:0] = in1[63:0];
+  assign f[63:0] = in2[63:0];
+  assign g[63:0] = in1[63:0];
+  assign p[63:0] = in2[63:0];
+  assign carry[63:0] = {cin, c[63:1]};
+  assign sum[63:0] = a[63:0] ^ b[63:0];
+  assign d[63:0] = (a[63:0] & {64{g[63]}}) | (b[63:0] & {64{~g[63]}});
+  assign e[63:0] = (a[63:0] & {64{p[63]}}) | (b[63:0] & {64{~p[63]}});
+  assign f[63:0] = (a[63:0] & {64{c[63]}}) | (b[63:0] & {64{~c[63]}});
+  assign g[63:0] = (a[63:0] & {64{carry[63]}}) | (b[63:0] & {64{~carry[63]}});
+  assign c[63:0] = (a[63:0] & {64{g[62]}}) | (b[63:0] & {64{~g[62]}});
+  assign d[63:0] = (a[63:0] & {64{g[61]}}) | (b[63:0] & {64{~g[61]}});
+  assign e[63:0] = (a[63:0] & {64{g[60]}}) | (b[63:0] & {64{~g[60]}});
+  assign f[63:0] = (a[63:0] & {64{g[59]}}) | (b[63"
+N/A,N/A,-1,38.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+      wire [63:0] sum;
+      wire cout;
+      wire [63:0] in1;
+      wire [63:0] in2;
+      wire cin;
+
+      adder_32 a0(sum[31:0], cout, in1[31:0], in2[31:0], cin);
+      adder_32 a1(sum[63:32], cout, in1[63:32], in2[63:32], cout);
+
+endmodule
+
+division_factor_64 division_factor_64_tb;
+
+module division_factor_64(output [63:0] factor,
+                          input [63:0] dividend,
+                          input [63:0] divisor);
+
+      wire [63:0] dividend;
+      wire [63:0] divisor;
+      wire [63:0] factor;
+
+      division_factor_32 division_factor_32_tb(factor[31:0], dividend[31:0], divisor[31:0]);
+      division_factor_32 division_factor_32_tb(factor[63:32], dividend[63:32], divisor[63:32]);
+
+endmodule"
+N/A,N/A,-1,39.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);                              
+  wire [63:0] sum;
+  wire cout;
+  wire [63:0] in1;
+  wire [63:0] in2;
+  wire cin;
+  wire [63:0] carry;
+  
+  pipeline_adder adder_1(sum[0], carry[0], in1[0], in2[0], cin);
+  pipeline_adder adder_2(sum[1], carry[1], in1[1], in2[1], carry[0]);
+  pipeline_adder adder_3(sum[2], carry[2], in1[2], in2[2], carry[1]);
+  pipeline_adder adder_4(sum[3], carry[3], in1[3], in2[3], carry[2]);
+  pipeline_adder adder_5(sum[4], carry[4], in1[4], in2[4], carry[3]);
+  pipeline_adder adder_6(sum[5], carry[5], in1[5], in2[5], carry[4]);
+  pipeline_adder adder_7(sum[6], carry[6], in1[6], in2[6], carry[5]);
+  pipeline_adder adder_8(sum[7], carry[7], in1[7], in2[7], carry[6]);
+  pipeline_adder adder_9(sum[8], carry[8], in1[8], in2[8], carry[7]);
+  pipeline_adder adder_10(sum[9], carry[9], in1[9], in2[9], carry[8]);
+  pipeline_adder adder_11(sum[10], carry[10], in1[10], in2[10], carry[9]);
+  pipeline_adder adder_12(sum[11], carry[11], in1[11], in2[11], carry[10]);
+  pipeline_adder adder_13(sum[12], carry[12], in1[12], in2[12], carry[11]);
+  pipeline_adder adder_14(sum[13], carry[13], in1[13], in2[13], carry[12]);
+  pipeline_adder adder_15(sum[14], carry[14], in1[14], in2[14], carry[13]);
+  pipeline_adder adder_16(sum[15], carry[15], in1[15], in2[15], carry[14]);
+  pipeline_adder adder_17(sum[16], carry[16], in1[16], in2[16], carry[15]);
+  pipeline_adder adder_18(sum[17], carry[17], in1[17], in2[17], carry[16]);
+  pipeline_adder adder_19(sum[18], carry[18], in1[18], in2[18], carry[17]);
+  pipeline_adder adder_20(sum[19], carry[19], in1[19], in2[19], carry[18]);
+  pipeline_adder adder_21(sum[20], carry[20], in1[20], in2[20], carry[19]);
+  pipeline_adder adder_22(sum[21], carry[21], in1[21], in2[21], carry[20]);
+  pipeline_adder adder_23(sum[22], carry[22], in1[22], in2[22], carry[21]);
+  pipeline_adder adder_24(sum[23], carry[23], in1[23], in2[23], carry[22]);
+  pipeline_adder adder_25(sum[24], carry[24], in1[24], in2[24], carry[23]);
+  pipeline_adder adder_26(sum[25], carry[25], in1[25], in2[25], carry[24]);
+  pipeline_adder adder_27(sum[26], carry[26], in1[26], in2[26], carry[25]);
+  pipeline_adder adder_28(sum[27], carry[27], in1[27], in2"
+N/A,N/A,-1,40.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);        
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+    
+    comparator_64 c1(.a(in1),.b(in2),.cin(cin),.a_eq_b(sum[0]),.a_gt_b(sum[1]),.a_lt_b(sum[2]),.b_eq_a(sum[3]),.b_gt_a(sum[4]),.b_lt_a(sum[5]),.cin_eq_cout(sum[6]),.cin_gt_cout(sum[7]),.cin_lt_cout(sum[8]),.cout(cout));
+    
+    adder_64_bit a1(.sum(sum[63:0]),.cout(cout),.in1(in1),.in2(in2),.cin(cin));
+    
+endmodule
+
+module comparator_64(output [63:0] a_eq_b,
+                      output a_gt_b,
+                      output a_lt_b,
+                      output b_eq_a,
+                      output b_gt_a,
+                      output b_lt_a,
+                      input cin_eq_cout,
+                      input cin_gt_cout,
+                      input cin_lt_cout,
+                      input [63:0] a,
+                      input [63:0] b,
+                      input cin);
+    wire [63:0] a;
+    wire [63:0] b;
+    wire cin;
+    
+    assign a_eq_b = (a == b)? 1 : 0;
+    assign b_eq_a = (b == a)? 1 : 0;
+    assign a_gt_b = (a > b)? 1 : 0;
+    assign b_gt_a = (b > a)? 1 : 0;
+    assign a_lt_b = (a < b)? 1 : 0;
+    assign cin_eq_cout = (cin == 1)? 1 : 0;
+    assign cin_gt_cout = (cin == 1)? 0 : 1;
+    assign cin_lt_cout = (cin == 1)? 0 : 1;
+endmodule
+
+module adder_64_bit(output [63:0] sum,
+                     output cout,
+                     input [63:0] in1, in2,
+                     input cin);
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+    
+    adder_64 a1(.sum(sum[63:0]),.cout(cout),.in1(in1),.in2(in2),.cin(cin));
+endmodule"
+N/A,N/A,-1,41.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+                          
+  wire [63:0] sum;
+  wire cout;
+  wire [63:0] in1;
+  wire [63:0] in2;
+  wire cin;
+  
+  if (in1[63] == 1'b1 && in2[63] == 1'b0)
+    assign in1[63:0] = ~in1[63:0] + 1'b1;
+  if (in1[63] == 1'b0 && in2[63] == 1'b1)
+    assign in2[63:0] = ~in2[63:0] + 1'b1;
+  
+  full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder FA8(sum[7], c8, in1[7], in2[7], c7);
+  full_adder FA9(sum[8], c9, in1[8], in2[8], c8);
+  full_adder FA10(sum[9], c10, in1[9], in2[9], c9);
+  full_adder FA11(sum[10], c11, in1[10], in2[10], c10);
+  full_adder FA12(sum[11], c12, in1[11], in2[11], c11);
+  full_adder FA13(sum[12], c13, in1[12], in2[12], c12);
+  full_adder FA14(sum[13], c14, in1[13], in2[13], c13);
+  full_adder FA15(sum[14], c15, in1[14], in2[14], c14);
+  full_adder FA16(sum[15], c16, in1[15], in2[15], c15);
+  full_adder FA17(sum[16], c17, in1[16], in2[16], c16);
+  full_adder FA18(sum[17], c18, in1[17], in2[17], c17);
+  full_adder FA19(sum[18], c19, in1[18], in2[18], c18);
+  full_adder FA20(sum[19], c20, in1[19], in2[19], c19);
+  full_adder FA21(sum[20], c21, in1[20], in2[20], c20);
+  full_adder FA22(sum[21], c22, in1[21], in2[21], c21);
+  full_adder FA23(sum[22], c23, in1[22], in2[22], c22);
+  full_adder FA24(sum[23], c24, in1[23], in2[23], c23);
+  full_adder FA25(sum[24], c25, in1[24], in2[24], c24);
+  full_adder FA26(sum[25], c26, in1[25], in2[25], c25);
+  full_adder FA27(sum[26], c27, in1[26], in2[26], c26);
+  full_adder FA28(sum[27], c28, in1[27], in2[27], c27);
+  full_adder FA29(sum[28], c29, in1[28], in2[28], c28);
+  full_adder FA30(sum[29], c30, in1[29], in2[29], c29);
+  full_adder FA31"
+N/A,N/A,-1,42.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+	wire [63:0] sum;
+	wire cout;
+	wire [63:0] in1;
+	wire [63:0] in2;
+	wire cin;
+
+	full_adder FA0(sum[0], c1, in1[0], in2[0], cin);
+	full_adder FA1(sum[1], c2, in1[1], in2[1], c1);
+	full_adder FA2(sum[2], c3, in1[2], in2[2], c2);
+	full_adder FA3(sum[3], c4, in1[3], in2[3], c3);
+	full_adder FA4(sum[4], c5, in1[4], in2[4], c4);
+	full_adder FA5(sum[5], c6, in1[5], in2[5], c5);
+	full_adder FA6(sum[6], c7, in1[6], in2[6], c6);
+	full_adder FA7(sum[7], c8, in1[7], in2[7], c7);
+	full_adder FA8(sum[8], c9, in1[8], in2[8], c8);
+	full_adder FA9(sum[9], c10, in1[9], in2[9], c9);
+	full_adder FA10(sum[10], c11, in1[10], in2[10], c10);
+	full_adder FA11(sum[11], c12, in1[11], in2[11], c11);
+	full_adder FA12(sum[12], c13, in1[12], in2[12], c12);
+	full_adder FA13(sum[13], c14, in1[13], in2[13], c13);
+	full_adder FA14(sum[14], c15, in1[14], in2[14], c14);
+	full_adder FA15(sum[15], c16, in1[15], in2[15], c15);
+	full_adder FA16(sum[16], c17, in1[16], in2[16], c16);
+	full_adder FA17(sum[17], c18, in1[17], in2[17], c17);
+	full_adder FA18(sum[18], c19, in1[18], in2[18], c18);
+	full_adder FA19(sum[19], c20, in1[19], in2[19], c19);
+	full_adder FA20(sum[20], c21, in1[20], in2[20], c20);
+	full_adder FA21(sum[21], c22, in1[21], in2[21], c21);
+	full_adder FA22(sum[22], c23, in1[22], in2[22], c22);
+	full_adder FA23(sum[23], c24, in1[23], in2[23], c23);
+	full_adder FA24(sum[24], c25, in1[24], in2[24], c24);
+	full_adder FA25(sum[25], c26, in1[25], in2[25], c25);
+	full_adder FA26(sum[26], c27, in1[26], in2[26], c26);
+	full_adder FA27(sum[27], c28, in1[27], in2[27], c27);
+	full_adder FA28(sum[28], c29, in1[28], in2[28], c28);
+	full_adder FA29(sum[29], c30, in1[29], in2[29], c29);
+	full_adder FA30(sum[30], c31, in1[30], in2[30], c30);
+	full_adder FA31(sum[31], c32, in1[31], in2[31], c31);
+	full_adder FA32(sum[32], c33, in1[32], in2[32], c32);
+	full_adder FA33(sum[33], c34, in1[33], in2[33], c33);
+	full_adder"
+N/A,N/A,-1,43.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);    
+  wire [63:0] sum;
+  wire cout;
+  wire [63:0] in1;
+  wire [63:0] in2;
+  wire cin;
+  
+  mux_64 mux1(sum[63:0], in1[63:0], in2[63:0], cin, sum[63:0]);
+  mux_1 mux2(cout, in1[63], in2[63], cin, cout);
+endmodule
+
+i_flip_flop i_ff(output reg q,
+                  input clk,
+                  input reset,
+                  input i_in);
+  always @(posedge clk)
+    begin
+      if (reset)
+        q <= 0;
+      else
+        q <= i_in;
+    end
+endmodule"
+N/A,N/A,-1,44.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+    
+    ADD_64_GENERIC #(.WIDTH(64)) U1 (.A(in1),.B(in2),.CIN(cin),.SUM(sum),.COUT(cout));
+endmodule
+
+module ADD_64_GENERIC(output [63:0] SUM,
+                      output COUT,
+                      input [63:0] A, B,
+                      input CIN);
+    wire [63:0] A;
+    wire [63:0] B;
+    wire CIN;
+    wire [63:0] SUM;
+    wire COUT;
+    
+    genvar i;
+    generate
+        for(i=0; i<64; i=i+1) begin
+            if(i==0) begin
+                full_adder FA(.a(A[i]),.b(B[i]),.cin(CIN),.sum(SUM[i]),.cout(COUT));
+            end
+            else begin
+                full_adder FA(.a(A[i]),.b(B[i]),.cin(COUT),.sum(SUM[i]),.cout(COUT));
+            end
+        end
+    endgenerate
+endmodule
+
+module full_adder(output a, b, cin,
+                  input a, b, cin);
+    wire a;
+    wire b;
+    wire cin;
+    
+    assign a = a ^ b;
+    assign b = a ^ cin;
+    assign cin = b ^ cin;
+endmodule"
+612.598,2389.48,6.831577910356756e-07,45.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+  assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+N/A,N/A,-1,46.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+  wire [63:0] sum;
+  wire cout;
+  wire [63:0] in1;
+  wire [63:0] in2;
+  wire cin;
+
+  ALU64bit uut(sum, cout, in1, in2, cin);
+
+  initial begin
+    in1 = 64'h0000000000000001;
+    in2 = 64'h0000000000000001;
+    cin = 1'b0;
+    #10;
+    in1 = 64'h0000000000000010;
+    in2 = 64'h0000000000000010;
+    cin = 1'b0;
+    #10;
+    in1 = 64'h0000000000000100;
+    in2 = 64'h0000000000000100;
+    cin = 1'b0;
+    #10;
+    in1 = 64'h0000000000001000;
+    in2 = 64'h0000000000001000;
+    cin = 1'b0;
+    #10;
+    in1 = 64'h0000000000010000;
+    in2 = 64'h0000000000010000;
+    cin = 1'b0;
+    #10;
+    in1 = 64'h0000000000100000;
+    in2 = 64'h0000000000100000;
+    cin = 1'b0;
+    #10;
+    in1 = 64'h0000000001000000;
+    in2 = 64'h0000000001000000;
+    cin = 1'b0;
+    #10;
+    in1 = 64'h0000000010000000;
+    in2 = 64'h0000000010000000;
+    cin = 1'b0;
+    #10;
+    in1 = 64'h0000000100000000;
+    in2 = 64'h0000000100000000;
+    cin = 1'b0;
+    #10;
+    in1 = 64'h0000001000000000;
+    in2 = 64'h0000001000000000;
+    cin = 1'b0;
+    #10;
+    in1 = 64'h0000010000000000;
+    in2 = 64'h0000010000000000;
+    cin = 1'b0;
+    #10;
+    in1 = 64'h0000100000000000;
+    in2 = 64'h0000100000000000;
+    cin = 1'b0;
+    #10;
+    in1 = 64'h0001000000000000;
+    in2 = 64'h0001000000000000;
+    cin = 1'b0;
+    #10;
+    in1 = 64'h0010000000000000;
+    in2 = 64'h0010000000000000;
+    cin = 1'b0;
+    #10;
+    in1 = 64'h0100000000000000;
+    in2 = 64'h0100000000000000;
+    cin = 1'b0;
+    #10;
+    in1 = 64'h1000000000000000;
+    in2 = 64'h1000000000000000;
+    cin = 1'b0;
+    #10;
+    in1 = 64'h2000000000000000;
+    in2 = 64'h2000000000000000;
+    cin = 1'b0;
+    #10;
+    in1 = 64'h3000000000000000;
+    in2 = 64'h3000000000000000;
+    cin = 1'b0;
+    #10;
+    in1 = 64'h4000000000000000;
+    in2 = 64'h4000000000000000;
+    cin = 1'b0;
+    #10;
+    in1 = 64'h5000000000000000;
+    in2 = 64'h5000000000000000;
+    cin = 1'b0;
+    #10;
+    in1 = 64'h6000000000000000;
+    in2 = 64'h6000000000000000;
+    cin = 1'b0;
+    #10;
+    in1 = 64'h7000000000000000;
+    in2 = 64'h7000000000000000;
+    cin = 1'b0;
+    #10;
+    in1 = 64'h8000000000000000;
+    in2 = 64'h8000000000000000;
+    cin = 1'b0;
+    #10;
+    in1 = 64'h9000000000000000;
+    in2 = 64'h9000000000000000;
+    cin = 1'b0;
+    #10;
+    in1 = 64'ha000000000000000;"
+N/A,N/A,-1,47.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+     wire [63:0] sum;
+     wire cout;
+     wire [63:0] in1;
+     wire [63:0] in2;
+     wire cin;
+
+     full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+     full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+     full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+     full_adder FA4(sum[3], c4, in1[3], in2[3], c3);
+     full_adder FA5(sum[4], c5, in1[4], in2[4], c4);
+     full_adder FA6(sum[5], c6, in1[5], in2[5], c5);
+     full_adder FA7(sum[6], c7, in1[6], in2[6], c6);
+     full_adder FA8(sum[7], c8, in1[7], in2[7], c7);
+     full_adder FA9(sum[8], c9, in1[8], in2[8], c8);
+     full_adder FA10(sum[9], c10, in1[9], in2[9], c9);
+     full_adder FA11(sum[10], c11, in1[10], in2[10], c10);
+     full_adder FA12(sum[11], c12, in1[11], in2[11], c11);
+     full_adder FA13(sum[12], c13, in1[12], in2[12], c12);
+     full_adder FA14(sum[13], c14, in1[13], in2[13], c13);
+     full_adder FA15(sum[14], c15, in1[14], in2[14], c14);
+     full_adder FA16(sum[15], c16, in1[15], in2[15], c15);
+     full_adder FA17(sum[16], c17, in1[16], in2[16], c16);
+     full_adder FA18(sum[17], c18, in1[17], in2[17], c17);
+     full_adder FA19(sum[18], c19, in1[18], in2[18], c18);
+     full_adder FA20(sum[19], c20, in1[19], in2[19], c19);
+     full_adder FA21(sum[20], c21, in1[20], in2[20], c20);
+     full_adder FA22(sum[21], c22, in1[21], in2[21], c21);
+     full_adder FA23(sum[22], c23, in1[22], in2[22], c22);
+     full_adder FA24(sum[23], c24, in1[23], in2[23], c23);
+     full_adder FA25(sum[24], c25, in1[24], in2[24], c24);
+     full_adder FA26(sum[25], c26, in1[25], in2[25], c25);
+     full_adder FA27(sum[26], c27, in1[26], in2[26], c26);
+     full_adder FA28(sum[27], c28, in1[27], in2[27], c27);
+     full_adder FA29(sum[28], c29, in1[28], in2[28], c28);
+     full_adder FA30(sum[29], c30, in1[29], in2[29], c29);
+     full_adder FA31(sum[30], c31, in1[30], in2[30], c30);
+     full_adder FA32(sum[31], c32, in1[31], in2[31], c31);
+     full_adder FA33(sum[32], c33, in1[32], in2[32], c32);
+     full_adder FA34(sum[33], c34, in1[33], in2[33], c33);
+     full_adder"
+N/A,N/A,-0.5,48.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+wire [63:0] sum_temp;
+wire [63:0] in1_temp;
+wire [63:0] in2_temp;
+
+assign sum_temp = in1 + in2;
+assign in1_temp = in1;
+assign in2_temp = in2;
+
+assign cout = cin;
+
+assign sum = sum_temp[63:0];
+
+endmodule"
+612.598,2389.48,6.831577910356756e-07,49.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+assign {cout, sum} = in1 + in2 + cin;
+
+endmodule"
+N/A,N/A,-1,50.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+full_adder FA0(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA1(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA2(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA3(sum[3], c4, in1[3], in2[3], c3);
+full_adder FA4(sum[4], c5, in1[4], in2[4], c4);
+full_adder FA5(sum[5], c6, in1[5], in2[5], c5);
+full_adder FA6(sum[6], c7, in1[6], in2[6], c6);
+full_adder FA7(sum[7], c8, in1[7], in2[7], c7);
+full_adder FA8(sum[8], c9, in1[8], in2[8], c8);
+full_adder FA9(sum[9], c10, in1[9], in2[9], c9);
+full_adder FA10(sum[10], c11, in1[10], in2[10], c10);
+full_adder FA11(sum[11], c12, in1[11], in2[11], c11);
+full_adder FA12(sum[12], c13, in1[12], in2[12], c12);
+full_adder FA13(sum[13], c14, in1[13], in2[13], c13);
+full_adder FA14(sum[14], c15, in1[14], in2[14], c14);
+full_adder FA15(sum[15], c16, in1[15], in2[15], c15);
+full_adder FA16(sum[16], c17, in1[16], in2[16], c16);
+full_adder FA17(sum[17], c18, in1[17], in2[17], c17);
+full_adder FA18(sum[18], c19, in1[18], in2[18], c18);
+full_adder FA19(sum[19], c20, in1[19], in2[19], c19);
+full_adder FA20(sum[20], c21, in1[20], in2[20], c20);
+full_adder FA21(sum[21], c22, in1[21], in2[21], c21);
+full_adder FA22(sum[22], c23, in1[22], in2[22], c22);
+full_adder FA23(sum[23], c24, in1[23], in2[23], c23);
+full_adder FA24(sum[24], c25, in1[24], in2[24], c24);
+full_adder FA25(sum[25], c26, in1[25], in2[25], c25);
+full_adder FA26(sum[26], c27, in1[26], in2[26], c26);
+full_adder FA27(sum[27], c28, in1[27], in2[27], c27);
+full_adder FA28(sum[28], c29, in1[28], in2[28], c28);
+full_adder FA29(sum[29], c30, in1[29], in2[29], c29);
+full_adder FA30(sum[30], c31, in1[30], in2[30], c30);
+full_adder FA31(sum[31], c32, in1[31], in2[31], c31);
+full_adder FA32(sum[32], c33, in1[32], in2[32], c32);
+full_adder FA33(sum[33], c34, in1[33], in2[33], c33);
+full_adder FA34(sum[34], c35, in1[34], in2[34], c34);
+full_adder FA35(sum[35], c36, in1[35], in2[35], c35);
+full_adder FA36(sum[36], c37, in1[36], in2[36], c36);"
+612.598,2389.48,6.831577910356756e-07,51.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+  assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+N/A,N/A,-1,52.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+  
+  wire [63:0] sum;
+  wire cout;
+  
+  ADDER_64_BITS ADDER_64_BITS(sum[63:0], cout, in1[63:0], in2[63:0], cin);
+  
+endmodule
+
+module ADDER_64_BITS(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+  
+  wire [63:0] sum;
+  wire cout;
+  
+  wire [63:0] in1_full, in2_full;
+  wire cin_full;
+  
+  padding_64_bits PADDING_64_BITS(in1_full, in2_full, cin);
+  
+  supply0 zero_supply;
+  supply1 one_supply;
+  
+  wire [63:0] in1_full_w, in2_full_w;
+  wire [63:0] cin_full_w;
+  
+  wire [63:0] sum_w;
+  wire cout_w;
+  
+  adder_64_bit ADDER_64_BIT(sum_w, cout_w, in1_full_w, in2_full_w, cin_full_w);
+  
+  assign sum[63:0] = sum_w;
+  assign cout = cout_w;
+  
+  assign in1_full_w = in1_full;
+  assign in2_full_w = in2_full;
+  assign cin_full_w = cin_full;
+  
+  assign zero_supply = 0;
+  assign one_supply = 1;
+  
+  assign in1_full = {in1[63:0], zero_supply};
+  assign in2_full = {in2[63:0], zero_supply};
+  assign cin_full = {cin, zero_supply};
+  
+endmodule
+
+module padding_64_bits(output [63:0] in1_full,
+                       output [63:0] in2_full,
+                       input cin);
+  
+  assign in1_full[63:0] = {1'b0, in1[63:0]};
+  assign in2_full[63:0] = {1'b0, in2[63:0]};
+  assign in1_full[64] = in1[63];
+  assign in2_full[64] = in2[63];
+  assign in1_full[65] = in1[62];
+  assign in2_full[65] = in2[62];
+  assign in1_full[66] = in1[61];
+  assign in2_full[66] = in2[61];
+  assign in1_full[67] = in1[60];
+  assign in2_full[67] = in2[60];
+  assign in1_full[68] = in1[59];
+  assign in2_full[68] = in2[59];
+  assign in1_full[69] = in1[58];
+  assign in2_full[69] = in2[58];
+  assign in1_full[70] = in1[57];
+  assign in2_full[70] = in2[57];
+  assign in1_full[71] = in1[56];
+  assign in2_full[71] = in2[56];
+  assign in1_full[72] = in1[55];
+  assign in2_full[72] = in2[55];
+  assign in1_full[73] = in1[54];
+  assign in2_full[73] = in2[54];
+  assign in1_full[74] = in1[53];
+  assign in2_full[74] = in2[53];
+  assign in1_full[75] = in1[52];
+  assign in2_full[75] = in2[52];
+  assign in1_full[76] = in"
+N/A,N/A,-1,53.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+wire c1, c2, c3;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+vend_adder_64
+
+module vend_adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+wire c1, c2, c3;
+
+vend_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+vend_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+vend_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+vend_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule"
+N/A,N/A,-1,54.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+    
+    wire [63:0] sum;
+    wire cout;
+    
+    wire [63:0] c;
+    
+    kogge_stone_64(sum, c, in1, in2, cin);
+    
+    assign cout = c[63];
+
+endmodule
+
+tb_adder_64();
+
+module kogge_stone_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+    
+    wire [63:0] sum;
+    wire cout;
+    
+    wire [63:0] c;
+    
+    assign c[0] = cin;
+    
+    kogge_stone_64_c(sum, c, in1, in2);
+    
+    assign cout = c[63];
+
+endmodule"
+N/A,N/A,-1,55.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+
+
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+
+    wire [63:0] sum_temp;
+    wire cout_temp;
+    wire [63:0] in1_temp;
+    wire [63:0] in2_temp;
+    wire cin_temp;
+
+    adder_32 adder_32_1(sum_temp[31:0], cout_temp, in1_temp[31:0], in2_temp[31:0], cin_temp);
+    adder_32 adder_32_2(sum[63:32], cout, sum_temp[63:32], in1[63:32], cin_temp);
+
+
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+
+
+
+    wire [31:0] sum;
+    wire cout;
+    wire [31:0] in1;
+    wire [31:0] in2;
+    wire cin;
+
+    wire [31:0] sum_temp;
+    wire cout_temp;
+    wire [31:0] in1_temp;
+    wire [31:0] in2_temp;
+    wire cin_temp;
+
+    adder_16 adder_16_1(sum_temp[15:0], cout_temp, in1_temp[15:0], in2_temp[15:0], cin_temp);
+    adder_16 adder_16_2(sum[15:0], cout, sum_temp[15:0], in1[15:0], cin_temp);
+
+
+endmodule
+
+module adder_16(output [15:0] sum,
+                      output cout,
+                      input [15:0] in1, in2,
+                      input cin);
+
+
+
+    wire [15:0] sum;
+    wire cout;
+    wire [15:0] in1;
+    wire [15:0] in2;
+    wire cin;
+
+    wire [15:0] sum_temp;
+    wire cout_temp;
+    wire [15:0] in1_temp;
+    wire [15:0] in2_temp;
+    wire cin_temp;
+
+    adder_8 adder_8_1(sum_temp[7:0], cout_temp, in1_temp[7:0], in2_temp[7:0], cin_temp);
+    adder_8 adder_8_2(sum[7:0], cout, sum_temp[7:0], in1[7:0], cin_temp);
+
+
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+
+
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum_temp;
+    wire cout_temp;
+    wire [7:0] in1_temp;
+    wire [7:0] in2_temp;
+    wire cin_temp;
+
+    adder_4 adder_4_1(sum_temp[3:0], cout_temp, in1_temp[3:0], in2_temp[3:0], cin_temp);
+    adder_4 adder_4_2(sum[3:0], cout, sum_temp[3:0], in1[3:0], cin_temp);
+
+
+endmodule
+
+module adder_4(output [3:0] sum,
+                      output cout,
+                      input [3:0] in1, in2,
+                      input cin);
+
+
+
+    wire [3:0] sum;
+    wire cout;
+    wire [3:0] in1;
+    wire [3:0] in2;
+    wire cin;
+
+    wire [3:0] sum_temp;
+    wire cout_temp;
+    wire [3:0] in1_temp;
+    wire [3:"
+N/A,N/A,-1,56.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+  full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder FA8(sum[7], c8, in1[7], in2[7], c7);
+  full_adder FA9(sum[8], c9, in1[8], in2[8], c8);
+  full_adder FA10(sum[9], c10, in1[9], in2[9], c9);
+  full_adder FA11(sum[10], c11, in1[10], in2[10], c10);
+  full_adder FA12(sum[11], c12, in1[11], in2[11], c11);
+  full_adder FA13(sum[12], c13, in1[12], in2[12], c12);
+  full_adder FA14(sum[13], c14, in1[13], in2[13], c13);
+  full_adder FA15(sum[14], c15, in1[14], in2[14], c14);
+  full_adder FA16(sum[15], c16, in1[15], in2[15], c15);
+  full_adder FA17(sum[16], c17, in1[16], in2[16], c16);
+  full_adder FA18(sum[17], c18, in1[17], in2[17], c17);
+  full_adder FA19(sum[18], c19, in1[18], in2[18], c18);
+  full_adder FA20(sum[19], c20, in1[19], in2[19], c19);
+  full_adder FA21(sum[20], c21, in1[20], in2[20], c20);
+  full_adder FA22(sum[21], c22, in1[21], in2[21], c21);
+  full_adder FA23(sum[22], c23, in1[22], in2[22], c22);
+  full_adder FA24(sum[23], c24, in1[23], in2[23], c23);
+  full_adder FA25(sum[24], c25, in1[24], in2[24], c24);
+  full_adder FA26(sum[25], c26, in1[25], in2[25], c25);
+  full_adder FA27(sum[26], c27, in1[26], in2[26], c26);
+  full_adder FA28(sum[27], c28, in1[27], in2[27], c27);
+  full_adder FA29(sum[28], c29, in1[28], in2[28], c28);
+  full_adder FA30(sum[29], c30, in1[29], in2[29], c29);
+  full_adder FA31(sum[30], c31, in1[30], in2[30], c30);
+  full_adder FA32(sum[31], c32, in1[31], in2[31], c31);
+  full_adder FA33(sum[32], c33, in1[32], in2[32], c32);
+  full_adder FA34(sum[33], c34, in1[33], in2[33], c33);
+  full_adder FA35(sum[34], c35, in1[34], in2[34], c34);
+  full_adder FA36(sum[35], c36, in1[35],"
+N/A,N/A,-1,57.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);    	
+	
+	wire [63:0] sum_temp;
+	wire cout_temp;
+	
+	adder_32 a1(sum_temp[31:0], cout_temp, in1[31:0], in2[31:0], cin);
+	adder_32 a2(sum[63:32], cout, sum_temp[63:32], in2[63:32], cout_temp);
+	
+endmodule
+
+altmult_add_top #(
+	.DIN_WIDTH(DIN_WIDTH),
+	.DIN_POINT(DIN_POINT),
+	.PARALLEL(PARALLEL),
+	.VECTOR_LEN(VECTOR_LEN),
+	.DOUT_WIDTH(DOUT_WIDTH),
+	.DOUT_POINT(DOUT_POINT),
+	.FAMILY(FAMILY)
+)
+adder_64_inst (
+	.clk(clk),
+	.din1(din1),
+	.din2(din2),
+	.din_valid(din_valid),
+	.dout(dout),
+	.dout_valid(dout_valid)
+);
+
+endmodule"
+N/A,N/A,-1,58.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+
+    kogge_stone_64(sum, in1, in2, cin);
+    assign cout = sum[63];
+
+endmodule
+
+demux_4x1_64 demux_4x1_64_tb();
+
+--------------------------------------------------------------------------------
+
+module demux_4x1_64_tb();
+
+reg in;
+reg [1:0] select;
+wire [63:0] out;
+
+demux_4x1_64 demux_4x1_64_tb(
+   .in(in),
+   .select(select),
+   .out(out)
+);
+
+initial begin
+    in = 0;
+    select = 0;
+    #10;
+    in = 0;
+    select = 1;
+    #10;
+    in = 1;
+    select = 0;
+    #10;
+    in = 1;
+    select = 1;
+    #10;
+    in = 0;
+    select = 2;
+    #10;
+    in = 1;
+    select = 2;
+    #10;
+    in = 0;
+    select = 3;
+    #10;
+    in = 1;
+    select = 3;
+    #10;
+    in = 0;
+    select = 4;
+    #10;
+    in = 1;
+    select = 4;
+    #10;
+    in = 0;
+    select = 5;
+    #10;
+    in = 1;
+    select = 5;
+    #10;
+    in = 0;
+    select = 6;
+    #10;
+    in = 1;
+    select = 6;
+    #10;
+    in = 0;
+    select = 7;
+    #10;
+    in = 1;
+    select = 7;
+    #10;
+    in = 0;
+    select = 8;
+    #10;
+    in = 1;
+    select = 8;
+    #10;
+    in = 0;
+    select = 9;
+    #10;
+    in = 1;
+    select = 9;
+    #10;
+    in = 0;
+    select = 10;
+    #10;
+    in = 1;
+    select = 10;
+    #10;
+    in = 0;
+    select = 11;
+    #10;
+    in = 1;
+    select = 11;
+    #10;
+    in = 0;
+    select = 12;
+    #10;
+    in = 1;
+    select = 12;
+    #10;
+    in = 0;
+    select = 13;
+    #10;
+    in = 1;
+    select = 13;
+    #10;
+    in = 0;
+    select = 14;
+    #10;
+    in = 1;
+    select = 14;
+    #10;
+    in = 0;
+    select = 15;
+    #10;
+    in = 1;
+    select = 15;
+    #10;
+    in = 0;
+    select = 16;
+    #10;
+    in = 1;
+    select = 16;
+    #10;
+    in = 0;
+    select = 17;
+    #10;
+    in = 1;
+    select = 17;
+    #10;
+    in = 0;
+    select = 18;
+    #10;
+    in = 1;
+    select = 18;
+    #10;
+    in = 0;
+    select = 19;
+    #10;
+    in = 1;
+    select = 19;
+    #10;
+    in = 0;
+    select = 20;
+    #10;
+    in = 1;
+    select = 20;
+    #10;
+    in = 0;
+    select = 21;
+    #10;
+    in = 1;
+    select = 21;
+    #10;
+    in = 0;
+    select = 22;
+    #10;
+    in = 1;
+    select = 22;
+    #10;
+    in = 0;
+    select = 23;
+    #10;
+    in = 1;
+    select ="
+N/A,N/A,-0.5,59.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+endmodule"
+612.598,2389.48,6.831577910356756e-07,60.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+assign {cout, sum} = in1 + in2 + cin;
+
+endmodule"
+612.598,2389.48,6.831577910356756e-07,61.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+reg [63:0] sum;
+reg cout;
+
+always @(in1 or in2 or cin)
+begin
+    {cout, sum} = in1 + in2 + cin;
+end
+
+endmodule"
+612.598,2389.48,6.831577910356756e-07,62.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+assign {cout, sum} = in1 + in2 + cin;
+
+endmodule"
+N/A,N/A,-0.5,63.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+genvar i;
+
+wire c1;
+wire [63:0] carry;
+
+generate
+for (i = 0; i < 64; i = i + 1)
+begin: adder_loop
+    if (i == 0)
+    begin
+        half_adder HA1(sum[i], carry[i], in1[i], in2[i]);
+    end
+    else
+    begin
+        half_adder HA2(sum[i], carry[i], in1[i], in2[i]);
+        assign carry[i] = carry[i - 1] + carry[i - 1];
+    end
+end
+endgenerate
+
+assign cout = carry[63];
+
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input a,
+                  input b,
+                  input cin);
+
+wire c1;
+wire c2;
+wire c3;
+
+half_adder HA1(sum, c1, a, b);
+half_adder HA2(sum, c2, c1, cin);
+half_adder HA3(cout, c3, c2, cin);
+
+assign cout = c3;
+
+endmodule
+
+module half_adder(output sum,
+                  output cout,
+                  input a,
+                  input b);
+
+assign sum = a ^ b;
+assign cout = a & b;
+
+endmodule"
+612.598,2389.48,6.831577910356756e-07,64.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+assign {cout, sum} = in1 + in2 + cin;
+
+endmodule"
+N/A,N/A,-1,65.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+assign cout = c[63];
+
+assign sum = in1 ^ in2 ^ cin;
+
+endmodule"
+N/A,N/A,-0.5,66.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+wire [63:0] sum_temp;
+wire [63:0] in1_temp;
+wire [63:0] in2_temp;
+
+assign sum_temp = in1 + in2;
+assign in1_temp = in1;
+assign in2_temp = in2;
+
+assign cout = cin;
+
+assign sum = sum_temp[63:0];
+
+endmodule"
+612.598,2389.48,6.831577910356756e-07,67.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+reg [63:0] sum;
+reg cout;
+
+always @(in1 or in2 or cin)
+begin
+    {cout, sum} = in1 + in2 + cin;
+end
+
+endmodule"
+612.598,2389.48,6.831577910356756e-07,68.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+reg [63:0] sum;
+reg cout;
+
+always @(in1 or in2 or cin)
+begin
+    {cout, sum} = in1 + in2 + cin;
+end
+
+endmodule"
+N/A,N/A,-1,69.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+adder_32 a1(sum[31:0], cout, in1[31:0], in2[31:0], cin);
+adder_32 a2(sum[63:32], cout, in1[63:32], in2[63:32], 1'b0);
+
+endmodule
+
+input [63:0] in1, in2;
+input cin;
+output [63:0] sum;
+output cout;
+
+func_64 f1(sum, cout, in1, in2, cin);
+
+endmodule"
+612.598,2389.48,6.831577910356756e-07,70.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+reg [63:0] sum;
+reg cout;
+
+always @(in1 or in2 or cin)
+begin
+    {cout, sum} = in1 + in2 + cin;
+end
+
+endmodule"
+N/A,N/A,-1,71.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+add_64 a1(sum[63:0], cout, in1[63:0], in2[63:0], cin);
+
+endmodule
+
+*******************************************************************************/
+'include ""adder_64.v""
+
+module add_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+wire c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16, c17, c18, c19, c20, c21, c22, c23, c24, c25, c26, c27, c28, c29, c30, c31, c32, c33, c34, c35, c36, c37, c38, c39, c40, c41, c42, c43, c44, c45, c46, c47, c48, c49, c50, c51, c52, c53, c54, c55, c56, c57, c58, c59, c60, c61, c62, c63;
+
+32_bit_Adder a1(sum[31:0], c1, in1[31:0], in2[31:0], cin);
+
+32_bit_Adder a2(sum[63:32], c2, in1[63:32], in2[63:32], c1);
+
+32_bit_Adder a3(cout, c3, in1[63:64], in2[63:64], c2);
+
+32_bit_Adder a4(cout, c4, in1[95:64], in2[95:64], c3);
+
+32_bit_Adder a5(cout, c5, in1[127:96], in2[127:96], c4);
+
+32_bit_Adder a6(cout, c6, in1[159:128], in2[159:128], c5);
+
+32_bit_Adder a7(cout, c7, in1[191:160], in2[191:160], c6);
+
+32_bit_Adder a8(cout, c8, in1[223:192], in2[223:192], c7);
+
+32_bit_Adder a9(cout, c9, in1[255:224], in2[255:224], c8);
+
+32_bit_Adder a10(cout, c10, in1[287:256], in2[287:256], c9);
+
+32_bit_Adder a11(cout, c11, in1[319:288], in2[319:288], c10);
+
+32_bit_Adder a12(cout, c12, in1[351:320], in2[351:320], c11);
+
+32_bit_Adder a13(cout, c13, in1[383:352], in2[383:352], c12);
+
+32_bit_Adder a14(cout, c14, in1[415:384], in2[415:384], c13);
+
+32_bit_Adder a15(cout, c15, in1[447:416], in2[447:416], c14);
+
+32_bit_Adder a16(cout, c16, in1[479:448], in2[479:448], c15);
+
+32_bit_Adder a17(cout, c17, in1[511:480], in2[511:480], c16);
+
+32_bit_Adder a18(cout, c18, in1[523:512], in2[523:512], c17);
+
+32_bit_Adder a19(cout, c19, in1[555:524], in2[555:524], c18);
+
+32_bit_Adder a20(cout, c20, in1[587:556], in2[587:556], c19);
+
+32_bit_Adder a21(cout, c21, in1[619:588], in2["
+N/A,N/A,-1,72.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+wire c1, c2, c3;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+counter_4bit cntr4bit(output [3:0] count,
+                        input clk,
+                        input reset);
+
+wire [3:0] q;
+
+d_flip_flop dff0(q[0], clk, reset, q[0]);
+d_flip_flop dff1(q[1], clk, reset, q[1]);
+d_flip_flop dff2(q[2], clk, reset, q[2]);
+d_flip_flop dff3(q[3], clk, reset, q[3]);
+
+always @(posedge clk)
+begin
+    if (reset)
+        count <= 4'b0000;
+    else
+        count <= q;
+end
+
+endmodule"
+N/A,N/A,-1,73.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+  wire [63:0] sum;
+  wire cout;
+  wire [63:0] in1;
+  wire [63:0] in2;
+  wire cin;
+  wire [63:0] carry;
+  MUX2X1 U1 (in1, in2, cin, sum);
+  ADDER_FIXED_POINT U2 (sum, carry, cin, cout);
+endmodule
+
+module MUX2X1(input [63:0] in1, in2, input cin, output [63:0] out);
+  assign out = (cin == 0)? in1 : in2;
+endmodule
+
+module ADDER_FIXED_POINT(output [63:0] sum,
+                         output [63:0] carry,
+                         input cin,
+                         output cout);
+  wire [63:0] sum;
+  wire [63:0] carry;
+  wire cin;
+  wire [63:0] carry_in;
+  wire [63:0] carry_out;
+  assign carry_in = (cin == 0)? {1'b0, carry[63:1]} : {carry[63:0], 1'b0};
+  adder_64 U1 (sum, cout, in1, in2, cin);
+  assign carry_out = sum[63:0] + carry_in[63:0];
+  assign carry[0] = carry_out[0];
+  assign carry[63:1] = carry_out[63:1];
+endmodule"
+612.598,2389.48,6.831577910356756e-07,74.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+    assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+N/A,N/A,-1,75.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+    full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder FA4(sum[3], c4, in1[3], in2[3], c3);
+    full_adder FA5(sum[4], c5, in1[4], in2[4], c4);
+    full_adder FA6(sum[5], c6, in1[5], in2[5], c5);
+    full_adder FA7(sum[6], c7, in1[6], in2[6], c6);
+    full_adder FA8(sum[7], c8, in1[7], in2[7], c7);
+    full_adder FA9(sum[8], c9, in1[8], in2[8], c8);
+    full_adder FA10(sum[9], c10, in1[9], in2[9], c9);
+    full_adder FA11(sum[10], c11, in1[10], in2[10], c10);
+    full_adder FA12(sum[11], c12, in1[11], in2[11], c11);
+    full_adder FA13(sum[12], c13, in1[12], in2[12], c12);
+    full_adder FA14(sum[13], c14, in1[13], in2[13], c13);
+    full_adder FA15(sum[14], c15, in1[14], in2[14], c14);
+    full_adder FA16(sum[15], c16, in1[15], in2[15], c15);
+    full_adder FA17(sum[16], c17, in1[16], in2[16], c16);
+    full_adder FA18(sum[17], c18, in1[17], in2[17], c17);
+    full_adder FA19(sum[18], c19, in1[18], in2[18], c18);
+    full_adder FA20(sum[19], c20, in1[19], in2[19], c19);
+    full_adder FA21(sum[20], c21, in1[20], in2[20], c20);
+    full_adder FA22(sum[21], c22, in1[21], in2[21], c21);
+    full_adder FA23(sum[22], c23, in1[22], in2[22], c22);
+    full_adder FA24(sum[23], c24, in1[23], in2[23], c23);
+    full_adder FA25(sum[24], c25, in1[24], in2[24], c24);
+    full_adder FA26(sum[25], c26, in1[25], in2[25], c25);
+    full_adder FA27(sum[26], c27, in1[26], in2[26], c26);
+    full_adder FA28(sum[27], c28, in1[27], in2[27], c27);
+    full_adder FA29(sum[28], c29, in1[28], in2[28], c28);
+    full_adder FA30(sum[29], c30, in1[29], in2[29], c29);
+    full_adder FA31(sum[30], c31, in1[30], in2[30], c30);
+    full_adder FA32(sum[31], c32, in1[31], in2[31], c31);
+    full_adder FA33(sum[32], c33, in1[32], in2[32], c32);
+    full_adder FA34(sum[33], c34, in1[33], in2[33], c33);
+    full_adder FA35(sum[34], c35, in1[34], in2[34], c34);
+    full_adder FA36(sum[35], c36, in1[35],"
+612.598,2389.48,6.831577910356756e-07,76.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+reg [63:0] sum;
+reg cout;
+
+always @(in1 or in2 or cin)
+begin
+    {cout, sum} = in1 + in2 + cin;
+end
+
+endmodule"
+N/A,N/A,-1,77.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+integer i;
+
+always @(in1 or in2 or cin)
+begin
+    cout = 0;
+    for(i=0; i<64; i=i+1)
+    begin
+        sum[i] = in1[i] ^ in2[i] ^ cin;
+        cout = cout + (in1[i] & in2[i]) | (in1[i] & cin) | (in2[i] & cin);
+    end
+end
+
+endmodule"
+N/A,N/A,-1,78.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+localparam N = 64;
+
+wire [N-1:0] c;
+
+assign c[0] = cin;
+
+genvar i;
+generate
+  for (i=0; i<N; i=i+1)
+    begin: fa_loop
+      wire t;
+      wire c_i;
+      
+      if (i == 0)
+        assign c_i = cin;
+      else
+        assign c_i = c[i-1];
+      
+      fa_str adder(sum[i], t, in1[i], in2[i], c_i);
+      assign c[i+1] = t;
+    end
+endgenerate
+
+assign cout = c[N-1];
+
+endmodule
+
+module fa_str(output sum,
+               output cout,
+               input a, b, cin);
+
+assign sum = a ^ b ^ cin;
+assign cout = (a & b) | (b & cin) | (cin & a);
+
+endmodule"
+N/A,N/A,-1,79.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+                      
+    wire [63:0] sum;
+    wire cout;
+    
+    wire [63:0] c;
+    
+    adder_32 a0(sum[31:0], c[0], in1[31:0], in2[31:0], cin);
+    adder_32 a1(sum[63:32], cout, in1[63:32], in2[63:32], c[0]);
+    
+endmodule
+
+1. Design a 64-bit adder with carry-in.
+2. Design a 64-bit adder with carry-out.
+3. Design a 64-bit adder with carry-in and carry-out.
+4. Design a 64-bit adder with carry-in and carry-out.
+5. Design a 64-bit adder with carry-in and carry-out.
+6. Design a 64-bit adder with carry-in and carry-out.
+7. Design a 64-bit adder with carry-in and carry-out.
+8. Design a 64-bit adder with carry-in and carry-out.
+9. Design a 64-bit adder with carry-in and carry-out.
+10. Design a 64-bit adder with carry-in and carry-out.
+11. Design a 64-bit adder with carry-in and carry-out.
+12. Design a 64-bit adder with carry-in and carry-out.
+13. Design a 64-bit adder with carry-in and carry-out.
+14. Design a 64-bit adder with carry-in and carry-out.
+15. Design a 64-bit adder with carry-in and carry-out.
+16. Design a 64-bit adder with carry-in and carry-out.
+17. Design a 64-bit adder with carry-in and carry-out.
+18. Design a 64-bit adder with carry-in and carry-out.
+19. Design a 64-bit adder with carry-in and carry-out.
+20. Design a 64-bit adder with carry-in and carry-out.
+21. Design a 64-bit adder with carry-in and carry-out.
+22. Design a 64-bit adder with carry-in and carry-out.
+23. Design a 64-bit adder with carry-in and carry-out.
+24. Design a 64-bit adder with carry-in and carry-out.
+25. Design a 64-bit adder with carry-in and carry-out.
+26. Design a 64-bit adder with carry-in and carry-out.
+27. Design a 64-bit adder with carry-in and carry-out.
+28. Design a 64-bit adder with carry-in and carry-out.
+29. Design a 64-bit adder with carry-in and carry-out.
+30. Design a 64-bit adder with carry-in and carry-out.
+31. Design a 64-bit adder with carry-in and carry-out.
+32. Design a 64-bit adder with carry-in and carry-out.
+33. Design a 64-bit adder with carry-in and carry-out.
+34. Design a 64-bit adder with carry-in and carry-out.
+35. Design a 64-bit adder with carry-in and carry-out.
+36. Design a 64-bit adder with carry-in and carry-out.
+37. Design a 64-bit adder with carry-in and carry-out.
+38. Design a 64-bit adder with carry-in and carry-out.
+39. Design a 64-bit adder with carry-in and carry-out.
+40. Design a 64-bit adder with carry-in and carry-out.
+41. Design a 64-bit adder with carry-in and carry-out.
+42. Design a 64-bit adder with carry-in and carry-out.
+43. Design a 64-bit adder with carry-in and carry-out.
+44. Design a 64-bit adder with carry-in and carry-out.
+45. Design a 64-bit adder with carry-in and carry-out.
+46. Design a 64-bit adder with carry-in and carry-out.
+47. Design a 64-bit adder with carry-in and carry-out.
+48. Design a 64-bit add"
+N/A,N/A,-1,80.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+        wire [63:0] sum;
+        wire cout;
+        wire [63:0] in1;
+        wire [63:0] in2;
+        wire cin;
+        wire [63:0] carry;
+        
+        full_adder FA1(sum[0], carry[0], in1[0], in2[0], cin);
+        full_adder FA2(sum[1], carry[1], in1[1], in2[1], carry[0]);
+        full_adder FA3(sum[2], carry[2], in1[2], in2[2], carry[1]);
+        full_adder FA4(sum[3], carry[3], in1[3], in2[3], carry[2]);
+        full_adder FA5(sum[4], carry[4], in1[4], in2[4], carry[3]);
+        full_adder FA6(sum[5], carry[5], in1[5], in2[5], carry[4]);
+        full_adder FA7(sum[6], carry[6], in1[6], in2[6], carry[5]);
+        full_adder FA8(sum[7], carry[7], in1[7], in2[7], carry[6]);
+        full_adder FA9(sum[8], carry[8], in1[8], in2[8], carry[7]);
+        full_adder FA10(sum[9], carry[9], in1[9], in2[9], carry[8]);
+        full_adder FA11(sum[10], carry[10], in1[10], in2[10], carry[9]);
+        full_adder FA12(sum[11], carry[11], in1[11], in2[11], carry[10]);
+        full_adder FA13(sum[12], carry[12], in1[12], in2[12], carry[11]);
+        full_adder FA14(sum[13], carry[13], in1[13], in2[13], carry[12]);
+        full_adder FA15(sum[14], carry[14], in1[14], in2[14], carry[13]);
+        full_adder FA16(sum[15], carry[15], in1[15], in2[15], carry[14]);
+        full_adder FA17(sum[16], carry[16], in1[16], in2[16], carry[15]);
+        full_adder FA18(sum[17], carry[17], in1[17], in2[17], carry[16]);
+        full_adder FA19(sum[18], carry[18], in1[18], in2[18], carry[17]);
+        full_adder FA20(sum[19], carry[19], in1[19], in2[19], carry[18]);
+        full_adder FA21(sum[20], carry[20], in1[20], in2[20], carry[19]);
+        full_adder FA22(sum[21], carry[21], in1[21], in2[21], carry[20]);
+        full_adder FA23(sum[22], carry[22], in1[22], in2[22], carry[21]);
+        full_adder FA24(sum[23], carry[23], in1[23], in2[23], carry[22]);
+        full_adder FA25(sum[24], carry[24], in1[24], in2[24], carry[23]);
+        full_adder FA26(sum[25], carry[25], in1[25], in2[25], carry[24]);
+        full_adder FA27(sum[26], carry[26], in1[26], in2[26], carry[25]);
+        full_adder FA28(sum[27], carry[27], in1[27], in2[27], carry[26]);
+        full_adder FA29(sum[28], carry[28], in1[28], in2[28], carry[27]);
+        full_adder FA30(sum[29], carry[29], in1[29], in2[29], carry[28]);
+        full_adder FA31(sum[30], carry[30], in1[30], in2[30], carry[29]);
+        full_adder FA32(sum[31], carry[31],"
+N/A,N/A,-1,81.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+    wire [63:0] sum;
+    wire cout;
+    wire [63:0] in1;
+    wire [63:0] in2;
+    wire cin;
+    
+    if (in1[63] == 1'b1 && in2[63] == 1'b0)
+        assign in1[63:1] = in1[63:1] + 1'b1;
+    if (in1[63] == 1'b0 && in2[63] == 1'b1)
+        assign in2[63:1] = in2[63:1] + 1'b1;
+    
+    if (in1[63] == 1'b1 && in2[63] == 1'b1)
+        assign in1[63:1] = in1[63:1] + 1'b1;
+    if (in1[63] == 1'b0 && in2[63] == 1'b0)
+        assign in2[63:1] = in2[63:1] + 1'b1;
+    
+    assign in1[0] = 1'b0;
+    assign in2[0] = 1'b0;
+    assign cin = 1'b0;
+    
+    full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder FA4(sum[3], c4, in1[3], in2[3], c3);
+    full_adder FA5(sum[4], c5, in1[4], in2[4], c4);
+    full_adder FA6(sum[5], c6, in1[5], in2[5], c5);
+    full_adder FA7(sum[6], c7, in1[6], in2[6], c6);
+    full_adder FA8(sum[7], c8, in1[7], in2[7], c7);
+    full_adder FA9(sum[8], c9, in1[8], in2[8], c8);
+    full_adder FA10(sum[9], c10, in1[9], in2[9], c9);
+    full_adder FA11(sum[10], c11, in1[10], in2[10], c10);
+    full_adder FA12(sum[11], c12, in1[11], in2[11], c11);
+    full_adder FA13(sum[12], c13, in1[12], in2[12], c12);
+    full_adder FA14(sum[13], c14, in1[13], in2[13], c13);
+    full_adder FA15(sum[14], c15, in1[14], in2[14], c14);
+    full_adder FA16(sum[15], c16, in1[15], in2[15], c15);
+    full_adder FA17(sum[16], c17, in1[16], in2[16], c16);
+    full_adder FA18(sum[17], c18, in1[17], in2[17], c17);
+    full_adder FA19(sum[18], c19, in1[18], in2[18], c18);
+    full_adder FA20(sum[19], c20, in1[19], in2[19], c19);
+    full_adder FA21(sum[20], c21, in1[20], in2[20], c20);
+    full_adder FA22(sum[21], c22, in1[21], in2[21], c21);
+    full_adder FA23(sum[22], c23, in1[22], in2[22], c22);
+    full_adder FA24(sum[23], c24, in1[23], in2[23], c23);
+    full_adder FA25(sum[24], c25, in1[24], in2[24], c24);
+    full"
+N/A,N/A,-1,82.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+ 
+  wire [63:0] sum;
+  wire cout;
+  wire [63:0] in1;
+  wire [63:0] in2;
+  wire cin;
+ 
+  cout = 0;
+  adder_32 a1(sum[31:0], cout, in1[31:0], in2[31:0], cin);
+  adder_32 a2(sum[63:32], cout, in1[63:32], in2[63:32], cout);
+ 
+endmodule"
+612.598,2389.48,6.831577910356756e-07,83.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+  assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+612.598,2389.48,6.831577910356756e-07,84.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+  assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+N/A,N/A,-1,85.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+  adder_32 a0(sum[31:0], c0, in1[31:0], in2[31:0], cin);
+  adder_32 a1(sum[63:32], cout, in1[63:32], in2[63:32], c0);
+endmodule
+
+genvar i;
+generate
+  for (i=0; i<64; i=i+1)
+    begin : adder_loop
+      adder_64 a(sum[i], cout, in1[i], in2[i], cin);
+    end
+endgenerate
+
+endmodule"
+N/A,N/A,-1,86.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+  genvar i;
+  generate
+    for(i=0;i<64;i=i+1) begin
+      wire c;
+      if(i<=63)
+        assign c = in1[i] ^ in2[i];
+      else
+        assign c = cin;
+      full_adder FA(sum[i], c, in1[i], in2[i], c);
+    end
+  endgenerate
+  assign cout = c[63];
+endmodule
+
+memory_64x32 mem(.clka(clk),.addra(addra),.douta(douta));
+
+compare_64_bit comp(.a(a),.b(b),.a_eq_b(a_eq_b),.a_gt_b(a_gt_b));
+
+adder_64 adder(.sum(sum),.cout(cout),.in1(a),.in2(b),.cin(a_eq_b));
+
+initial begin
+  clk = 0;
+  addra = 0;
+  #10
+  addra = 1;
+  #10
+  addra = 2;
+  #10
+  addra = 3;
+  #10
+  addra = 4;
+  #10
+  addra = 5;
+  #10
+  addra = 6;
+  #10
+  addra = 7;
+  #10
+  addra = 8;
+  #10
+  addra = 9;
+  #10
+  addra = 10;
+  #10
+  addra = 11;
+  #10
+  addra = 12;
+  #10
+  addra = 13;
+  #10
+  addra = 14;
+  #10
+  addra = 15;
+  #10
+  addra = 16;
+  #10
+  addra = 17;
+  #10
+  addra = 18;
+  #10
+  addra = 19;
+  #10
+  addra = 20;
+  #10
+  addra = 21;
+  #10
+  addra = 22;
+  #10
+  addra = 23;
+  #10
+  addra = 24;
+  #10
+  addra = 25;
+  #10
+  addra = 26;
+  #10
+  addra = 27;
+  #10
+  addra = 28;
+  #10
+  addra = 29;
+  #10
+  addra = 30;
+  #10
+  addra = 31;
+  #10
+  addra = 32;
+  #10
+  addra = 33;
+  #10
+  addra = 34;
+  #10
+  addra = 35;
+  #10
+  addra = 36;
+  #10
+  addra = 37;
+  #10
+  addra = 38;
+  #10
+  addra = 39;
+  #10
+  addra = 40;
+  #10
+  addra = 41;
+  #10
+  addra = 42;
+  #10
+  addra = 43;
+  #10
+  addra = 44;
+  #10
+  addra = 45;
+  #10
+  addra = 46;
+  #10
+  addra = 47;
+  #10
+  addra = 48;
+  #10
+  addra = 49;
+  #10
+  addra = 50;
+  #10
+  addra = 51;
+  #10
+  addra = 52;
+  #10
+  addra = 53;
+  #10
+  addra = 54;
+  #10
+  addra = 55;
+  #10
+  addra = 56;
+  #10
+  addra = 57;
+  #10
+  addra = 58;
+  #10
+  addra = 59;
+  #10
+  addra = 60;
+  #10
+  addra = 61;
+  #10
+  addra = 62;
+  #10
+  addra = 63;
+  #10
+  addra = 64;
+  #10
+  addra = 65;
+  #10
+  addra = 66;
+  #10
+  addra = 67;
+  #10
+  addra"
+612.598,2389.48,6.831577910356756e-07,87.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+reg [63:0] sum;
+reg cout;
+
+always @(in1 or in2 or cin)
+begin
+    {cout, sum} = in1 + in2 + cin;
+end
+
+endmodule"
+612.598,2389.48,6.831577910356756e-07,88.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+reg [63:0] sum;
+reg cout;
+
+always @(in1 or in2 or cin)
+begin
+    {cout, sum} = in1 + in2 + cin;
+end
+
+endmodule"
+612.598,2389.48,6.831577910356756e-07,89.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+reg [63:0] sum;
+reg cout;
+
+always @(in1 or in2 or cin)
+begin
+    {cout, sum} = in1 + in2 + cin;
+end
+
+endmodule"
+N/A,N/A,-1,90.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+reg [63:0] c;
+
+always @(in1 or in2 or cin)
+begin
+    {cout, sum} = in1 + in2 + cin;
+end
+
+endmodule"
+N/A,N/A,-0.5,91.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+wire [63:0] sum_temp;
+wire [63:0] in1_temp;
+wire [63:0] in2_temp;
+
+assign sum_temp = in1 + in2;
+assign in1_temp = in1;
+assign in2_temp = in2;
+
+assign cout = cin;
+
+assign sum = sum_temp[63:0];
+
+endmodule"
+612.598,2389.48,6.831577910356756e-07,92.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+reg [63:0] sum;
+reg cout;
+
+always @(in1 or in2 or cin)
+begin
+    {cout, sum} = in1 + in2 + cin;
+end
+
+endmodule"
+612.598,2389.48,6.831577910356756e-07,93.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+reg [63:0] sum;
+reg cout;
+
+always @(in1 or in2 or cin)
+begin
+    {cout, sum} = in1 + in2 + cin;
+end
+
+endmodule"
+612.598,2389.48,6.831577910356756e-07,94.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+reg [64:0] sum_reg;
+reg cout_reg;
+
+always @(in1 or in2 or cin)
+begin
+    sum_reg = in1 + in2 + cin;
+    cout_reg = sum_reg[64];
+end
+
+assign sum = sum_reg[63:0];
+assign cout = cout_reg;
+
+endmodule"
+N/A,N/A,-1,95.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+reg c1, c2;
+
+always @(in1 or in2 or cin)
+begin
+    {c1, sum} = in1 + in2 + cin;
+    c2 = c1;
+end
+
+assign cout = c2;
+
+endmodule"
+N/A,N/A,-1,96.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+wire cout0, cout1, cout2, cout3, cout4, cout5, cout6, cout7, cout8, cout9, cout10, cout11, cout12, cout13, cout14, cout15, cout16, cout17, cout18, cout19, cout20, cout21, cout22, cout23, cout24, cout25, cout26, cout27, cout28, cout29, cout30, cout31, cout32, cout33, cout34, cout35, cout36, cout37, cout38, cout39, cout40, cout41, cout42, cout43, cout44, cout45, cout46, cout47, cout48, cout49, cout50, cout51, cout52, cout53, cout54, cout55, cout56, cout57, cout58, cout59, cout60, cout61, cout62, cout63;
+
+FADDER fadder0(sum[0], cout0, in1[0], in2[0], cin);
+FADDER fadder1(sum[1], cout1, in1[1], in2[1], cout0);
+FADDER fadder2(sum[2], cout2, in1[2], in2[2], cout1);
+FADDER fadder3(sum[3], cout3, in1[3], in2[3], cout2);
+FADDER fadder4(sum[4], cout4, in1[4], in2[4], cout3);
+FADDER fadder5(sum[5], cout5, in1[5], in2[5], cout4);
+FADDER fadder6(sum[6], cout6, in1[6], in2[6], cout5);
+FADDER fadder7(sum[7], cout7, in1[7], in2[7], cout6);
+FADDER fadder8(sum[8], cout8, in1[8], in2[8], cout7);
+FADDER fadder9(sum[9], cout9, in1[9], in2[9], cout8);
+FADDER fadder10(sum[10], cout10, in1[10], in2[10], cout9);
+FADDER fadder11(sum[11], cout11, in1[11], in2[11], cout10);
+FADDER fadder12(sum[12], cout12, in1[12], in2[12], cout11);
+FADDER fadder13(sum[13], cout13, in1[13], in2[13], cout12);
+FADDER fadder14(sum[14], cout14, in1[14], in2[14], cout13);
+FADDER fadder15(sum[15], cout15, in1[15], in2[15], cout14);
+FADDER fadder16(sum[16], cout16, in1[16], in2[16], cout15);
+FADDER fadder17(sum[17], cout17, in1[17], in2[17], cout16);
+FADDER fadder18(sum[18], cout18, in1[18], in2[18], cout17);
+FADDER fadder19(sum[19], cout19, in1[19], in2[19], cout18);
+FADDER fadder20(sum[20], cout20, in1[20], in2[20], cout19);
+FADDER fadder21(sum[21], cout21, in1[21], in2[21], cout20);
+FADDER fadder22(sum[22], cout22, in1[22], in2[22], cout21);
+FADDER fadder23(sum[23], cout23, in1[23], in2[23], cout22);
+FADDER fadder24(sum[24], cout24, in1[24], in2[24], cout23);
+FADDER fadder25(sum[25], cout25, in1[25], in2[25], cout24);
+FADDER fadder26(sum[26], cout26, in1[26], in2[26], cout25);
+FADDER fadder27(sum[27], cout27, in1[27], in2[27], cout26);
+FADDER fadder28(sum[28], cout28, in1[28],"
+612.598,2389.48,6.831577910356756e-07,97.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+assign {cout, sum} = in1 + in2 + cin;
+
+endmodule"
+N/A,N/A,-0.5,98.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+assign sum = in1 + in2 + cin;
+assign cout = (in1[63] == in2[63] && in1[63] == cin)? 1'b1 : 1'b0;
+
+endmodule"
+N/A,N/A,-1,99.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+reg [63:0] cout_temp;
+
+always @(in1 or in2 or cin)
+begin
+    {cout_temp, sum} = in1 + in2 + cin;
+end
+
+assign cout = cout_temp[0];
+
+endmodule"
+N/A,N/A,-0.5,100.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+endmodule"
+612.598,2389.48,6.831577910356756e-07,101.0,1,"module adder_64(output [63:0] sum,
+                      output cout,
+                      input [63:0] in1, in2,
+                      input cin);
+
+assign {cout, sum} = in1 + in2 + cin;
+
+endmodule"

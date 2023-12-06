@@ -1,0 +1,293 @@
+adders/ripple_carry/prompt1_adder_16.v
+Prompt str:  //Design a 16-bit adder.
+//There are two 16 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 16 bit value, [15:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_16(output [15:0] sum,
+                      output cout,
+                      input [15:0] in1, in2,
+                      input cin);
+Loading LLM model...
+Initializing MCTS tree/LLM env...
+Episode not stated yet!
+Simulations per episode:  500
+******** EPISODE-1************
+----GREEDY LLM OUTPUT - ITERATION:  0  ----
+---------------
+Env seed:  298564
+//Design a 16-bit adder.
+//There are two 16 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 16 bit value, [15:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_16(output [15:0] sum,
+                      output cout,
+                      input [15:0] in1, in2,
+                      input cin);
+  wire c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15;
+  wire [15:0] sum1, sum2, sum3, sum4, sum5, sum6, sum7, sum8, sum9, sum10, sum11, sum12, sum13, sum14, sum15;
+  
+  // First carry bit
+  half_adder HA1(sum1[15], c1, in1[15], in2[15]);
+  full_adder FA1(sum1[14], c2, in1[14], in2[14], c1);
+  full_adder FA2(sum1[13], c3, in1[13], in2[13], c2);
+  full_adder FA3(sum1[12], c4, in1[12], in2[12], c3);
+  full_adder FA4(sum1[11], c5, in1[11], in2[11], c4);
+  full_adder FA5(sum1[10], c6, in1[10], in2[10], c5);
+  full_adder FA6(sum1[9],   c7, in1[9],   in2[9],   c6);
+  full_adder FA7(sum1[8],   c8, in1[8],   in2[8],   c7);
+  full_adder FA8(sum1[7],   c9, in1[7],   in2[7],   c8);
+  full_adder FA9(sum1[6],   c10, in1[6],   in2[6],   c9);
+  full_adder FA10(sum1[5],  c11, in1[5],  in2[5],  c10);
+  full_adder FA11(sum1[4],  c12, in1[4],  in2[4],  c11);
+  full_adder FA12(sum1[3],  c13, in1[3],  in2[3],  c12);
+  full_adder FA13(sum1[2],  c14, in1[2],  in2[2],  c13);
+  full_adder FA14(sum1[1],  c15, in1[1],  in2[1],  c14);
+  full_adder FA15(sum1[0],  cout, in1[0],  in2[0],  c15);
+  
+  // Second carry bit
+  half_adder HA2(sum2[15], c2, in1[15], in2[15]);
+  full_adder FA16(sum2[14], c3, in1[14], in2[14], c2);
+  full_adder FA17(sum2[13], c4, in1[13], in2[13], c3);
+  full_adder FA18(sum2[12], c5, in1[12], in2[12], c4);
+  full_adder FA19(sum2[11], c6, in1[11], in2[11], c5);
+  full_adder FA20(sum2[10], c7, in1[10], in2[10], c6);
+  full_adder FA21(sum2[9],   c8, in1[9],   in2[9],   c7);
+  full_adder FA22(sum2[8],   c9, in1[8],   in2[8],   c8);
+  full_adder FA23(sum2[7],   c10, in1[7],   in2[7],   c9);
+  full_adder FA24(sum2[6],   c11, in1[6],   in2[6],   c10);
+  full_adder FA25(sum2[5],  c12, in1[5],  in2[5],  c11);
+  full_adder FA26(sum2[4],  c13, in1[4],  in2[4],  c12);
+  full_adder FA27(sum2[3],  c14, in1[3],  in2[3],  c13);
+  full_adder FA28(sum2[2],  c15, in1[2],  in2[2],  c14);
+  full_adder FA29(sum2[1],  cout, in1[1],  in2[1],  c15);
+  full_adder FA30(sum2[0],  cout, in1[0],  in2[0],  cout);
+  
+  // Third carry bit
+  half_adder HA3(sum3[15], c3, in1[15], in2[15]);
+  full_adder FA31(sum3[14], c4, in1[14], in2[14], c3);
+  full_adder FA32(sum3[13], c5, in1[13], in2[13], c4);
+  full_adder FA33(sum3[12], c6, in1[12], in2[12], c5);
+  full_adder FA34(sum3[11], c7, in1[11], in2[11], c6);
+  full_adder FA35(sum3[10], c8, in1[10], in2[10], c7);
+  full_adder FA36(sum3[9],   c9, in1[9],   in2[9],   c8);
+  full_adder FA37(sum3[8],   c10, in1[8],   in2[8],   c9);
+  full_adder FA38(sum3[7],   c11, in1[7],   in2[7],   c10);
+  full_adder FA39(sum3[6],   c12, in1[6],   in2[6],   c11);
+  full_adder FA40(sum3[5],  c13, in1[5],  in2[5],  c12);
+  full_adder FA41(sum3[4],  c14, in1[4],  in2[4],  c13);
+  full_adder FA42(sum3[3],  c15, in1[3],  in2[3],  c
+Verilog compilation failed, error:  2
+Compilation output:  b'output_files/1195537_adder_16/1195537_adder_16.v:61: syntax error\nI give up.\n'
+Tokens:  1500
+LLM generates return in:  745.198724  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  1  ----
+---------------
+Env seed:  479472
+//Design a 16-bit adder.
+//There are two 16 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 16 bit value, [15:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_16(output [15:0] sum,
+                      output cout,
+                      input [15:0] in1, in2,
+                      input cin);
+  wire c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15;
+  wire [15:0] sum1, sum2, sum3, sum4, sum5, sum6, sum7, sum8, sum9, sum10, sum11, sum12, sum13, sum14, sum15;
+  
+  // First carry bit
+  half_adder HA1(sum1[15], c1, in1[15], in2[15]);
+  full_adder FA1(sum1[14], c2, in1[14], in2[14], c1);
+  full_adder FA2(sum1[13], c3, in1[13], in2[13], c2);
+  full_adder FA3(sum1[12], c4, in1[12], in2[12], c3);
+  full_adder FA4(sum1[11], c5, in1[11], in2[11], c4);
+  full_adder FA5(sum1[10], c6, in1[10], in2[10], c5);
+  full_adder FA6(sum1[9],   c7, in1[9],   in2[9],   c6);
+  full_adder FA7(sum1[8],   c8, in1[8],   in2[8],   c7);
+  full_adder FA8(sum1[7],   c9, in1[7],   in2[7],   c8);
+  full_adder FA9(sum1[6],   c10, in1[6],   in2[6],   c9);
+  full_adder FA10(sum1[5],  c11, in1[5],  in2[5],  c10);
+  full_adder FA11(sum1[4],  c12, in1[4],  in2[4],  c11);
+  full_adder FA12(sum1[3],  c13, in1[3],  in2[3],  c12);
+  full_adder FA13(sum1[2],  c14, in1[2],  in2[2],  c13);
+  full_adder FA14(sum1[1],  c15, in1[1],  in2[1],  c14);
+  full_adder FA15(sum1[0],  cout, in1[0],  in2[0],  c15);
+  
+  // Second carry bit
+  half_adder HA2(sum2[15], c2, in1[15], in2[15]);
+  full_adder FA16(sum2[14], c3, in1[14], in2[14], c2);
+  full_adder FA17(sum2[13], c4, in1[13], in2[13], c3);
+  full_adder FA18(sum2[12], c5, in1[12], in2[12], c4);
+  full_adder FA19(sum2[11], c6, in1[11], in2[11], c5);
+  full_adder FA20(sum2[10], c7, in1[10], in2[10], c6);
+  full_adder FA21(sum2[9],   c8, in1[9],   in2[9],   c7);
+  full_adder FA22(sum2[8],   c9, in1[8],   in2[8],   c8);
+  full_adder FA23(sum2[7],   c10, in1[7],   in2[7],   c9);
+  full_adder FA24(sum2[6],   c11, in1[6],   in2[6],   c10);
+  full_adder FA25(sum2[5],  c12, in1[5],  in2[5],  c11);
+  full_adder FA26(sum2[4],  c13, in1[4],  in2[4],  c12);
+  full_adder FA27(sum2[3],  c14, in1[3],  in2[3],  c13);
+  full_adder FA28(sum2[2],  c15, in1[2],  in2[2],  c14);
+  full_adder FA29(sum2[1],  cout, in1[1],  in2[1],  c15);
+  full_adder FA30(sum2[0],  cout, in1[0],  in2[0],  cout);
+  
+  // Third carry bit
+  half_adder HA3(sum3[15], c3, in1[15], in2[15]);
+  full_adder FA31(sum3[14], c4, in1[14], in2[14], c3);
+  full_adder FA32(sum3[13], c5, in1[13], in2[13], c4);
+  full_adder FA33(sum3[12], c6, in1[12], in2[12], c5);
+  full_adder FA34(sum3[11], c7, in1[11], in2[11], c6);
+  full_adder FA35(sum3[10], c8, in1[10], in2[10], c7);
+  full_adder FA36(sum3[9],   c9, in1[9],   in2[9],   c8);
+  full_adder FA37(sum3[8],   c10, in1[8],   in2[8],   c9);
+  full_adder FA38(sum3[7],   c11, in1[7],   in2[7],   c10);
+  full_adder FA39(sum3[6],   c12, in1[6],   in2[6],   c11);
+  full_adder FA40(sum3[5],  c13, in1[5],  in2[5],  c12);
+  full_adder FA41(sum3[4],  c14, in1[4],  in2[4],  c13);
+  full_adder FA42(sum3[3],  c15, in1[3],  in2[3],  c
+Verilog compilation failed, error:  2
+Compilation output:  b'output_files/1195537_adder_16/1195537_adder_16.v:61: syntax error\nI give up.\n'
+Tokens:  1500
+LLM generates return in:  744.891785  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  2  ----
+---------------
+Env seed:  415347
+//Design a 16-bit adder.
+//There are two 16 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 16 bit value, [15:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_16(output [15:0] sum,
+                      output cout,
+                      input [15:0] in1, in2,
+                      input cin);
+  wire c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15;
+  wire [15:0] sum1, sum2, sum3, sum4, sum5, sum6, sum7, sum8, sum9, sum10, sum11, sum12, sum13, sum14, sum15;
+  
+  // First carry bit
+  half_adder HA1(sum1[15], c1, in1[15], in2[15]);
+  full_adder FA1(sum1[14], c2, in1[14], in2[14], c1);
+  full_adder FA2(sum1[13], c3, in1[13], in2[13], c2);
+  full_adder FA3(sum1[12], c4, in1[12], in2[12], c3);
+  full_adder FA4(sum1[11], c5, in1[11], in2[11], c4);
+  full_adder FA5(sum1[10], c6, in1[10], in2[10], c5);
+  full_adder FA6(sum1[9],   c7, in1[9],   in2[9],   c6);
+  full_adder FA7(sum1[8],   c8, in1[8],   in2[8],   c7);
+  full_adder FA8(sum1[7],   c9, in1[7],   in2[7],   c8);
+  full_adder FA9(sum1[6],   c10, in1[6],   in2[6],   c9);
+  full_adder FA10(sum1[5],  c11, in1[5],  in2[5],  c10);
+  full_adder FA11(sum1[4],  c12, in1[4],  in2[4],  c11);
+  full_adder FA12(sum1[3],  c13, in1[3],  in2[3],  c12);
+  full_adder FA13(sum1[2],  c14, in1[2],  in2[2],  c13);
+  full_adder FA14(sum1[1],  c15, in1[1],  in2[1],  c14);
+  full_adder FA15(sum1[0],  cout, in1[0],  in2[0],  c15);
+  
+  // Second carry bit
+  half_adder HA2(sum2[15], c2, in1[15], in2[15]);
+  full_adder FA16(sum2[14], c3, in1[14], in2[14], c2);
+  full_adder FA17(sum2[13], c4, in1[13], in2[13], c3);
+  full_adder FA18(sum2[12], c5, in1[12], in2[12], c4);
+  full_adder FA19(sum2[11], c6, in1[11], in2[11], c5);
+  full_adder FA20(sum2[10], c7, in1[10], in2[10], c6);
+  full_adder FA21(sum2[9],   c8, in1[9],   in2[9],   c7);
+  full_adder FA22(sum2[8],   c9, in1[8],   in2[8],   c8);
+  full_adder FA23(sum2[7],   c10, in1[7],   in2[7],   c9);
+  full_adder FA24(sum2[6],   c11, in1[6],   in2[6],   c10);
+  full_adder FA25(sum2[5],  c12, in1[5],  in2[5],  c11);
+  full_adder FA26(sum2[4],  c13, in1[4],  in2[4],  c12);
+  full_adder FA27(sum2[3],  c14, in1[3],  in2[3],  c13);
+  full_adder FA28(sum2[2],  c15, in1[2],  in2[2],  c14);
+  full_adder FA29(sum2[1],  cout, in1[1],  in2[1],  c15);
+  full_adder FA30(sum2[0],  cout, in1[0],  in2[0],  cout);
+  
+  // Third carry bit
+  half_adder HA3(sum3[15], c3, in1[15], in2[15]);
+  full_adder FA31(sum3[14], c4, in1[14], in2[14], c3);
+  full_adder FA32(sum3[13], c5, in1[13], in2[13], c4);
+  full_adder FA33(sum3[12], c6, in1[12], in2[12], c5);
+  full_adder FA34(sum3[11], c7, in1[11], in2[11], c6);
+  full_adder FA35(sum3[10], c8, in1[10], in2[10], c7);
+  full_adder FA36(sum3[9],   c9, in1[9],   in2[9],   c8);
+  full_adder FA37(sum3[8],   c10, in1[8],   in2[8],   c9);
+  full_adder FA38(sum3[7],   c11, in1[7],   in2[7],   c10);
+  full_adder FA39(sum3[6],   c12, in1[6],   in2[6],   c11);
+  full_adder FA40(sum3[5],  c13, in1[5],  in2[5],  c12);
+  full_adder FA41(sum3[4],  c14, in1[4],  in2[4],  c13);
+  full_adder FA42(sum3[3],  c15, in1[3],  in2[3],  c
+Verilog compilation failed, error:  2
+Compilation output:  b'output_files/1195537_adder_16/1195537_adder_16.v:61: syntax error\nI give up.\n'
+Tokens:  1500
+LLM generates return in:  745.295908  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  3  ----
+---------------
+Env seed:  463719
+//Design a 16-bit adder.
+//There are two 16 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 16 bit value, [15:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_16(output [15:0] sum,
+                      output cout,
+                      input [15:0] in1, in2,
+                      input cin);
+  wire c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15;
+  wire [15:0] sum1, sum2, sum3, sum4, sum5, sum6, sum7, sum8, sum9, sum10, sum11, sum12, sum13, sum14, sum15;
+  
+  // First carry bit
+  half_adder HA1(sum1[15], c1, in1[15], in2[15]);
+  full_adder FA1(sum1[14], c2, in1[14], in2[14], c1);
+  full_adder FA2(sum1[13], c3, in1[13], in2[13], c2);
+  full_adder FA3(sum1[12], c4, in1[12], in2[12], c3);
+  full_adder FA4(sum1[11], c5, in1[11], in2[11], c4);
+  full_adder FA5(sum1[10], c6, in1[10], in2[10], c5);
+  full_adder FA6(sum1[9],   c7, in1[9],   in2[9],   c6);
+  full_adder FA7(sum1[8],   c8, in1[8],   in2[8],   c7);
+  full_adder FA8(sum1[7],   c9, in1[7],   in2[7],   c8);
+  full_adder FA9(sum1[6],   c10, in1[6],   in2[6],   c9);
+  full_adder FA10(sum1[5],  c11, in1[5],  in2[5],  c10);
+  full_adder FA11(sum1[4],  c12, in1[4],  in2[4],  c11);
+  full_adder FA12(sum1[3],  c13, in1[3],  in2[3],  c12);
+  full_adder FA13(sum1[2],  c14, in1[2],  in2[2],  c13);
+  full_adder FA14(sum1[1],  c15, in1[1],  in2[1],  c14);
+  full_adder FA15(sum1[0],  cout, in1[0],  in2[0],  c15);
+  
+  // Second carry bit
+  half_adder HA2(sum2[15], c2, in1[15], in2[15]);
+  full_adder FA16(sum2[14], c3, in1[14], in2[14], c2);
+  full_adder FA17(sum2[13], c4, in1[13], in2[13], c3);
+  full_adder FA18(sum2[12], c5, in1[12], in2[12], c4);
+  full_adder FA19(sum2[11], c6, in1[11], in2[11], c5);
+  full_adder FA20(sum2[10], c7, in1[10], in2[10], c6);
+  full_adder FA21(sum2[9],   c8, in1[9],   in2[9],   c7);
+  full_adder FA22(sum2[8],   c9, in1[8],   in2[8],   c8);
+  full_adder FA23(sum2[7],   c10, in1[7],   in2[7],   c9);
+  full_adder FA24(sum2[6],   c11, in1[6],   in2[6],   c10);
+  full_adder FA25(sum2[5],  c12, in1[5],  in2[5],  c11);
+  full_adder FA26(sum2[4],  c13, in1[4],  in2[4],  c12);
+  full_adder FA27(sum2[3],  c14, in1[3],  in2[3],  c13);
+  full_adder FA28(sum2[2],  c15, in1[2],  in2[2],  c14);
+  full_adder FA29(sum2[1],  cout, in1[1],  in2[1],  c15);
+  full_adder FA30(sum2[0],  cout, in1[0],  in2[0],  cout);
+  
+  // Third carry bit
+  half_adder HA3(sum3[15], c3, in1[15], in2[15]);
+  full_adder FA31(sum3[14], c4, in1[14], in2[14], c3);
+  full_adder FA32(sum3[13], c5, in1[13], in2[13], c4);
+  full_adder FA33(sum3[12], c6, in1[12], in2[12], c5);
+  full_adder FA34(sum3[11], c7, in1[11], in2[11], c6);
+  full_adder FA35(sum3[10], c8, in1[10], in2[10], c7);
+  full_adder FA36(sum3[9],   c9, in1[9],   in2[9],   c8);
+  full_adder FA37(sum3[8],   c10, in1[8],   in2[8],   c9);
+  full_adder FA38(sum3[7],   c11, in1[7],   in2[7],   c10);
+  full_adder FA39(sum3[6],   c12, in1[6],   in2[6],   c11);
+  full_adder FA40(sum3[5],  c13, in1[5],  in2[5],  c12);
+  full_adder FA41(sum3[4],  c14, in1[4],  in2[4],  c13);
+  full_adder FA42(sum3[3],  c15, in1[3],  in2[3],  c
+Verilog compilation failed, error:  2
+Compilation output:  b'output_files/1195537_adder_16/1195537_adder_16.v:61: syntax error\nI give up.\n'
+Tokens:  1500
+LLM generates return in:  745.083341  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  4  ----
+---------------
+Env seed:  608416

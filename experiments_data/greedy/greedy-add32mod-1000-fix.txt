@@ -1,0 +1,1340 @@
+adders/ripple_carry/prompt1_adder_32.v
+Prompt str:  //Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+Loading LLM model...
+Initializing MCTS tree/LLM env...
+Episode not stated yet!
+Simulations per episode:  100
+********-- EPISODE-1--************
+----GREEDY LLM OUTPUT - ITERATION:  0  ----
+---------------
+Env seed:  359236
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+Token:  57
+Token:  58
+Token:  59
+Token:  60
+Token:  61
+Token:  62
+Token:  63
+Token:  64
+Token:  65
+Token:  66
+Token:  67
+Token:  68
+Token:  69
+Token:  70
+Token:  71
+Token:  72
+Token:  73
+Token:  74
+Token:  75
+Token:  76
+Token:  77
+Token:  78
+Token:  79
+Token:  80
+Token:  81
+Token:  82
+Token:  83
+Token:  84
+Token:  85
+Token:  86
+Token:  87
+Token:  88
+Token:  89
+Token:  90
+Token:  91
+Token:  92
+Token:  93
+Token:  94
+Token:  95
+Token:  96
+Token:  97
+Token:  98
+Token:  99
+Token:  100
+Token:  101
+Token:  102
+Token:  103
+Token:  104
+Token:  105
+Token:  106
+Token:  107
+Token:  108
+Token:  109
+Token:  110
+Token:  111
+Token:  112
+Token:  113
+Token:  114
+Token:  115
+Token:  116
+Token:  117
+Token:  118
+Token:  119
+Token:  120
+Token:  121
+Token:  122
+Token:  123
+Token:  124
+Token:  125
+Token:  126
+Token:  127
+Token:  128
+Token:  129
+Token:  130
+Token:  131
+Token:  132
+Token:  133
+Token:  134
+Token:  135
+Token:  136
+Token:  137
+Token:  138
+Token:  139
+Token:  140
+Token:  141
+Token:  142
+Token:  143
+Token:  144
+Token:  145
+Token:  146
+Token:  147
+Token:  148
+Token:  149
+Token:  150
+Token:  151
+Token:  152
+Token:  153
+Token:  154
+Token:  155
+Token:  156
+Token:  157
+Token:  158
+Token:  159
+Token:  160
+Token:  161
+Token:  162
+Token:  163
+Token:  164
+//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule
+Path:  output_files/3084166_adder_32/3084166_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Simulation output:  b'Test 1 passed\nTest 2 passed\nTest 3 passed\nTest 4 passed\nTest 5 passed\nTest 6 passed\nTest 7 passed\nTest 8 passed\nTest 9 passed\nTest 10 passed\nall tests passed\n'
+All testbench tests passed!
+Tokens:  165
+LLM generates return in:  59.33739  seconds
+Running getPromptScore: 
+adder_32
+output_files/3084166_adder_32/synth_script.sh
+Running bash in x seconds:  0.897327
+
+Currently displaying area/delay scores for  adder_32  module.
+Area of the chip design is:  298.718
+Delay value for the chip design is:  1234.8
+Product:  368856.9864
+Score (1/chip area):  0.5
+----GREEDY LLM OUTPUT - ITERATION:  1  ----
+---------------
+Env seed:  212188
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+Token:  57
+Token:  58
+Token:  59
+Token:  60
+Token:  61
+Token:  62
+Token:  63
+Token:  64
+Token:  65
+Token:  66
+Token:  67
+Token:  68
+Token:  69
+Token:  70
+Token:  71
+Token:  72
+Token:  73
+Token:  74
+Token:  75
+Token:  76
+Token:  77
+Token:  78
+Token:  79
+Token:  80
+Token:  81
+Token:  82
+Token:  83
+Token:  84
+Token:  85
+Token:  86
+Token:  87
+Token:  88
+Token:  89
+Token:  90
+Token:  91
+Token:  92
+Token:  93
+Token:  94
+Token:  95
+Token:  96
+Token:  97
+Token:  98
+Token:  99
+Token:  100
+Token:  101
+Token:  102
+Token:  103
+Token:  104
+Token:  105
+Token:  106
+Token:  107
+Token:  108
+Token:  109
+Token:  110
+Token:  111
+Token:  112
+Token:  113
+Token:  114
+Token:  115
+Token:  116
+Token:  117
+Token:  118
+Token:  119
+Token:  120
+Token:  121
+Token:  122
+Token:  123
+Token:  124
+Token:  125
+Token:  126
+Token:  127
+Token:  128
+Token:  129
+Token:  130
+Token:  131
+Token:  132
+Token:  133
+Token:  134
+Token:  135
+Token:  136
+Token:  137
+Token:  138
+Token:  139
+Token:  140
+Token:  141
+Token:  142
+Token:  143
+Token:  144
+Token:  145
+Token:  146
+Token:  147
+Token:  148
+Token:  149
+Token:  150
+Token:  151
+Token:  152
+Token:  153
+Token:  154
+Token:  155
+Token:  156
+Token:  157
+Token:  158
+Token:  159
+Token:  160
+Token:  161
+Token:  162
+Token:  163
+Token:  164
+//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule
+Path:  output_files/3084166_adder_32/3084166_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Simulation output:  b'Test 1 passed\nTest 2 passed\nTest 3 passed\nTest 4 passed\nTest 5 passed\nTest 6 passed\nTest 7 passed\nTest 8 passed\nTest 9 passed\nTest 10 passed\nall tests passed\n'
+All testbench tests passed!
+Tokens:  165
+LLM generates return in:  59.878946  seconds
+Running getPromptScore: 
+adder_32
+output_files/3084166_adder_32/synth_script.sh
+Running bash in x seconds:  0.899617
+
+Currently displaying area/delay scores for  adder_32  module.
+Area of the chip design is:  298.718
+Delay value for the chip design is:  1234.8
+Product:  368856.9864
+Score (1/chip area):  0.5
+----GREEDY LLM OUTPUT - ITERATION:  2  ----
+---------------
+Env seed:  154235
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+Token:  57
+Token:  58
+Token:  59
+Token:  60
+Token:  61
+Token:  62
+Token:  63
+Token:  64
+Token:  65
+Token:  66
+Token:  67
+Token:  68
+Token:  69
+Token:  70
+Token:  71
+Token:  72
+Token:  73
+Token:  74
+Token:  75
+Token:  76
+Token:  77
+Token:  78
+Token:  79
+Token:  80
+Token:  81
+Token:  82
+Token:  83
+Token:  84
+Token:  85
+Token:  86
+Token:  87
+Token:  88
+Token:  89
+Token:  90
+Token:  91
+Token:  92
+Token:  93
+Token:  94
+Token:  95
+Token:  96
+Token:  97
+Token:  98
+Token:  99
+Token:  100
+Token:  101
+Token:  102
+Token:  103
+Token:  104
+Token:  105
+Token:  106
+Token:  107
+Token:  108
+Token:  109
+Token:  110
+Token:  111
+Token:  112
+Token:  113
+Token:  114
+Token:  115
+Token:  116
+Token:  117
+Token:  118
+Token:  119
+Token:  120
+Token:  121
+Token:  122
+Token:  123
+Token:  124
+Token:  125
+Token:  126
+Token:  127
+Token:  128
+Token:  129
+Token:  130
+Token:  131
+Token:  132
+Token:  133
+Token:  134
+Token:  135
+Token:  136
+Token:  137
+Token:  138
+Token:  139
+Token:  140
+Token:  141
+Token:  142
+Token:  143
+Token:  144
+Token:  145
+Token:  146
+Token:  147
+Token:  148
+Token:  149
+Token:  150
+Token:  151
+Token:  152
+Token:  153
+Token:  154
+Token:  155
+Token:  156
+Token:  157
+Token:  158
+Token:  159
+Token:  160
+Token:  161
+Token:  162
+Token:  163
+Token:  164
+//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule
+Path:  output_files/3084166_adder_32/3084166_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Simulation output:  b'Test 1 passed\nTest 2 passed\nTest 3 passed\nTest 4 passed\nTest 5 passed\nTest 6 passed\nTest 7 passed\nTest 8 passed\nTest 9 passed\nTest 10 passed\nall tests passed\n'
+All testbench tests passed!
+Tokens:  165
+LLM generates return in:  59.974192  seconds
+Running getPromptScore: 
+adder_32
+output_files/3084166_adder_32/synth_script.sh
+Running bash in x seconds:  0.925243
+
+Currently displaying area/delay scores for  adder_32  module.
+Area of the chip design is:  298.718
+Delay value for the chip design is:  1234.8
+Product:  368856.9864
+Score (1/chip area):  0.5
+----GREEDY LLM OUTPUT - ITERATION:  3  ----
+---------------
+Env seed:  195632
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+Token:  57
+Token:  58
+Token:  59
+Token:  60
+Token:  61
+Token:  62
+Token:  63
+Token:  64
+Token:  65
+Token:  66
+Token:  67
+Token:  68
+Token:  69
+Token:  70
+Token:  71
+Token:  72
+Token:  73
+Token:  74
+Token:  75
+Token:  76
+Token:  77
+Token:  78
+Token:  79
+Token:  80
+Token:  81
+Token:  82
+Token:  83
+Token:  84
+Token:  85
+Token:  86
+Token:  87
+Token:  88
+Token:  89
+Token:  90
+Token:  91
+Token:  92
+Token:  93
+Token:  94
+Token:  95
+Token:  96
+Token:  97
+Token:  98
+Token:  99
+Token:  100
+Token:  101
+Token:  102
+Token:  103
+Token:  104
+Token:  105
+Token:  106
+Token:  107
+Token:  108
+Token:  109
+Token:  110
+Token:  111
+Token:  112
+Token:  113
+Token:  114
+Token:  115
+Token:  116
+Token:  117
+Token:  118
+Token:  119
+Token:  120
+Token:  121
+Token:  122
+Token:  123
+Token:  124
+Token:  125
+Token:  126
+Token:  127
+Token:  128
+Token:  129
+Token:  130
+Token:  131
+Token:  132
+Token:  133
+Token:  134
+Token:  135
+Token:  136
+Token:  137
+Token:  138
+Token:  139
+Token:  140
+Token:  141
+Token:  142
+Token:  143
+Token:  144
+Token:  145
+Token:  146
+Token:  147
+Token:  148
+Token:  149
+Token:  150
+Token:  151
+Token:  152
+Token:  153
+Token:  154
+Token:  155
+Token:  156
+Token:  157
+Token:  158
+Token:  159
+Token:  160
+Token:  161
+Token:  162
+Token:  163
+Token:  164
+//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule
+Path:  output_files/3084166_adder_32/3084166_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Simulation output:  b'Test 1 passed\nTest 2 passed\nTest 3 passed\nTest 4 passed\nTest 5 passed\nTest 6 passed\nTest 7 passed\nTest 8 passed\nTest 9 passed\nTest 10 passed\nall tests passed\n'
+All testbench tests passed!
+Tokens:  165
+LLM generates return in:  59.977364  seconds
+Running getPromptScore: 
+adder_32
+output_files/3084166_adder_32/synth_script.sh
+Running bash in x seconds:  0.910437
+
+Currently displaying area/delay scores for  adder_32  module.
+Area of the chip design is:  298.718
+Delay value for the chip design is:  1234.8
+Product:  368856.9864
+Score (1/chip area):  0.5
+----GREEDY LLM OUTPUT - ITERATION:  4  ----
+---------------
+Env seed:  573878
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+Token:  57
+Token:  58
+Token:  59
+Token:  60
+Token:  61
+Token:  62
+Token:  63
+Token:  64
+Token:  65
+Token:  66
+Token:  67
+Token:  68
+Token:  69
+Token:  70
+Token:  71
+Token:  72
+Token:  73
+Token:  74
+Token:  75
+Token:  76
+Token:  77
+Token:  78
+Token:  79
+Token:  80
+Token:  81
+Token:  82
+Token:  83
+Token:  84
+Token:  85
+Token:  86
+Token:  87
+Token:  88
+Token:  89
+Token:  90
+Token:  91
+Token:  92
+Token:  93
+Token:  94
+Token:  95
+Token:  96
+Token:  97
+Token:  98
+Token:  99
+Token:  100
+Token:  101
+Token:  102
+Token:  103
+Token:  104
+Token:  105
+Token:  106
+Token:  107
+Token:  108
+Token:  109
+Token:  110
+Token:  111
+Token:  112
+Token:  113
+Token:  114
+Token:  115
+Token:  116
+Token:  117
+Token:  118
+Token:  119
+Token:  120
+Token:  121
+Token:  122
+Token:  123
+Token:  124
+Token:  125
+Token:  126
+Token:  127
+Token:  128
+Token:  129
+Token:  130
+Token:  131
+Token:  132
+Token:  133
+Token:  134
+Token:  135
+Token:  136
+Token:  137
+Token:  138
+Token:  139
+Token:  140
+Token:  141
+Token:  142
+Token:  143
+Token:  144
+Token:  145
+Token:  146
+Token:  147
+Token:  148
+Token:  149
+Token:  150
+Token:  151
+Token:  152
+Token:  153
+Token:  154
+Token:  155
+Token:  156
+Token:  157
+Token:  158
+Token:  159
+Token:  160
+Token:  161
+Token:  162
+Token:  163
+Token:  164
+//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule
+Path:  output_files/3084166_adder_32/3084166_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Simulation output:  b'Test 1 passed\nTest 2 passed\nTest 3 passed\nTest 4 passed\nTest 5 passed\nTest 6 passed\nTest 7 passed\nTest 8 passed\nTest 9 passed\nTest 10 passed\nall tests passed\n'
+All testbench tests passed!
+Tokens:  165
+LLM generates return in:  60.046124  seconds
+Running getPromptScore: 
+adder_32
+output_files/3084166_adder_32/synth_script.sh
+Running bash in x seconds:  0.905236
+
+Currently displaying area/delay scores for  adder_32  module.
+Area of the chip design is:  298.718
+Delay value for the chip design is:  1234.8
+Product:  368856.9864
+Score (1/chip area):  0.5
+----GREEDY LLM OUTPUT - ITERATION:  5  ----
+---------------
+Env seed:  445120
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+Token:  57
+Token:  58
+Token:  59
+Token:  60
+Token:  61
+Token:  62
+Token:  63
+Token:  64
+Token:  65
+Token:  66
+Token:  67
+Token:  68
+Token:  69
+Token:  70
+Token:  71
+Token:  72
+Token:  73
+Token:  74
+Token:  75
+Token:  76
+Token:  77
+Token:  78
+Token:  79
+Token:  80
+Token:  81
+Token:  82
+Token:  83
+Token:  84
+Token:  85
+Token:  86
+Token:  87
+Token:  88
+Token:  89
+Token:  90
+Token:  91
+Token:  92
+Token:  93
+Token:  94
+Token:  95
+Token:  96
+Token:  97
+Token:  98
+Token:  99
+Token:  100
+Token:  101
+Token:  102
+Token:  103
+Token:  104
+Token:  105
+Token:  106
+Token:  107
+Token:  108
+Token:  109
+Token:  110
+Token:  111
+Token:  112
+Token:  113
+Token:  114
+Token:  115
+Token:  116
+Token:  117
+Token:  118
+Token:  119
+Token:  120
+Token:  121
+Token:  122
+Token:  123
+Token:  124
+Token:  125
+Token:  126
+Token:  127
+Token:  128
+Token:  129
+Token:  130
+Token:  131
+Token:  132
+Token:  133
+Token:  134
+Token:  135
+Token:  136
+Token:  137
+Token:  138
+Token:  139
+Token:  140
+Token:  141
+Token:  142
+Token:  143
+Token:  144
+Token:  145
+Token:  146
+Token:  147
+Token:  148
+Token:  149
+Token:  150
+Token:  151
+Token:  152
+Token:  153
+Token:  154
+Token:  155
+Token:  156
+Token:  157
+Token:  158
+Token:  159

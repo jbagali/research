@@ -1,0 +1,2308 @@
+multipliers/multiplier_64.v
+Prompt str:  //Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+Loading LLM model...
+Initializing MCTS tree/LLM env...
+Episode not stated yet!
+Simulations per episode:  100
+********-- EPISODE-1--************
+----GREEDY LLM OUTPUT - ITERATION:  0  ----
+---------------
+Env seed:  592355
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule
+Path:  output_files/3051681_multiplier_64/3051681_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Test 1 failed\n'
+Tokens:  57
+LLM generates return in:  5.070246  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  1  ----
+---------------
+Env seed:  378179
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule
+Path:  output_files/3051681_multiplier_64/3051681_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Test 1 failed\n'
+Tokens:  57
+LLM generates return in:  4.535807  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  2  ----
+---------------
+Env seed:  367577
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule
+Path:  output_files/3051681_multiplier_64/3051681_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Test 1 failed\n'
+Tokens:  57
+LLM generates return in:  4.553568  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  3  ----
+---------------
+Env seed:  515299
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule
+Path:  output_files/3051681_multiplier_64/3051681_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Test 1 failed\n'
+Tokens:  57
+LLM generates return in:  4.580528  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  4  ----
+---------------
+Env seed:  769629
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule
+Path:  output_files/3051681_multiplier_64/3051681_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Test 1 failed\n'
+Tokens:  57
+LLM generates return in:  4.585767  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  5  ----
+---------------
+Env seed:  621594
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule
+Path:  output_files/3051681_multiplier_64/3051681_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Test 1 failed\n'
+Tokens:  57
+LLM generates return in:  4.607432  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  6  ----
+---------------
+Env seed:  973927
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule
+Path:  output_files/3051681_multiplier_64/3051681_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Test 1 failed\n'
+Tokens:  57
+LLM generates return in:  4.634939  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  7  ----
+---------------
+Env seed:  793679
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule
+Path:  output_files/3051681_multiplier_64/3051681_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Test 1 failed\n'
+Tokens:  57
+LLM generates return in:  4.655415  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  8  ----
+---------------
+Env seed:  112364
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule
+Path:  output_files/3051681_multiplier_64/3051681_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Test 1 failed\n'
+Tokens:  57
+LLM generates return in:  4.68894  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  9  ----
+---------------
+Env seed:  75086
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule
+Path:  output_files/3051681_multiplier_64/3051681_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Test 1 failed\n'
+Tokens:  57
+LLM generates return in:  4.690479  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  10  ----
+---------------
+Env seed:  296738
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule
+Path:  output_files/3051681_multiplier_64/3051681_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Test 1 failed\n'
+Tokens:  57
+LLM generates return in:  4.698835  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  11  ----
+---------------
+Env seed:  512179
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule
+Path:  output_files/3051681_multiplier_64/3051681_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Test 1 failed\n'
+Tokens:  57
+LLM generates return in:  4.715826  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  12  ----
+---------------
+Env seed:  911308
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule
+Path:  output_files/3051681_multiplier_64/3051681_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Test 1 failed\n'
+Tokens:  57
+LLM generates return in:  4.726949  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  13  ----
+---------------
+Env seed:  335861
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule
+Path:  output_files/3051681_multiplier_64/3051681_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Test 1 failed\n'
+Tokens:  57
+LLM generates return in:  4.734361  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  14  ----
+---------------
+Env seed:  177314
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule
+Path:  output_files/3051681_multiplier_64/3051681_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Test 1 failed\n'
+Tokens:  57
+LLM generates return in:  4.744193  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  15  ----
+---------------
+Env seed:  327111
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule
+Path:  output_files/3051681_multiplier_64/3051681_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Test 1 failed\n'
+Tokens:  57
+LLM generates return in:  4.763487  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  16  ----
+---------------
+Env seed:  772194
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule
+Path:  output_files/3051681_multiplier_64/3051681_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Test 1 failed\n'
+Tokens:  57
+LLM generates return in:  4.771204  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  17  ----
+---------------
+Env seed:  554306
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule
+Path:  output_files/3051681_multiplier_64/3051681_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Test 1 failed\n'
+Tokens:  57
+LLM generates return in:  4.77527  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  18  ----
+---------------
+Env seed:  7504
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule
+Path:  output_files/3051681_multiplier_64/3051681_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Test 1 failed\n'
+Tokens:  57
+LLM generates return in:  4.77312  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  19  ----
+---------------
+Env seed:  312671
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule
+Path:  output_files/3051681_multiplier_64/3051681_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Test 1 failed\n'
+Tokens:  57
+LLM generates return in:  4.784908  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  20  ----
+---------------
+Env seed:  431742
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule
+Path:  output_files/3051681_multiplier_64/3051681_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Test 1 failed\n'
+Tokens:  57
+LLM generates return in:  4.793943  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  21  ----
+---------------
+Env seed:  496972
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule
+Path:  output_files/3051681_multiplier_64/3051681_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Test 1 failed\n'
+Tokens:  57
+LLM generates return in:  4.787167  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  22  ----
+---------------
+Env seed:  278869
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule
+Path:  output_files/3051681_multiplier_64/3051681_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Test 1 failed\n'
+Tokens:  57
+LLM generates return in:  4.789459  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  23  ----
+---------------
+Env seed:  923086
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule
+Path:  output_files/3051681_multiplier_64/3051681_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Test 1 failed\n'
+Tokens:  57
+LLM generates return in:  4.792301  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  24  ----
+---------------
+Env seed:  133759
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule
+Path:  output_files/3051681_multiplier_64/3051681_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Test 1 failed\n'
+Tokens:  57
+LLM generates return in:  4.803141  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  25  ----
+---------------
+Env seed:  434079
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule
+Path:  output_files/3051681_multiplier_64/3051681_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Test 1 failed\n'
+Tokens:  57
+LLM generates return in:  4.818197  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  26  ----
+---------------
+Env seed:  216374
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule
+Path:  output_files/3051681_multiplier_64/3051681_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Test 1 failed\n'
+Tokens:  57
+LLM generates return in:  4.806359  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  27  ----
+---------------
+Env seed:  607070
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+//Please finish designing the 64 bit multiplier module (multiplier_64) below.
+//There are two 64 bit inputs (A and B) and a 128 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_64(output [127:0] product, input [63:0] A, B);
+	wire [63:0] product_temp;
+	
+	assign product_temp = A * B;
+	
+	assign product = {product_temp[63:0], product_temp[127:64]};
+	
+endmodule
+Path:  output_files/3051681_multiplier_64/3051681_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Test 1 failed\n'
+Tokens:  57
+LLM generates return in:  4.810269  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  28  ----
+---------------
+Env seed:  241364
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53

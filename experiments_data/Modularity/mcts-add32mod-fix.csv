@@ -1,0 +1,2256 @@
+Area,Delay,Score,Current Run,Episode,Verilog
+298.718,1234.8,0.5,2.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule"
+298.718,1234.8,0.5,3.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule"
+298.718,1234.8,0.5,4.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule"
+298.718,1234.8,0.5,5.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule"
+298.718,1234.8,0.5,6.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule"
+298.718,1234.8,0.5,7.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule"
+298.718,1234.8,0.5,8.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule"
+298.718,1234.8,0.5,9.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire [7:0] c;
+  adder_8 A1(sum[7:0], c[0], in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c[1], in1[15:8], in2[15:8], c[0]);
+  adder_8 A3(sum[23:16], c[2], in1[23:16], in2[23:16], c[1]);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c[2]);
+endmodule"
+298.718,1234.8,0.5,10.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule"
+298.718,1234.8,0.5,11.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule"
+298.718,1234.8,0.5,12.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire [7:0] c;
+  adder_8 A1(sum[7:0], c[0], in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c[1], in1[15:8], in2[15:8], c[0]);
+  adder_8 A3(sum[23:16], c[2], in1[23:16], in2[23:16], c[1]);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c[2]);
+endmodule"
+298.718,1234.8,0.5,13.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule"
+298.718,1234.8,0.5,14.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule"
+298.718,1234.8,0.5,15.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);                      
+  wire c1,c2,c3,c4,c5,c6,c7,c8;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule"
+298.718,1234.8,0.5,16.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule"
+298.718,1234.8,0.5,17.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire [7:0] c;
+  adder_8 A1(sum[7:0], c[0], in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c[1], in1[15:8], in2[15:8], c[0]);
+  adder_8 A3(sum[23:16], c[2], in1[23:16], in2[23:16], c[1]);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c[2]);
+endmodule"
+298.718,1234.8,0.5,18.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule"
+298.718,1234.8,0.5,19.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule"
+298.718,1234.8,0.5,20.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule"
+298.718,1234.8,0.5,21.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire [7:0] c;
+  adder_8 A1(sum[7:0], c[0], in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c[1], in1[15:8], in2[15:8], c[0]);
+  adder_8 A3(sum[23:16], c[2], in1[23:16], in2[23:16], c[1]);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c[2]);
+endmodule"
+298.718,1234.8,0.5,22.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule"
+298.718,1234.8,0.5,23.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);                      
+  wire c1,c2,c3,c4,c5,c6,c7,c8;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule"
+298.718,1234.8,0.5,24.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule"
+298.718,1234.8,0.5,25.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire [7:0] c;
+  adder_8 A1(sum[7:0], c[0], in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c[1], in1[15:8], in2[15:8], c[0]);
+  adder_8 A3(sum[23:16], c[2], in1[23:16], in2[23:16], c[1]);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c[2]);
+endmodule"
+298.718,1234.8,0.5,26.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule"
+298.718,1234.8,0.5,27.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1, c2, c3, c4, c5, c6, c7, c8;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule"
+298.718,1234.8,0.5,28.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule"
+298.718,1234.8,0.5,29.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire [7:0] c;
+  adder_8 A1(sum[7:0], c[0], in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c[1], in1[15:8], in2[15:8], c[0]);
+  adder_8 A3(sum[23:16], c[2], in1[23:16], in2[23:16], c[1]);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c[2]);
+endmodule"
+298.718,1234.8,0.5,30.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule"
+298.718,1234.8,0.5,31.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);                      
+  wire c1,c2,c3,c4,c5,c6,c7,c8;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule"
+298.718,1234.8,0.5,32.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule"
+298.718,1234.8,0.5,33.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule"
+298.718,1234.8,0.5,34.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire [31:0] carry;
+  adder_8 A1(sum[7:0], carry[7:0], in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], carry[15:8], in1[15:8], in2[15:8], carry[7:0]);
+  adder_8 A3(sum[23:16], carry[23:16], in1[23:16], in2[23:16], carry[15:8]);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], carry[23:16]);
+endmodule"
+298.718,1234.8,0.5,35.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule"
+298.718,1234.8,0.5,36.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule"
+298.718,1234.8,0.5,37.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire [7:0] c;
+  adder_8 A1(sum[7:0], c[0], in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c[1], in1[15:8], in2[15:8], c[0]);
+  adder_8 A3(sum[23:16], c[2], in1[23:16], in2[23:16], c[1]);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c[2]);
+endmodule"
+298.718,1234.8,0.5,38.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1, c2, c3, c4, c5, c6, c7, c8;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule"
+298.718,1234.8,0.5,39.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);                      
+  wire c1,c2,c3,c4,c5,c6,c7,c8;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule"
+298.718,1234.8,0.5,40.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule"
+298.718,1234.8,0.5,41.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule"
+298.718,1234.8,0.5,42.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire [7:0] c;
+  adder_8 A1(sum[7:0], c[0], in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c[1], in1[15:8], in2[15:8], c[0]);
+  adder_8 A3(sum[23:16], c[2], in1[23:16], in2[23:16], c[1]);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c[2]);
+endmodule"
+298.718,1234.8,0.5,43.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule"
+298.718,1234.8,0.5,44.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c21,c22,c23,c24,c25,c26,c27,c28,c29,c30,c31;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule"
+298.718,1234.8,0.5,45.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire [7:0] c;
+  adder_8 A1(sum[7:0], c[0], in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c[1], in1[15:8], in2[15:8], c[0]);
+  adder_8 A3(sum[23:16], c[2], in1[23:16], in2[23:16], c[1]);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c[2]);
+endmodule"
+298.718,1234.8,0.5,46.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);                      
+  wire c1,c2,c3,c4,c5,c6,c7,c8;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule"
+298.718,1234.8,0.5,47.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule"
+298.718,1234.8,0.5,48.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule"
+298.718,1234.8,0.5,49.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c21,c22,c23,c24,c25,c26,c27,c28,c29,c30,c31;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule"
+298.718,1234.8,0.5,50.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire [31:0] carry;
+  adder_8 A1(sum[7:0], carry[7:0], in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], carry[15:8], in1[15:8], in2[15:8], carry[7:0]);
+  adder_8 A3(sum[23:16], carry[23:16], in1[23:16], in2[23:16], carry[15:8]);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], carry[23:16]);
+endmodule"
+298.718,1234.8,0.5,51.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1, c2, c3, c4, c5, c6, c7, c8;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule"
+298.718,1234.8,0.5,52.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule"
+298.718,1234.8,0.5,53.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule"
+298.718,1234.8,0.5,54.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);                      
+  wire c1,c2,c3,c4,c5,c6,c7,c8;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule"
+298.718,1234.8,0.5,55.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire [7:0] c;
+  adder_8 A1(sum[7:0], c[0], in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c[1], in1[15:8], in2[15:8], c[0]);
+  adder_8 A3(sum[23:16], c[2], in1[23:16], in2[23:16], c[1]);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c[2]);
+endmodule"
+298.718,1234.8,0.5,56.0,1,"//Design a 32-bit adder module (defined as adder_32 below).
+//There are two 32 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are a 32 bit value, [31:0] sum, and a single carry-out output bit, cout.
+//The adder_32 module should utilize the 8 bit adder defined below (adder_4).
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule
+
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7;
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module adder_32(output [31:0] sum,
+                      output cout,
+                      input [31:0] in1, in2,
+                      input cin);
+  wire c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20,c21,c22,c23,c24,c25,c26,c27,c28,c29,c30,c31;
+  adder_8 A1(sum[7:0], c1, in1[7:0], in2[7:0], cin);
+  adder_8 A2(sum[15:8], c2, in1[15:8], in2[15:8], c1);
+  adder_8 A3(sum[23:16], c3, in1[23:16], in2[23:16], c2);
+  adder_8 A4(sum[31:24], cout, in1[31:24], in2[31:24], c3);
+endmodule"

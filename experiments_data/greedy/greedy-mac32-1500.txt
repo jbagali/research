@@ -1,0 +1,7366 @@
+mac/mac_32.v
+Prompt str:  //Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_32(
+    input wire clk,
+    input wire reset,
+    input wire [31:0] A,
+    input wire [31:0] B,
+    output reg [63:0] accumulator
+);
+
+Loading LLM model...
+Initializing MCTS tree/LLM env...
+Episode not stated yet!
+Simulations per episode:  100
+********-- EPISODE-1--************
+----GREEDY LLM OUTPUT - ITERATION:  0  ----
+---------------
+Env seed:  300160
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+Token:  57
+Token:  58
+Token:  59
+Token:  60
+Token:  61
+Token:  62
+Token:  63
+Token:  64
+Token:  65
+Token:  66
+Token:  67
+Token:  68
+Token:  69
+Token:  70
+Token:  71
+Token:  72
+Token:  73
+Token:  74
+Token:  75
+Token:  76
+Token:  77
+Token:  78
+Token:  79
+Token:  80
+Token:  81
+Token:  82
+Token:  83
+Token:  84
+Token:  85
+Token:  86
+Token:  87
+Token:  88
+Token:  89
+Token:  90
+Token:  91
+Token:  92
+Token:  93
+Token:  94
+Token:  95
+Token:  96
+Token:  97
+Token:  98
+Token:  99
+Token:  100
+Token:  101
+Token:  102
+Token:  103
+Token:  104
+Token:  105
+Token:  106
+Token:  107
+Token:  108
+Token:  109
+Token:  110
+Token:  111
+Token:  112
+Token:  113
+Token:  114
+Token:  115
+Token:  116
+Token:  117
+Token:  118
+Token:  119
+Token:  120
+Token:  121
+Token:  122
+Token:  123
+Token:  124
+Token:  125
+Token:  126
+Token:  127
+Token:  128
+Token:  129
+Token:  130
+Token:  131
+Token:  132
+Token:  133
+Token:  134
+Token:  135
+Token:  136
+Token:  137
+Token:  138
+Token:  139
+Token:  140
+Token:  141
+Token:  142
+Token:  143
+Token:  144
+Token:  145
+Token:  146
+Token:  147
+Token:  148
+Token:  149
+Token:  150
+Token:  151
+Token:  152
+Token:  153
+Token:  154
+Token:  155
+Token:  156
+Token:  157
+Token:  158
+Token:  159
+Token:  160
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_32(
+    input wire clk,
+    input wire reset,
+    input wire [31:0] A,
+    input wire [31:0] B,
+    output reg [63:0] accumulator
+);
+    reg [31:0] B_reg;
+    reg [31:0] A_reg;
+    reg [31:0] accumulator_reg;
+    always @(posedge clk)
+    begin
+        if (reset)
+        begin
+            accumulator_reg <= 0;
+            B_reg <= 0;
+            A_reg <= 0;
+        end
+        else
+        begin
+            accumulator_reg <= accumulator_reg + accumulator;
+            B_reg <= B;
+            A_reg <= A;
+        end
+    end
+    always @(posedge clk)
+    begin
+        accumulator <= accumulator_reg;
+    end
+endmodule
+Path:  output_files/3062019_mac_32/3062019_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 00000000, B: 00000000, Accumulator: xxxxxxxxxxxxxxxx\nTime:                15000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\nTime:                25000, A: 00000000, B: 00000000, Accumulator: 0000000000000000\nTest 1 failed\nTime:                35000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\n'
+Tokens:  161
+LLM generates return in:  23.530663  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  1  ----
+---------------
+Env seed:  803291
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+Token:  57
+Token:  58
+Token:  59
+Token:  60
+Token:  61
+Token:  62
+Token:  63
+Token:  64
+Token:  65
+Token:  66
+Token:  67
+Token:  68
+Token:  69
+Token:  70
+Token:  71
+Token:  72
+Token:  73
+Token:  74
+Token:  75
+Token:  76
+Token:  77
+Token:  78
+Token:  79
+Token:  80
+Token:  81
+Token:  82
+Token:  83
+Token:  84
+Token:  85
+Token:  86
+Token:  87
+Token:  88
+Token:  89
+Token:  90
+Token:  91
+Token:  92
+Token:  93
+Token:  94
+Token:  95
+Token:  96
+Token:  97
+Token:  98
+Token:  99
+Token:  100
+Token:  101
+Token:  102
+Token:  103
+Token:  104
+Token:  105
+Token:  106
+Token:  107
+Token:  108
+Token:  109
+Token:  110
+Token:  111
+Token:  112
+Token:  113
+Token:  114
+Token:  115
+Token:  116
+Token:  117
+Token:  118
+Token:  119
+Token:  120
+Token:  121
+Token:  122
+Token:  123
+Token:  124
+Token:  125
+Token:  126
+Token:  127
+Token:  128
+Token:  129
+Token:  130
+Token:  131
+Token:  132
+Token:  133
+Token:  134
+Token:  135
+Token:  136
+Token:  137
+Token:  138
+Token:  139
+Token:  140
+Token:  141
+Token:  142
+Token:  143
+Token:  144
+Token:  145
+Token:  146
+Token:  147
+Token:  148
+Token:  149
+Token:  150
+Token:  151
+Token:  152
+Token:  153
+Token:  154
+Token:  155
+Token:  156
+Token:  157
+Token:  158
+Token:  159
+Token:  160
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_32(
+    input wire clk,
+    input wire reset,
+    input wire [31:0] A,
+    input wire [31:0] B,
+    output reg [63:0] accumulator
+);
+    reg [31:0] B_reg;
+    reg [31:0] A_reg;
+    reg [31:0] accumulator_reg;
+    always @(posedge clk)
+    begin
+        if (reset)
+        begin
+            accumulator_reg <= 0;
+            B_reg <= 0;
+            A_reg <= 0;
+        end
+        else
+        begin
+            accumulator_reg <= accumulator_reg + accumulator;
+            B_reg <= B;
+            A_reg <= A;
+        end
+    end
+    always @(posedge clk)
+    begin
+        accumulator <= accumulator_reg;
+    end
+endmodule
+Path:  output_files/3062019_mac_32/3062019_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 00000000, B: 00000000, Accumulator: xxxxxxxxxxxxxxxx\nTime:                15000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\nTime:                25000, A: 00000000, B: 00000000, Accumulator: 0000000000000000\nTest 1 failed\nTime:                35000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\n'
+Tokens:  161
+LLM generates return in:  23.514346  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  2  ----
+---------------
+Env seed:  364859
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+Token:  57
+Token:  58
+Token:  59
+Token:  60
+Token:  61
+Token:  62
+Token:  63
+Token:  64
+Token:  65
+Token:  66
+Token:  67
+Token:  68
+Token:  69
+Token:  70
+Token:  71
+Token:  72
+Token:  73
+Token:  74
+Token:  75
+Token:  76
+Token:  77
+Token:  78
+Token:  79
+Token:  80
+Token:  81
+Token:  82
+Token:  83
+Token:  84
+Token:  85
+Token:  86
+Token:  87
+Token:  88
+Token:  89
+Token:  90
+Token:  91
+Token:  92
+Token:  93
+Token:  94
+Token:  95
+Token:  96
+Token:  97
+Token:  98
+Token:  99
+Token:  100
+Token:  101
+Token:  102
+Token:  103
+Token:  104
+Token:  105
+Token:  106
+Token:  107
+Token:  108
+Token:  109
+Token:  110
+Token:  111
+Token:  112
+Token:  113
+Token:  114
+Token:  115
+Token:  116
+Token:  117
+Token:  118
+Token:  119
+Token:  120
+Token:  121
+Token:  122
+Token:  123
+Token:  124
+Token:  125
+Token:  126
+Token:  127
+Token:  128
+Token:  129
+Token:  130
+Token:  131
+Token:  132
+Token:  133
+Token:  134
+Token:  135
+Token:  136
+Token:  137
+Token:  138
+Token:  139
+Token:  140
+Token:  141
+Token:  142
+Token:  143
+Token:  144
+Token:  145
+Token:  146
+Token:  147
+Token:  148
+Token:  149
+Token:  150
+Token:  151
+Token:  152
+Token:  153
+Token:  154
+Token:  155
+Token:  156
+Token:  157
+Token:  158
+Token:  159
+Token:  160
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_32(
+    input wire clk,
+    input wire reset,
+    input wire [31:0] A,
+    input wire [31:0] B,
+    output reg [63:0] accumulator
+);
+    reg [31:0] B_reg;
+    reg [31:0] A_reg;
+    reg [31:0] accumulator_reg;
+    always @(posedge clk)
+    begin
+        if (reset)
+        begin
+            accumulator_reg <= 0;
+            B_reg <= 0;
+            A_reg <= 0;
+        end
+        else
+        begin
+            accumulator_reg <= accumulator_reg + accumulator;
+            B_reg <= B;
+            A_reg <= A;
+        end
+    end
+    always @(posedge clk)
+    begin
+        accumulator <= accumulator_reg;
+    end
+endmodule
+Path:  output_files/3062019_mac_32/3062019_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 00000000, B: 00000000, Accumulator: xxxxxxxxxxxxxxxx\nTime:                15000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\nTime:                25000, A: 00000000, B: 00000000, Accumulator: 0000000000000000\nTest 1 failed\nTime:                35000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\n'
+Tokens:  161
+LLM generates return in:  24.101485  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  3  ----
+---------------
+Env seed:  908335
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+Token:  57
+Token:  58
+Token:  59
+Token:  60
+Token:  61
+Token:  62
+Token:  63
+Token:  64
+Token:  65
+Token:  66
+Token:  67
+Token:  68
+Token:  69
+Token:  70
+Token:  71
+Token:  72
+Token:  73
+Token:  74
+Token:  75
+Token:  76
+Token:  77
+Token:  78
+Token:  79
+Token:  80
+Token:  81
+Token:  82
+Token:  83
+Token:  84
+Token:  85
+Token:  86
+Token:  87
+Token:  88
+Token:  89
+Token:  90
+Token:  91
+Token:  92
+Token:  93
+Token:  94
+Token:  95
+Token:  96
+Token:  97
+Token:  98
+Token:  99
+Token:  100
+Token:  101
+Token:  102
+Token:  103
+Token:  104
+Token:  105
+Token:  106
+Token:  107
+Token:  108
+Token:  109
+Token:  110
+Token:  111
+Token:  112
+Token:  113
+Token:  114
+Token:  115
+Token:  116
+Token:  117
+Token:  118
+Token:  119
+Token:  120
+Token:  121
+Token:  122
+Token:  123
+Token:  124
+Token:  125
+Token:  126
+Token:  127
+Token:  128
+Token:  129
+Token:  130
+Token:  131
+Token:  132
+Token:  133
+Token:  134
+Token:  135
+Token:  136
+Token:  137
+Token:  138
+Token:  139
+Token:  140
+Token:  141
+Token:  142
+Token:  143
+Token:  144
+Token:  145
+Token:  146
+Token:  147
+Token:  148
+Token:  149
+Token:  150
+Token:  151
+Token:  152
+Token:  153
+Token:  154
+Token:  155
+Token:  156
+Token:  157
+Token:  158
+Token:  159
+Token:  160
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_32(
+    input wire clk,
+    input wire reset,
+    input wire [31:0] A,
+    input wire [31:0] B,
+    output reg [63:0] accumulator
+);
+    reg [31:0] B_reg;
+    reg [31:0] A_reg;
+    reg [31:0] accumulator_reg;
+    always @(posedge clk)
+    begin
+        if (reset)
+        begin
+            accumulator_reg <= 0;
+            B_reg <= 0;
+            A_reg <= 0;
+        end
+        else
+        begin
+            accumulator_reg <= accumulator_reg + accumulator;
+            B_reg <= B;
+            A_reg <= A;
+        end
+    end
+    always @(posedge clk)
+    begin
+        accumulator <= accumulator_reg;
+    end
+endmodule
+Path:  output_files/3062019_mac_32/3062019_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 00000000, B: 00000000, Accumulator: xxxxxxxxxxxxxxxx\nTime:                15000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\nTime:                25000, A: 00000000, B: 00000000, Accumulator: 0000000000000000\nTest 1 failed\nTime:                35000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\n'
+Tokens:  161
+LLM generates return in:  24.412726  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  4  ----
+---------------
+Env seed:  281248
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+Token:  57
+Token:  58
+Token:  59
+Token:  60
+Token:  61
+Token:  62
+Token:  63
+Token:  64
+Token:  65
+Token:  66
+Token:  67
+Token:  68
+Token:  69
+Token:  70
+Token:  71
+Token:  72
+Token:  73
+Token:  74
+Token:  75
+Token:  76
+Token:  77
+Token:  78
+Token:  79
+Token:  80
+Token:  81
+Token:  82
+Token:  83
+Token:  84
+Token:  85
+Token:  86
+Token:  87
+Token:  88
+Token:  89
+Token:  90
+Token:  91
+Token:  92
+Token:  93
+Token:  94
+Token:  95
+Token:  96
+Token:  97
+Token:  98
+Token:  99
+Token:  100
+Token:  101
+Token:  102
+Token:  103
+Token:  104
+Token:  105
+Token:  106
+Token:  107
+Token:  108
+Token:  109
+Token:  110
+Token:  111
+Token:  112
+Token:  113
+Token:  114
+Token:  115
+Token:  116
+Token:  117
+Token:  118
+Token:  119
+Token:  120
+Token:  121
+Token:  122
+Token:  123
+Token:  124
+Token:  125
+Token:  126
+Token:  127
+Token:  128
+Token:  129
+Token:  130
+Token:  131
+Token:  132
+Token:  133
+Token:  134
+Token:  135
+Token:  136
+Token:  137
+Token:  138
+Token:  139
+Token:  140
+Token:  141
+Token:  142
+Token:  143
+Token:  144
+Token:  145
+Token:  146
+Token:  147
+Token:  148
+Token:  149
+Token:  150
+Token:  151
+Token:  152
+Token:  153
+Token:  154
+Token:  155
+Token:  156
+Token:  157
+Token:  158
+Token:  159
+Token:  160
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_32(
+    input wire clk,
+    input wire reset,
+    input wire [31:0] A,
+    input wire [31:0] B,
+    output reg [63:0] accumulator
+);
+    reg [31:0] B_reg;
+    reg [31:0] A_reg;
+    reg [31:0] accumulator_reg;
+    always @(posedge clk)
+    begin
+        if (reset)
+        begin
+            accumulator_reg <= 0;
+            B_reg <= 0;
+            A_reg <= 0;
+        end
+        else
+        begin
+            accumulator_reg <= accumulator_reg + accumulator;
+            B_reg <= B;
+            A_reg <= A;
+        end
+    end
+    always @(posedge clk)
+    begin
+        accumulator <= accumulator_reg;
+    end
+endmodule
+Path:  output_files/3062019_mac_32/3062019_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 00000000, B: 00000000, Accumulator: xxxxxxxxxxxxxxxx\nTime:                15000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\nTime:                25000, A: 00000000, B: 00000000, Accumulator: 0000000000000000\nTest 1 failed\nTime:                35000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\n'
+Tokens:  161
+LLM generates return in:  24.564971  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  5  ----
+---------------
+Env seed:  584155
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+Token:  57
+Token:  58
+Token:  59
+Token:  60
+Token:  61
+Token:  62
+Token:  63
+Token:  64
+Token:  65
+Token:  66
+Token:  67
+Token:  68
+Token:  69
+Token:  70
+Token:  71
+Token:  72
+Token:  73
+Token:  74
+Token:  75
+Token:  76
+Token:  77
+Token:  78
+Token:  79
+Token:  80
+Token:  81
+Token:  82
+Token:  83
+Token:  84
+Token:  85
+Token:  86
+Token:  87
+Token:  88
+Token:  89
+Token:  90
+Token:  91
+Token:  92
+Token:  93
+Token:  94
+Token:  95
+Token:  96
+Token:  97
+Token:  98
+Token:  99
+Token:  100
+Token:  101
+Token:  102
+Token:  103
+Token:  104
+Token:  105
+Token:  106
+Token:  107
+Token:  108
+Token:  109
+Token:  110
+Token:  111
+Token:  112
+Token:  113
+Token:  114
+Token:  115
+Token:  116
+Token:  117
+Token:  118
+Token:  119
+Token:  120
+Token:  121
+Token:  122
+Token:  123
+Token:  124
+Token:  125
+Token:  126
+Token:  127
+Token:  128
+Token:  129
+Token:  130
+Token:  131
+Token:  132
+Token:  133
+Token:  134
+Token:  135
+Token:  136
+Token:  137
+Token:  138
+Token:  139
+Token:  140
+Token:  141
+Token:  142
+Token:  143
+Token:  144
+Token:  145
+Token:  146
+Token:  147
+Token:  148
+Token:  149
+Token:  150
+Token:  151
+Token:  152
+Token:  153
+Token:  154
+Token:  155
+Token:  156
+Token:  157
+Token:  158
+Token:  159
+Token:  160
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_32(
+    input wire clk,
+    input wire reset,
+    input wire [31:0] A,
+    input wire [31:0] B,
+    output reg [63:0] accumulator
+);
+    reg [31:0] B_reg;
+    reg [31:0] A_reg;
+    reg [31:0] accumulator_reg;
+    always @(posedge clk)
+    begin
+        if (reset)
+        begin
+            accumulator_reg <= 0;
+            B_reg <= 0;
+            A_reg <= 0;
+        end
+        else
+        begin
+            accumulator_reg <= accumulator_reg + accumulator;
+            B_reg <= B;
+            A_reg <= A;
+        end
+    end
+    always @(posedge clk)
+    begin
+        accumulator <= accumulator_reg;
+    end
+endmodule
+Path:  output_files/3062019_mac_32/3062019_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 00000000, B: 00000000, Accumulator: xxxxxxxxxxxxxxxx\nTime:                15000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\nTime:                25000, A: 00000000, B: 00000000, Accumulator: 0000000000000000\nTest 1 failed\nTime:                35000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\n'
+Tokens:  161
+LLM generates return in:  24.674541  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  6  ----
+---------------
+Env seed:  785882
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+Token:  57
+Token:  58
+Token:  59
+Token:  60
+Token:  61
+Token:  62
+Token:  63
+Token:  64
+Token:  65
+Token:  66
+Token:  67
+Token:  68
+Token:  69
+Token:  70
+Token:  71
+Token:  72
+Token:  73
+Token:  74
+Token:  75
+Token:  76
+Token:  77
+Token:  78
+Token:  79
+Token:  80
+Token:  81
+Token:  82
+Token:  83
+Token:  84
+Token:  85
+Token:  86
+Token:  87
+Token:  88
+Token:  89
+Token:  90
+Token:  91
+Token:  92
+Token:  93
+Token:  94
+Token:  95
+Token:  96
+Token:  97
+Token:  98
+Token:  99
+Token:  100
+Token:  101
+Token:  102
+Token:  103
+Token:  104
+Token:  105
+Token:  106
+Token:  107
+Token:  108
+Token:  109
+Token:  110
+Token:  111
+Token:  112
+Token:  113
+Token:  114
+Token:  115
+Token:  116
+Token:  117
+Token:  118
+Token:  119
+Token:  120
+Token:  121
+Token:  122
+Token:  123
+Token:  124
+Token:  125
+Token:  126
+Token:  127
+Token:  128
+Token:  129
+Token:  130
+Token:  131
+Token:  132
+Token:  133
+Token:  134
+Token:  135
+Token:  136
+Token:  137
+Token:  138
+Token:  139
+Token:  140
+Token:  141
+Token:  142
+Token:  143
+Token:  144
+Token:  145
+Token:  146
+Token:  147
+Token:  148
+Token:  149
+Token:  150
+Token:  151
+Token:  152
+Token:  153
+Token:  154
+Token:  155
+Token:  156
+Token:  157
+Token:  158
+Token:  159
+Token:  160
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_32(
+    input wire clk,
+    input wire reset,
+    input wire [31:0] A,
+    input wire [31:0] B,
+    output reg [63:0] accumulator
+);
+    reg [31:0] B_reg;
+    reg [31:0] A_reg;
+    reg [31:0] accumulator_reg;
+    always @(posedge clk)
+    begin
+        if (reset)
+        begin
+            accumulator_reg <= 0;
+            B_reg <= 0;
+            A_reg <= 0;
+        end
+        else
+        begin
+            accumulator_reg <= accumulator_reg + accumulator;
+            B_reg <= B;
+            A_reg <= A;
+        end
+    end
+    always @(posedge clk)
+    begin
+        accumulator <= accumulator_reg;
+    end
+endmodule
+Path:  output_files/3062019_mac_32/3062019_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 00000000, B: 00000000, Accumulator: xxxxxxxxxxxxxxxx\nTime:                15000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\nTime:                25000, A: 00000000, B: 00000000, Accumulator: 0000000000000000\nTest 1 failed\nTime:                35000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\n'
+Tokens:  161
+LLM generates return in:  24.718327  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  7  ----
+---------------
+Env seed:  44680
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+Token:  57
+Token:  58
+Token:  59
+Token:  60
+Token:  61
+Token:  62
+Token:  63
+Token:  64
+Token:  65
+Token:  66
+Token:  67
+Token:  68
+Token:  69
+Token:  70
+Token:  71
+Token:  72
+Token:  73
+Token:  74
+Token:  75
+Token:  76
+Token:  77
+Token:  78
+Token:  79
+Token:  80
+Token:  81
+Token:  82
+Token:  83
+Token:  84
+Token:  85
+Token:  86
+Token:  87
+Token:  88
+Token:  89
+Token:  90
+Token:  91
+Token:  92
+Token:  93
+Token:  94
+Token:  95
+Token:  96
+Token:  97
+Token:  98
+Token:  99
+Token:  100
+Token:  101
+Token:  102
+Token:  103
+Token:  104
+Token:  105
+Token:  106
+Token:  107
+Token:  108
+Token:  109
+Token:  110
+Token:  111
+Token:  112
+Token:  113
+Token:  114
+Token:  115
+Token:  116
+Token:  117
+Token:  118
+Token:  119
+Token:  120
+Token:  121
+Token:  122
+Token:  123
+Token:  124
+Token:  125
+Token:  126
+Token:  127
+Token:  128
+Token:  129
+Token:  130
+Token:  131
+Token:  132
+Token:  133
+Token:  134
+Token:  135
+Token:  136
+Token:  137
+Token:  138
+Token:  139
+Token:  140
+Token:  141
+Token:  142
+Token:  143
+Token:  144
+Token:  145
+Token:  146
+Token:  147
+Token:  148
+Token:  149
+Token:  150
+Token:  151
+Token:  152
+Token:  153
+Token:  154
+Token:  155
+Token:  156
+Token:  157
+Token:  158
+Token:  159
+Token:  160
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_32(
+    input wire clk,
+    input wire reset,
+    input wire [31:0] A,
+    input wire [31:0] B,
+    output reg [63:0] accumulator
+);
+    reg [31:0] B_reg;
+    reg [31:0] A_reg;
+    reg [31:0] accumulator_reg;
+    always @(posedge clk)
+    begin
+        if (reset)
+        begin
+            accumulator_reg <= 0;
+            B_reg <= 0;
+            A_reg <= 0;
+        end
+        else
+        begin
+            accumulator_reg <= accumulator_reg + accumulator;
+            B_reg <= B;
+            A_reg <= A;
+        end
+    end
+    always @(posedge clk)
+    begin
+        accumulator <= accumulator_reg;
+    end
+endmodule
+Path:  output_files/3062019_mac_32/3062019_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 00000000, B: 00000000, Accumulator: xxxxxxxxxxxxxxxx\nTime:                15000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\nTime:                25000, A: 00000000, B: 00000000, Accumulator: 0000000000000000\nTest 1 failed\nTime:                35000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\n'
+Tokens:  161
+LLM generates return in:  24.747053  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  8  ----
+---------------
+Env seed:  562369
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+Token:  57
+Token:  58
+Token:  59
+Token:  60
+Token:  61
+Token:  62
+Token:  63
+Token:  64
+Token:  65
+Token:  66
+Token:  67
+Token:  68
+Token:  69
+Token:  70
+Token:  71
+Token:  72
+Token:  73
+Token:  74
+Token:  75
+Token:  76
+Token:  77
+Token:  78
+Token:  79
+Token:  80
+Token:  81
+Token:  82
+Token:  83
+Token:  84
+Token:  85
+Token:  86
+Token:  87
+Token:  88
+Token:  89
+Token:  90
+Token:  91
+Token:  92
+Token:  93
+Token:  94
+Token:  95
+Token:  96
+Token:  97
+Token:  98
+Token:  99
+Token:  100
+Token:  101
+Token:  102
+Token:  103
+Token:  104
+Token:  105
+Token:  106
+Token:  107
+Token:  108
+Token:  109
+Token:  110
+Token:  111
+Token:  112
+Token:  113
+Token:  114
+Token:  115
+Token:  116
+Token:  117
+Token:  118
+Token:  119
+Token:  120
+Token:  121
+Token:  122
+Token:  123
+Token:  124
+Token:  125
+Token:  126
+Token:  127
+Token:  128
+Token:  129
+Token:  130
+Token:  131
+Token:  132
+Token:  133
+Token:  134
+Token:  135
+Token:  136
+Token:  137
+Token:  138
+Token:  139
+Token:  140
+Token:  141
+Token:  142
+Token:  143
+Token:  144
+Token:  145
+Token:  146
+Token:  147
+Token:  148
+Token:  149
+Token:  150
+Token:  151
+Token:  152
+Token:  153
+Token:  154
+Token:  155
+Token:  156
+Token:  157
+Token:  158
+Token:  159
+Token:  160
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_32(
+    input wire clk,
+    input wire reset,
+    input wire [31:0] A,
+    input wire [31:0] B,
+    output reg [63:0] accumulator
+);
+    reg [31:0] B_reg;
+    reg [31:0] A_reg;
+    reg [31:0] accumulator_reg;
+    always @(posedge clk)
+    begin
+        if (reset)
+        begin
+            accumulator_reg <= 0;
+            B_reg <= 0;
+            A_reg <= 0;
+        end
+        else
+        begin
+            accumulator_reg <= accumulator_reg + accumulator;
+            B_reg <= B;
+            A_reg <= A;
+        end
+    end
+    always @(posedge clk)
+    begin
+        accumulator <= accumulator_reg;
+    end
+endmodule
+Path:  output_files/3062019_mac_32/3062019_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 00000000, B: 00000000, Accumulator: xxxxxxxxxxxxxxxx\nTime:                15000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\nTime:                25000, A: 00000000, B: 00000000, Accumulator: 0000000000000000\nTest 1 failed\nTime:                35000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\n'
+Tokens:  161
+LLM generates return in:  24.777784  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  9  ----
+---------------
+Env seed:  326120
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+Token:  57
+Token:  58
+Token:  59
+Token:  60
+Token:  61
+Token:  62
+Token:  63
+Token:  64
+Token:  65
+Token:  66
+Token:  67
+Token:  68
+Token:  69
+Token:  70
+Token:  71
+Token:  72
+Token:  73
+Token:  74
+Token:  75
+Token:  76
+Token:  77
+Token:  78
+Token:  79
+Token:  80
+Token:  81
+Token:  82
+Token:  83
+Token:  84
+Token:  85
+Token:  86
+Token:  87
+Token:  88
+Token:  89
+Token:  90
+Token:  91
+Token:  92
+Token:  93
+Token:  94
+Token:  95
+Token:  96
+Token:  97
+Token:  98
+Token:  99
+Token:  100
+Token:  101
+Token:  102
+Token:  103
+Token:  104
+Token:  105
+Token:  106
+Token:  107
+Token:  108
+Token:  109
+Token:  110
+Token:  111
+Token:  112
+Token:  113
+Token:  114
+Token:  115
+Token:  116
+Token:  117
+Token:  118
+Token:  119
+Token:  120
+Token:  121
+Token:  122
+Token:  123
+Token:  124
+Token:  125
+Token:  126
+Token:  127
+Token:  128
+Token:  129
+Token:  130
+Token:  131
+Token:  132
+Token:  133
+Token:  134
+Token:  135
+Token:  136
+Token:  137
+Token:  138
+Token:  139
+Token:  140
+Token:  141
+Token:  142
+Token:  143
+Token:  144
+Token:  145
+Token:  146
+Token:  147
+Token:  148
+Token:  149
+Token:  150
+Token:  151
+Token:  152
+Token:  153
+Token:  154
+Token:  155
+Token:  156
+Token:  157
+Token:  158
+Token:  159
+Token:  160
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_32(
+    input wire clk,
+    input wire reset,
+    input wire [31:0] A,
+    input wire [31:0] B,
+    output reg [63:0] accumulator
+);
+    reg [31:0] B_reg;
+    reg [31:0] A_reg;
+    reg [31:0] accumulator_reg;
+    always @(posedge clk)
+    begin
+        if (reset)
+        begin
+            accumulator_reg <= 0;
+            B_reg <= 0;
+            A_reg <= 0;
+        end
+        else
+        begin
+            accumulator_reg <= accumulator_reg + accumulator;
+            B_reg <= B;
+            A_reg <= A;
+        end
+    end
+    always @(posedge clk)
+    begin
+        accumulator <= accumulator_reg;
+    end
+endmodule
+Path:  output_files/3062019_mac_32/3062019_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 00000000, B: 00000000, Accumulator: xxxxxxxxxxxxxxxx\nTime:                15000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\nTime:                25000, A: 00000000, B: 00000000, Accumulator: 0000000000000000\nTest 1 failed\nTime:                35000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\n'
+Tokens:  161
+LLM generates return in:  24.779579  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  10  ----
+---------------
+Env seed:  289907
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+Token:  57
+Token:  58
+Token:  59
+Token:  60
+Token:  61
+Token:  62
+Token:  63
+Token:  64
+Token:  65
+Token:  66
+Token:  67
+Token:  68
+Token:  69
+Token:  70
+Token:  71
+Token:  72
+Token:  73
+Token:  74
+Token:  75
+Token:  76
+Token:  77
+Token:  78
+Token:  79
+Token:  80
+Token:  81
+Token:  82
+Token:  83
+Token:  84
+Token:  85
+Token:  86
+Token:  87
+Token:  88
+Token:  89
+Token:  90
+Token:  91
+Token:  92
+Token:  93
+Token:  94
+Token:  95
+Token:  96
+Token:  97
+Token:  98
+Token:  99
+Token:  100
+Token:  101
+Token:  102
+Token:  103
+Token:  104
+Token:  105
+Token:  106
+Token:  107
+Token:  108
+Token:  109
+Token:  110
+Token:  111
+Token:  112
+Token:  113
+Token:  114
+Token:  115
+Token:  116
+Token:  117
+Token:  118
+Token:  119
+Token:  120
+Token:  121
+Token:  122
+Token:  123
+Token:  124
+Token:  125
+Token:  126
+Token:  127
+Token:  128
+Token:  129
+Token:  130
+Token:  131
+Token:  132
+Token:  133
+Token:  134
+Token:  135
+Token:  136
+Token:  137
+Token:  138
+Token:  139
+Token:  140
+Token:  141
+Token:  142
+Token:  143
+Token:  144
+Token:  145
+Token:  146
+Token:  147
+Token:  148
+Token:  149
+Token:  150
+Token:  151
+Token:  152
+Token:  153
+Token:  154
+Token:  155
+Token:  156
+Token:  157
+Token:  158
+Token:  159
+Token:  160
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_32(
+    input wire clk,
+    input wire reset,
+    input wire [31:0] A,
+    input wire [31:0] B,
+    output reg [63:0] accumulator
+);
+    reg [31:0] B_reg;
+    reg [31:0] A_reg;
+    reg [31:0] accumulator_reg;
+    always @(posedge clk)
+    begin
+        if (reset)
+        begin
+            accumulator_reg <= 0;
+            B_reg <= 0;
+            A_reg <= 0;
+        end
+        else
+        begin
+            accumulator_reg <= accumulator_reg + accumulator;
+            B_reg <= B;
+            A_reg <= A;
+        end
+    end
+    always @(posedge clk)
+    begin
+        accumulator <= accumulator_reg;
+    end
+endmodule
+Path:  output_files/3062019_mac_32/3062019_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 00000000, B: 00000000, Accumulator: xxxxxxxxxxxxxxxx\nTime:                15000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\nTime:                25000, A: 00000000, B: 00000000, Accumulator: 0000000000000000\nTest 1 failed\nTime:                35000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\n'
+Tokens:  161
+LLM generates return in:  24.763078  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  11  ----
+---------------
+Env seed:  874828
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+Token:  57
+Token:  58
+Token:  59
+Token:  60
+Token:  61
+Token:  62
+Token:  63
+Token:  64
+Token:  65
+Token:  66
+Token:  67
+Token:  68
+Token:  69
+Token:  70
+Token:  71
+Token:  72
+Token:  73
+Token:  74
+Token:  75
+Token:  76
+Token:  77
+Token:  78
+Token:  79
+Token:  80
+Token:  81
+Token:  82
+Token:  83
+Token:  84
+Token:  85
+Token:  86
+Token:  87
+Token:  88
+Token:  89
+Token:  90
+Token:  91
+Token:  92
+Token:  93
+Token:  94
+Token:  95
+Token:  96
+Token:  97
+Token:  98
+Token:  99
+Token:  100
+Token:  101
+Token:  102
+Token:  103
+Token:  104
+Token:  105
+Token:  106
+Token:  107
+Token:  108
+Token:  109
+Token:  110
+Token:  111
+Token:  112
+Token:  113
+Token:  114
+Token:  115
+Token:  116
+Token:  117
+Token:  118
+Token:  119
+Token:  120
+Token:  121
+Token:  122
+Token:  123
+Token:  124
+Token:  125
+Token:  126
+Token:  127
+Token:  128
+Token:  129
+Token:  130
+Token:  131
+Token:  132
+Token:  133
+Token:  134
+Token:  135
+Token:  136
+Token:  137
+Token:  138
+Token:  139
+Token:  140
+Token:  141
+Token:  142
+Token:  143
+Token:  144
+Token:  145
+Token:  146
+Token:  147
+Token:  148
+Token:  149
+Token:  150
+Token:  151
+Token:  152
+Token:  153
+Token:  154
+Token:  155
+Token:  156
+Token:  157
+Token:  158
+Token:  159
+Token:  160
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_32(
+    input wire clk,
+    input wire reset,
+    input wire [31:0] A,
+    input wire [31:0] B,
+    output reg [63:0] accumulator
+);
+    reg [31:0] B_reg;
+    reg [31:0] A_reg;
+    reg [31:0] accumulator_reg;
+    always @(posedge clk)
+    begin
+        if (reset)
+        begin
+            accumulator_reg <= 0;
+            B_reg <= 0;
+            A_reg <= 0;
+        end
+        else
+        begin
+            accumulator_reg <= accumulator_reg + accumulator;
+            B_reg <= B;
+            A_reg <= A;
+        end
+    end
+    always @(posedge clk)
+    begin
+        accumulator <= accumulator_reg;
+    end
+endmodule
+Path:  output_files/3062019_mac_32/3062019_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 00000000, B: 00000000, Accumulator: xxxxxxxxxxxxxxxx\nTime:                15000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\nTime:                25000, A: 00000000, B: 00000000, Accumulator: 0000000000000000\nTest 1 failed\nTime:                35000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\n'
+Tokens:  161
+LLM generates return in:  24.776662  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  12  ----
+---------------
+Env seed:  10959
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+Token:  57
+Token:  58
+Token:  59
+Token:  60
+Token:  61
+Token:  62
+Token:  63
+Token:  64
+Token:  65
+Token:  66
+Token:  67
+Token:  68
+Token:  69
+Token:  70
+Token:  71
+Token:  72
+Token:  73
+Token:  74
+Token:  75
+Token:  76
+Token:  77
+Token:  78
+Token:  79
+Token:  80
+Token:  81
+Token:  82
+Token:  83
+Token:  84
+Token:  85
+Token:  86
+Token:  87
+Token:  88
+Token:  89
+Token:  90
+Token:  91
+Token:  92
+Token:  93
+Token:  94
+Token:  95
+Token:  96
+Token:  97
+Token:  98
+Token:  99
+Token:  100
+Token:  101
+Token:  102
+Token:  103
+Token:  104
+Token:  105
+Token:  106
+Token:  107
+Token:  108
+Token:  109
+Token:  110
+Token:  111
+Token:  112
+Token:  113
+Token:  114
+Token:  115
+Token:  116
+Token:  117
+Token:  118
+Token:  119
+Token:  120
+Token:  121
+Token:  122
+Token:  123
+Token:  124
+Token:  125
+Token:  126
+Token:  127
+Token:  128
+Token:  129
+Token:  130
+Token:  131
+Token:  132
+Token:  133
+Token:  134
+Token:  135
+Token:  136
+Token:  137
+Token:  138
+Token:  139
+Token:  140
+Token:  141
+Token:  142
+Token:  143
+Token:  144
+Token:  145
+Token:  146
+Token:  147
+Token:  148
+Token:  149
+Token:  150
+Token:  151
+Token:  152
+Token:  153
+Token:  154
+Token:  155
+Token:  156
+Token:  157
+Token:  158
+Token:  159
+Token:  160
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_32(
+    input wire clk,
+    input wire reset,
+    input wire [31:0] A,
+    input wire [31:0] B,
+    output reg [63:0] accumulator
+);
+    reg [31:0] B_reg;
+    reg [31:0] A_reg;
+    reg [31:0] accumulator_reg;
+    always @(posedge clk)
+    begin
+        if (reset)
+        begin
+            accumulator_reg <= 0;
+            B_reg <= 0;
+            A_reg <= 0;
+        end
+        else
+        begin
+            accumulator_reg <= accumulator_reg + accumulator;
+            B_reg <= B;
+            A_reg <= A;
+        end
+    end
+    always @(posedge clk)
+    begin
+        accumulator <= accumulator_reg;
+    end
+endmodule
+Path:  output_files/3062019_mac_32/3062019_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 00000000, B: 00000000, Accumulator: xxxxxxxxxxxxxxxx\nTime:                15000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\nTime:                25000, A: 00000000, B: 00000000, Accumulator: 0000000000000000\nTest 1 failed\nTime:                35000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\n'
+Tokens:  161
+LLM generates return in:  24.87042  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  13  ----
+---------------
+Env seed:  484165
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+Token:  57
+Token:  58
+Token:  59
+Token:  60
+Token:  61
+Token:  62
+Token:  63
+Token:  64
+Token:  65
+Token:  66
+Token:  67
+Token:  68
+Token:  69
+Token:  70
+Token:  71
+Token:  72
+Token:  73
+Token:  74
+Token:  75
+Token:  76
+Token:  77
+Token:  78
+Token:  79
+Token:  80
+Token:  81
+Token:  82
+Token:  83
+Token:  84
+Token:  85
+Token:  86
+Token:  87
+Token:  88
+Token:  89
+Token:  90
+Token:  91
+Token:  92
+Token:  93
+Token:  94
+Token:  95
+Token:  96
+Token:  97
+Token:  98
+Token:  99
+Token:  100
+Token:  101
+Token:  102
+Token:  103
+Token:  104
+Token:  105
+Token:  106
+Token:  107
+Token:  108
+Token:  109
+Token:  110
+Token:  111
+Token:  112
+Token:  113
+Token:  114
+Token:  115
+Token:  116
+Token:  117
+Token:  118
+Token:  119
+Token:  120
+Token:  121
+Token:  122
+Token:  123
+Token:  124
+Token:  125
+Token:  126
+Token:  127
+Token:  128
+Token:  129
+Token:  130
+Token:  131
+Token:  132
+Token:  133
+Token:  134
+Token:  135
+Token:  136
+Token:  137
+Token:  138
+Token:  139
+Token:  140
+Token:  141
+Token:  142
+Token:  143
+Token:  144
+Token:  145
+Token:  146
+Token:  147
+Token:  148
+Token:  149
+Token:  150
+Token:  151
+Token:  152
+Token:  153
+Token:  154
+Token:  155
+Token:  156
+Token:  157
+Token:  158
+Token:  159
+Token:  160
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_32(
+    input wire clk,
+    input wire reset,
+    input wire [31:0] A,
+    input wire [31:0] B,
+    output reg [63:0] accumulator
+);
+    reg [31:0] B_reg;
+    reg [31:0] A_reg;
+    reg [31:0] accumulator_reg;
+    always @(posedge clk)
+    begin
+        if (reset)
+        begin
+            accumulator_reg <= 0;
+            B_reg <= 0;
+            A_reg <= 0;
+        end
+        else
+        begin
+            accumulator_reg <= accumulator_reg + accumulator;
+            B_reg <= B;
+            A_reg <= A;
+        end
+    end
+    always @(posedge clk)
+    begin
+        accumulator <= accumulator_reg;
+    end
+endmodule
+Path:  output_files/3062019_mac_32/3062019_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 00000000, B: 00000000, Accumulator: xxxxxxxxxxxxxxxx\nTime:                15000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\nTime:                25000, A: 00000000, B: 00000000, Accumulator: 0000000000000000\nTest 1 failed\nTime:                35000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\n'
+Tokens:  161
+LLM generates return in:  24.787235  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  14  ----
+---------------
+Env seed:  819359
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+Token:  57
+Token:  58
+Token:  59
+Token:  60
+Token:  61
+Token:  62
+Token:  63
+Token:  64
+Token:  65
+Token:  66
+Token:  67
+Token:  68
+Token:  69
+Token:  70
+Token:  71
+Token:  72
+Token:  73
+Token:  74
+Token:  75
+Token:  76
+Token:  77
+Token:  78
+Token:  79
+Token:  80
+Token:  81
+Token:  82
+Token:  83
+Token:  84
+Token:  85
+Token:  86
+Token:  87
+Token:  88
+Token:  89
+Token:  90
+Token:  91
+Token:  92
+Token:  93
+Token:  94
+Token:  95
+Token:  96
+Token:  97
+Token:  98
+Token:  99
+Token:  100
+Token:  101
+Token:  102
+Token:  103
+Token:  104
+Token:  105
+Token:  106
+Token:  107
+Token:  108
+Token:  109
+Token:  110
+Token:  111
+Token:  112
+Token:  113
+Token:  114
+Token:  115
+Token:  116
+Token:  117
+Token:  118
+Token:  119
+Token:  120
+Token:  121
+Token:  122
+Token:  123
+Token:  124
+Token:  125
+Token:  126
+Token:  127
+Token:  128
+Token:  129
+Token:  130
+Token:  131
+Token:  132
+Token:  133
+Token:  134
+Token:  135
+Token:  136
+Token:  137
+Token:  138
+Token:  139
+Token:  140
+Token:  141
+Token:  142
+Token:  143
+Token:  144
+Token:  145
+Token:  146
+Token:  147
+Token:  148
+Token:  149
+Token:  150
+Token:  151
+Token:  152
+Token:  153
+Token:  154
+Token:  155
+Token:  156
+Token:  157
+Token:  158
+Token:  159
+Token:  160
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_32(
+    input wire clk,
+    input wire reset,
+    input wire [31:0] A,
+    input wire [31:0] B,
+    output reg [63:0] accumulator
+);
+    reg [31:0] B_reg;
+    reg [31:0] A_reg;
+    reg [31:0] accumulator_reg;
+    always @(posedge clk)
+    begin
+        if (reset)
+        begin
+            accumulator_reg <= 0;
+            B_reg <= 0;
+            A_reg <= 0;
+        end
+        else
+        begin
+            accumulator_reg <= accumulator_reg + accumulator;
+            B_reg <= B;
+            A_reg <= A;
+        end
+    end
+    always @(posedge clk)
+    begin
+        accumulator <= accumulator_reg;
+    end
+endmodule
+Path:  output_files/3062019_mac_32/3062019_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 00000000, B: 00000000, Accumulator: xxxxxxxxxxxxxxxx\nTime:                15000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\nTime:                25000, A: 00000000, B: 00000000, Accumulator: 0000000000000000\nTest 1 failed\nTime:                35000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\n'
+Tokens:  161
+LLM generates return in:  24.762504  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  15  ----
+---------------
+Env seed:  129684
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+Token:  57
+Token:  58
+Token:  59
+Token:  60
+Token:  61
+Token:  62
+Token:  63
+Token:  64
+Token:  65
+Token:  66
+Token:  67
+Token:  68
+Token:  69
+Token:  70
+Token:  71
+Token:  72
+Token:  73
+Token:  74
+Token:  75
+Token:  76
+Token:  77
+Token:  78
+Token:  79
+Token:  80
+Token:  81
+Token:  82
+Token:  83
+Token:  84
+Token:  85
+Token:  86
+Token:  87
+Token:  88
+Token:  89
+Token:  90
+Token:  91
+Token:  92
+Token:  93
+Token:  94
+Token:  95
+Token:  96
+Token:  97
+Token:  98
+Token:  99
+Token:  100
+Token:  101
+Token:  102
+Token:  103
+Token:  104
+Token:  105
+Token:  106
+Token:  107
+Token:  108
+Token:  109
+Token:  110
+Token:  111
+Token:  112
+Token:  113
+Token:  114
+Token:  115
+Token:  116
+Token:  117
+Token:  118
+Token:  119
+Token:  120
+Token:  121
+Token:  122
+Token:  123
+Token:  124
+Token:  125
+Token:  126
+Token:  127
+Token:  128
+Token:  129
+Token:  130
+Token:  131
+Token:  132
+Token:  133
+Token:  134
+Token:  135
+Token:  136
+Token:  137
+Token:  138
+Token:  139
+Token:  140
+Token:  141
+Token:  142
+Token:  143
+Token:  144
+Token:  145
+Token:  146
+Token:  147
+Token:  148
+Token:  149
+Token:  150
+Token:  151
+Token:  152
+Token:  153
+Token:  154
+Token:  155
+Token:  156
+Token:  157
+Token:  158
+Token:  159
+Token:  160
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_32(
+    input wire clk,
+    input wire reset,
+    input wire [31:0] A,
+    input wire [31:0] B,
+    output reg [63:0] accumulator
+);
+    reg [31:0] B_reg;
+    reg [31:0] A_reg;
+    reg [31:0] accumulator_reg;
+    always @(posedge clk)
+    begin
+        if (reset)
+        begin
+            accumulator_reg <= 0;
+            B_reg <= 0;
+            A_reg <= 0;
+        end
+        else
+        begin
+            accumulator_reg <= accumulator_reg + accumulator;
+            B_reg <= B;
+            A_reg <= A;
+        end
+    end
+    always @(posedge clk)
+    begin
+        accumulator <= accumulator_reg;
+    end
+endmodule
+Path:  output_files/3062019_mac_32/3062019_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 00000000, B: 00000000, Accumulator: xxxxxxxxxxxxxxxx\nTime:                15000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\nTime:                25000, A: 00000000, B: 00000000, Accumulator: 0000000000000000\nTest 1 failed\nTime:                35000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\n'
+Tokens:  161
+LLM generates return in:  24.761185  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  16  ----
+---------------
+Env seed:  326436
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+Token:  57
+Token:  58
+Token:  59
+Token:  60
+Token:  61
+Token:  62
+Token:  63
+Token:  64
+Token:  65
+Token:  66
+Token:  67
+Token:  68
+Token:  69
+Token:  70
+Token:  71
+Token:  72
+Token:  73
+Token:  74
+Token:  75
+Token:  76
+Token:  77
+Token:  78
+Token:  79
+Token:  80
+Token:  81
+Token:  82
+Token:  83
+Token:  84
+Token:  85
+Token:  86
+Token:  87
+Token:  88
+Token:  89
+Token:  90
+Token:  91
+Token:  92
+Token:  93
+Token:  94
+Token:  95
+Token:  96
+Token:  97
+Token:  98
+Token:  99
+Token:  100
+Token:  101
+Token:  102
+Token:  103
+Token:  104
+Token:  105
+Token:  106
+Token:  107
+Token:  108
+Token:  109
+Token:  110
+Token:  111
+Token:  112
+Token:  113
+Token:  114
+Token:  115
+Token:  116
+Token:  117
+Token:  118
+Token:  119
+Token:  120
+Token:  121
+Token:  122
+Token:  123
+Token:  124
+Token:  125
+Token:  126
+Token:  127
+Token:  128
+Token:  129
+Token:  130
+Token:  131
+Token:  132
+Token:  133
+Token:  134
+Token:  135
+Token:  136
+Token:  137
+Token:  138
+Token:  139
+Token:  140
+Token:  141
+Token:  142
+Token:  143
+Token:  144
+Token:  145
+Token:  146
+Token:  147
+Token:  148
+Token:  149
+Token:  150
+Token:  151
+Token:  152
+Token:  153
+Token:  154
+Token:  155
+Token:  156
+Token:  157
+Token:  158
+Token:  159
+Token:  160
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_32(
+    input wire clk,
+    input wire reset,
+    input wire [31:0] A,
+    input wire [31:0] B,
+    output reg [63:0] accumulator
+);
+    reg [31:0] B_reg;
+    reg [31:0] A_reg;
+    reg [31:0] accumulator_reg;
+    always @(posedge clk)
+    begin
+        if (reset)
+        begin
+            accumulator_reg <= 0;
+            B_reg <= 0;
+            A_reg <= 0;
+        end
+        else
+        begin
+            accumulator_reg <= accumulator_reg + accumulator;
+            B_reg <= B;
+            A_reg <= A;
+        end
+    end
+    always @(posedge clk)
+    begin
+        accumulator <= accumulator_reg;
+    end
+endmodule
+Path:  output_files/3062019_mac_32/3062019_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 00000000, B: 00000000, Accumulator: xxxxxxxxxxxxxxxx\nTime:                15000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\nTime:                25000, A: 00000000, B: 00000000, Accumulator: 0000000000000000\nTest 1 failed\nTime:                35000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\n'
+Tokens:  161
+LLM generates return in:  24.770984  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  17  ----
+---------------
+Env seed:  431778
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+Token:  57
+Token:  58
+Token:  59
+Token:  60
+Token:  61
+Token:  62
+Token:  63
+Token:  64
+Token:  65
+Token:  66
+Token:  67
+Token:  68
+Token:  69
+Token:  70
+Token:  71
+Token:  72
+Token:  73
+Token:  74
+Token:  75
+Token:  76
+Token:  77
+Token:  78
+Token:  79
+Token:  80
+Token:  81
+Token:  82
+Token:  83
+Token:  84
+Token:  85
+Token:  86
+Token:  87
+Token:  88
+Token:  89
+Token:  90
+Token:  91
+Token:  92
+Token:  93
+Token:  94
+Token:  95
+Token:  96
+Token:  97
+Token:  98
+Token:  99
+Token:  100
+Token:  101
+Token:  102
+Token:  103
+Token:  104
+Token:  105
+Token:  106
+Token:  107
+Token:  108
+Token:  109
+Token:  110
+Token:  111
+Token:  112
+Token:  113
+Token:  114
+Token:  115
+Token:  116
+Token:  117
+Token:  118
+Token:  119
+Token:  120
+Token:  121
+Token:  122
+Token:  123
+Token:  124
+Token:  125
+Token:  126
+Token:  127
+Token:  128
+Token:  129
+Token:  130
+Token:  131
+Token:  132
+Token:  133
+Token:  134
+Token:  135
+Token:  136
+Token:  137
+Token:  138
+Token:  139
+Token:  140
+Token:  141
+Token:  142
+Token:  143
+Token:  144
+Token:  145
+Token:  146
+Token:  147
+Token:  148
+Token:  149
+Token:  150
+Token:  151
+Token:  152
+Token:  153
+Token:  154
+Token:  155
+Token:  156
+Token:  157
+Token:  158
+Token:  159
+Token:  160
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_32(
+    input wire clk,
+    input wire reset,
+    input wire [31:0] A,
+    input wire [31:0] B,
+    output reg [63:0] accumulator
+);
+    reg [31:0] B_reg;
+    reg [31:0] A_reg;
+    reg [31:0] accumulator_reg;
+    always @(posedge clk)
+    begin
+        if (reset)
+        begin
+            accumulator_reg <= 0;
+            B_reg <= 0;
+            A_reg <= 0;
+        end
+        else
+        begin
+            accumulator_reg <= accumulator_reg + accumulator;
+            B_reg <= B;
+            A_reg <= A;
+        end
+    end
+    always @(posedge clk)
+    begin
+        accumulator <= accumulator_reg;
+    end
+endmodule
+Path:  output_files/3062019_mac_32/3062019_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 00000000, B: 00000000, Accumulator: xxxxxxxxxxxxxxxx\nTime:                15000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\nTime:                25000, A: 00000000, B: 00000000, Accumulator: 0000000000000000\nTest 1 failed\nTime:                35000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\n'
+Tokens:  161
+LLM generates return in:  24.761487  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  18  ----
+---------------
+Env seed:  945439
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+Token:  57
+Token:  58
+Token:  59
+Token:  60
+Token:  61
+Token:  62
+Token:  63
+Token:  64
+Token:  65
+Token:  66
+Token:  67
+Token:  68
+Token:  69
+Token:  70
+Token:  71
+Token:  72
+Token:  73
+Token:  74
+Token:  75
+Token:  76
+Token:  77
+Token:  78
+Token:  79
+Token:  80
+Token:  81
+Token:  82
+Token:  83
+Token:  84
+Token:  85
+Token:  86
+Token:  87
+Token:  88
+Token:  89
+Token:  90
+Token:  91
+Token:  92
+Token:  93
+Token:  94
+Token:  95
+Token:  96
+Token:  97
+Token:  98
+Token:  99
+Token:  100
+Token:  101
+Token:  102
+Token:  103
+Token:  104
+Token:  105
+Token:  106
+Token:  107
+Token:  108
+Token:  109
+Token:  110
+Token:  111
+Token:  112
+Token:  113
+Token:  114
+Token:  115
+Token:  116
+Token:  117
+Token:  118
+Token:  119
+Token:  120
+Token:  121
+Token:  122
+Token:  123
+Token:  124
+Token:  125
+Token:  126
+Token:  127
+Token:  128
+Token:  129
+Token:  130
+Token:  131
+Token:  132
+Token:  133
+Token:  134
+Token:  135
+Token:  136
+Token:  137
+Token:  138
+Token:  139
+Token:  140
+Token:  141
+Token:  142
+Token:  143
+Token:  144
+Token:  145
+Token:  146
+Token:  147
+Token:  148
+Token:  149
+Token:  150
+Token:  151
+Token:  152
+Token:  153
+Token:  154
+Token:  155
+Token:  156
+Token:  157
+Token:  158
+Token:  159
+Token:  160
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_32(
+    input wire clk,
+    input wire reset,
+    input wire [31:0] A,
+    input wire [31:0] B,
+    output reg [63:0] accumulator
+);
+    reg [31:0] B_reg;
+    reg [31:0] A_reg;
+    reg [31:0] accumulator_reg;
+    always @(posedge clk)
+    begin
+        if (reset)
+        begin
+            accumulator_reg <= 0;
+            B_reg <= 0;
+            A_reg <= 0;
+        end
+        else
+        begin
+            accumulator_reg <= accumulator_reg + accumulator;
+            B_reg <= B;
+            A_reg <= A;
+        end
+    end
+    always @(posedge clk)
+    begin
+        accumulator <= accumulator_reg;
+    end
+endmodule
+Path:  output_files/3062019_mac_32/3062019_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 00000000, B: 00000000, Accumulator: xxxxxxxxxxxxxxxx\nTime:                15000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\nTime:                25000, A: 00000000, B: 00000000, Accumulator: 0000000000000000\nTest 1 failed\nTime:                35000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\n'
+Tokens:  161
+LLM generates return in:  24.759615  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  19  ----
+---------------
+Env seed:  124770
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+Token:  57
+Token:  58
+Token:  59
+Token:  60
+Token:  61
+Token:  62
+Token:  63
+Token:  64
+Token:  65
+Token:  66
+Token:  67
+Token:  68
+Token:  69
+Token:  70
+Token:  71
+Token:  72
+Token:  73
+Token:  74
+Token:  75
+Token:  76
+Token:  77
+Token:  78
+Token:  79
+Token:  80
+Token:  81
+Token:  82
+Token:  83
+Token:  84
+Token:  85
+Token:  86
+Token:  87
+Token:  88
+Token:  89
+Token:  90
+Token:  91
+Token:  92
+Token:  93
+Token:  94
+Token:  95
+Token:  96
+Token:  97
+Token:  98
+Token:  99
+Token:  100
+Token:  101
+Token:  102
+Token:  103
+Token:  104
+Token:  105
+Token:  106
+Token:  107
+Token:  108
+Token:  109
+Token:  110
+Token:  111
+Token:  112
+Token:  113
+Token:  114
+Token:  115
+Token:  116
+Token:  117
+Token:  118
+Token:  119
+Token:  120
+Token:  121
+Token:  122
+Token:  123
+Token:  124
+Token:  125
+Token:  126
+Token:  127
+Token:  128
+Token:  129
+Token:  130
+Token:  131
+Token:  132
+Token:  133
+Token:  134
+Token:  135
+Token:  136
+Token:  137
+Token:  138
+Token:  139
+Token:  140
+Token:  141
+Token:  142
+Token:  143
+Token:  144
+Token:  145
+Token:  146
+Token:  147
+Token:  148
+Token:  149
+Token:  150
+Token:  151
+Token:  152
+Token:  153
+Token:  154
+Token:  155
+Token:  156
+Token:  157
+Token:  158
+Token:  159
+Token:  160
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_32(
+    input wire clk,
+    input wire reset,
+    input wire [31:0] A,
+    input wire [31:0] B,
+    output reg [63:0] accumulator
+);
+    reg [31:0] B_reg;
+    reg [31:0] A_reg;
+    reg [31:0] accumulator_reg;
+    always @(posedge clk)
+    begin
+        if (reset)
+        begin
+            accumulator_reg <= 0;
+            B_reg <= 0;
+            A_reg <= 0;
+        end
+        else
+        begin
+            accumulator_reg <= accumulator_reg + accumulator;
+            B_reg <= B;
+            A_reg <= A;
+        end
+    end
+    always @(posedge clk)
+    begin
+        accumulator <= accumulator_reg;
+    end
+endmodule
+Path:  output_files/3062019_mac_32/3062019_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 00000000, B: 00000000, Accumulator: xxxxxxxxxxxxxxxx\nTime:                15000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\nTime:                25000, A: 00000000, B: 00000000, Accumulator: 0000000000000000\nTest 1 failed\nTime:                35000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\n'
+Tokens:  161
+LLM generates return in:  24.752114  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  20  ----
+---------------
+Env seed:  376119
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+Token:  57
+Token:  58
+Token:  59
+Token:  60
+Token:  61
+Token:  62
+Token:  63
+Token:  64
+Token:  65
+Token:  66
+Token:  67
+Token:  68
+Token:  69
+Token:  70
+Token:  71
+Token:  72
+Token:  73
+Token:  74
+Token:  75
+Token:  76
+Token:  77
+Token:  78
+Token:  79
+Token:  80
+Token:  81
+Token:  82
+Token:  83
+Token:  84
+Token:  85
+Token:  86
+Token:  87
+Token:  88
+Token:  89
+Token:  90
+Token:  91
+Token:  92
+Token:  93
+Token:  94
+Token:  95
+Token:  96
+Token:  97
+Token:  98
+Token:  99
+Token:  100
+Token:  101
+Token:  102
+Token:  103
+Token:  104
+Token:  105
+Token:  106
+Token:  107
+Token:  108
+Token:  109
+Token:  110
+Token:  111
+Token:  112
+Token:  113
+Token:  114
+Token:  115
+Token:  116
+Token:  117
+Token:  118
+Token:  119
+Token:  120
+Token:  121
+Token:  122
+Token:  123
+Token:  124
+Token:  125
+Token:  126
+Token:  127
+Token:  128
+Token:  129
+Token:  130
+Token:  131
+Token:  132
+Token:  133
+Token:  134
+Token:  135
+Token:  136
+Token:  137
+Token:  138
+Token:  139
+Token:  140
+Token:  141
+Token:  142
+Token:  143
+Token:  144
+Token:  145
+Token:  146
+Token:  147
+Token:  148
+Token:  149
+Token:  150
+Token:  151
+Token:  152
+Token:  153
+Token:  154
+Token:  155
+Token:  156
+Token:  157
+Token:  158
+Token:  159
+Token:  160
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_32(
+    input wire clk,
+    input wire reset,
+    input wire [31:0] A,
+    input wire [31:0] B,
+    output reg [63:0] accumulator
+);
+    reg [31:0] B_reg;
+    reg [31:0] A_reg;
+    reg [31:0] accumulator_reg;
+    always @(posedge clk)
+    begin
+        if (reset)
+        begin
+            accumulator_reg <= 0;
+            B_reg <= 0;
+            A_reg <= 0;
+        end
+        else
+        begin
+            accumulator_reg <= accumulator_reg + accumulator;
+            B_reg <= B;
+            A_reg <= A;
+        end
+    end
+    always @(posedge clk)
+    begin
+        accumulator <= accumulator_reg;
+    end
+endmodule
+Path:  output_files/3062019_mac_32/3062019_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 00000000, B: 00000000, Accumulator: xxxxxxxxxxxxxxxx\nTime:                15000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\nTime:                25000, A: 00000000, B: 00000000, Accumulator: 0000000000000000\nTest 1 failed\nTime:                35000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\n'
+Tokens:  161
+LLM generates return in:  24.727017  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  21  ----
+---------------
+Env seed:  619180
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+Token:  57
+Token:  58
+Token:  59
+Token:  60
+Token:  61
+Token:  62
+Token:  63
+Token:  64
+Token:  65
+Token:  66
+Token:  67
+Token:  68
+Token:  69
+Token:  70
+Token:  71
+Token:  72
+Token:  73
+Token:  74
+Token:  75
+Token:  76
+Token:  77
+Token:  78
+Token:  79
+Token:  80
+Token:  81
+Token:  82
+Token:  83
+Token:  84
+Token:  85
+Token:  86
+Token:  87
+Token:  88
+Token:  89
+Token:  90
+Token:  91
+Token:  92
+Token:  93
+Token:  94
+Token:  95
+Token:  96
+Token:  97
+Token:  98
+Token:  99
+Token:  100
+Token:  101
+Token:  102
+Token:  103
+Token:  104
+Token:  105
+Token:  106
+Token:  107
+Token:  108
+Token:  109
+Token:  110
+Token:  111
+Token:  112
+Token:  113
+Token:  114
+Token:  115
+Token:  116
+Token:  117
+Token:  118
+Token:  119
+Token:  120
+Token:  121
+Token:  122
+Token:  123
+Token:  124
+Token:  125
+Token:  126
+Token:  127
+Token:  128
+Token:  129
+Token:  130
+Token:  131
+Token:  132
+Token:  133
+Token:  134
+Token:  135
+Token:  136
+Token:  137
+Token:  138
+Token:  139
+Token:  140
+Token:  141
+Token:  142
+Token:  143
+Token:  144
+Token:  145
+Token:  146
+Token:  147
+Token:  148
+Token:  149
+Token:  150
+Token:  151
+Token:  152
+Token:  153
+Token:  154
+Token:  155
+Token:  156
+Token:  157
+Token:  158
+Token:  159
+Token:  160
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_32(
+    input wire clk,
+    input wire reset,
+    input wire [31:0] A,
+    input wire [31:0] B,
+    output reg [63:0] accumulator
+);
+    reg [31:0] B_reg;
+    reg [31:0] A_reg;
+    reg [31:0] accumulator_reg;
+    always @(posedge clk)
+    begin
+        if (reset)
+        begin
+            accumulator_reg <= 0;
+            B_reg <= 0;
+            A_reg <= 0;
+        end
+        else
+        begin
+            accumulator_reg <= accumulator_reg + accumulator;
+            B_reg <= B;
+            A_reg <= A;
+        end
+    end
+    always @(posedge clk)
+    begin
+        accumulator <= accumulator_reg;
+    end
+endmodule
+Path:  output_files/3062019_mac_32/3062019_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 00000000, B: 00000000, Accumulator: xxxxxxxxxxxxxxxx\nTime:                15000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\nTime:                25000, A: 00000000, B: 00000000, Accumulator: 0000000000000000\nTest 1 failed\nTime:                35000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\n'
+Tokens:  161
+LLM generates return in:  24.729603  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  22  ----
+---------------
+Env seed:  152167
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+Token:  57
+Token:  58
+Token:  59
+Token:  60
+Token:  61
+Token:  62
+Token:  63
+Token:  64
+Token:  65
+Token:  66
+Token:  67
+Token:  68
+Token:  69
+Token:  70
+Token:  71
+Token:  72
+Token:  73
+Token:  74
+Token:  75
+Token:  76
+Token:  77
+Token:  78
+Token:  79
+Token:  80
+Token:  81
+Token:  82
+Token:  83
+Token:  84
+Token:  85
+Token:  86
+Token:  87
+Token:  88
+Token:  89
+Token:  90
+Token:  91
+Token:  92
+Token:  93
+Token:  94
+Token:  95
+Token:  96
+Token:  97
+Token:  98
+Token:  99
+Token:  100
+Token:  101
+Token:  102
+Token:  103
+Token:  104
+Token:  105
+Token:  106
+Token:  107
+Token:  108
+Token:  109
+Token:  110
+Token:  111
+Token:  112
+Token:  113
+Token:  114
+Token:  115
+Token:  116
+Token:  117
+Token:  118
+Token:  119
+Token:  120
+Token:  121
+Token:  122
+Token:  123
+Token:  124
+Token:  125
+Token:  126
+Token:  127
+Token:  128
+Token:  129
+Token:  130
+Token:  131
+Token:  132
+Token:  133
+Token:  134
+Token:  135
+Token:  136
+Token:  137
+Token:  138
+Token:  139
+Token:  140
+Token:  141
+Token:  142
+Token:  143
+Token:  144
+Token:  145
+Token:  146
+Token:  147
+Token:  148
+Token:  149
+Token:  150
+Token:  151
+Token:  152
+Token:  153
+Token:  154
+Token:  155
+Token:  156
+Token:  157
+Token:  158
+Token:  159
+Token:  160
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_32(
+    input wire clk,
+    input wire reset,
+    input wire [31:0] A,
+    input wire [31:0] B,
+    output reg [63:0] accumulator
+);
+    reg [31:0] B_reg;
+    reg [31:0] A_reg;
+    reg [31:0] accumulator_reg;
+    always @(posedge clk)
+    begin
+        if (reset)
+        begin
+            accumulator_reg <= 0;
+            B_reg <= 0;
+            A_reg <= 0;
+        end
+        else
+        begin
+            accumulator_reg <= accumulator_reg + accumulator;
+            B_reg <= B;
+            A_reg <= A;
+        end
+    end
+    always @(posedge clk)
+    begin
+        accumulator <= accumulator_reg;
+    end
+endmodule
+Path:  output_files/3062019_mac_32/3062019_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 00000000, B: 00000000, Accumulator: xxxxxxxxxxxxxxxx\nTime:                15000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\nTime:                25000, A: 00000000, B: 00000000, Accumulator: 0000000000000000\nTest 1 failed\nTime:                35000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\n'
+Tokens:  161
+LLM generates return in:  24.715903  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  23  ----
+---------------
+Env seed:  274879
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+Token:  57
+Token:  58
+Token:  59
+Token:  60
+Token:  61
+Token:  62
+Token:  63
+Token:  64
+Token:  65
+Token:  66
+Token:  67
+Token:  68
+Token:  69
+Token:  70
+Token:  71
+Token:  72
+Token:  73
+Token:  74
+Token:  75
+Token:  76
+Token:  77
+Token:  78
+Token:  79
+Token:  80
+Token:  81
+Token:  82
+Token:  83
+Token:  84
+Token:  85
+Token:  86
+Token:  87
+Token:  88
+Token:  89
+Token:  90
+Token:  91
+Token:  92
+Token:  93
+Token:  94
+Token:  95
+Token:  96
+Token:  97
+Token:  98
+Token:  99
+Token:  100
+Token:  101
+Token:  102
+Token:  103
+Token:  104
+Token:  105
+Token:  106
+Token:  107
+Token:  108
+Token:  109
+Token:  110
+Token:  111
+Token:  112
+Token:  113
+Token:  114
+Token:  115
+Token:  116
+Token:  117
+Token:  118
+Token:  119
+Token:  120
+Token:  121
+Token:  122
+Token:  123
+Token:  124
+Token:  125
+Token:  126
+Token:  127
+Token:  128
+Token:  129
+Token:  130
+Token:  131
+Token:  132
+Token:  133
+Token:  134
+Token:  135
+Token:  136
+Token:  137
+Token:  138
+Token:  139
+Token:  140
+Token:  141
+Token:  142
+Token:  143
+Token:  144
+Token:  145
+Token:  146
+Token:  147
+Token:  148
+Token:  149
+Token:  150
+Token:  151
+Token:  152
+Token:  153
+Token:  154
+Token:  155
+Token:  156
+Token:  157
+Token:  158
+Token:  159
+Token:  160
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_32(
+    input wire clk,
+    input wire reset,
+    input wire [31:0] A,
+    input wire [31:0] B,
+    output reg [63:0] accumulator
+);
+    reg [31:0] B_reg;
+    reg [31:0] A_reg;
+    reg [31:0] accumulator_reg;
+    always @(posedge clk)
+    begin
+        if (reset)
+        begin
+            accumulator_reg <= 0;
+            B_reg <= 0;
+            A_reg <= 0;
+        end
+        else
+        begin
+            accumulator_reg <= accumulator_reg + accumulator;
+            B_reg <= B;
+            A_reg <= A;
+        end
+    end
+    always @(posedge clk)
+    begin
+        accumulator <= accumulator_reg;
+    end
+endmodule
+Path:  output_files/3062019_mac_32/3062019_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 00000000, B: 00000000, Accumulator: xxxxxxxxxxxxxxxx\nTime:                15000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\nTime:                25000, A: 00000000, B: 00000000, Accumulator: 0000000000000000\nTest 1 failed\nTime:                35000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\n'
+Tokens:  161
+LLM generates return in:  24.734599  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  24  ----
+---------------
+Env seed:  674375
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+Token:  57
+Token:  58
+Token:  59
+Token:  60
+Token:  61
+Token:  62
+Token:  63
+Token:  64
+Token:  65
+Token:  66
+Token:  67
+Token:  68
+Token:  69
+Token:  70
+Token:  71
+Token:  72
+Token:  73
+Token:  74
+Token:  75
+Token:  76
+Token:  77
+Token:  78
+Token:  79
+Token:  80
+Token:  81
+Token:  82
+Token:  83
+Token:  84
+Token:  85
+Token:  86
+Token:  87
+Token:  88
+Token:  89
+Token:  90
+Token:  91
+Token:  92
+Token:  93
+Token:  94
+Token:  95
+Token:  96
+Token:  97
+Token:  98
+Token:  99
+Token:  100
+Token:  101
+Token:  102
+Token:  103
+Token:  104
+Token:  105
+Token:  106
+Token:  107
+Token:  108
+Token:  109
+Token:  110
+Token:  111
+Token:  112
+Token:  113
+Token:  114
+Token:  115
+Token:  116
+Token:  117
+Token:  118
+Token:  119
+Token:  120
+Token:  121
+Token:  122
+Token:  123
+Token:  124
+Token:  125
+Token:  126
+Token:  127
+Token:  128
+Token:  129
+Token:  130
+Token:  131
+Token:  132
+Token:  133
+Token:  134
+Token:  135
+Token:  136
+Token:  137
+Token:  138
+Token:  139
+Token:  140
+Token:  141
+Token:  142
+Token:  143
+Token:  144
+Token:  145
+Token:  146
+Token:  147
+Token:  148
+Token:  149
+Token:  150
+Token:  151
+Token:  152
+Token:  153
+Token:  154
+Token:  155
+Token:  156
+Token:  157
+Token:  158
+Token:  159
+Token:  160
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_32(
+    input wire clk,
+    input wire reset,
+    input wire [31:0] A,
+    input wire [31:0] B,
+    output reg [63:0] accumulator
+);
+    reg [31:0] B_reg;
+    reg [31:0] A_reg;
+    reg [31:0] accumulator_reg;
+    always @(posedge clk)
+    begin
+        if (reset)
+        begin
+            accumulator_reg <= 0;
+            B_reg <= 0;
+            A_reg <= 0;
+        end
+        else
+        begin
+            accumulator_reg <= accumulator_reg + accumulator;
+            B_reg <= B;
+            A_reg <= A;
+        end
+    end
+    always @(posedge clk)
+    begin
+        accumulator <= accumulator_reg;
+    end
+endmodule
+Path:  output_files/3062019_mac_32/3062019_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 00000000, B: 00000000, Accumulator: xxxxxxxxxxxxxxxx\nTime:                15000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\nTime:                25000, A: 00000000, B: 00000000, Accumulator: 0000000000000000\nTest 1 failed\nTime:                35000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\n'
+Tokens:  161
+LLM generates return in:  24.71701  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  25  ----
+---------------
+Env seed:  990857
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+Token:  57
+Token:  58
+Token:  59
+Token:  60
+Token:  61
+Token:  62
+Token:  63
+Token:  64
+Token:  65
+Token:  66
+Token:  67
+Token:  68
+Token:  69
+Token:  70
+Token:  71
+Token:  72
+Token:  73
+Token:  74
+Token:  75
+Token:  76
+Token:  77
+Token:  78
+Token:  79
+Token:  80
+Token:  81
+Token:  82
+Token:  83
+Token:  84
+Token:  85
+Token:  86
+Token:  87
+Token:  88
+Token:  89
+Token:  90
+Token:  91
+Token:  92
+Token:  93
+Token:  94
+Token:  95
+Token:  96
+Token:  97
+Token:  98
+Token:  99
+Token:  100
+Token:  101
+Token:  102
+Token:  103
+Token:  104
+Token:  105
+Token:  106
+Token:  107
+Token:  108
+Token:  109
+Token:  110
+Token:  111
+Token:  112
+Token:  113
+Token:  114
+Token:  115
+Token:  116
+Token:  117
+Token:  118
+Token:  119
+Token:  120
+Token:  121
+Token:  122
+Token:  123
+Token:  124
+Token:  125
+Token:  126
+Token:  127
+Token:  128
+Token:  129
+Token:  130
+Token:  131
+Token:  132
+Token:  133
+Token:  134
+Token:  135
+Token:  136
+Token:  137
+Token:  138
+Token:  139
+Token:  140
+Token:  141
+Token:  142
+Token:  143
+Token:  144
+Token:  145
+Token:  146
+Token:  147
+Token:  148
+Token:  149
+Token:  150
+Token:  151
+Token:  152
+Token:  153
+Token:  154
+Token:  155
+Token:  156
+Token:  157
+Token:  158
+Token:  159
+Token:  160
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_32(
+    input wire clk,
+    input wire reset,
+    input wire [31:0] A,
+    input wire [31:0] B,
+    output reg [63:0] accumulator
+);
+    reg [31:0] B_reg;
+    reg [31:0] A_reg;
+    reg [31:0] accumulator_reg;
+    always @(posedge clk)
+    begin
+        if (reset)
+        begin
+            accumulator_reg <= 0;
+            B_reg <= 0;
+            A_reg <= 0;
+        end
+        else
+        begin
+            accumulator_reg <= accumulator_reg + accumulator;
+            B_reg <= B;
+            A_reg <= A;
+        end
+    end
+    always @(posedge clk)
+    begin
+        accumulator <= accumulator_reg;
+    end
+endmodule
+Path:  output_files/3062019_mac_32/3062019_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 00000000, B: 00000000, Accumulator: xxxxxxxxxxxxxxxx\nTime:                15000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\nTime:                25000, A: 00000000, B: 00000000, Accumulator: 0000000000000000\nTest 1 failed\nTime:                35000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\n'
+Tokens:  161
+LLM generates return in:  24.712671  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  26  ----
+---------------
+Env seed:  405877
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+Token:  57
+Token:  58
+Token:  59
+Token:  60
+Token:  61
+Token:  62
+Token:  63
+Token:  64
+Token:  65
+Token:  66
+Token:  67
+Token:  68
+Token:  69
+Token:  70
+Token:  71
+Token:  72
+Token:  73
+Token:  74
+Token:  75
+Token:  76
+Token:  77
+Token:  78
+Token:  79
+Token:  80
+Token:  81
+Token:  82
+Token:  83
+Token:  84
+Token:  85
+Token:  86
+Token:  87
+Token:  88
+Token:  89
+Token:  90
+Token:  91
+Token:  92
+Token:  93
+Token:  94
+Token:  95
+Token:  96
+Token:  97
+Token:  98
+Token:  99
+Token:  100
+Token:  101
+Token:  102
+Token:  103
+Token:  104
+Token:  105
+Token:  106
+Token:  107
+Token:  108
+Token:  109
+Token:  110
+Token:  111
+Token:  112
+Token:  113
+Token:  114
+Token:  115
+Token:  116
+Token:  117
+Token:  118
+Token:  119
+Token:  120
+Token:  121
+Token:  122
+Token:  123
+Token:  124
+Token:  125
+Token:  126
+Token:  127
+Token:  128
+Token:  129
+Token:  130
+Token:  131
+Token:  132
+Token:  133
+Token:  134
+Token:  135
+Token:  136
+Token:  137
+Token:  138
+Token:  139
+Token:  140
+Token:  141
+Token:  142
+Token:  143
+Token:  144
+Token:  145
+Token:  146
+Token:  147
+Token:  148
+Token:  149
+Token:  150
+Token:  151
+Token:  152
+Token:  153
+Token:  154
+Token:  155
+Token:  156
+Token:  157
+Token:  158
+Token:  159
+Token:  160
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_32(
+    input wire clk,
+    input wire reset,
+    input wire [31:0] A,
+    input wire [31:0] B,
+    output reg [63:0] accumulator
+);
+    reg [31:0] B_reg;
+    reg [31:0] A_reg;
+    reg [31:0] accumulator_reg;
+    always @(posedge clk)
+    begin
+        if (reset)
+        begin
+            accumulator_reg <= 0;
+            B_reg <= 0;
+            A_reg <= 0;
+        end
+        else
+        begin
+            accumulator_reg <= accumulator_reg + accumulator;
+            B_reg <= B;
+            A_reg <= A;
+        end
+    end
+    always @(posedge clk)
+    begin
+        accumulator <= accumulator_reg;
+    end
+endmodule
+Path:  output_files/3062019_mac_32/3062019_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 00000000, B: 00000000, Accumulator: xxxxxxxxxxxxxxxx\nTime:                15000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\nTime:                25000, A: 00000000, B: 00000000, Accumulator: 0000000000000000\nTest 1 failed\nTime:                35000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\n'
+Tokens:  161
+LLM generates return in:  24.725811  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  27  ----
+---------------
+Env seed:  777730
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+Token:  57
+Token:  58
+Token:  59
+Token:  60
+Token:  61
+Token:  62
+Token:  63
+Token:  64
+Token:  65
+Token:  66
+Token:  67
+Token:  68
+Token:  69
+Token:  70
+Token:  71
+Token:  72
+Token:  73
+Token:  74
+Token:  75
+Token:  76
+Token:  77
+Token:  78
+Token:  79
+Token:  80
+Token:  81
+Token:  82
+Token:  83
+Token:  84
+Token:  85
+Token:  86
+Token:  87
+Token:  88
+Token:  89
+Token:  90
+Token:  91
+Token:  92
+Token:  93
+Token:  94
+Token:  95
+Token:  96
+Token:  97
+Token:  98
+Token:  99
+Token:  100
+Token:  101
+Token:  102
+Token:  103
+Token:  104
+Token:  105
+Token:  106
+Token:  107
+Token:  108
+Token:  109
+Token:  110
+Token:  111
+Token:  112
+Token:  113
+Token:  114
+Token:  115
+Token:  116
+Token:  117
+Token:  118
+Token:  119
+Token:  120
+Token:  121
+Token:  122
+Token:  123
+Token:  124
+Token:  125
+Token:  126
+Token:  127
+Token:  128
+Token:  129
+Token:  130
+Token:  131
+Token:  132
+Token:  133
+Token:  134
+Token:  135
+Token:  136
+Token:  137
+Token:  138
+Token:  139
+Token:  140
+Token:  141
+Token:  142
+Token:  143
+Token:  144
+Token:  145
+Token:  146
+Token:  147
+Token:  148
+Token:  149
+Token:  150
+Token:  151
+Token:  152
+Token:  153
+Token:  154
+Token:  155
+Token:  156
+Token:  157
+Token:  158
+Token:  159
+Token:  160
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_32(
+    input wire clk,
+    input wire reset,
+    input wire [31:0] A,
+    input wire [31:0] B,
+    output reg [63:0] accumulator
+);
+    reg [31:0] B_reg;
+    reg [31:0] A_reg;
+    reg [31:0] accumulator_reg;
+    always @(posedge clk)
+    begin
+        if (reset)
+        begin
+            accumulator_reg <= 0;
+            B_reg <= 0;
+            A_reg <= 0;
+        end
+        else
+        begin
+            accumulator_reg <= accumulator_reg + accumulator;
+            B_reg <= B;
+            A_reg <= A;
+        end
+    end
+    always @(posedge clk)
+    begin
+        accumulator <= accumulator_reg;
+    end
+endmodule
+Path:  output_files/3062019_mac_32/3062019_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 00000000, B: 00000000, Accumulator: xxxxxxxxxxxxxxxx\nTime:                15000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\nTime:                25000, A: 00000000, B: 00000000, Accumulator: 0000000000000000\nTest 1 failed\nTime:                35000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\n'
+Tokens:  161
+LLM generates return in:  24.729487  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  28  ----
+---------------
+Env seed:  384551
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+Token:  57
+Token:  58
+Token:  59
+Token:  60
+Token:  61
+Token:  62
+Token:  63
+Token:  64
+Token:  65
+Token:  66
+Token:  67
+Token:  68
+Token:  69
+Token:  70
+Token:  71
+Token:  72
+Token:  73
+Token:  74
+Token:  75
+Token:  76
+Token:  77
+Token:  78
+Token:  79
+Token:  80
+Token:  81
+Token:  82
+Token:  83
+Token:  84
+Token:  85
+Token:  86
+Token:  87
+Token:  88
+Token:  89
+Token:  90
+Token:  91
+Token:  92
+Token:  93
+Token:  94
+Token:  95
+Token:  96
+Token:  97
+Token:  98
+Token:  99
+Token:  100
+Token:  101
+Token:  102
+Token:  103
+Token:  104
+Token:  105
+Token:  106
+Token:  107
+Token:  108
+Token:  109
+Token:  110
+Token:  111
+Token:  112
+Token:  113
+Token:  114
+Token:  115
+Token:  116
+Token:  117
+Token:  118
+Token:  119
+Token:  120
+Token:  121
+Token:  122
+Token:  123
+Token:  124
+Token:  125
+Token:  126
+Token:  127
+Token:  128
+Token:  129
+Token:  130
+Token:  131
+Token:  132
+Token:  133
+Token:  134
+Token:  135
+Token:  136
+Token:  137
+Token:  138
+Token:  139
+Token:  140
+Token:  141
+Token:  142
+Token:  143
+Token:  144
+Token:  145
+Token:  146
+Token:  147
+Token:  148
+Token:  149
+Token:  150
+Token:  151
+Token:  152
+Token:  153
+Token:  154
+Token:  155
+Token:  156
+Token:  157
+Token:  158
+Token:  159
+Token:  160
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_32(
+    input wire clk,
+    input wire reset,
+    input wire [31:0] A,
+    input wire [31:0] B,
+    output reg [63:0] accumulator
+);
+    reg [31:0] B_reg;
+    reg [31:0] A_reg;
+    reg [31:0] accumulator_reg;
+    always @(posedge clk)
+    begin
+        if (reset)
+        begin
+            accumulator_reg <= 0;
+            B_reg <= 0;
+            A_reg <= 0;
+        end
+        else
+        begin
+            accumulator_reg <= accumulator_reg + accumulator;
+            B_reg <= B;
+            A_reg <= A;
+        end
+    end
+    always @(posedge clk)
+    begin
+        accumulator <= accumulator_reg;
+    end
+endmodule
+Path:  output_files/3062019_mac_32/3062019_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 00000000, B: 00000000, Accumulator: xxxxxxxxxxxxxxxx\nTime:                15000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\nTime:                25000, A: 00000000, B: 00000000, Accumulator: 0000000000000000\nTest 1 failed\nTime:                35000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\n'
+Tokens:  161
+LLM generates return in:  24.728693  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  29  ----
+---------------
+Env seed:  681613
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+Token:  57
+Token:  58
+Token:  59
+Token:  60
+Token:  61
+Token:  62
+Token:  63
+Token:  64
+Token:  65
+Token:  66
+Token:  67
+Token:  68
+Token:  69
+Token:  70
+Token:  71
+Token:  72
+Token:  73
+Token:  74
+Token:  75
+Token:  76
+Token:  77
+Token:  78
+Token:  79
+Token:  80
+Token:  81
+Token:  82
+Token:  83
+Token:  84
+Token:  85
+Token:  86
+Token:  87
+Token:  88
+Token:  89
+Token:  90
+Token:  91
+Token:  92
+Token:  93
+Token:  94
+Token:  95
+Token:  96
+Token:  97
+Token:  98
+Token:  99
+Token:  100
+Token:  101
+Token:  102
+Token:  103
+Token:  104
+Token:  105
+Token:  106
+Token:  107
+Token:  108
+Token:  109
+Token:  110
+Token:  111
+Token:  112
+Token:  113
+Token:  114
+Token:  115
+Token:  116
+Token:  117
+Token:  118
+Token:  119
+Token:  120
+Token:  121
+Token:  122
+Token:  123
+Token:  124
+Token:  125
+Token:  126
+Token:  127
+Token:  128
+Token:  129
+Token:  130
+Token:  131
+Token:  132
+Token:  133
+Token:  134
+Token:  135
+Token:  136
+Token:  137
+Token:  138
+Token:  139
+Token:  140
+Token:  141
+Token:  142
+Token:  143
+Token:  144
+Token:  145
+Token:  146
+Token:  147
+Token:  148
+Token:  149
+Token:  150
+Token:  151
+Token:  152
+Token:  153
+Token:  154
+Token:  155
+Token:  156
+Token:  157
+Token:  158
+Token:  159
+Token:  160
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_32(
+    input wire clk,
+    input wire reset,
+    input wire [31:0] A,
+    input wire [31:0] B,
+    output reg [63:0] accumulator
+);
+    reg [31:0] B_reg;
+    reg [31:0] A_reg;
+    reg [31:0] accumulator_reg;
+    always @(posedge clk)
+    begin
+        if (reset)
+        begin
+            accumulator_reg <= 0;
+            B_reg <= 0;
+            A_reg <= 0;
+        end
+        else
+        begin
+            accumulator_reg <= accumulator_reg + accumulator;
+            B_reg <= B;
+            A_reg <= A;
+        end
+    end
+    always @(posedge clk)
+    begin
+        accumulator <= accumulator_reg;
+    end
+endmodule
+Path:  output_files/3062019_mac_32/3062019_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 00000000, B: 00000000, Accumulator: xxxxxxxxxxxxxxxx\nTime:                15000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\nTime:                25000, A: 00000000, B: 00000000, Accumulator: 0000000000000000\nTest 1 failed\nTime:                35000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\n'
+Tokens:  161
+LLM generates return in:  24.713851  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  30  ----
+---------------
+Env seed:  925699
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+Token:  57
+Token:  58
+Token:  59
+Token:  60
+Token:  61
+Token:  62
+Token:  63
+Token:  64
+Token:  65
+Token:  66
+Token:  67
+Token:  68
+Token:  69
+Token:  70
+Token:  71
+Token:  72
+Token:  73
+Token:  74
+Token:  75
+Token:  76
+Token:  77
+Token:  78
+Token:  79
+Token:  80
+Token:  81
+Token:  82
+Token:  83
+Token:  84
+Token:  85
+Token:  86
+Token:  87
+Token:  88
+Token:  89
+Token:  90
+Token:  91
+Token:  92
+Token:  93
+Token:  94
+Token:  95
+Token:  96
+Token:  97
+Token:  98
+Token:  99
+Token:  100
+Token:  101
+Token:  102
+Token:  103
+Token:  104
+Token:  105
+Token:  106
+Token:  107
+Token:  108
+Token:  109
+Token:  110
+Token:  111
+Token:  112
+Token:  113
+Token:  114
+Token:  115
+Token:  116
+Token:  117
+Token:  118
+Token:  119
+Token:  120
+Token:  121
+Token:  122
+Token:  123
+Token:  124
+Token:  125
+Token:  126
+Token:  127
+Token:  128
+Token:  129
+Token:  130
+Token:  131
+Token:  132
+Token:  133
+Token:  134
+Token:  135
+Token:  136
+Token:  137
+Token:  138
+Token:  139
+Token:  140
+Token:  141
+Token:  142
+Token:  143
+Token:  144
+Token:  145
+Token:  146
+Token:  147
+Token:  148
+Token:  149
+Token:  150
+Token:  151
+Token:  152
+Token:  153
+Token:  154
+Token:  155
+Token:  156
+Token:  157
+Token:  158
+Token:  159
+Token:  160
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_32(
+    input wire clk,
+    input wire reset,
+    input wire [31:0] A,
+    input wire [31:0] B,
+    output reg [63:0] accumulator
+);
+    reg [31:0] B_reg;
+    reg [31:0] A_reg;
+    reg [31:0] accumulator_reg;
+    always @(posedge clk)
+    begin
+        if (reset)
+        begin
+            accumulator_reg <= 0;
+            B_reg <= 0;
+            A_reg <= 0;
+        end
+        else
+        begin
+            accumulator_reg <= accumulator_reg + accumulator;
+            B_reg <= B;
+            A_reg <= A;
+        end
+    end
+    always @(posedge clk)
+    begin
+        accumulator <= accumulator_reg;
+    end
+endmodule
+Path:  output_files/3062019_mac_32/3062019_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 00000000, B: 00000000, Accumulator: xxxxxxxxxxxxxxxx\nTime:                15000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\nTime:                25000, A: 00000000, B: 00000000, Accumulator: 0000000000000000\nTest 1 failed\nTime:                35000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\n'
+Tokens:  161
+LLM generates return in:  24.736546  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  31  ----
+---------------
+Env seed:  683482
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+Token:  57
+Token:  58
+Token:  59
+Token:  60
+Token:  61
+Token:  62
+Token:  63
+Token:  64
+Token:  65
+Token:  66
+Token:  67
+Token:  68
+Token:  69
+Token:  70
+Token:  71
+Token:  72
+Token:  73
+Token:  74
+Token:  75
+Token:  76
+Token:  77
+Token:  78
+Token:  79
+Token:  80
+Token:  81
+Token:  82
+Token:  83
+Token:  84
+Token:  85
+Token:  86
+Token:  87
+Token:  88
+Token:  89
+Token:  90
+Token:  91
+Token:  92
+Token:  93
+Token:  94
+Token:  95
+Token:  96
+Token:  97
+Token:  98
+Token:  99
+Token:  100
+Token:  101
+Token:  102
+Token:  103
+Token:  104
+Token:  105
+Token:  106
+Token:  107
+Token:  108
+Token:  109
+Token:  110
+Token:  111
+Token:  112
+Token:  113
+Token:  114
+Token:  115
+Token:  116
+Token:  117
+Token:  118
+Token:  119
+Token:  120
+Token:  121
+Token:  122
+Token:  123
+Token:  124
+Token:  125
+Token:  126
+Token:  127
+Token:  128
+Token:  129
+Token:  130
+Token:  131
+Token:  132
+Token:  133
+Token:  134
+Token:  135
+Token:  136
+Token:  137
+Token:  138
+Token:  139
+Token:  140
+Token:  141
+Token:  142
+Token:  143
+Token:  144
+Token:  145
+Token:  146
+Token:  147
+Token:  148
+Token:  149
+Token:  150
+Token:  151
+Token:  152
+Token:  153
+Token:  154
+Token:  155
+Token:  156
+Token:  157
+Token:  158
+Token:  159
+Token:  160
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_32(
+    input wire clk,
+    input wire reset,
+    input wire [31:0] A,
+    input wire [31:0] B,
+    output reg [63:0] accumulator
+);
+    reg [31:0] B_reg;
+    reg [31:0] A_reg;
+    reg [31:0] accumulator_reg;
+    always @(posedge clk)
+    begin
+        if (reset)
+        begin
+            accumulator_reg <= 0;
+            B_reg <= 0;
+            A_reg <= 0;
+        end
+        else
+        begin
+            accumulator_reg <= accumulator_reg + accumulator;
+            B_reg <= B;
+            A_reg <= A;
+        end
+    end
+    always @(posedge clk)
+    begin
+        accumulator <= accumulator_reg;
+    end
+endmodule
+Path:  output_files/3062019_mac_32/3062019_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 00000000, B: 00000000, Accumulator: xxxxxxxxxxxxxxxx\nTime:                15000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\nTime:                25000, A: 00000000, B: 00000000, Accumulator: 0000000000000000\nTest 1 failed\nTime:                35000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\n'
+Tokens:  161
+LLM generates return in:  24.721919  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  32  ----
+---------------
+Env seed:  110398
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+Token:  57
+Token:  58
+Token:  59
+Token:  60
+Token:  61
+Token:  62
+Token:  63
+Token:  64
+Token:  65
+Token:  66
+Token:  67
+Token:  68
+Token:  69
+Token:  70
+Token:  71
+Token:  72
+Token:  73
+Token:  74
+Token:  75
+Token:  76
+Token:  77
+Token:  78
+Token:  79
+Token:  80
+Token:  81
+Token:  82
+Token:  83
+Token:  84
+Token:  85
+Token:  86
+Token:  87
+Token:  88
+Token:  89
+Token:  90
+Token:  91
+Token:  92
+Token:  93
+Token:  94
+Token:  95
+Token:  96
+Token:  97
+Token:  98
+Token:  99
+Token:  100
+Token:  101
+Token:  102
+Token:  103
+Token:  104
+Token:  105
+Token:  106
+Token:  107
+Token:  108
+Token:  109
+Token:  110
+Token:  111
+Token:  112
+Token:  113
+Token:  114
+Token:  115
+Token:  116
+Token:  117
+Token:  118
+Token:  119
+Token:  120
+Token:  121
+Token:  122
+Token:  123
+Token:  124
+Token:  125
+Token:  126
+Token:  127
+Token:  128
+Token:  129
+Token:  130
+Token:  131
+Token:  132
+Token:  133
+Token:  134
+Token:  135
+Token:  136
+Token:  137
+Token:  138
+Token:  139
+Token:  140
+Token:  141
+Token:  142
+Token:  143
+Token:  144
+Token:  145
+Token:  146
+Token:  147
+Token:  148
+Token:  149
+Token:  150
+Token:  151
+Token:  152
+Token:  153
+Token:  154
+Token:  155
+Token:  156
+Token:  157
+Token:  158
+Token:  159
+Token:  160
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_32(
+    input wire clk,
+    input wire reset,
+    input wire [31:0] A,
+    input wire [31:0] B,
+    output reg [63:0] accumulator
+);
+    reg [31:0] B_reg;
+    reg [31:0] A_reg;
+    reg [31:0] accumulator_reg;
+    always @(posedge clk)
+    begin
+        if (reset)
+        begin
+            accumulator_reg <= 0;
+            B_reg <= 0;
+            A_reg <= 0;
+        end
+        else
+        begin
+            accumulator_reg <= accumulator_reg + accumulator;
+            B_reg <= B;
+            A_reg <= A;
+        end
+    end
+    always @(posedge clk)
+    begin
+        accumulator <= accumulator_reg;
+    end
+endmodule
+Path:  output_files/3062019_mac_32/3062019_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 00000000, B: 00000000, Accumulator: xxxxxxxxxxxxxxxx\nTime:                15000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\nTime:                25000, A: 00000000, B: 00000000, Accumulator: 0000000000000000\nTest 1 failed\nTime:                35000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\n'
+Tokens:  161
+LLM generates return in:  24.727846  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  33  ----
+---------------
+Env seed:  926907
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+Token:  57
+Token:  58
+Token:  59
+Token:  60
+Token:  61
+Token:  62
+Token:  63
+Token:  64
+Token:  65
+Token:  66
+Token:  67
+Token:  68
+Token:  69
+Token:  70
+Token:  71
+Token:  72
+Token:  73
+Token:  74
+Token:  75
+Token:  76
+Token:  77
+Token:  78
+Token:  79
+Token:  80
+Token:  81
+Token:  82
+Token:  83
+Token:  84
+Token:  85
+Token:  86
+Token:  87
+Token:  88
+Token:  89
+Token:  90
+Token:  91
+Token:  92
+Token:  93
+Token:  94
+Token:  95
+Token:  96
+Token:  97
+Token:  98
+Token:  99
+Token:  100
+Token:  101
+Token:  102
+Token:  103
+Token:  104
+Token:  105
+Token:  106
+Token:  107
+Token:  108
+Token:  109
+Token:  110
+Token:  111
+Token:  112
+Token:  113
+Token:  114
+Token:  115
+Token:  116
+Token:  117
+Token:  118
+Token:  119
+Token:  120
+Token:  121
+Token:  122
+Token:  123
+Token:  124
+Token:  125
+Token:  126
+Token:  127
+Token:  128
+Token:  129
+Token:  130
+Token:  131
+Token:  132
+Token:  133
+Token:  134
+Token:  135
+Token:  136
+Token:  137
+Token:  138
+Token:  139
+Token:  140
+Token:  141
+Token:  142
+Token:  143
+Token:  144
+Token:  145
+Token:  146
+Token:  147
+Token:  148
+Token:  149
+Token:  150
+Token:  151
+Token:  152
+Token:  153
+Token:  154
+Token:  155
+Token:  156
+Token:  157
+Token:  158
+Token:  159
+Token:  160
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_32(
+    input wire clk,
+    input wire reset,
+    input wire [31:0] A,
+    input wire [31:0] B,
+    output reg [63:0] accumulator
+);
+    reg [31:0] B_reg;
+    reg [31:0] A_reg;
+    reg [31:0] accumulator_reg;
+    always @(posedge clk)
+    begin
+        if (reset)
+        begin
+            accumulator_reg <= 0;
+            B_reg <= 0;
+            A_reg <= 0;
+        end
+        else
+        begin
+            accumulator_reg <= accumulator_reg + accumulator;
+            B_reg <= B;
+            A_reg <= A;
+        end
+    end
+    always @(posedge clk)
+    begin
+        accumulator <= accumulator_reg;
+    end
+endmodule
+Path:  output_files/3062019_mac_32/3062019_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 00000000, B: 00000000, Accumulator: xxxxxxxxxxxxxxxx\nTime:                15000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\nTime:                25000, A: 00000000, B: 00000000, Accumulator: 0000000000000000\nTest 1 failed\nTime:                35000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\n'
+Tokens:  161
+LLM generates return in:  24.718748  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  34  ----
+---------------
+Env seed:  472320
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26
+Token:  27
+Token:  28
+Token:  29
+Token:  30
+Token:  31
+Token:  32
+Token:  33
+Token:  34
+Token:  35
+Token:  36
+Token:  37
+Token:  38
+Token:  39
+Token:  40
+Token:  41
+Token:  42
+Token:  43
+Token:  44
+Token:  45
+Token:  46
+Token:  47
+Token:  48
+Token:  49
+Token:  50
+Token:  51
+Token:  52
+Token:  53
+Token:  54
+Token:  55
+Token:  56
+Token:  57
+Token:  58
+Token:  59
+Token:  60
+Token:  61
+Token:  62
+Token:  63
+Token:  64
+Token:  65
+Token:  66
+Token:  67
+Token:  68
+Token:  69
+Token:  70
+Token:  71
+Token:  72
+Token:  73
+Token:  74
+Token:  75
+Token:  76
+Token:  77
+Token:  78
+Token:  79
+Token:  80
+Token:  81
+Token:  82
+Token:  83
+Token:  84
+Token:  85
+Token:  86
+Token:  87
+Token:  88
+Token:  89
+Token:  90
+Token:  91
+Token:  92
+Token:  93
+Token:  94
+Token:  95
+Token:  96
+Token:  97
+Token:  98
+Token:  99
+Token:  100
+Token:  101
+Token:  102
+Token:  103
+Token:  104
+Token:  105
+Token:  106
+Token:  107
+Token:  108
+Token:  109
+Token:  110
+Token:  111
+Token:  112
+Token:  113
+Token:  114
+Token:  115
+Token:  116
+Token:  117
+Token:  118
+Token:  119
+Token:  120
+Token:  121
+Token:  122
+Token:  123
+Token:  124
+Token:  125
+Token:  126
+Token:  127
+Token:  128
+Token:  129
+Token:  130
+Token:  131
+Token:  132
+Token:  133
+Token:  134
+Token:  135
+Token:  136
+Token:  137
+Token:  138
+Token:  139
+Token:  140
+Token:  141
+Token:  142
+Token:  143
+Token:  144
+Token:  145
+Token:  146
+Token:  147
+Token:  148
+Token:  149
+Token:  150
+Token:  151
+Token:  152
+Token:  153
+Token:  154
+Token:  155
+Token:  156
+Token:  157
+Token:  158
+Token:  159
+Token:  160
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_32(
+    input wire clk,
+    input wire reset,
+    input wire [31:0] A,
+    input wire [31:0] B,
+    output reg [63:0] accumulator
+);
+    reg [31:0] B_reg;
+    reg [31:0] A_reg;
+    reg [31:0] accumulator_reg;
+    always @(posedge clk)
+    begin
+        if (reset)
+        begin
+            accumulator_reg <= 0;
+            B_reg <= 0;
+            A_reg <= 0;
+        end
+        else
+        begin
+            accumulator_reg <= accumulator_reg + accumulator;
+            B_reg <= B;
+            A_reg <= A;
+        end
+    end
+    always @(posedge clk)
+    begin
+        accumulator <= accumulator_reg;
+    end
+endmodule
+Path:  output_files/3062019_mac_32/3062019_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 00000000, B: 00000000, Accumulator: xxxxxxxxxxxxxxxx\nTime:                15000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\nTime:                25000, A: 00000000, B: 00000000, Accumulator: 0000000000000000\nTest 1 failed\nTime:                35000, A: 00000000, B: 00000000, Accumulator: 00000000xxxxxxxx\n'
+Tokens:  161
+LLM generates return in:  24.725948  seconds
+Running getPromptScore: 
+----GREEDY LLM OUTPUT - ITERATION:  35  ----
+---------------
+Env seed:  836977
+Done setting up env.
+Token:  0
+Token:  1
+Token:  2
+Token:  3
+Token:  4
+Token:  5
+Token:  6
+Token:  7
+Token:  8
+Token:  9
+Token:  10
+Token:  11
+Token:  12
+Token:  13
+Token:  14
+Token:  15
+Token:  16
+Token:  17
+Token:  18
+Token:  19
+Token:  20
+Token:  21
+Token:  22
+Token:  23
+Token:  24
+Token:  25
+Token:  26

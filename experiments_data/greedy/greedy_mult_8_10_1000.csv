@@ -1,0 +1,749 @@
+Area,Delay,Score,Current Run,Episode,Verilog
+N/A,N/A,-0.1,0,0,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,1,0,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,2,0,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,3,0,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,4,0,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,5,0,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,6,0,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,7,0,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,8,0,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,9,0,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,10,0,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,11,0,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,12,0,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,13,0,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,14,0,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,15,0,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,16,0,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,17,0,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,18,0,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,19,0,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,20,0,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,21,0,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,22,0,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,23,0,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,24,0,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,25,0,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,26,0,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,27,0,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,28,0,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,29,0,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,30,0,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,31,0,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,32,0,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,33,0,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,34,0,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,35,0,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,36,0,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,37,0,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,38,0,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,39,0,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,40,0,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,41,0,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,42,0,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"
+N/A,N/A,-0.1,43,0,"//Please finish designing the 8 bit multiplier module (multiplier_8) below.
+//There are two 8 bit inputs (A and B) and a 16 bit output (product).
+//The module should utilize the inputs (A and B) to determine the output product correctly in its implementation.
+module multiplier_8(output [15:0] product, input [7:0] A, B);
+	wire [7:0] A_B;
+	wire [7:0] AB;
+	wire [7:0] AB_B;
+	wire [7:0] AB_B_B;
+	
+	assign A_B = A & B;
+	assign AB = A_B << 1;
+	assign AB_B = AB << 1;
+	assign AB_B_B = AB_B << 1;
+	
+	assign product = AB_B_B;
+	
+endmodule"

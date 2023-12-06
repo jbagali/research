@@ -1,0 +1,6284 @@
+Area,Delay,Score,Current Run,Episode,Verilog
+41.23,195.95,0.1,2.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire c1, c2, c3;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+N/A,N/A,-0.1,3.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+	wire [3:0] sum;
+	wire cout;
+	wire [3:0] in1;
+	wire [3:0] in2;
+	wire cin;
+
+	assign sum = in1 + in2 + cin;
+	assign cout = (in1[3] & in2[3] & cin) | (in1[3] & cin) | (in2[3] & cin) | (cin & in1[3] & in2[3]);
+
+endmodule"
+41.23,195.95,0.1,4.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire c1, c2, c3;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+N/A,N/A,-1,5.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+	wire [3:0] carry;
+	
+	fa_adder fa_adder_0(sum[0], carry[0], in1[0], in2[0], cin);
+	fa_adder fa_adder_1(sum[1], carry[1], in1[1], in2[1], carry[0]);
+	fa_adder fa_adder_2(sum[2], carry[2], in1[2], in2[2], carry[1]);
+	fa_adder fa_adder_3(sum[3], cout, in1[3], in2[3], carry[2]);
+	
+endmodule
+
+module fa_adder(output sum, carry, input a, b, cin);
+	wire [3:0] carry_temp;
+	
+	fa_adder fa_adder_0(sum[0], carry_temp[0], a, b, cin);
+	fa_adder fa_adder_1(sum[1], carry_temp[1], carry_temp[0], a, b);
+	fa_adder fa_adder_2(sum[2], carry_temp[2], carry_temp[1], carry_temp[0], a);
+	fa_adder fa_adder_3(sum[3], carry, carry_temp[2], carry_temp[1], carry_temp[0]);
+	
+endmodule"
+41.23,196.03,0.09959173258484291,6.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);   
+
+wire c1, c2, c3;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, carry, input a, b, cin);
+
+wire x, y, z;
+
+xor(sum, a, b, cin);
+and(x, a, b);
+and(y, b, cin);
+and(z, a, cin);
+or(carry, x, y, z);
+
+endmodule"
+N/A,N/A,-0.1,7.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+	wire [3:0] sum;
+	wire cout;
+	wire [3:0] in1;
+	wire [3:0] in2;
+	wire cin;
+
+	assign sum = in1 + in2 + cin;
+	assign cout = (in1[3] & in2[3] & cin) | (in1[3] & cin) | (in2[3] & cin) | (cin & in1[3] & in2[3]);
+
+endmodule"
+41.23,196.03,0.09959173258484291,8.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);   
+
+wire c1, c2, c3;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, carry, input a, b, cin);
+
+wire x, y, z;
+
+xor(sum, a, b, cin);
+and(x, a, b);
+and(y, b, cin);
+and(z, a, cin);
+or(carry, x, y, z);
+
+endmodule"
+41.23,195.95,0.1,9.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire c1, c2, c3;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+N/A,N/A,-1,10.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+    wire [3:0] sum;
+    wire cout;
+    wire [3:0] in1;
+    wire [3:0] in2;
+    wire cin;
+
+    wire [3:0] temp1;
+    wire [3:0] temp2;
+    wire [3:0] temp3;
+    wire [3:0] temp4;
+    wire [3:0] temp5;
+    wire [3:0] temp6;
+    wire [3:0] temp7;
+    wire [3:0] temp8;
+    wire [3:0] temp9;
+    wire [3:0] temp10;
+    wire [3:0] temp11;
+    wire [3:0] temp12;
+    wire [3:0] temp13;
+    wire [3:0] temp14;
+    wire [3:0] temp15;
+    wire [3:0] temp16;
+    wire [3:0] temp17;
+    wire [3:0] temp18;
+    wire [3:0] temp19;
+    wire [3:0] temp20;
+    wire [3:0] temp21;
+    wire [3:0] temp22;
+    wire [3:0] temp23;
+    wire [3:0] temp24;
+    wire [3:0] temp25;
+    wire [3:0] temp26;
+    wire [3:0] temp27;
+    wire [3:0] temp28;
+    wire [3:0] temp29;
+    wire [3:0] temp30;
+    wire [3:0] temp31;
+    wire [3:0] temp32;
+    wire [3:0] temp33;
+    wire [3:0] temp34;
+    wire [3:0] temp35;
+    wire [3:0] temp36;
+    wire [3:0] temp37;
+    wire [3:0] temp38;
+    wire [3:0] temp39;
+    wire [3:0] temp40;
+    wire [3:0] temp41;
+    wire [3:0] temp42;
+    wire [3:0] temp43;
+    wire [3:0] temp44;
+    wire [3:0] temp45;
+    wire [3:0] temp46;
+    wire [3:0] temp47;
+    wire [3:0] temp48;
+    wire [3:0] temp49;
+    wire [3:0] temp50;
+    wire [3:0] temp51;
+    wire [3:0] temp52;
+    wire [3:0] temp53;
+    wire [3:0] temp54;
+    wire [3:0] temp55;
+    wire [3:0] temp56;
+    wire [3:0] temp57;
+    wire [3:0] temp58;
+    wire [3:0] temp59;
+    wire [3:0] temp60;
+    wire [3:0] temp61;
+    wire [3:0] temp62;
+    wire [3:0] temp63;
+    wire [3:0] temp64;
+    wire [3:0] temp65;
+    wire [3:0] temp66;
+    wire [3:0] temp67;
+    wire [3:0] temp68;
+    wire [3:0] temp69;
+    wire [3:0] temp70;
+    wire [3:0] temp71;
+    wire [3:0] temp72;
+    wire [3:0] temp73;
+    wire [3:0] temp74;
+    wire [3:0] temp75;
+    wire [3:0] temp76;
+    wire [3:0] temp77;
+    wire [3:0] temp78;
+    wire [3:0] temp79;
+    wire [3:0] temp80;
+    wire [3:0] temp81;
+    wire [3:0] temp82;
+    wire [3:0] temp83;
+    wire [3:0] temp84;
+    wire [3:0] temp85;
+    wire [3:0] temp86;
+    wire [3:0] temp87;
+    wire [3:0] temp88;
+    wire [3:0] temp89;
+    wire [3:0] temp90;
+    wire [3:0] temp91;
+    wire [3:0] temp92;
+    wire [3:0] temp93;
+    wire [3:0] temp94;
+    wire [3:0] temp95;
+    wire [3:0] temp96;
+    wire [3:0] temp97;
+    wire [3:0] temp98;
+    wire [3:0] temp99;
+    wire [3:0] temp100;
+    wire [3:0] temp101;
+    wire [3:0] temp102;
+    wire [3:0] temp103;
+    wire [3:0] temp104;
+    wire [3:0] temp105;
+    wire [3:0] temp106;
+    wire [3:0] temp107;
+    wire [3:0] temp108;
+    wire [3:0] temp109;
+    wire [3:0] temp110;
+    wire [3:0] temp111;
+    wire [3:0] temp112;
+    wire [3:0] temp113;
+    wire [3:0] temp114;
+    wire [3:0] temp115;
+    wire [3:0] temp116;
+    wire [3:0] temp117;
+    wire [3:0] temp118;
+    wire [3:0] temp119;
+    wire [3:0] temp120;
+    wire [3:0] temp121;
+    wire [3:0] temp122;
+    wire [3:0] temp123;
+    wire [3:0] temp124;
+    wire [3:0] temp125;
+    wire [3:0] temp126;
+    wire [3:0] temp127;
+    wire [3:0] temp128;
+    wire [3:0] temp129;
+    wire [3:0] temp130;
+    wire [3:0] temp131;
+    wire [3:0] temp132;
+    wire [3"
+41.23,195.95,0.1,11.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire c1, c2, c3;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+41.23,195.95,0.1,12.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire [3:0] c;
+
+assign c[0] = cin;
+
+full_adder FA0(sum[0], c[1], in1[0], in2[0], c[0]);
+full_adder FA1(sum[1], c[2], in1[1], in2[1], c[1]);
+full_adder FA2(sum[2], c[3], in1[2], in2[2], c[2]);
+full_adder FA3(sum[3], cout, in1[3], in2[3], c[3]);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+41.23,196.03,0.09959173258484291,13.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);   
+
+wire c1, c2, c3;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, carry, input a, b, cin);
+
+wire x, y, z;
+
+xor(sum, a, b, cin);
+and(x, a, b);
+and(y, b, cin);
+and(z, a, cin);
+or(carry, x, y, z);
+
+endmodule"
+41.23,195.95,0.1,14.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire c1, c2, c3;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+N/A,N/A,-0.1,15.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+    wire [3:0] sum;
+    wire cout;
+    wire [3:0] in1;
+    wire [3:0] in2;
+    wire cin;
+    
+    assign sum = in1 + in2 + cin;
+    assign cout = (in1[3] & in2[3] & cin) | (in1[3] & cin) | (in2[3] & cin) | (cin & in1[3] & in2[3]);
+
+endmodule"
+N/A,N/A,-1,16.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);   
+	wire [3:0] carry;
+	
+	fa_adder fa_adder_0(sum[0], carry[0], in1[0], in2[0], cin);
+	fa_adder fa_adder_1(sum[1], carry[1], in1[1], in2[1], carry[0]);
+	fa_adder fa_adder_2(sum[2], carry[2], in1[2], in2[2], carry[1]);
+	fa_adder fa_adder_3(sum[3], cout, in1[3], in2[3], carry[2]);
+	
+endmodule
+
+module fa_adder(output sum, carry, input a, b, cin);
+	wire [3:0] carry_temp;
+	
+	fa_adder fa_adder_0(sum[0], carry_temp[0], a, b, cin);
+	fa_adder fa_adder_1(sum[1], carry_temp[1], carry_temp[0], a, b);
+	fa_adder fa_adder_2(sum[2], carry_temp[2], carry_temp[1], carry_temp[0], a);
+	fa_adder fa_adder_3(sum[3], carry, carry_temp[2], carry_temp[1], carry_temp[0]);
+	
+endmodule"
+41.23,195.95,0.1,17.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire [3:0] c;
+
+assign c[0] = cin;
+
+full_adder FA0(sum[0], c[1], in1[0], in2[0], c[0]);
+full_adder FA1(sum[1], c[2], in1[1], in2[1], c[1]);
+full_adder FA2(sum[2], c[3], in1[2], in2[2], c[2]);
+full_adder FA3(sum[3], cout, in1[3], in2[3], c[3]);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+41.23,195.95,0.1,18.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire c1, c2, c3;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+41.23,195.95,0.1,19.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire [3:0] c;
+
+assign c[0] = cin;
+
+full_adder FA0(sum[0], c[1], in1[0], in2[0], c[0]);
+full_adder FA1(sum[1], c[2], in1[1], in2[1], c[1]);
+full_adder FA2(sum[2], c[3], in1[2], in2[2], c[2]);
+full_adder FA3(sum[3], cout, in1[3], in2[3], c[3]);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+41.23,195.95,0.1,20.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire c1, c2, c3;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+41.23,195.95,0.1,21.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire [3:0] c;
+
+assign c[0] = cin;
+
+full_adder FA0(sum[0], c[1], in1[0], in2[0], c[0]);
+full_adder FA1(sum[1], c[2], in1[1], in2[1], c[1]);
+full_adder FA2(sum[2], c[3], in1[2], in2[2], c[2]);
+full_adder FA3(sum[3], cout, in1[3], in2[3], c[3]);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+N/A,N/A,-0.75,22.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+endmodule"
+N/A,N/A,-1,23.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+	wire [3:0] carry;
+	
+	fa_adder fa_adder_0(sum[0], carry[0], in1[0], in2[0], cin);
+	fa_adder fa_adder_1(sum[1], carry[1], in1[1], in2[1], carry[0]);
+	fa_adder fa_adder_2(sum[2], carry[2], in1[2], in2[2], carry[1]);
+	fa_adder fa_adder_3(sum[3], cout, in1[3], in2[3], carry[2]);
+	
+endmodule
+
+module fa_adder(output sum, carry, input a, b, cin);
+	wire [3:0] carry_temp;
+	
+	fa_adder fa_adder_0(sum[0], carry_temp[0], a, b, cin);
+	fa_adder fa_adder_1(sum[1], carry_temp[1], carry_temp[0], a, b);
+	fa_adder fa_adder_2(sum[2], carry_temp[2], carry_temp[1], carry_temp[0], a);
+	fa_adder fa_adder_3(sum[3], carry, carry_temp[2], carry_temp[1], carry_temp[0]);
+	
+endmodule"
+N/A,N/A,-0.1,24.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+	wire [3:0] sum;
+	wire cout;
+	wire [3:0] in1;
+	wire [3:0] in2;
+	wire cin;
+
+	assign sum = in1 + in2 + cin;
+	assign cout = (in1[3] & in2[3] & cin) | (in1[3] & cin) | (in2[3] & cin) | (cin & in1[3] & in2[3]);
+
+endmodule"
+N/A,N/A,-0.1,25.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+	wire [3:0] sum;
+	wire cout;
+	wire [3:0] in1;
+	wire [3:0] in2;
+	wire cin;
+
+	assign sum = in1 + in2 + cin;
+	assign cout = (in1[3] & in2[3] & cin) | (in1[3] & cin) | (in2[3] & cin) | (cin & in1[3] & in2[3]);
+
+endmodule"
+N/A,N/A,-0.75,26.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+  wire [3:0] in1;
+  wire [3:0] in2;
+  wire cin;
+  wire [3:0] sum;
+  wire cout;
+  
+  assign in1 = in1;
+  assign in2 = in2;
+  assign cin = cin;
+  assign sum = sum;
+  assign cout = cout;
+  
+endmodule"
+41.23,195.95,0.1,27.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+	wire c1, c2, c3;
+
+	full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+	full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+	full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+	full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+
+	wire x, y, z;
+
+	xor(sum, in1, in2, cin);
+	and(x, in1, in2);
+	and(y, in1, cin);
+	and(z, in2, cin);
+	or(cout, x, y, z);
+
+endmodule"
+N/A,N/A,-0.1,28.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+	wire [3:0] sum;
+	wire cout;
+	wire [3:0] in1;
+	wire [3:0] in2;
+	wire cin;
+
+	assign sum = in1 + in2 + cin;
+	assign cout = (in1[3] & in2[3] & cin) | (in1[3] & cin) | (in2[3] & cin) | (cin & in1[3] & in2[3]);
+
+endmodule"
+N/A,N/A,-0.1,29.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+  wire [3:0] sum;
+  wire cout;
+  wire [3:0] in1;
+  wire [3:0] in2;
+  wire cin;
+
+  assign sum = in1 + in2 + cin;
+  assign cout = (in1[3] & in2[3] & cin) | (in1[3] & cin) | (in2[3] & cin) | (cin & in1[3] & in2[3]);
+
+endmodule"
+N/A,N/A,-0.1,30.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+    wire [3:0] sum;
+    wire cout;
+    wire [3:0] in1;
+    wire [3:0] in2;
+    wire cin;
+    
+    assign sum = in1 + in2 + cin;
+    assign cout = (in1[3] & in2[3] & cin) | (in1[3] & cin) | (in2[3] & cin) | (cin & in1[3] & in2[3]);
+
+endmodule"
+N/A,N/A,-0.1,31.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);   
+
+	wire [3:0] sum;
+	wire cout;
+	wire [3:0] in1;
+	wire [3:0] in2;
+	wire cin;
+
+	assign sum = in1 + in2 + cin;
+	assign cout = (in1[3] & in2[3] & cin) | (in1[3] & cin) | (in2[3] & cin) | (cin & in1[3] & in2[3]);
+
+endmodule"
+41.23,195.95,0.1,32.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+	wire c1, c2, c3;
+
+	full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+	full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+	full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+	full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+
+	wire x, y, z;
+
+	xor(sum, in1, in2, cin);
+	and(x, in1, in2);
+	and(y, in1, cin);
+	and(z, in2, cin);
+	or(cout, x, y, z);
+
+endmodule"
+N/A,N/A,-0.1,33.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+	wire [3:0] sum;
+	wire cout;
+	wire [3:0] in1;
+	wire [3:0] in2;
+	wire cin;
+
+	assign sum = in1 + in2 + cin;
+	assign cout = (in1[3] & in2[3] & cin) | (in1[3] & cin) | (in2[3] & cin) | (cin & in1[3] & in2[3]);
+
+endmodule"
+41.23,195.95,0.1,34.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire c1, c2, c3;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+41.23,195.95,0.1,35.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire [3:0] c;
+
+assign c[0] = cin;
+
+full_adder FA0(sum[0], c[1], in1[0], in2[0], c[0]);
+full_adder FA1(sum[1], c[2], in1[1], in2[1], c[1]);
+full_adder FA2(sum[2], c[3], in1[2], in2[2], c[2]);
+full_adder FA3(sum[3], cout, in1[3], in2[3], c[3]);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+38.304,198.83,0.15731317238597722,36.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+assign {cout, sum} = in1 + in2 + cin;
+
+endmodule"
+41.23,195.95,0.1,37.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire c1, c2, c3;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+41.23,195.95,0.1,38.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire [3:0] c;
+
+assign c[0] = cin;
+
+full_adder FA0(sum[0], c[1], in1[0], in2[0], c[0]);
+full_adder FA1(sum[1], c[2], in1[1], in2[1], c[1]);
+full_adder FA2(sum[2], c[3], in1[2], in2[2], c[2]);
+full_adder FA3(sum[3], cout, in1[3], in2[3], c[3]);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+41.23,195.95,0.1,39.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire c1, c2, c3;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+41.23,195.95,0.1,40.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire c1, c2, c3;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+41.23,196.03,0.09959173258484291,41.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire [4:0] carry;
+
+fa_adder fa_adder_0(sum[0], carry[0], in1[0], in2[0], cin);
+fa_adder fa_adder_1(sum[1], carry[1], in1[1], in2[1], carry[0]);
+fa_adder fa_adder_2(sum[2], carry[2], in1[2], in2[2], carry[1]);
+fa_adder fa_adder_3(sum[3], cout, in1[3], in2[3], carry[2]);
+
+endmodule
+
+module fa_adder(output sum, carry, input a, b, cin);
+
+wire c1, c2, c3;
+
+xor(sum, a, b, cin);
+and(c1, a, b);
+and(c2, b, cin);
+and(c3, a, cin);
+or(carry, c1, c2, c3);
+
+endmodule"
+41.23,195.95,0.1,42.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire c1, c2, c3;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+41.23,196.03,0.09959173258484291,43.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire c1,c2,c3;
+
+full_adder FA1(sum[0],c1,in1[0],in2[0],cin);
+full_adder FA2(sum[1],c2,in1[1],in2[1],c1);
+full_adder FA3(sum[2],c3,in1[2],in2[2],c2);
+full_adder FA4(sum[3],cout,in1[3],in2[3],c3);
+
+endmodule
+
+module full_adder(output sum,carry,input a,b,cin);
+
+wire x,y,z;
+
+xor(sum,a,b,cin);
+and(x,a,b);
+and(y,b,cin);
+and(z,a,cin);
+or(carry,x,y,z);
+
+endmodule"
+N/A,N/A,-0.1,44.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire [3:0] sum;
+wire cout;
+
+wire [3:0] in1;
+wire [3:0] in2;
+wire cin;
+
+assign sum = in1 + in2 + cin;
+assign cout = (in1[3] == in2[3] && (in1[3] == cin))? 1'b1 : 1'b0;
+
+endmodule"
+38.304,198.83,0.15731317238597722,45.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+assign {cout, sum} = in1 + in2 + cin;
+
+endmodule"
+N/A,N/A,-0.1,46.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire c1, c2;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], cout, in1[2], in2[2], c2);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+N/A,N/A,-1,47.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+    wire [3:0] sum;
+    wire cout;
+    wire [3:0] in1;
+    wire [3:0] in2;
+    wire cin;
+
+    wire [3:0] temp1;
+    wire [3:0] temp2;
+    wire [3:0] temp3;
+    wire [3:0] temp4;
+    wire [3:0] temp5;
+    wire [3:0] temp6;
+    wire [3:0] temp7;
+    wire [3:0] temp8;
+    wire [3:0] temp9;
+    wire [3:0] temp10;
+    wire [3:0] temp11;
+    wire [3:0] temp12;
+    wire [3:0] temp13;
+    wire [3:0] temp14;
+    wire [3:0] temp15;
+    wire [3:0] temp16;
+    wire [3:0] temp17;
+    wire [3:0] temp18;
+    wire [3:0] temp19;
+    wire [3:0] temp20;
+    wire [3:0] temp21;
+    wire [3:0] temp22;
+    wire [3:0] temp23;
+    wire [3:0] temp24;
+    wire [3:0] temp25;
+    wire [3:0] temp26;
+    wire [3:0] temp27;
+    wire [3:0] temp28;
+    wire [3:0] temp29;
+    wire [3:0] temp30;
+    wire [3:0] temp31;
+    wire [3:0] temp32;
+    wire [3:0] temp33;
+    wire [3:0] temp34;
+    wire [3:0] temp35;
+    wire [3:0] temp36;
+    wire [3:0] temp37;
+    wire [3:0] temp38;
+    wire [3:0] temp39;
+    wire [3:0] temp40;
+    wire [3:0] temp41;
+    wire [3:0] temp42;
+    wire [3:0] temp43;
+    wire [3:0] temp44;
+    wire [3:0] temp45;
+    wire [3:0] temp46;
+    wire [3:0] temp47;
+    wire [3:0] temp48;
+    wire [3:0] temp49;
+    wire [3:0] temp50;
+    wire [3:0] temp51;
+    wire [3:0] temp52;
+    wire [3:0] temp53;
+    wire [3:0] temp54;
+    wire [3:0] temp55;
+    wire [3:0] temp56;
+    wire [3:0] temp57;
+    wire [3:0] temp58;
+    wire [3:0] temp59;
+    wire [3:0] temp60;
+    wire [3:0] temp61;
+    wire [3:0] temp62;
+    wire [3:0] temp63;
+    wire [3:0] temp64;
+    wire [3:0] temp65;
+    wire [3:0] temp66;
+    wire [3:0] temp67;
+    wire [3:0] temp68;
+    wire [3:0] temp69;
+    wire [3:0] temp70;
+    wire [3:0] temp71;
+    wire [3:0] temp72;
+    wire [3:0] temp73;
+    wire [3:0] temp74;
+    wire [3:0] temp75;
+    wire [3:0] temp76;
+    wire [3:0] temp77;
+    wire [3:0] temp78;
+    wire [3:0] temp79;
+    wire [3:0] temp80;
+    wire [3:0] temp81;
+    wire [3:0] temp82;
+    wire [3:0] temp83;
+    wire [3:0] temp84;
+    wire [3:0] temp85;
+    wire [3:0] temp86;
+    wire [3:0] temp87;
+    wire [3:0] temp88;
+    wire [3:0] temp89;
+    wire [3:0] temp90;
+    wire [3:0] temp91;
+    wire [3:0] temp92;
+    wire [3:0] temp93;
+    wire [3:0] temp94;
+    wire [3:0] temp95;
+    wire [3:0] temp96;
+    wire [3:0] temp97;
+    wire [3:0] temp98;
+    wire [3:0] temp99;
+    wire [3:0] temp100;
+    wire [3:0] temp101;
+    wire [3:0] temp102;
+    wire [3:0] temp103;
+    wire [3:0] temp104;
+    wire [3:0] temp105;
+    wire [3:0] temp106;
+    wire [3:0] temp107;
+    wire [3:0] temp108;
+    wire [3:0] temp109;
+    wire [3:0] temp110;
+    wire [3:0] temp111;
+    wire [3:0] temp112;
+    wire [3:0] temp113;
+    wire [3:0] temp114;
+    wire [3:0] temp115;
+    wire [3:0] temp116;
+    wire [3:0] temp117;
+    wire [3:0] temp118;
+    wire [3:0] temp119;
+    wire [3:0] temp120;
+    wire [3:0] temp121;
+    wire [3:0] temp122;
+    wire [3:0] temp123;
+    wire [3:0] temp124;
+    wire [3:0] temp125;
+    wire [3:0] temp126;
+    wire [3:0] temp127;
+    wire [3:0] temp128;
+    wire [3:0] temp129;
+    wire [3:0] temp130;
+    wire [3:0] temp131;
+    wire [3:0] temp132;
+    wire [3"
+N/A,N/A,-0.1,48.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+    wire [3:0] sum;
+    wire cout;
+    wire [3:0] in1;
+    wire [3:0] in2;
+    wire cin;
+    
+    assign sum = in1 + in2 + cin;
+    assign cout = (in1[3] & in2[3] & cin) | (in1[3] & cin) | (in2[3] & cin) | (cin & in1[3] & in2[3]);
+
+endmodule"
+41.23,196.03,0.09959173258484291,49.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire [3:0] carry;
+
+fa_adder fa_adder_0(sum[0], carry[0], in1[0], in2[0], cin);
+fa_adder fa_adder_1(sum[1], carry[1], in1[1], in2[1], carry[0]);
+fa_adder fa_adder_2(sum[2], carry[2], in1[2], in2[2], carry[1]);
+fa_adder fa_adder_3(sum[3], cout, in1[3], in2[3], carry[2]);
+
+endmodule
+
+module fa_adder(output sum, carry, input a, b, cin);
+
+wire c1, c2, c3;
+
+xor(sum, a, b, cin);
+and(c1, a, b);
+and(c2, b, cin);
+and(c3, a, cin);
+or(carry, c1, c2, c3);
+
+endmodule"
+38.304,198.83,0.15731317238597722,50.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+assign {cout, sum} = in1 + in2 + cin;
+
+endmodule"
+41.23,195.95,0.1,51.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire c1, c2, c3;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+35.91,125.32,0.5429717916848439,52.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA0(sum[0], cin_w, in1_w[0], in2_w[0], cin_w);
+full_adder FA1(sum[1], cin_w, in1_w[1], in2_w[1], cin_w);
+full_adder FA2(sum[2], cin_w, in1_w[2], in2_w[2], cin_w);
+full_adder FA3(sum[3], cout, in1_w[3], in2_w[3], cin_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+35.91,125.32,0.5429717916848439,53.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA0(sum[0], cin_w, in1_w[0], in2_w[0], cin_w);
+full_adder FA1(sum[1], cin_w, in1_w[1], in2_w[1], cin_w);
+full_adder FA2(sum[2], cin_w, in1_w[2], in2_w[2], cin_w);
+full_adder FA3(sum[3], cout, in1_w[3], in2_w[3], cin_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+35.91,125.32,0.5429717916848439,54.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA0(sum[0], cin_w, in1_w[0], in2_w[0], cin_w);
+full_adder FA1(sum[1], cin_w, in1_w[1], in2_w[1], cin_w);
+full_adder FA2(sum[2], cin_w, in1_w[2], in2_w[2], cin_w);
+full_adder FA3(sum[3], cout, in1_w[3], in2_w[3], cin_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+35.91,125.32,0.5429717916848439,55.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA0(sum[0], cin_w, in1_w[0], in2_w[0], cin_w);
+full_adder FA1(sum[1], cin_w, in1_w[1], in2_w[1], cin_w);
+full_adder FA2(sum[2], cin_w, in1_w[2], in2_w[2], cin_w);
+full_adder FA3(sum[3], cout, in1_w[3], in2_w[3], cin_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+35.91,125.32,0.5429717916848439,56.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA0(sum[0], cin_w, in1_w[0], in2_w[0], cin_w);
+full_adder FA1(sum[1], cin_w, in1_w[1], in2_w[1], cin_w);
+full_adder FA2(sum[2], cin_w, in1_w[2], in2_w[2], cin_w);
+full_adder FA3(sum[3], cout, in1_w[3], in2_w[3], cin_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+35.91,125.32,0.5429717916848439,57.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA0(sum[0], cin_w, in1_w[0], in2_w[0], cin_w);
+full_adder FA1(sum[1], cin_w, in1_w[1], in2_w[1], cin_w);
+full_adder FA2(sum[2], cin_w, in1_w[2], in2_w[2], cin_w);
+full_adder FA3(sum[3], cout, in1_w[3], in2_w[3], cin_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+35.91,125.32,0.5429717916848439,58.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA0(sum[0], cin_w, in1_w[0], in2_w[0], cin_w);
+full_adder FA1(sum[1], cin_w, in1_w[1], in2_w[1], cin_w);
+full_adder FA2(sum[2], cin_w, in1_w[2], in2_w[2], cin_w);
+full_adder FA3(sum[3], cout, in1_w[3], in2_w[3], cin_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+35.91,125.32,0.5429717916848439,59.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA0(sum[0], cin_w, in1_w[0], in2_w[0], cin_w);
+full_adder FA1(sum[1], cin_w, in1_w[1], in2_w[1], cin_w);
+full_adder FA2(sum[2], cin_w, in1_w[2], in2_w[2], cin_w);
+full_adder FA3(sum[3], cout, in1_w[3], in2_w[3], cin_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+35.91,125.32,0.5429717916848439,60.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA0(sum[0], cin_w, in1_w[0], in2_w[0], cin_w);
+full_adder FA1(sum[1], cin_w, in1_w[1], in2_w[1], cin_w);
+full_adder FA2(sum[2], cin_w, in1_w[2], in2_w[2], cin_w);
+full_adder FA3(sum[3], cout, in1_w[3], in2_w[3], cin_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+N/A,N/A,-0.75,61.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire [3:0] in1, in2;
+wire cin;
+
+assign in1 = in1;
+assign in2 = in2;
+assign cin = cin;
+
+endmodule"
+41.23,195.95,0.1,62.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+	
+	wire [3:0] c;
+	
+	full_adder FA1(sum[0], c[0], in1[0], in2[0], cin);
+	full_adder FA2(sum[1], c[1], in1[1], in2[1], c[0]);
+	full_adder FA3(sum[2], c[2], in1[2], in2[2], c[1]);
+	full_adder FA4(sum[3], cout, in1[3], in2[3], c[2]);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+	
+	wire x, y, z;
+	
+	xor(sum, in1, in2, cin);
+	and(x, in1, in2);
+	and(y, in1, cin);
+	and(z, in2, cin);
+	or(cout, x, y, z);
+
+endmodule"
+41.23,195.95,0.1,63.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire [3:0] c;
+
+assign c[0] = cin;
+
+full_adder FA0(sum[0], c[1], in1[0], in2[0], c[0]);
+full_adder FA1(sum[1], c[2], in1[1], in2[1], c[1]);
+full_adder FA2(sum[2], c[3], in1[2], in2[2], c[2]);
+full_adder FA3(sum[3], cout, in1[3], in2[3], c[3]);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+41.23,196.03,0.09959173258484291,64.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire [4:0] carry;
+
+fa_adder fa_adder_0(sum[0], carry[0], in1[0], in2[0], cin);
+fa_adder fa_adder_1(sum[1], carry[1], in1[1], in2[1], carry[0]);
+fa_adder fa_adder_2(sum[2], carry[2], in1[2], in2[2], carry[1]);
+fa_adder fa_adder_3(sum[3], cout, in1[3], in2[3], carry[2]);
+
+endmodule
+
+module fa_adder(output sum, carry, input a, b, cin);
+
+wire c1, c2, c3;
+
+xor(sum, a, b, cin);
+and(c1, a, b);
+and(c2, b, cin);
+and(c3, a, cin);
+or(carry, c1, c2, c3);
+
+endmodule"
+N/A,N/A,-0.75,65.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire [3:0] in1;
+wire [3:0] in2;
+wire cin;
+
+assign in1 = in1;
+assign in2 = in2;
+assign cin = cin;
+
+endmodule"
+N/A,N/A,-1,66.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+	wire [3:0] carry;
+	
+	fa_adder fa_adder_0(sum[0], carry[0], in1[0], in2[0], cin);
+	fa_adder fa_adder_1(sum[1], carry[1], in1[1], in2[1], carry[0]);
+	fa_adder fa_adder_2(sum[2], carry[2], in1[2], in2[2], carry[1]);
+	fa_adder fa_adder_3(sum[3], cout, in1[3], in2[3], carry[2]);
+	
+endmodule
+
+module fa_adder(output sum, carry, input a, b, cin);
+	wire [3:0] carry_temp;
+	
+	fa_adder fa_adder_0(sum[0], carry_temp[0], a, b, cin);
+	fa_adder fa_adder_1(sum[1], carry_temp[1], carry_temp[0], a, b);
+	fa_adder fa_adder_2(sum[2], carry_temp[2], carry_temp[1], carry_temp[0], a);
+	fa_adder fa_adder_3(sum[3], carry, carry_temp[2], carry_temp[1], carry_temp[0]);
+	
+endmodule"
+41.23,195.95,0.1,67.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire c1, c2, c3;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+41.23,196.03,0.09959173258484291,68.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);   
+
+wire c1, c2, c3;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, carry, input a, b, cin);
+
+wire x, y, z;
+
+xor(sum, a, b, cin);
+and(x, a, b);
+and(y, b, cin);
+and(z, a, cin);
+or(carry, x, y, z);
+
+endmodule"
+41.23,195.95,0.1,69.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire c1, c2, c3;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+41.23,195.95,0.1,70.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire c1;
+wire c2;
+wire c3;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+
+wire x;
+wire y;
+wire z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+N/A,N/A,-0.1,71.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire [3:0] temp1;
+wire [3:0] temp2;
+wire [3:0] temp3;
+wire [3:0] temp4;
+wire [3:0] temp5;
+wire [3:0] temp6;
+wire [3:0] temp7;
+wire [3:0] temp8;
+
+assign temp1 = in1 ^ in2;
+assign temp2 = in1 & in2;
+assign temp3 = in1 | in2;
+assign temp4 = in1 ^ in2;
+
+assign temp5 = temp1 ^ temp2;
+assign temp6 = temp1 & temp2;
+assign temp7 = temp1 | temp2;
+assign temp8 = temp1 ^ temp2;
+
+assign sum = temp1 ^ temp3;
+assign cout = temp4 ^ temp5 ^ temp6 ^ temp7;
+
+endmodule"
+N/A,N/A,-0.1,72.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);   
+    wire [3:0] sum;
+    wire cout;
+    wire [3:0] in1;
+    wire [3:0] in2;
+    wire cin;
+    
+    assign sum = in1 + in2 + cin;
+    assign cout = (in1[3] & in2[3] & cin) | (in1[3] & cin) | (in2[3] & cin) | (cin & in1[3] & in2[3]);
+
+endmodule"
+41.23,195.95,0.1,73.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire c1, c2, c3;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+41.23,195.95,0.1,74.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire c1, c2, c3;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+38.304,198.83,0.15731317238597722,75.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+assign {cout, sum} = in1 + in2 + cin;
+
+endmodule"
+41.23,196.03,0.09959173258484291,76.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire c1,c2,c3;
+
+full_adder FA1(sum[0],c1,in1[0],in2[0],cin);
+full_adder FA2(sum[1],c2,in1[1],in2[1],c1);
+full_adder FA3(sum[2],c3,in1[2],in2[2],c2);
+full_adder FA4(sum[3],cout,in1[3],in2[3],c3);
+
+endmodule
+
+module full_adder(output sum,carry,input a,b,cin);
+
+wire x,y,z;
+
+xor(sum,a,b,cin);
+and(x,a,b);
+and(y,b,cin);
+and(z,a,cin);
+or(carry,x,y,z);
+
+endmodule"
+N/A,N/A,-1,77.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire [2:0] carry;
+
+fa_adder fa_adder_0(sum[0], carry[0], in1[0], in2[0], cin);
+fa_adder fa_adder_1(sum[1], carry[1], in1[1], in2[1], carry[0]);
+fa_adder fa_adder_2(sum[2], carry[2], in1[2], in2[2], carry[1]);
+fa_adder fa_adder_3(sum[3], cout, in1[3], in2[3], carry[2]);
+
+endmodule
+
+module fa_adder(output sum, output cout, input in1, in2, input cin);
+
+wire [3:0] carry;
+
+fa_adder fa_adder_0(sum, carry[0], in1, in2, cin);
+fa_adder fa_adder_1(sum, cout, carry[0], in1, carry[1]);
+
+endmodule"
+41.23,195.95,0.1,78.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+    wire c1, c2, c3;
+    
+    full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+    wire x, y, z;
+    
+    xor(sum, in1, in2, cin);
+    and(x, in1, in2);
+    and(y, in1, cin);
+    and(z, in2, cin);
+    or(cout, x, y, z);
+
+endmodule"
+N/A,N/A,-0.1,79.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);   
+
+	wire [3:0] sum;
+	wire cout;
+	wire [3:0] in1;
+	wire [3:0] in2;
+	wire cin;
+
+	assign sum = in1 + in2 + cin;
+	assign cout = (in1[3] & in2[3] & cin) | (in1[3] & cin) | (in2[3] & cin) | (cin & in1[3] & in2[3]);
+
+endmodule"
+N/A,N/A,-0.1,80.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+reg [3:0] sum;
+reg cout;
+
+always @(in1 or in2 or cin)
+begin
+	sum = in1 + in2 + cin;
+	cout = (in1[0] & in2[0] & cin) | (in1[0] & in2[0] & ~cin) | (in1[0] & ~cin & ~in2[0]) | (~in1[0] & ~in2[0] & cin);
+end
+
+endmodule"
+41.23,195.95,0.1,81.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin); 
+
+wire c1, c2, c3;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+N/A,N/A,-0.1,82.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+assign sum = in1 + in2 + cin;
+assign cout = (in1[3] & in2[3] & cin) | (in1[3] & cin) | (in2[3] & cin) | (cin & in1[3] & in2[3]);
+
+endmodule"
+3.458,66.3,1.0716221221674391,83.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,84.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,85.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,86.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,87.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,88.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,89.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,90.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,91.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,92.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,93.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+41.23,195.95,0.1,94.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire c1, c2, c3;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+3.458,66.3,1.0716221221674391,95.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,96.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+N/A,N/A,-0.75,97.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1, in2;
+wire cin;
+wire [3:0] sum;
+wire cout;
+
+assign in1 = in1;
+assign in2 = in2;
+assign cin = cin;
+
+assign sum = sum;
+assign cout = cout;
+
+endmodule"
+3.458,66.3,1.0716221221674391,98.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,99.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+N/A,N/A,-0.1,100.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1;
+wire [3:0] in2;
+wire cin;
+
+assign sum = in1 + in2 + cin;
+assign cout = (in1[3] == in2[3])? 0 : (in1[3] == cin? 1 : in1[3] + in2[3] + cin);
+
+endmodule"
+3.458,66.3,1.0716221221674391,101.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+41.23,195.95,0.1,102.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire c1, c2, c3;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+3.458,66.3,1.0716221221674391,103.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,104.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,105.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,106.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+41.23,196.03,0.09959173258484291,107.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [4:0] carry;
+
+fa fa0(sum[0], carry[0], in1[0], in2[0], cin);
+fa fa1(sum[1], carry[1], in1[1], in2[1], carry[0]);
+fa fa2(sum[2], carry[2], in1[2], in2[2], carry[1]);
+fa fa3(sum[3], cout, in1[3], in2[3], carry[2]);
+
+endmodule
+
+module fa(output sum, output cout, input a, b, cin);
+wire c1, c2, c3;
+
+xor(sum, a, b, cin);
+and(c1, a, b);
+and(c2, b, cin);
+and(c3, a, cin);
+or(cout, c1, c2, c3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,108.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,109.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,110.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,111.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,112.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,113.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,114.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,115.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,116.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,117.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,118.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+41.23,195.95,0.1,119.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] c;
+
+assign c[0] = cin;
+
+full_adder FA0(sum[0], c[1], in1[0], in2[0], c[0]);
+full_adder FA1(sum[1], c[2], in1[1], in2[1], c[1]);
+full_adder FA2(sum[2], c[3], in1[2], in2[2], c[2]);
+full_adder FA3(sum[3], cout, in1[3], in2[3], c[3]);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+41.23,195.95,0.1,120.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire c1, c2, c3;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+3.458,66.3,1.0716221221674391,121.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,122.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,123.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,124.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+38.304,198.83,0.15731317238597722,125.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = {in1[3], in1[2], in1[1], in1[0]};
+assign in2_w = {in2[3], in2[2], in2[1], in2[0]};
+assign cin_w = cin;
+
+full_adder FA1(sum[0], c1, in1_w[0], in2_w[0], cin_w);
+full_adder FA2(sum[1], c2, in1_w[1], in2_w[1], c1);
+full_adder FA3(sum[2], c3, in1_w[2], in2_w[2], c2);
+full_adder FA4(sum[3], cout, in1_w[3], in2_w[3], c3);
+
+endmodule
+
+module full_adder(output sum, carry, input a, b, cin);
+wire w1, w2, w3;
+
+xor(w1, a, b);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, a, b);
+or(carry, w2, w3);
+
+endmodule"
+38.304,198.83,0.15731317238597722,126.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+wire [3:0] sum_w;
+wire cout_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum_w[0], c1, in1_w[0], in2_w[0], cin_w);
+full_adder FA2(sum_w[1], c2, in1_w[1], in2_w[1], c1);
+full_adder FA3(sum_w[2], c3, in1_w[2], in2_w[2], c2);
+full_adder FA4(sum_w[3], cout_w, in1_w[3], in2_w[3], c3);
+
+assign sum = sum_w;
+assign cout = cout_w;
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,127.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+N/A,N/A,-0.1,128.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_w, in2_w, cin_w;
+wire [3:0] sum_w;
+wire cout_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA0(sum_w[0], cin_w[0], in1_w[0], in2_w[0], cin_w[1]);
+full_adder FA1(sum_w[1], cin_w[1], in1_w[1], in2_w[1], cin_w[0]);
+full_adder FA2(sum_w[2], cin_w[2], in1_w[2], in2_w[2], cin_w[1]);
+full_adder FA3(sum_w[3], cout_w, in1_w[3], in2_w[3], cin_w[2]);
+
+assign sum = sum_w;
+assign cout = cout_w;
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+38.304,198.83,0.15731317238597722,129.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_w;
+wire [3:0] in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], c1, in1_w[0], in2_w[0], cin_w);
+full_adder FA2(sum[1], c2, in1_w[1], in2_w[1], c1);
+full_adder FA3(sum[2], c3, in1_w[2], in2_w[2], c2);
+full_adder FA4(sum[3], cout, in1_w[3], in2_w[3], c3);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+41.23,196.03,0.09959173258484291,130.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] carry;
+
+fa fa0(sum[0], carry[0], in1[0], in2[0], cin);
+fa fa1(sum[1], carry[1], in1[1], in2[1], carry[0]);
+fa fa2(sum[2], carry[2], in1[2], in2[2], carry[1]);
+fa fa3(sum[3], cout, in1[3], in2[3], carry[2]);
+
+endmodule
+
+module fa(output sum, output cout, input a, b, cin);
+wire c1, c2, c3;
+
+xor(sum, a, b, cin);
+and(c1, a, b);
+and(c2, b, cin);
+and(c3, a, cin);
+or(cout, c1, c2, c3);
+
+endmodule"
+41.23,195.95,0.1,131.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire c1, c2, c3;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+3.458,66.3,1.0716221221674391,132.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+N/A,N/A,-0.1,133.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1;
+wire [3:0] in2;
+wire cin;
+
+assign sum = in1 + in2 + cin;
+assign cout = (in1[3] == in2[3])? 0 : (in1[3] == cin? 1 : in1[3] + in2[3] + cin);
+
+endmodule"
+3.458,66.3,1.0716221221674391,134.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,135.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+N/A,N/A,-0.1,136.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] sum;
+wire [3:0] in1;
+wire [3:0] in2;
+wire cin;
+
+assign sum = in1 + in2 + cin;
+assign cout = (in1[3] == in2[3])? 0 : (in1[3] == in2[3]? 1 : in1[3] + in2[3] + cin);
+
+endmodule"
+3.458,66.3,1.0716221221674391,137.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,138.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,139.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,140.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,141.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,142.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+N/A,N/A,-0.75,143.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1, in2;
+wire cin;
+wire [3:0] sum;
+wire cout;
+
+assign in1 = in1;
+assign in2 = in2;
+assign cin = cin;
+
+assign sum = sum;
+assign cout = cout;
+
+endmodule"
+3.458,66.3,1.0716221221674391,144.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,145.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,146.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,147.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+41.23,196.03,0.09959173258484291,148.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [4:0] carry;
+
+fa fa0(sum[0], carry[0], in1[0], in2[0], cin);
+fa fa1(sum[1], carry[1], in1[1], in2[1], carry[0]);
+fa fa2(sum[2], carry[2], in1[2], in2[2], carry[1]);
+fa fa3(sum[3], cout, in1[3], in2[3], carry[2]);
+
+endmodule
+
+module fa(output sum, output cout, input a, b, cin);
+wire c1, c2, c3;
+
+xor(sum, a, b, cin);
+and(c1, a, b);
+and(c2, b, cin);
+and(c3, a, cin);
+or(cout, c1, c2, c3);
+
+endmodule"
+41.23,195.95,0.1,149.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire c1, c2, c3;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+3.458,66.3,1.0716221221674391,150.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,151.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,152.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,153.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,154.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,155.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,156.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,157.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,158.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,159.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+N/A,N/A,-0.1,160.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire;
+wire [3:0] in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], c1, in1_wire[0], in2_wire[0], cin_wire);
+full_adder FA2(sum[1], c2, in1_wire[1], in2_wire[1], c1);
+full_adder FA3(sum[2], c3, in1_wire[2], in2_wire[2], c2);
+full_adder FA4(sum[3], cout, in1_wire[3], in2_wire[3], c3);
+
+endmodule
+
+module full_adder(output sum, carry, input a, b, cin);
+wire a_wire, b_wire, c_wire;
+
+assign a_wire = a;
+assign b_wire = b;
+assign c_wire = cin;
+
+half_adder HA1(sum, c1, a_wire, b_wire);
+half_adder HA2(sum, c2, c1, c_wire);
+
+assign carry = c2;
+
+endmodule
+
+module half_adder(output sum, carry, input a, b);
+wire a_wire, b_wire;
+
+assign a_wire = a;
+assign b_wire = b;
+
+xor(sum, a_wire, b_wire);
+and(carry, a_wire, b_wire);
+
+endmodule"
+3.458,66.3,1.0716221221674391,161.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,162.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,163.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,164.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,165.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,166.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,167.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,168.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,169.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,170.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,171.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,172.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+N/A,N/A,-0.75,173.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+wire [3:0] sum_wire;
+wire cout_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum_wire[0], c1, in1_wire[0], in2_wire[0], cin_wire);
+full_adder FA2(sum_wire[1], c2, in1_wire[1], in2_wire[1], c1);
+full_adder FA3(sum_wire[2], c3, in1_wire[2], in2_wire[2], c2);
+full_adder FA4(sum_wire[3], cout_wire, in1_wire[3], in2_wire[3], c3);
+
+endmodule
+
+module full_adder(output wire sum,
+                  output wire cout,
+                  input wire in1,
+                  input wire in2,
+                  input wire cin);
+
+wire temp1;
+wire temp2;
+wire temp3;
+
+xor(sum, in1, in2, cin);
+and(temp1,in1,in2);
+and(temp2,in1,cin);
+and(temp3,in2,cin);
+or(cout,temp1,temp2,temp3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,174.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,175.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+N/A,N/A,-0.1,176.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] temp;
+
+fa fa1(sum[0], temp[0], in1[0], in2[0], cin);
+fa fa2(sum[1], temp[1], in1[1], in2[1], temp[0]);
+fa fa3(sum[2], temp[2], in1[2], in2[2], temp[1]);
+fa fa4(sum[3], cout, in1[3], in2[3], temp[2]);
+
+endmodule
+
+module fa(output sum, output cout, input in1, in2, cin);
+wire [3:0] temp;
+
+xor(temp[0], in1, in2);
+xor(sum, temp[0], cin);
+and(temp[1], temp[0], cin);
+and(temp[2], temp[0], in2);
+or(cout, temp[1], temp[2]);
+
+endmodule"
+41.23,196.03,0.09959173258484291,177.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire c1,c2,c3;
+
+fulladder a1(sum[0],c1,in1[0],in2[0],cin);
+fulladder a2(sum[1],c2,in1[1],in2[1],c1);
+fulladder a3(sum[2],c3,in1[2],in2[2],c2);
+fulladder a4(sum[3],cout,in1[3],in2[3],c3);
+
+endmodule
+
+module fulladder(output sum, carry, input a, b, cin);
+wire c1,c2,c3;
+
+xor(sum,a,b,cin);
+and(c1,a,b);
+and(c2,b,cin);
+and(c3,a,cin);
+or(carry,c1,c2,c3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,178.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,179.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,180.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,181.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+N/A,N/A,-1,182.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [2:0] carry;
+
+fa fa0(sum[0], carry[0], in1[0], in2[0], cin);
+fa fa1(sum[1], carry[1], in1[1], in2[1], carry[0]);
+fa fa2(sum[2], carry[2], in1[2], in2[2], carry[1]);
+fa fa3(sum[3], cout, in1[3], in2[3], carry[2]);
+
+endmodule
+
+module fa(output sum, output cout, input in1, in2, input cin);
+wire [3:0] carry;
+
+fa_full fa_full0(sum, carry[0], in1, in2, cin);
+fa_half fa_half0(sum, carry[1], carry[0], in1, in2);
+fa_half fa_half1(cout, carry[2], carry[1], in1, in2);
+
+endmodule
+
+module fa_half(output sum, output cout, input in1, in2, input cin);
+wire [1:0] carry;
+
+fa_half_add fa_half_add0(sum, carry[0], in1, in2, cin);
+fa_half_sub fa_half_sub0(cout, carry[1], in1, in2, carry[0]);
+
+endmodule
+
+module fa_half_sub(output cout, output sum, input in1, in2, input cin);
+wire [1:0] carry;
+
+fa_half_sub fa_half_sub0(cout, sum, in1, in2, carry[0]);
+fa_half_add fa_half_add0(sum, carry[1], in1, in2, carry[0]);
+
+endmodule
+
+module fa_full(output sum, output cout, input in1, in2, input cin);
+wire [2:0] carry;
+
+fa_full_add fa_full_add0(sum, carry[0], in1, in2, cin);
+fa_full_sub fa_full_sub0(cout, carry[1], in1, in2, carry[0]);
+
+endmodule
+
+module fa_full_sub(output cout, output sum, input in1, in2, input cin);
+wire [2:0] carry;
+
+fa_full_sub fa_full_sub0(cout, sum, in1, in2, carry[0]);
+fa_full_add fa_full_add0(sum, carry[1], in1, in2, carry[0]);
+
+endmodule
+
+module fa_half_add(output sum, output carry, input in1, in2, input cin);
+wire [1:0] carry;
+
+fa_half_add fa_half_add0(sum, carry[0], in1, in2, cin);
+fa_half_sub fa_half_sub0(carry[1], carry[0], in1, in2, carry[0]);
+
+endmodule
+
+module fa_half_sub(output cout, output sum, input in1, in2, input cin);
+wire [1:0] carry;
+
+fa_half_sub fa_half_sub0(cout, sum, in1, in2, carry[0]);
+fa_half_add fa_half_add0(sum, carry[1], in1, in2, carry[0]);
+
+endmodule"
+3.458,66.3,1.0716221221674391,183.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,184.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,185.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,186.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+38.304,198.83,0.15731317238597722,187.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+
+full_adder FA0(sum[0], c1, in1_wire[0], in2_wire[0], cin);
+full_adder FA1(sum[1], c2, in1_wire[1], in2_wire[1], c1);
+full_adder FA2(sum[2], c3, in1_wire[2], in2_wire[2], c2);
+full_adder FA3(sum[3], cout, in1_wire[3], in2_wire[3], c3);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,188.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,189.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+N/A,N/A,-0.1,190.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1;
+wire [3:0] in2;
+wire cin;
+
+assign sum = in1 + in2 + cin;
+assign cout = (in1[3] == in2[3])? 0 : (in1[3] == cin? 1 : in1[3] + in2[3] + cin);
+
+endmodule"
+41.23,195.95,0.1,191.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] c;
+
+assign c[0] = cin;
+
+full_adder FA0(sum[0], c[1], in1[0], in2[0], c[0]);
+full_adder FA1(sum[1], c[2], in1[1], in2[1], c[1]);
+full_adder FA2(sum[2], c[3], in1[2], in2[2], c[2]);
+full_adder FA3(sum[3], cout, in1[3], in2[3], c[3]);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+3.458,66.3,1.0716221221674391,192.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,193.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,194.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,195.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,196.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,197.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,198.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,199.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,200.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+41.23,195.95,0.1,201.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire c1, c2, c3;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+3.458,66.3,1.0716221221674391,202.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,203.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,204.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+38.304,198.83,0.15731317238597722,205.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+fulladder_4bit FA1(sum[0], c1, in1_wire[0], in2_wire[0], cin_wire);
+fulladder_4bit FA2(sum[1], c2, in1_wire[1], in2_wire[1], c1);
+fulladder_4bit FA3(sum[2], c3, in1_wire[2], in2_wire[2], c2);
+fulladder_4bit FA4(sum[3], cout, in1_wire[3], in2_wire[3], c3);
+
+endmodule
+
+module fulladder_4bit(output sum, carry, input a, b, cin);
+wire w1, w2, w3;
+
+xor(w1, a, b);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, a, b);
+or(carry, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,206.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,207.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+43.092,99.29,0.5704053864958967,208.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA0(sum[0], cin_wire, in1_wire[0], in2_wire[0], cin_wire);
+full_adder FA1(sum[1], cin_wire, in1_wire[1], in2_wire[1], cin_wire);
+full_adder FA2(sum[2], cin_wire, in1_wire[2], in2_wire[2], cin_wire);
+full_adder FA3(sum[3], cout, in1_wire[3], in2_wire[3], cin_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,209.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+36.708,212.7,0.13357176369877102,210.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_w, in2_w;
+
+assign in1_w = {in1[3], in1[2], in1[1], in1[0]};
+assign in2_w = {in2[3], in2[2], in2[1], in2[0]};
+
+assign cout = cin;
+
+full_adder FA0(sum[0], c1, in1_w[0], in2_w[0], cin);
+full_adder FA1(sum[1], c2, in1_w[1], in2_w[1], c1);
+full_adder FA2(sum[2], c3, in1_w[2], in2_w[2], c2);
+full_adder FA3(sum[3], cout, in1_w[3], in2_w[3], c3);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,211.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,212.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,213.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,214.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,215.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,216.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+3.458,66.3,1.0716221221674391,217.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA1(sum[0], in1_wire[0], in2_wire[0], cin_wire, cout_wire);
+full_adder FA2(sum[1], in1_wire[1], in2_wire[1], cout_wire, cout_wire);
+full_adder FA3(sum[2], in1_wire[2], in2_wire[2], cout_wire, cout_wire);
+full_adder FA4(sum[3], in1_wire[3], in2_wire[3], cout_wire, cout_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+43.092,99.29,0.5704053864958967,218.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_wire, in2_wire;
+wire cin_wire;
+
+assign in1_wire = in1;
+assign in2_wire = in2;
+assign cin_wire = cin;
+
+full_adder FA0(sum[0], cin_wire, in1_wire[0], in2_wire[0], cin_wire);
+full_adder FA1(sum[1], cin_wire, in1_wire[1], in2_wire[1], cin_wire);
+full_adder FA2(sum[2], cin_wire, in1_wire[2], in2_wire[2], cin_wire);
+full_adder FA3(sum[3], cout, in1_wire[3], in2_wire[3], cin_wire);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+N/A,N/A,-0.1,219.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1_b, in2_b;
+wire cin_b;
+
+assign in1_b = ~in1;
+assign in2_b = ~in2;
+assign cin_b = cin;
+
+full_adder FA0(sum[0], c1, in1_b[0], in2_b[0], cin_b);
+full_adder FA1(sum[1], c2, in1_b[1], in2_b[1], c1);
+full_adder FA2(sum[2], c3, in1_b[2], in2_b[2], c2);
+full_adder FA3(sum[3], cout, in1_b[3], in2_b[3], c3);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+N/A,N/A,-0.1,220.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] out1;
+wire [3:0] out2;
+wire [3:0] out3;
+wire [3:0] out4;
+wire [3:0] out5;
+wire [3:0] out6;
+wire [3:0] out7;
+wire [3:0] out8;
+
+assign out1 = in1 ^ in2;
+assign out2 = in1 & in2;
+
+assign out3 = in1 | in2;
+assign out4 = in1 + in2;
+
+assign out5 = in1 - in2;
+assign out6 = in1 << in2;
+
+assign out7 = in1 >> in2;
+assign out8 = in1 >>> in2;
+
+assign cout = cin;
+
+assign sum = out1 ^ out2 ^ out3 ^ out4 ^ out5 ^ out6 ^ out7 ^ out8;
+
+endmodule"
+41.23,196.03,0.09959173258484291,221.0,1,"//Design a 4-bit adder.
+//There are two 4 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The adder should utilize the inputs (in1 and in2) and the cin bit to determine the output sum and cout.
+//Please finish the module.
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [4:0] carry;
+
+fa fa0(sum[0], carry[0], in1[0], in2[0], cin);
+fa fa1(sum[1], carry[1], in1[1], in2[1], carry[0]);
+fa fa2(sum[2], carry[2], in1[2], in2[2], carry[1]);
+fa fa3(sum[3], cout, in1[3], in2[3], carry[2]);
+
+endmodule
+
+module fa(output sum, output cout, input a, b, cin);
+wire c1, c2, c3;
+
+xor(sum, a, b, cin);
+and(c1, a, b);
+and(c2, b, cin);
+and(c3, a, cin);
+or(cout, c1, c2, c3);
+
+endmodule"

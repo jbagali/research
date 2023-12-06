@@ -1,0 +1,5830 @@
+Area,Delay,Score,Current Run,Episode,Verilog
+73.416,346.83,0.1,2.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1, c2, c3, c4, c5, c6, c7;
+  wire [7:0] sum;
+  
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule"
+N/A,N/A,-1,3.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+"
+73.416,346.83,0.1,4.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1, c2, c3, c4, c5, c6, c7;
+  wire [7:0] sum;
+  
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule"
+73.416,346.83,0.1,5.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+
+wire c1, c2, c3, c4, c5, c6, c7;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], c4, in1[3], in2[3], c3);
+full_adder FA5(sum[4], c5, in1[4], in2[4], c4);
+full_adder FA6(sum[5], c6, in1[5], in2[5], c5);
+full_adder FA7(sum[6], c7, in1[6], in2[6], c6);
+full_adder FA8(sum[7], cout, in1[7], in2[7], c7);
+
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+
+wire xor1, and1, and2;
+
+xor(xor1, in1, in2);
+xor(sum, xor1, cin);
+and(and1, xor1, cin);
+and(and2, in1, in2);
+or(cout, and1, and2);
+
+endmodule"
+73.416,346.83,0.1,6.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+    
+    full_adder_8 FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder_8 FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder_8 FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder_8 FA4(sum[3], c4, in1[3], in2[3], c3);
+    full_adder_8 FA5(sum[4], c5, in1[4], in2[4], c4);
+    full_adder_8 FA6(sum[5], c6, in1[5], in2[5], c5);
+    full_adder_8 FA7(sum[6], c7, in1[6], in2[6], c6);
+    full_adder_8 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module full_adder_8(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+    wire w1, w2, w3;
+    xor(w1, in1, in2);
+    xor(sum, w1, cin);
+    and(w2, w1, cin);
+    and(w3, in1, in2);
+    or(cout, w2, w3);
+endmodule"
+73.416,346.83,0.1,7.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);              
+  wire c1, c2, c3, c4, c5, c6, c7;
+  wire [7:0] sum;
+  
+  full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+  wire a, b, c;
+  xor(a, in1, in2);
+  xor(sum, a, cin);
+  and(b, a, cin);
+  and(c, in1, in2);
+  or(cout, b, c);
+endmodule"
+73.416,346.83,0.1,8.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1, c2, c3, c4, c5, c6, c7;
+  wire [7:0] sum;
+  
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule"
+73.416,346.83,0.1,9.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+
+wire c1, c2, c3, c4, c5, c6, c7;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], c4, in1[3], in2[3], c3);
+full_adder FA5(sum[4], c5, in1[4], in2[4], c4);
+full_adder FA6(sum[5], c6, in1[5], in2[5], c5);
+full_adder FA7(sum[6], c7, in1[6], in2[6], c6);
+full_adder FA8(sum[7], cout, in1[7], in2[7], c7);
+
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+
+wire xor1, and1, and2;
+
+xor(xor1, in1, in2);
+xor(sum, xor1, cin);
+and(and1, xor1, cin);
+and(and2, in1, in2);
+or(cout, and1, and2);
+
+endmodule"
+73.416,346.83,0.1,10.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+    
+    full_adder_8 FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder_8 FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder_8 FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder_8 FA4(sum[3], c4, in1[3], in2[3], c3);
+    full_adder_8 FA5(sum[4], c5, in1[4], in2[4], c4);
+    full_adder_8 FA6(sum[5], c6, in1[5], in2[5], c5);
+    full_adder_8 FA7(sum[6], c7, in1[6], in2[6], c6);
+    full_adder_8 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module full_adder_8(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+    wire w1, w2, w3;
+    xor(w1, in1, in2);
+    xor(sum, w1, cin);
+    and(w2, w1, cin);
+    and(w3, in1, in2);
+    or(cout, w2, w3);
+endmodule"
+73.416,346.83,0.1,11.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);              
+  wire c1, c2, c3, c4, c5, c6, c7;
+  wire [7:0] sum;
+  
+  full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+  wire a, b, c;
+  xor(a, in1, in2);
+  xor(sum, a, cin);
+  and(b, a, cin);
+  and(c, in1, in2);
+  or(cout, b, c);
+endmodule"
+73.416,346.83,0.1,12.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1, c2, c3, c4, c5, c6, c7;
+  wire [7:0] sum;
+  
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule"
+73.416,346.83,0.1,13.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+
+wire c1, c2, c3, c4, c5, c6, c7;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], c4, in1[3], in2[3], c3);
+full_adder FA5(sum[4], c5, in1[4], in2[4], c4);
+full_adder FA6(sum[5], c6, in1[5], in2[5], c5);
+full_adder FA7(sum[6], c7, in1[6], in2[6], c6);
+full_adder FA8(sum[7], cout, in1[7], in2[7], c7);
+
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+
+wire xor1, and1, and2;
+
+xor(xor1, in1, in2);
+xor(sum, xor1, cin);
+and(and1, xor1, cin);
+and(and2, in1, in2);
+or(cout, and1, and2);
+
+endmodule"
+73.416,346.83,0.1,14.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+    
+    full_adder_8 FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder_8 FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder_8 FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder_8 FA4(sum[3], c4, in1[3], in2[3], c3);
+    full_adder_8 FA5(sum[4], c5, in1[4], in2[4], c4);
+    full_adder_8 FA6(sum[5], c6, in1[5], in2[5], c5);
+    full_adder_8 FA7(sum[6], c7, in1[6], in2[6], c6);
+    full_adder_8 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module full_adder_8(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+    wire w1, w2, w3;
+    xor(w1, in1, in2);
+    xor(sum, w1, cin);
+    and(w2, w1, cin);
+    and(w3, in1, in2);
+    or(cout, w2, w3);
+endmodule"
+N/A,N/A,-1,15.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire [7:0] sum;
+  wire cout;
+  wire [7:0] in1;
+  wire [7:0] in2;
+  wire cin;
+  wire [7:0] carry;
+  
+  assign carry[0] = cin;
+  
+  genvar i;
+  generate
+    for(i=0; i<8; i=i+1)
+      begin: adder_loop
+        if(i==0)
+          full_adder fa(sum[i], carry[i+1], in1[i], in2[i], carry[i]);
+        else
+          full_adder fa(sum[i], carry[i+1], in1[i], in2[i], carry[i]);
+      end
+    assign cout = carry[8];
+  endgenerate
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1, in2, cin);
+  wire a, b, c;
+  xor(a, in1, in2);
+  xor(sum, a, cin);
+  and(b, a, cin);
+  and(c, in1, in2);
+  or(cout, b, c);
+endmodule"
+N/A,N/A,-1,16.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+"
+73.416,346.83,0.1,17.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);              
+  wire c1, c2, c3, c4, c5, c6, c7;
+  wire [7:0] sum;
+  
+  full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+  wire a, b, c;
+  xor(a, in1, in2);
+  xor(sum, a, cin);
+  and(b, a, cin);
+  and(c, in1, in2);
+  or(cout, b, c);
+endmodule"
+73.416,346.83,0.1,18.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);              
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+    
+    full_adder_8 FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder_8 FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder_8 FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder_8 FA4(sum[3], c4, in1[3], in2[3], c3);
+    full_adder_8 FA5(sum[4], c5, in1[4], in2[4], c4);
+    full_adder_8 FA6(sum[5], c6, in1[5], in2[5], c5);
+    full_adder_8 FA7(sum[6], c7, in1[6], in2[6], c6);
+    full_adder_8 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module full_adder_8(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+    wire w1, w2, w3;
+    xor(w1, in1, in2);
+    xor(sum, w1, cin);
+    and(w2, w1, cin);
+    and(w3, in1, in2);
+    or(cout, w2, w3);
+endmodule"
+79.534,355.53,-0.010508029870541863,19.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+
+wire [7:0] carry;
+
+full_adder_8 FA1(sum[0], carry[0], in1[0], in2[0], cin);
+full_adder_8 FA2(sum[1], carry[1], in1[1], in2[1], carry[0]);
+full_adder_8 FA3(sum[2], carry[2], in1[2], in2[2], carry[1]);
+full_adder_8 FA4(sum[3], carry[3], in1[3], in2[3], carry[2]);
+full_adder_8 FA5(sum[4], carry[4], in1[4], in2[4], carry[3]);
+full_adder_8 FA6(sum[5], carry[5], in1[5], in2[5], carry[4]);
+full_adder_8 FA7(sum[6], carry[6], in1[6], in2[6], carry[5]);
+full_adder_8 FA8(sum[7], cout, in1[7], in2[7], carry[6]);
+
+endmodule
+
+module full_adder_8(output wire sum,
+                     output wire cout,
+                     input wire in1, in2,
+                     input wire cin);
+
+wire temp1;
+wire temp2;
+wire temp3;
+
+xor(sum, in1, in2, cin);
+and(temp1,in1,in2);
+and(temp2,in1,cin);
+and(temp3,in2,cin);
+or(cout,temp1,temp2,temp3);
+
+endmodule"
+73.416,346.83,0.1,20.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);              
+  wire c1, c2, c3, c4, c5, c6, c7;
+  wire [7:0] sum;
+  
+  full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+  wire a, b, c;
+  xor(a, in1, in2);
+  xor(sum, a, cin);
+  and(b, a, cin);
+  and(c, in1, in2);
+  or(cout, b, c);
+endmodule"
+N/A,N/A,-0.1,21.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire c1, c2, c3;
+    full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+    wire x, y, z;
+    xor(sum, in1, in2, cin);
+    and(w1, in1, in2);
+    and(w2, in1, cin);
+    and(w3, in2, cin);
+    or(cout, w1, w2, w3);
+endmodule"
+N/A,N/A,-0.1,22.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);              
+  
+  wire c1, c2, c3;
+  
+  full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+  full_adder FA5(sum[4], c1, in1[4], in2[4], cin);
+  full_adder FA6(sum[5], c2, in1[5], in2[5], c1);
+  full_adder FA7(sum[6], c3, in1[6], in2[6], c2);
+  full_adder FA8(sum[7], cout, in1[7], in2[7], c3);
+
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+  
+  wire xor1, and1, and2;
+  
+  xor(xor1, in1, in2);
+  xor(sum, xor1, cin);
+  and(and1, xor1, cin);
+  and(and2, in1, in2);
+  or(cout, and1, and2);
+
+endmodule"
+73.416,346.83,0.1,23.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+
+wire c1, c2, c3, c4, c5, c6, c7;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], c4, in1[3], in2[3], c3);
+full_adder FA5(sum[4], c5, in1[4], in2[4], c4);
+full_adder FA6(sum[5], c6, in1[5], in2[5], c5);
+full_adder FA7(sum[6], c7, in1[6], in2[6], c6);
+full_adder FA8(sum[7], cout, in1[7], in2[7], c7);
+
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+
+wire xor1, and1, and2;
+
+xor(xor1, in1, in2);
+xor(sum, xor1, cin);
+and(and1, xor1, cin);
+and(and2, in1, in2);
+or(cout, and1, and2);
+
+endmodule"
+N/A,N/A,-1,24.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    
+    wire [7:0] sum;
+    wire cout;
+    
+    wire [7:0] carry;
+    
+    full_adder_8 fa0(sum[0], carry[0], in1[0], in2[0], cin);
+    full_adder_8 fa1(sum[1], carry[1], in1[1], in2[1], carry[0]);
+    full_adder_8 fa2(sum[2], carry[2], in1[2], in2[2], carry[1]);
+    full_adder_8 fa3(sum[3], carry[3], in1[3], in2[3], carry[2]);
+    full_adder_8 fa4(sum[4], carry[4], in1[4], in2[4], carry[3]);
+    full_adder_8 fa5(sum[5], carry[5], in1[5], in2[5], carry[4]);
+    full_adder_8 fa6(sum[6], carry[6], in1[6], in2[6], carry[5]);
+    full_adder_8 fa7(sum[7], cout, in1[7], in2[7], carry[6]);
+endmodule
+
+module full_adder_8(output sum,
+                     output cout,
+                     input in1, in2, cin);
+    
+    wire [7:0] sum;
+    wire [7:0] carry;
+    
+    wire [7:0] in1_carry;
+    wire [7:0] in2_carry;
+    
+    assign in1_carry[0] = in1;
+    assign in2_carry[0] = in2;
+    
+    assign carry[0] = cin;
+    
+    assign in1_carry[1] = in1_carry[0] ^ carry[0];
+    assign in2_carry[1] = in2_carry[0] ^ carry[0];
+    
+    assign carry[1] = in1_carry[1] & in2_carry[1];
+    
+    assign in1_carry[2] = in1_carry[1] & carry[1];
+    assign in2_carry[2] = in2_carry[1] & carry[1];
+    
+    assign carry[2] = in1_carry[2] & in2_carry[2];
+    
+    assign in1_carry[3] = in1_carry[2] & carry[2];
+    assign in2_carry[3] = in2_carry[2] & carry[2];
+    
+    assign carry[3] = in1_carry[3] & in2_carry[3];
+    
+    assign in1_carry[4] = in1_carry[3] & carry[3];
+    assign in2_carry[4] = in2_carry[3] & carry[3];
+    
+    assign carry[4] = in1_carry[4] & in2_carry[4];
+    
+    assign in1_carry[5] = in1_carry[4] & carry[4];
+    assign in2_carry[5] = in2_carry[4] & carry[4];
+    
+    assign carry[5] = in1_carry[5] & in2_carry[5];
+    
+    assign in1_carry[6] = in1_carry[5] & carry[5];
+    assign in2_carry[6] = in2_carry[5] & carry[5];
+    
+    assign carry[6] = in1_carry[6] & in2_carry[6];
+    
+    assign in1_carry[7] = in1_carry[6] & carry[6];
+    assign in2_carry[7] = in2_carry[6] & carry[6];
+    
+    assign carry[7] = in1_carry[7] & in2_carry[7];
+    
+    assign sum = in1_carry[7] ^ carry[7];
+    assign cout = carry[7];
+endmodule"
+N/A,N/A,-1,25.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);              
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;"
+79.534,355.53,-0.010508029870541863,26.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+
+wire [7:0] carry;
+
+full_adder_8 FA1(sum[0], carry[0], in1[0], in2[0], cin);
+full_adder_8 FA2(sum[1], carry[1], in1[1], in2[1], carry[0]);
+full_adder_8 FA3(sum[2], carry[2], in1[2], in2[2], carry[1]);
+full_adder_8 FA4(sum[3], carry[3], in1[3], in2[3], carry[2]);
+full_adder_8 FA5(sum[4], carry[4], in1[4], in2[4], carry[3]);
+full_adder_8 FA6(sum[5], carry[5], in1[5], in2[5], carry[4]);
+full_adder_8 FA7(sum[6], carry[6], in1[6], in2[6], carry[5]);
+full_adder_8 FA8(sum[7], cout, in1[7], in2[7], carry[6]);
+
+endmodule
+
+module full_adder_8(output wire sum,
+                     output wire cout,
+                     input wire in1, in2,
+                     input wire cin);
+
+wire temp1;
+wire temp2;
+wire temp3;
+
+xor(sum, in1, in2, cin);
+and(temp1,in1,in2);
+and(temp2,in1,cin);
+and(temp3,in2,cin);
+or(cout,temp1,temp2,temp3);
+
+endmodule"
+N/A,N/A,-0.1,27.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+                      
+    wire [7:0] sum;
+    wire cout;
+    
+    wire [7:0] carry;
+    
+    full_adder_8 fa0(sum[0], carry[0], in1[0], in2[0], cin);
+    full_adder_8 fa1(sum[1], carry[1], in1[1], in2[1], carry[0]);
+    full_adder_8 fa2(sum[2], carry[2], in1[2], in2[2], carry[1]);
+    full_adder_8 fa3(sum[3], carry[3], in1[3], in2[3], carry[2]);
+    full_adder_8 fa4(sum[4], carry[4], in1[4], in2[4], carry[3]);
+    full_adder_8 fa5(sum[5], carry[5], in1[5], in2[5], carry[4]);
+    full_adder_8 fa6(sum[6], carry[6], in1[6], in2[6], carry[5]);
+    full_adder_8 fa7(sum[7], cout, in1[7], in2[7], carry[6]);
+endmodule
+
+module full_adder_8(output sum,
+                     output cout,
+                     input in1, in2, cin);
+                     
+    wire sum;
+    wire cout;
+    wire x;
+    wire y;
+    wire z;
+    
+    half_adder ha1(sum, x, in1, in2);
+    half_adder ha2(sum, cout, x, cin);
+    
+    assign y = in1 ^ in2;
+    assign z = in1 & in2;
+    
+    assign cout = (z & cin) | (y & cin);
+endmodule
+
+module half_adder(output sum,
+                  output cout,
+                  input in1, in2);
+                  
+    wire sum;
+    wire cout;
+    
+    assign sum = in1 ^ in2;
+    assign cout = in1 & in2;
+endmodule"
+73.416,346.83,0.1,28.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+
+wire c1, c2, c3, c4, c5, c6, c7;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], c4, in1[3], in2[3], c3);
+full_adder FA5(sum[4], c5, in1[4], in2[4], c4);
+full_adder FA6(sum[5], c6, in1[5], in2[5], c5);
+full_adder FA7(sum[6], c7, in1[6], in2[6], c6);
+full_adder FA8(sum[7], cout, in1[7], in2[7], c7);
+
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+
+wire xor1, and1, and2;
+
+xor(xor1, in1, in2);
+xor(sum, xor1, cin);
+and(and1, xor1, cin);
+and(and2, in1, in2);
+or(cout, and1, and2);
+
+endmodule"
+79.534,355.53,-0.010508029870541863,29.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+
+wire [7:0] carry;
+
+full_adder_8 FA1(sum[0], carry[0], in1[0], in2[0], cin);
+full_adder_8 FA2(sum[1], carry[1], in1[1], in2[1], carry[0]);
+full_adder_8 FA3(sum[2], carry[2], in1[2], in2[2], carry[1]);
+full_adder_8 FA4(sum[3], carry[3], in1[3], in2[3], carry[2]);
+full_adder_8 FA5(sum[4], carry[4], in1[4], in2[4], carry[3]);
+full_adder_8 FA6(sum[5], carry[5], in1[5], in2[5], carry[4]);
+full_adder_8 FA7(sum[6], carry[6], in1[6], in2[6], carry[5]);
+full_adder_8 FA8(sum[7], cout, in1[7], in2[7], carry[6]);
+
+endmodule
+
+module full_adder_8(output wire sum,
+                     output wire cout,
+                     input wire in1, in2,
+                     input wire cin);
+
+wire temp1;
+wire temp2;
+wire temp3;
+
+xor(sum, in1, in2, cin);
+and(temp1,in1,in2);
+and(temp2,in1,cin);
+and(temp3,in2,cin);
+or(cout,temp1,temp2,temp3);
+
+endmodule"
+79.534,345.76,0.02000884198790956,30.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+
+assign {cout, sum} = in1 + in2 + cin;
+
+endmodule"
+75.012,335.39,0.11196238227223212,31.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+        wire [7:0] sum;
+        wire cout;
+        wire [7:0] in1;
+        wire [7:0] in2;
+        wire cin;
+        
+        full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+        full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+        full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+        full_adder FA4(sum[3], c4, in1[3], in2[3], c3);
+        full_adder FA5(sum[4], c5, in1[4], in2[4], c4);
+        full_adder FA6(sum[5], c6, in1[5], in2[5], c5);
+        full_adder FA7(sum[6], c7, in1[6], in2[6], c6);
+        full_adder FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+        wire sum;
+        wire cout;
+        wire in1;
+        wire in2;
+        wire cin;
+        
+        assign sum = in1 ^ in2 ^ cin;
+        assign cout = (in1 & in2) | (in1 & cin) | (in2 & cin);
+endmodule"
+73.416,346.83,0.1,32.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+
+wire c1, c2, c3, c4, c5, c6, c7;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], c4, in1[3], in2[3], c3);
+full_adder FA5(sum[4], c5, in1[4], in2[4], c4);
+full_adder FA6(sum[5], c6, in1[5], in2[5], c5);
+full_adder FA7(sum[6], c7, in1[6], in2[6], c6);
+full_adder FA8(sum[7], cout, in1[7], in2[7], c7);
+
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+
+wire xor1, and1, and2;
+
+xor(xor1, in1, in2);
+xor(sum, xor1, cin);
+and(and1, xor1, cin);
+and(and2, in1, in2);
+or(cout, and1, and2);
+
+endmodule"
+73.416,346.83,0.1,33.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+
+wire c1, c2, c3, c4, c5, c6, c7;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], c4, in1[3], in2[3], c3);
+full_adder FA5(sum[4], c5, in1[4], in2[4], c4);
+full_adder FA6(sum[5], c6, in1[5], in2[5], c5);
+full_adder FA7(sum[6], c7, in1[6], in2[6], c6);
+full_adder FA8(sum[7], cout, in1[7], in2[7], c7);
+
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+
+wire xor1, and1, and2;
+
+xor(xor1, in1, in2);
+xor(sum, xor1, cin);
+and(and1, xor1, cin);
+and(and2, in1, in2);
+or(cout, and1, and2);
+
+endmodule"
+N/A,N/A,-1,34.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+
+  wire [7:0] sum;
+  wire cout;
+  wire [7:0] in1;
+  wire [7:0] in2;
+  wire cin;
+
+  wire [7:0] sum;
+  wire cout;
+  wire [7:0] in1;
+  wire [7:0] in2;
+  wire cin;
+
+  assign sum = in1 + in2 + cin;
+  assign cout = (in1[7] == in2[7])? (in1[7] == sum[7])? 1'b1 : 1'b0 : 1'b1;
+
+endmodule"
+N/A,N/A,-0.1,35.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  
+  wire c1, c2, c3;
+  
+  full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+  
+  
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1, in2, cin);
+  
+  wire x, y, z;
+  
+  xor(sum, in1, in2, cin);
+  and(x, in1, in2);
+  and(y, in1, cin);
+  and(z, in2, cin);
+  or(cout, x, y, z);
+  
+endmodule"
+79.534,355.53,-0.010508029870541863,36.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+
+wire [7:0] carry;
+
+full_adder_8 FA1(sum[0], carry[0], in1[0], in2[0], cin);
+full_adder_8 FA2(sum[1], carry[1], in1[1], in2[1], carry[0]);
+full_adder_8 FA3(sum[2], carry[2], in1[2], in2[2], carry[1]);
+full_adder_8 FA4(sum[3], carry[3], in1[3], in2[3], carry[2]);
+full_adder_8 FA5(sum[4], carry[4], in1[4], in2[4], carry[3]);
+full_adder_8 FA6(sum[5], carry[5], in1[5], in2[5], carry[4]);
+full_adder_8 FA7(sum[6], carry[6], in1[6], in2[6], carry[5]);
+full_adder_8 FA8(sum[7], cout, in1[7], in2[7], carry[6]);
+
+endmodule
+
+module full_adder_8(output wire sum,
+                     output wire cout,
+                     input wire in1, in2,
+                     input wire cin);
+
+wire temp1;
+wire temp2;
+wire temp3;
+
+xor(sum, in1, in2, cin);
+and(temp1,in1,in2);
+and(temp2,in1,cin);
+and(temp3,in2,cin);
+or(cout,temp1,temp2,temp3);
+
+endmodule"
+N/A,N/A,-0.1,37.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+ 
+  wire c1, c2, c3;
+  
+  full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+  full_adder FA5(sum[4], c1, in1[4], in2[4], cin);
+  full_adder FA6(sum[5], c2, in1[5], in2[5], c1);
+  full_adder FA7(sum[6], c3, in1[6], in2[6], c2);
+  full_adder FA8(sum[7], cout, in1[7], in2[7], c3);
+
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+ 
+  wire xor1, and1, and2;
+  
+  xor(xor1, in1, in2);
+  xor(sum, xor1, cin);
+  and(and1, xor1, cin);
+  and(and2, in1, in2);
+  or(cout, and1, and2);
+
+endmodule"
+75.012,335.39,0.11196238227223212,38.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+        wire [7:0] sum;
+        wire cout;
+        wire [7:0] in1;
+        wire [7:0] in2;
+        wire cin;
+        
+        full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+        full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+        full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+        full_adder FA4(sum[3], c4, in1[3], in2[3], c3);
+        full_adder FA5(sum[4], c5, in1[4], in2[4], c4);
+        full_adder FA6(sum[5], c6, in1[5], in2[5], c5);
+        full_adder FA7(sum[6], c7, in1[6], in2[6], c6);
+        full_adder FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+        wire sum;
+        wire cout;
+        wire in1;
+        wire in2;
+        wire cin;
+        
+        assign sum = in1 ^ in2 ^ cin;
+        assign cout = (in1 & in2) | (in1 & cin) | (in2 & cin);
+endmodule"
+N/A,N/A,-0.1,39.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+
+endmodule"
+N/A,N/A,-0.1,40.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+      wire c1, c2, c3;
+      full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+      full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+      full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+      full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+      wire x, y, z;
+      xor(sum, in1, in2, cin);
+      and(w1, in1, in2);
+      and(w2, in1, cin);
+      and(w3, in2, cin);
+      or(cout, w1, w2, w3);
+endmodule"
+79.534,345.76,0.02000884198790956,41.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+N/A,N/A,-0.1,42.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+   wire c1, c2, c3;
+   full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+   full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+   full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+   full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+   full_adder FA5(sum[4], c4, in1[4], in2[4], c3);
+   full_adder FA6(sum[5], c5, in1[5], in2[5], c4);
+   full_adder FA7(sum[6], c6, in1[6], in2[6], c5);
+   full_adder FA8(sum[7], cout, in1[7], in2[7], c6);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+   wire x, y, z;
+   xor3 X1(x, in1, in2);
+   xor2 X2(sum, x, cin);
+   and2 X3(y, x, in2);
+   and2 X4(z, in1, in2);
+   or2 X5(cout, y, z);
+endmodule
+
+module xor3(output wire z,
+            input wire w,
+            input wire x);
+   assign z = w ^ x ^ x;
+endmodule
+
+module xor2(output wire z,
+            input wire w,
+            input wire x);
+   assign z = w ^ x;
+endmodule
+
+module and2(output wire z,
+            input wire w,
+            input wire x);
+   assign z = w & x;
+endmodule
+
+module or2(output wire z,
+           input wire w,
+           input wire x);
+   assign z = w | x;
+endmodule"
+73.416,346.83,0.1,43.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+
+wire c1, c2, c3, c4, c5, c6, c7;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], c4, in1[3], in2[3], c3);
+full_adder FA5(sum[4], c5, in1[4], in2[4], c4);
+full_adder FA6(sum[5], c6, in1[5], in2[5], c5);
+full_adder FA7(sum[6], c7, in1[6], in2[6], c6);
+full_adder FA8(sum[7], cout, in1[7], in2[7], c7);
+
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+
+wire xor1, and1, and2;
+
+xor(xor1, in1, in2);
+xor(sum, xor1, cin);
+and(and1, xor1, cin);
+and(and2, in1, in2);
+or(cout, and1, and2);
+
+endmodule"
+N/A,N/A,-0.1,44.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  
+  wire c1, c2, c3;
+  
+  full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+  
+  
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1, in2, cin);
+  
+  wire x, y, z;
+  
+  xor(sum, in1, in2, cin);
+  and(x, in1, in2);
+  and(y, in1, cin);
+  and(z, in2, cin);
+  or(cout, x, y, z);
+  
+endmodule"
+75.012,335.39,0.11196238227223212,45.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+        wire [7:0] sum;
+        wire cout;
+        wire [7:0] in1;
+        wire [7:0] in2;
+        wire cin;
+        
+        full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+        full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+        full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+        full_adder FA4(sum[3], c4, in1[3], in2[3], c3);
+        full_adder FA5(sum[4], c5, in1[4], in2[4], c4);
+        full_adder FA6(sum[5], c6, in1[5], in2[5], c5);
+        full_adder FA7(sum[6], c7, in1[6], in2[6], c6);
+        full_adder FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+        wire sum;
+        wire cout;
+        wire in1;
+        wire in2;
+        wire cin;
+        
+        assign sum = in1 ^ in2 ^ cin;
+        assign cout = (in1 & in2) | (in1 & cin) | (in2 & cin);
+endmodule"
+73.416,346.83,0.1,46.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+
+wire c1, c2, c3, c4, c5, c6, c7;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], c4, in1[3], in2[3], c3);
+full_adder FA5(sum[4], c5, in1[4], in2[4], c4);
+full_adder FA6(sum[5], c6, in1[5], in2[5], c5);
+full_adder FA7(sum[6], c7, in1[6], in2[6], c6);
+full_adder FA8(sum[7], cout, in1[7], in2[7], c7);
+
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+
+wire xor1, and1, and2;
+
+xor(xor1, in1, in2);
+xor(sum, xor1, cin);
+and(and1, xor1, cin);
+and(and2, in1, in2);
+or(cout, and1, and2);
+
+endmodule"
+79.534,355.53,-0.010508029870541863,47.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+
+wire [7:0] carry;
+
+full_adder_8 FA1(sum[0], carry[0], in1[0], in2[0], cin);
+full_adder_8 FA2(sum[1], carry[1], in1[1], in2[1], carry[0]);
+full_adder_8 FA3(sum[2], carry[2], in1[2], in2[2], carry[1]);
+full_adder_8 FA4(sum[3], carry[3], in1[3], in2[3], carry[2]);
+full_adder_8 FA5(sum[4], carry[4], in1[4], in2[4], carry[3]);
+full_adder_8 FA6(sum[5], carry[5], in1[5], in2[5], carry[4]);
+full_adder_8 FA7(sum[6], carry[6], in1[6], in2[6], carry[5]);
+full_adder_8 FA8(sum[7], cout, in1[7], in2[7], carry[6]);
+
+endmodule
+
+module full_adder_8(output wire sum,
+                     output wire cout,
+                     input wire in1, in2,
+                     input wire cin);
+
+wire temp1;
+wire temp2;
+wire temp3;
+
+xor(sum, in1, in2, cin);
+and(temp1,in1,in2);
+and(temp2,in1,cin);
+and(temp3,in2,cin);
+or(cout,temp1,temp2,temp3);
+
+endmodule"
+73.416,346.83,0.1,48.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+                          
+  wire c1, c2, c3, c4, c5, c6, c7;
+  
+  full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+  wire a, b, c;
+  xor(a, in1, in2);
+  xor(sum, a, cin);
+  and(b, a, cin);
+  and(c, in1, in2);
+  or(cout, b, c);
+endmodule"
+N/A,N/A,-0.1,49.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+	wire [7:0] carry;
+	full_adder_8 fa0(sum[0], carry[0], in1[0], in2[0], cin);
+	full_adder_8 fa1(sum[1], carry[1], in1[1], in2[1], carry[0]);
+	full_adder_8 fa2(sum[2], carry[2], in1[2], in2[2], carry[1]);
+	full_adder_8 fa3(sum[3], carry[3], in1[3], in2[3], carry[2]);
+	full_adder_8 fa4(sum[4], carry[4], in1[4], in2[4], carry[3]);
+	full_adder_8 fa5(sum[5], carry[5], in1[5], in2[5], carry[4]);
+	full_adder_8 fa6(sum[6], carry[6], in1[6], in2[6], carry[5]);
+	full_adder_8 fa7(sum[7], cout, in1[7], in2[7], carry[6]);
+endmodule
+
+module full_adder_8(output sum,
+                     output cout,
+                     input in1, in2, cin);
+	wire a, b, c, d, e, f, g;
+	xor(a, in1, in2);
+	xor(sum, a, cin);
+	and(b, a, cin);
+	and(c, in1, in2);
+	and(d, in1, in2);
+	and(e, in1, cin);
+	and(f, in2, cin);
+	or(cout, b, c);
+	or(c, d, e);
+	or(cout, c, f);
+endmodule"
+73.416,346.83,0.1,50.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+    
+    full_adder_8 FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder_8 FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder_8 FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder_8 FA4(sum[3], c4, in1[3], in2[3], c3);
+    full_adder_8 FA5(sum[4], c5, in1[4], in2[4], c4);
+    full_adder_8 FA6(sum[5], c6, in1[5], in2[5], c5);
+    full_adder_8 FA7(sum[6], c7, in1[6], in2[6], c6);
+    full_adder_8 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module full_adder_8(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+    wire w1, w2, w3;
+    xor(w1, in1, in2);
+    xor(sum, w1, cin);
+    and(w2, w1, cin);
+    and(w3, in1, in2);
+    or(cout, w2, w3);
+endmodule"
+73.416,346.83,0.1,51.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+        
+        wire [7:0] carry;
+        
+        full_adder_1bit fa1(sum[0], carry[0], in1[0], in2[0], cin);
+        full_adder_1bit fa2(sum[1], carry[1], in1[1], in2[1], carry[0]);
+        full_adder_1bit fa3(sum[2], carry[2], in1[2], in2[2], carry[1]);
+        full_adder_1bit fa4(sum[3], carry[3], in1[3], in2[3], carry[2]);
+        full_adder_1bit fa5(sum[4], carry[4], in1[4], in2[4], carry[3]);
+        full_adder_1bit fa6(sum[5], carry[5], in1[5], in2[5], carry[4]);
+        full_adder_1bit fa7(sum[6], carry[6], in1[6], in2[6], carry[5]);
+        full_adder_1bit fa8(sum[7], cout, in1[7], in2[7], carry[6]);
+        
+endmodule
+
+module full_adder_1bit(output sum,
+                        output cout,
+                        input in1, in2, cin);
+        
+        wire xor1, and1, and2;
+        
+        xor(xor1, in1, in2);
+        xor(sum, xor1, cin);
+        and(and1, xor1, cin);
+        and(and2, in1, in2);
+        or(cout, and1, and2);
+        
+endmodule"
+79.534,345.76,0.02000884198790956,52.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+73.416,346.83,0.1,53.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);              
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+    
+    full_adder_8 FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder_8 FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder_8 FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder_8 FA4(sum[3], c4, in1[3], in2[3], c3);
+    full_adder_8 FA5(sum[4], c5, in1[4], in2[4], c4);
+    full_adder_8 FA6(sum[5], c6, in1[5], in2[5], c5);
+    full_adder_8 FA7(sum[6], c7, in1[6], in2[6], c6);
+    full_adder_8 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module full_adder_8(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+    wire w1, w2, w3;
+    xor(w1, in1, in2);
+    xor(sum, w1, cin);
+    and(w2, w1, cin);
+    and(w3, in1, in2);
+    or(cout, w2, w3);
+endmodule"
+73.416,346.83,0.1,54.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);              
+
+wire c1, c2, c3, c4, c5, c6, c7;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], c4, in1[3], in2[3], c3);
+full_adder FA5(sum[4], c5, in1[4], in2[4], c4);
+full_adder FA6(sum[5], c6, in1[5], in2[5], c5);
+full_adder FA7(sum[6], c7, in1[6], in2[6], c6);
+full_adder FA8(sum[7], cout, in1[7], in2[7], c7);
+
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+
+wire xor1, and1, and2;
+
+xor(xor1, in1, in2);
+xor(sum, xor1, cin);
+and(and1, xor1, cin);
+and(and2, in1, in2);
+or(cout, and1, and2);
+
+endmodule"
+N/A,N/A,-0.1,55.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);              
+    
+    wire [7:0] sum;
+    wire cout;
+    
+    wire [7:0] carry;
+    
+    full_adder_8 fa0(sum[0], carry[0], in1[0], in2[0], cin);
+    full_adder_8 fa1(sum[1], carry[1], in1[1], in2[1], carry[0]);
+    full_adder_8 fa2(sum[2], carry[2], in1[2], in2[2], carry[1]);
+    full_adder_8 fa3(sum[3], carry[3], in1[3], in2[3], carry[2]);
+    full_adder_8 fa4(sum[4], carry[4], in1[4], in2[4], carry[3]);
+    full_adder_8 fa5(sum[5], carry[5], in1[5], in2[5], carry[4]);
+    full_adder_8 fa6(sum[6], carry[6], in1[6], in2[6], carry[5]);
+    full_adder_8 fa7(sum[7], cout, in1[7], in2[7], carry[6]);
+endmodule
+
+module full_adder_8(output sum,
+                     output cout,
+                     input in1, in2, cin);
+    
+    wire sum;
+    wire cout;
+    
+    wire xor1;
+    wire and1;
+    wire and2;
+    
+    xor(xor1, in1, in2);
+    and(and1, in1, in2);
+    and(and2, in1, cin);
+    or(sum, xor1, and1);
+    
+    assign cout = and2;
+endmodule"
+79.534,345.76,0.02000884198790956,56.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+79.534,355.53,-0.010508029870541863,57.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+
+wire c1,c2,c3,c4,c5,c6,c7;
+
+full_adder FA1(sum[0],c1,in1[0],in2[0],cin);
+full_adder FA2(sum[1],c2,in1[1],in2[1],c1);
+full_adder FA3(sum[2],c3,in1[2],in2[2],c2);
+full_adder FA4(sum[3],c4,in1[3],in2[3],c3);
+full_adder FA5(sum[4],c5,in1[4],in2[4],c4);
+full_adder FA6(sum[5],c6,in1[5],in2[5],c5);
+full_adder FA7(sum[6],c7,in1[6],in2[6],c6);
+full_adder FA8(sum[7],cout,in1[7],in2[7],c7);
+
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+
+wire x,y,z;
+
+xor(sum,in1,in2,cin);
+and(x,in1,in2);
+and(y,in1,cin);
+and(z,in2,cin);
+or(cout,x,y,z);
+
+endmodule"
+73.416,346.83,0.1,58.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1, c2, c3, c4, c5, c6, c7;
+  wire [7:0] sum;
+  
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule"
+79.534,355.53,-0.010508029870541863,59.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+
+wire [7:0] carry;
+
+full_adder_8 FA1(sum[0], carry[0], in1[0], in2[0], cin);
+full_adder_8 FA2(sum[1], carry[1], in1[1], in2[1], carry[0]);
+full_adder_8 FA3(sum[2], carry[2], in1[2], in2[2], carry[1]);
+full_adder_8 FA4(sum[3], carry[3], in1[3], in2[3], carry[2]);
+full_adder_8 FA5(sum[4], carry[4], in1[4], in2[4], carry[3]);
+full_adder_8 FA6(sum[5], carry[5], in1[5], in2[5], carry[4]);
+full_adder_8 FA7(sum[6], carry[6], in1[6], in2[6], carry[5]);
+full_adder_8 FA8(sum[7], cout, in1[7], in2[7], carry[6]);
+
+endmodule
+
+module full_adder_8(output wire sum,
+                     output wire cout,
+                     input wire in1, in2,
+                     input wire cin);
+
+wire temp1;
+wire temp2;
+wire temp3;
+
+xor(sum, in1, in2, cin);
+and(temp1,in1,in2);
+and(temp2,in1,cin);
+and(temp3,in2,cin);
+or(cout,temp1,temp2,temp3);
+
+endmodule"
+73.416,346.83,0.1,60.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1, c2, c3, c4, c5, c6, c7;
+  wire [7:0] sum;
+  
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule"
+N/A,N/A,-0.1,61.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire c1, c2, c3;
+    full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+    wire x, y, z;
+    xor(sum, in1, in2, cin);
+    and(w1, in1, in2);
+    and(w2, in1, cin);
+    and(w3, in2, cin);
+    or(cout, w1, w2, w3);
+endmodule"
+73.416,346.83,0.1,62.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  full_adder FA0(sum[0], c1, in1[0], in2[0], cin);
+  full_adder FA1(sum[1], c2, in1[1], in2[1], c1);
+  full_adder FA2(sum[2], c3, in1[2], in2[2], c2);
+  full_adder FA3(sum[3], c4, in1[3], in2[3], c3);
+  full_adder FA4(sum[4], c5, in1[4], in2[4], c4);
+  full_adder FA5(sum[5], c6, in1[5], in2[5], c5);
+  full_adder FA6(sum[6], c7, in1[6], in2[6], c6);
+  full_adder FA7(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+  wire a,b,c;
+  xor(a,in1,in2);
+  xor(sum,a,cin);
+  and(b,a,cin);
+  and(c,in1,in2);
+  or(cout,b,c);
+endmodule"
+69.16,317.51,0.2376074065438233,63.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+        wire c1, c2, c3;
+        full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+        full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+        full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+        full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+        full_adder FA5(sum[4], c4, in1[4], in2[4], c3);
+        full_adder FA6(sum[5], c5, in1[5], in2[5], c4);
+        full_adder FA7(sum[6], c6, in1[6], in2[6], c5);
+        full_adder FA8(sum[7], cout, in1[7], in2[7], c6);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+        wire xor1, and1, and2;
+        xor(xor1, in1, in2);
+        xor(sum, xor1, cin);
+        and(and1, xor1, cin);
+        and(and2, in1, in2);
+        or(cout, and1, and2);
+endmodule"
+75.012,335.39,0.11196238227223212,64.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+        wire [7:0] sum;
+        wire cout;
+        wire [7:0] in1;
+        wire [7:0] in2;
+        wire cin;
+        
+        full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+        full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+        full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+        full_adder FA4(sum[3], c4, in1[3], in2[3], c3);
+        full_adder FA5(sum[4], c5, in1[4], in2[4], c4);
+        full_adder FA6(sum[5], c6, in1[5], in2[5], c5);
+        full_adder FA7(sum[6], c7, in1[6], in2[6], c6);
+        full_adder FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+        wire sum;
+        wire cout;
+        wire in1;
+        wire in2;
+        wire cin;
+        
+        assign sum = in1 ^ in2 ^ cin;
+        assign cout = (in1 & in2) | (in1 & cin) | (in2 & cin);
+endmodule"
+73.416,346.83,0.1,65.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+        
+        wire [7:0] carry;
+        
+        full_adder_1bit fa1(sum[0], carry[0], in1[0], in2[0], cin);
+        full_adder_1bit fa2(sum[1], carry[1], in1[1], in2[1], carry[0]);
+        full_adder_1bit fa3(sum[2], carry[2], in1[2], in2[2], carry[1]);
+        full_adder_1bit fa4(sum[3], carry[3], in1[3], in2[3], carry[2]);
+        full_adder_1bit fa5(sum[4], carry[4], in1[4], in2[4], carry[3]);
+        full_adder_1bit fa6(sum[5], carry[5], in1[5], in2[5], carry[4]);
+        full_adder_1bit fa7(sum[6], carry[6], in1[6], in2[6], carry[5]);
+        full_adder_1bit fa8(sum[7], cout, in1[7], in2[7], carry[6]);
+        
+endmodule
+
+module full_adder_1bit(output sum,
+                        output cout,
+                        input in1, in2, cin);
+        
+        wire xor1, and1, and2;
+        
+        xor(xor1, in1, in2);
+        xor(sum, xor1, cin);
+        and(and1, xor1, cin);
+        and(and2, in1, in2);
+        or(cout, and1, and2);
+        
+endmodule"
+73.416,346.83,0.1,66.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1, c2, c3, c4, c5, c6, c7;
+  wire [7:0] sum;
+  
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule"
+N/A,N/A,-1,67.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;"
+79.534,345.76,0.02000884198790956,68.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+        assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+73.416,346.83,0.1,69.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1, c2, c3, c4, c5, c6, c7;
+  wire [7:0] sum;
+  
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule"
+N/A,N/A,-0.1,70.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+                      
+    wire [7:0] sum;
+    wire cout;
+    
+    wire [7:0] carry;
+    
+    full_adder_8 fa0(sum[0], carry[0], in1[0], in2[0], cin);
+    full_adder_8 fa1(sum[1], carry[1], in1[1], in2[1], carry[0]);
+    full_adder_8 fa2(sum[2], carry[2], in1[2], in2[2], carry[1]);
+    full_adder_8 fa3(sum[3], carry[3], in1[3], in2[3], carry[2]);
+    full_adder_8 fa4(sum[4], carry[4], in1[4], in2[4], carry[3]);
+    full_adder_8 fa5(sum[5], carry[5], in1[5], in2[5], carry[4]);
+    full_adder_8 fa6(sum[6], carry[6], in1[6], in2[6], carry[5]);
+    full_adder_8 fa7(sum[7], cout, in1[7], in2[7], carry[6]);
+endmodule
+
+module full_adder_8(output sum,
+                     output cout,
+                     input in1, in2, cin);
+                     
+    wire sum;
+    wire cout;
+    wire x;
+    wire y;
+    wire z;
+    
+    half_adder ha1(sum, x, in1, in2);
+    half_adder ha2(sum, cout, x, cin);
+    
+    assign y = in1 ^ in2;
+    assign z = in1 & in2;
+    
+    assign cout = (z & cin) | (y & cin);
+endmodule
+
+module half_adder(output sum,
+                  output cout,
+                  input in1, in2);
+                  
+    wire sum;
+    wire cout;
+    
+    assign sum = in1 ^ in2;
+    assign cout = in1 & in2;
+endmodule"
+73.416,346.83,0.1,71.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);              
+  wire c1, c2, c3, c4, c5, c6, c7;
+  wire [7:0] sum;
+  
+  full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+  wire a, b, c;
+  xor(a, in1, in2);
+  xor(sum, a, cin);
+  and(b, a, cin);
+  and(c, in1, in2);
+  or(cout, b, c);
+endmodule"
+N/A,N/A,-0.1,72.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);              
+                      
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+    
+    assign sum = in1 + in2 + cin;
+    assign cout = (in1[7] == in2[7])? (in1[7] == sum[7])? 1'b1 : 1'b0 : 1'b1;
+endmodule"
+73.416,346.83,0.1,73.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire c1, c2, c3, c4, c5, c6, c7;
+  wire [7:0] sum;
+  
+  full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder_1 FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder_1 FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder_1 FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder_1 FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder_1 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module full_adder_1(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+  wire t1, t2, t3;
+  xor(t1, in1, in2);
+  xor(sum, t1, cin);
+  and(t2, t1, cin);
+  and(t3, in1, in2);
+  or(cout, t2, t3);
+endmodule"
+79.534,345.76,0.02000884198790956,74.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+
+assign {cout, sum} = in1 + in2 + cin;
+
+endmodule"
+N/A,N/A,-1,75.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+  wire [7:0] sum;
+  wire cout;
+  wire [7:0] in1;
+  wire [7:0] in2;
+  wire cin;
+  wire [7:0] carry;
+  
+  assign carry[0] = cin;
+  
+  genvar i;
+  generate
+    for(i=0; i<8; i=i+1)
+      begin: adder_loop
+        if(i==0)
+          full_adder fa(sum[i], carry[i+1], in1[i], in2[i], carry[i]);
+        else
+          full_adder fa(sum[i], carry[i+1], in1[i], in2[i], carry[i]);
+      end
+    assign cout = carry[8];
+  endgenerate
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1, in2, cin);
+  wire a, b, c;
+  xor(a, in1, in2);
+  xor(sum, a, cin);
+  and(b, a, cin);
+  and(c, in1, in2);
+  or(cout, b, c);
+endmodule"
+N/A,N/A,-0.1,76.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);              
+  wire [7:0] sum;
+  wire cout;
+  wire [7:0] in1;
+  wire [7:0] in2;
+  wire cin;
+  
+  adder_4 adder_4_1(sum[3:0], cout, in1[3:0], in2[3:0], cin);
+  adder_4 adder_4_2(sum[7:4], cout, in1[7:4], in2[7:4], cout);
+endmodule
+
+module adder_4(output [3:0] sum,
+                      output cout,
+                      input [3:0] in1, in2,
+                      input cin);              
+  wire [3:0] sum;
+  wire cout;
+  wire [3:0] in1;
+  wire [3:0] in2;
+  wire cin;
+  
+  adder_2 adder_2_1(sum[1:0], cout, in1[1:0], in2[1:0], cin);
+  adder_2 adder_2_2(sum[3:2], cout, in1[3:2], in2[3:2], cout);
+endmodule
+
+module adder_2(output [1:0] sum,
+                      output cout,
+                      input [1:0] in1, in2,
+                      input cin);              
+  wire [1:0] sum;
+  wire cout;
+  wire [1:0] in1;
+  wire [1:0] in2;
+  wire cin;
+  
+  adder_1 adder_1_1(sum[0], cout, in1[0], in2[0], cin);
+  adder_1 adder_1_2(sum[1], cout, in1[1], in2[1], cout);
+endmodule
+
+module adder_1(output sum,
+                      output cout,
+                      input in1, in2,
+                      input cin);              
+  wire sum;
+  wire cout;
+  wire in1;
+  wire in2;
+  wire cin;
+  
+  xor(sum, in1, in2, cin);
+  and(cout, in1, in2);
+endmodule"
+73.416,346.83,0.1,77.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+                          
+  wire c1, c2, c3, c4, c5, c6, c7;
+  
+  full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+  wire a, b, c;
+  xor(a, in1, in2);
+  xor(sum, a, cin);
+  and(b, a, cin);
+  and(c, in1, in2);
+  or(cout, b, c);
+endmodule"
+73.416,346.83,0.1,78.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+    
+    full_adder_8 FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder_8 FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder_8 FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder_8 FA4(sum[3], c4, in1[3], in2[3], c3);
+    full_adder_8 FA5(sum[4], c5, in1[4], in2[4], c4);
+    full_adder_8 FA6(sum[5], c6, in1[5], in2[5], c5);
+    full_adder_8 FA7(sum[6], c7, in1[6], in2[6], c6);
+    full_adder_8 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module full_adder_8(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+    wire w1, w2, w3;
+    xor(w1, in1, in2);
+    xor(sum, w1, cin);
+    and(w2, w1, cin);
+    and(w3, in1, in2);
+    or(cout, w2, w3);
+endmodule"
+N/A,N/A,-1,79.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+
+wire c1;
+wire [7:0] sum1;
+wire [7:0] sum2;
+wire [7:0] sum3;
+wire [7:0] sum4;
+wire [7:0] sum5;
+wire [7:0] sum6;
+wire [7:0] sum7;
+
+assign c1 = cin;
+
+full_adder_1 add1(sum1[0], c1, in1[0], in2[0], cin);
+full_adder_1 add2(sum1[1], c1, in1[1], in2[1], c1);
+full_adder_1 add3(sum1[2], c1, in1[2], in2[2], c1);
+full_adder_1 add4(sum1[3], c1, in1[3], in2[3], c1);
+full_adder_1 add5(sum1[4], c1, in1[4], in2[4], c1);
+full_adder_1 add6(sum1[5], c1, in1[5], in2[5], c1);
+full_adder_1 add7(sum1[6], c1, in1[6], in2[6], c1);
+full_adder_1 add8(sum1[7], c1, in1[7], in2[7], c1);
+
+full_adder_1 add9(sum2[0], c1, in1[0], in2[0], 1'b0);
+full_adder_1 add10(sum2[1], c1, in1[1], in2[1], 1'b0);
+full_adder_1 add11(sum2[2], c1, in1[2], in2[2], 1'b0);
+full_adder_1 add12(sum2[3], c1, in1[3], in2[3], 1'b0);
+full_adder_1 add13(sum2[4], c1, in1[4], in2[4], 1'b0);
+full_adder_1 add14(sum2[5], c1, in1[5], in2[5], 1'b0);
+full_adder_1 add15(sum2[6], c1, in1[6], in2[6], 1'b0);
+full_adder_1 add16(sum2[7], c1, in1[7], in2[7], 1'b0);
+
+full_adder_1 add17(sum3[0], c2, in1[0], in2[0], c1);
+full_adder_1 add18(sum3[1], c2, in1[1], in2[1], c1);
+full_adder_1 add19(sum3[2], c2, in1[2], in2[2], c1);
+full_adder_1 add20(sum3[3], c2, in1[3], in2[3], c1);
+full_adder_1 add21(sum3[4], c2, in1[4], in2[4], c1);
+full_adder_1 add22(sum3[5], c2, in1[5], in2[5], c1);
+full_adder_1 add23(sum3[6], c2, in1[6], in2[6], c1);
+full_adder_1 add24(sum3[7], c2, in1[7], in2[7], c1);
+
+full_adder_1 add25(sum4[0], c2, in1[0], in2[0], 1'b1);
+full_adder_1 add26(sum4[1], c2, in1[1], in2[1], 1'b1);
+full_adder_1 add27(sum4[2], c2, in1[2], in2[2], 1'b1);
+full_adder_1 add28(sum4[3], c2, in1[3], in2[3], 1'b1);
+full_adder_1 add29(sum4[4], c2, in1[4], in2[4], 1'b1);
+full_adder_1 add30(sum4[5], c2, in1[5], in2[5], 1'b1);
+full_adder_1 add31(sum4[6], c2, in1[6], in2[6], 1'b1);
+full_adder_1 add32(sum4[7], c2, in1[7], in2[7], 1'b1);
+
+full_adder_1 add33(sum5[0], c3, in1[0], in2[0], 1'b0);
+full_adder_1 add34(sum5[1], c3, in1[1], in2[1], 1'b0);
+full_adder_1 add35(sum5[2], c3, in1[2], in2[2], 1'b0);
+full_adder_1 add36(sum5[3], c3, in1[3], in2[3], 1'b0);
+full_adder_1 add37(sum5[4], c3, in1[4], in2[4], 1'b0);
+full_adder_1 add38(sum5[5], c3, in1[5], in2[5], 1'b0);
+full_adder_1 add39(sum5[6], c3, in1[6], in2[6], 1'b0);
+full_adder_1 add40(sum5[7], c3, in1[7], in2[7], 1'b0);
+
+full_adder_1 add41(sum6[0], c3, in1[0], in2[0], 1'b1);
+full_adder_1 add42(sum6[1], c3, in1[1], in2[1], 1'b1);
+full_adder_1 add43(sum6[2], c3, in1[2], in2[2], 1'b1);
+full_adder_1 add44(sum6[3], c3, in1[3], in2[3], 1'b1);
+full_adder_1 add45(sum6[4], c3, in1[4], in2[4], 1'b1);"
+N/A,N/A,-0.1,80.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);              
+      wire [7:0] sum;
+      wire cout;
+      wire [7:0] in1;
+      wire [7:0] in2;
+      wire cin;
+      
+      adder_4 adder_4_1(sum[3:0], cout, in1[3:0], in2[3:0], cin);
+      adder_4 adder_4_2(sum[7:4], cout, in1[7:4], in2[7:4], cout);
+      
+endmodule
+
+module adder_4(output [3:0] sum,
+                      output cout,
+                      input [3:0] in1, in2,
+                      input cin);              
+      wire [3:0] sum;
+      wire cout;
+      wire [3:0] in1;
+      wire [3:0] in2;
+      wire cin;
+      
+      adder_2 adder_2_1(sum[1:0], cout, in1[1:0], in2[1:0], cin);
+      adder_2 adder_2_2(sum[3:2], cout, in1[3:2], in2[3:2], cout);
+      
+endmodule
+
+module adder_2(output [1:0] sum,
+                      output cout,
+                      input [1:0] in1, in2,
+                      input cin);              
+      wire [1:0] sum;
+      wire cout;
+      wire [1:0] in1;
+      wire [1:0] in2;
+      wire cin;
+      
+      adder_1 adder_1_1(sum[0], cout, in1[0], in2[0], cin);
+      adder_1 adder_1_2(sum[1], cout, in1[1], in2[1], cout);
+      
+endmodule
+
+module adder_1(output sum,
+                      output cout,
+                      input in1, in2,
+                      input cin);              
+      wire sum;
+      wire cout;
+      wire in1;
+      wire in2;
+      wire cin;
+      
+      xor(sum, in1, in2, cin);
+      and(cout, in1, in2);
+      
+endmodule"
+73.416,346.83,0.1,81.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+    
+    full_adder_8 FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder_8 FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder_8 FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder_8 FA4(sum[3], c4, in1[3], in2[3], c3);
+    full_adder_8 FA5(sum[4], c5, in1[4], in2[4], c4);
+    full_adder_8 FA6(sum[5], c6, in1[5], in2[5], c5);
+    full_adder_8 FA7(sum[6], c7, in1[6], in2[6], c6);
+    full_adder_8 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module full_adder_8(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+    wire w1, w2, w3;
+    xor(w1, in1, in2);
+    xor(sum, w1, cin);
+    and(w2, w1, cin);
+    and(w3, in1, in2);
+    or(cout, w2, w3);
+endmodule"
+N/A,N/A,-0.1,82.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire c1, c2, c3;
+    full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+    wire x, y, z;
+    xor(sum, in1, in2, cin);
+    and(w1, in1, in2);
+    and(w2, in1, cin);
+    and(w3, in2, cin);
+    or(cout, w1, w2, w3);
+endmodule"
+69.16,317.51,0.2376074065438233,83.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+        wire c1, c2, c3;
+        full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+        full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+        full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+        full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+        full_adder FA5(sum[4], c4, in1[4], in2[4], c3);
+        full_adder FA6(sum[5], c5, in1[5], in2[5], c4);
+        full_adder FA7(sum[6], c6, in1[6], in2[6], c5);
+        full_adder FA8(sum[7], cout, in1[7], in2[7], c6);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+        wire xor1, and1, and2;
+        xor(xor1, in1, in2);
+        xor(sum, xor1, cin);
+        and(and1, xor1, cin);
+        and(and2, in1, in2);
+        or(cout, and1, and2);
+endmodule"
+75.012,335.39,0.11196238227223212,84.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+        wire [7:0] sum;
+        wire cout;
+        wire [7:0] in1;
+        wire [7:0] in2;
+        wire cin;
+        
+        full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+        full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+        full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+        full_adder FA4(sum[3], c4, in1[3], in2[3], c3);
+        full_adder FA5(sum[4], c5, in1[4], in2[4], c4);
+        full_adder FA6(sum[5], c6, in1[5], in2[5], c5);
+        full_adder FA7(sum[6], c7, in1[6], in2[6], c6);
+        full_adder FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+        wire sum;
+        wire cout;
+        wire in1;
+        wire in2;
+        wire cin;
+        
+        assign sum = in1 ^ in2 ^ cin;
+        assign cout = (in1 & in2) | (in1 & cin) | (in2 & cin);
+endmodule"
+69.16,317.51,0.2376074065438233,85.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+        wire c1, c2, c3;
+        full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+        full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+        full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+        full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+        full_adder FA5(sum[4], c4, in1[4], in2[4], c3);
+        full_adder FA6(sum[5], c5, in1[5], in2[5], c4);
+        full_adder FA7(sum[6], c6, in1[6], in2[6], c5);
+        full_adder FA8(sum[7], cout, in1[7], in2[7], c6);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+        wire xor1, and1, and2;
+        xor(xor1, in1, in2);
+        xor(sum, xor1, cin);
+        and(and1, xor1, cin);
+        and(and2, in1, in2);
+        or(cout, and1, and2);
+endmodule"
+73.416,346.83,0.1,86.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+        
+        wire [7:0] carry;
+        
+        full_adder_1bit fa1(sum[0], carry[0], in1[0], in2[0], cin);
+        full_adder_1bit fa2(sum[1], carry[1], in1[1], in2[1], carry[0]);
+        full_adder_1bit fa3(sum[2], carry[2], in1[2], in2[2], carry[1]);
+        full_adder_1bit fa4(sum[3], carry[3], in1[3], in2[3], carry[2]);
+        full_adder_1bit fa5(sum[4], carry[4], in1[4], in2[4], carry[3]);
+        full_adder_1bit fa6(sum[5], carry[5], in1[5], in2[5], carry[4]);
+        full_adder_1bit fa7(sum[6], carry[6], in1[6], in2[6], carry[5]);
+        full_adder_1bit fa8(sum[7], cout, in1[7], in2[7], carry[6]);
+        
+endmodule
+
+module full_adder_1bit(output sum,
+                        output cout,
+                        input in1, in2, cin);
+        
+        wire xor1, and1, and2;
+        
+        xor(xor1, in1, in2);
+        xor(sum, xor1, cin);
+        and(and1, xor1, cin);
+        and(and2, in1, in2);
+        or(cout, and1, and2);
+        
+endmodule"
+75.012,335.39,0.11196238227223212,87.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+        wire [7:0] sum;
+        wire cout;
+        wire [7:0] in1;
+        wire [7:0] in2;
+        wire cin;
+        
+        full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+        full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+        full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+        full_adder FA4(sum[3], c4, in1[3], in2[3], c3);
+        full_adder FA5(sum[4], c5, in1[4], in2[4], c4);
+        full_adder FA6(sum[5], c6, in1[5], in2[5], c5);
+        full_adder FA7(sum[6], c7, in1[6], in2[6], c6);
+        full_adder FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+        wire sum;
+        wire cout;
+        wire in1;
+        wire in2;
+        wire cin;
+        
+        assign sum = in1 ^ in2 ^ cin;
+        assign cout = (in1 & in2) | (in1 & cin) | (in2 & cin);
+endmodule"
+69.16,317.51,0.2376074065438233,88.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+        wire c1, c2, c3;
+        full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+        full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+        full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+        full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+        full_adder FA5(sum[4], c4, in1[4], in2[4], c3);
+        full_adder FA6(sum[5], c5, in1[5], in2[5], c4);
+        full_adder FA7(sum[6], c6, in1[6], in2[6], c5);
+        full_adder FA8(sum[7], cout, in1[7], in2[7], c6);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+        wire xor1, and1, and2;
+        xor(xor1, in1, in2);
+        xor(sum, xor1, cin);
+        and(and1, xor1, cin);
+        and(and2, in1, in2);
+        or(cout, and1, and2);
+endmodule"
+69.16,317.51,0.2376074065438233,89.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+        wire c1, c2, c3;
+        full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+        full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+        full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+        full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+        full_adder FA5(sum[4], c4, in1[4], in2[4], c3);
+        full_adder FA6(sum[5], c5, in1[5], in2[5], c4);
+        full_adder FA7(sum[6], c6, in1[6], in2[6], c5);
+        full_adder FA8(sum[7], cout, in1[7], in2[7], c6);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+        wire xor1, and1, and2;
+        xor(xor1, in1, in2);
+        xor(sum, xor1, cin);
+        and(and1, xor1, cin);
+        and(and2, in1, in2);
+        or(cout, and1, and2);
+endmodule"
+75.012,335.39,0.11196238227223212,90.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+        wire [7:0] sum;
+        wire cout;
+        wire [7:0] in1;
+        wire [7:0] in2;
+        wire cin;
+        
+        full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+        full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+        full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+        full_adder FA4(sum[3], c4, in1[3], in2[3], c3);
+        full_adder FA5(sum[4], c5, in1[4], in2[4], c4);
+        full_adder FA6(sum[5], c6, in1[5], in2[5], c5);
+        full_adder FA7(sum[6], c7, in1[6], in2[6], c6);
+        full_adder FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+        wire sum;
+        wire cout;
+        wire in1;
+        wire in2;
+        wire cin;
+        
+        assign sum = in1 ^ in2 ^ cin;
+        assign cout = (in1 & in2) | (in1 & cin) | (in2 & cin);
+endmodule"
+N/A,N/A,-1,91.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+        
+    wire [7:0] sum;
+    wire cout;
+    
+    wire [7:0] carry;
+    
+    full_adder_8 fa0(sum[0], carry[0], in1[0], in2[0], cin);
+    full_adder_8 fa1(sum[1], carry[1], in1[1], in2[1], carry[0]);
+    full_adder_8 fa2(sum[2], carry[2], in1[2], in2[2], carry[1]);
+    full_adder_8 fa3(sum[3], carry[3], in1[3], in2[3], carry[2]);
+    full_adder_8 fa4(sum[4], carry[4], in1[4], in2[4], carry[3]);
+    full_adder_8 fa5(sum[5], carry[5], in1[5], in2[5], carry[4]);
+    full_adder_8 fa6(sum[6], carry[6], in1[6], in2[6], carry[5]);
+    full_adder_8 fa7(sum[7], cout, in1[7], in2[7], carry[6]);
+endmodule
+
+module full_adder_8(output sum,
+                     output cout,
+                     input in1, in2, cin);
+    
+    wire [7:0] sum;
+    wire [7:0] carry;
+    
+    wire [7:0] in1_carry;
+    wire [7:0] in2_carry;
+    
+    assign in1_carry[0] = in1;
+    assign in2_carry[0] = in2;
+    
+    assign carry[0] = cin;
+    
+    assign in1_carry[1] = in1_carry[0] ^ carry[0];
+    assign in2_carry[1] = in2_carry[0] ^ carry[0];
+    
+    assign carry[1] = in1_carry[1] & in2_carry[1];
+    
+    assign in1_carry[2] = in1_carry[1] & carry[1];
+    assign in2_carry[2] = in2_carry[1] & carry[1];
+    
+    assign carry[2] = in1_carry[2] & in2_carry[2];
+    
+    assign in1_carry[3] = in1_carry[2] & carry[2];
+    assign in2_carry[3] = in2_carry[2] & carry[2];
+    
+    assign carry[3] = in1_carry[3] & in2_carry[3];
+    
+    assign in1_carry[4] = in1_carry[3] & carry[3];
+    assign in2_carry[4] = in2_carry[3] & carry[3];
+    
+    assign carry[4] = in1_carry[4] & in2_carry[4];
+    
+    assign in1_carry[5] = in1_carry[4] & carry[4];
+    assign in2_carry[5] = in2_carry[4] & carry[4];
+    
+    assign carry[5] = in1_carry[5] & in2_carry[5];
+    
+    assign in1_carry[6] = in1_carry[5] & carry[5];
+    assign in2_carry[6] = in2_carry[5] & carry[5];
+    
+    assign carry[6] = in1_carry[6] & in2_carry[6];
+    
+    assign in1_carry[7] = in1_carry[6] & carry[6];
+    assign in2_carry[7] = in2_carry[6] & carry[6];
+    
+    assign carry[7] = in1_carry[7] & in2_carry[7];
+    
+    assign sum = in1_carry[7] ^ carry[7];
+    assign cout = carry[7];
+endmodule"
+73.416,346.83,0.1,92.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);              
+
+wire c1, c2, c3, c4, c5, c6, c7;
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], c4, in1[3], in2[3], c3);
+full_adder FA5(sum[4], c5, in1[4], in2[4], c4);
+full_adder FA6(sum[5], c6, in1[5], in2[5], c5);
+full_adder FA7(sum[6], c7, in1[6], in2[6], c6);
+full_adder FA8(sum[7], cout, in1[7], in2[7], c7);
+
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+
+wire xor1, and1, and2;
+
+xor(xor1, in1, in2);
+xor(sum, xor1, cin);
+and(and1, xor1, cin);
+and(and2, in1, in2);
+or(cout, and1, and2);
+
+endmodule"
+73.416,346.83,0.1,93.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);              
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+    
+    full_adder_8 FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder_8 FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder_8 FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder_8 FA4(sum[3], c4, in1[3], in2[3], c3);
+    full_adder_8 FA5(sum[4], c5, in1[4], in2[4], c4);
+    full_adder_8 FA6(sum[5], c6, in1[5], in2[5], c5);
+    full_adder_8 FA7(sum[6], c7, in1[6], in2[6], c6);
+    full_adder_8 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module full_adder_8(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+    wire w1, w2, w3;
+    xor(w1, in1, in2);
+    xor(sum, w1, cin);
+    and(w2, w1, cin);
+    and(w3, in1, in2);
+    or(cout, w2, w3);
+endmodule"
+N/A,N/A,-1,94.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);              
+              
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+    
+    wire [7:0] sum_temp;
+    wire cout_temp;
+    
+    adder_7 adder_7_1(sum_temp[7:0], cout_temp, in1[7:0], in2[7:0], cin);
+    adder_7 adder_7_2(sum[7:0], cout, sum_temp[7:0], in2[7:0], cout_temp);
+
+endmodule
+
+module adder_7(output [6:0] sum,
+                      output cout,
+                      input [6:0] in1, in2,
+                      input cin);              
+              
+    wire [6:0] sum;
+    wire cout;
+    wire [6:0] in1;
+    wire [6:0] in2;
+    wire cin;
+    
+    wire [6:0] sum_temp;
+    wire cout_temp;
+    
+    adder_6 adder_6_1(sum_temp[6:0], cout_temp, in1[6:0], in2[6:0], cin);
+    adder_6 adder_6_2(sum[6:0], cout, sum_temp[6:0], in2[6:0], cout_temp);
+
+endmodule
+
+module adder_6(output [5:0] sum,
+                      output cout,
+                      input [5:0] in1, in2,
+                      input cin);              
+              
+    wire [5:0] sum;
+    wire cout;
+    wire [5:0] in1;
+    wire [5:0] in2;
+    wire cin;
+    
+    wire [5:0] sum_temp;
+    wire cout_temp;
+    
+    adder_5 adder_5_1(sum_temp[5:0], cout_temp, in1[5:0], in2[5:0], cin);
+    adder_5 adder_5_2(sum[5:0], cout, sum_temp[5:0], in2[5:0], cout_temp);
+
+endmodule
+
+module adder_5(output [4:0] sum,
+                      output cout,
+                      input [4:0] in1, in2,
+                      input cin);              
+              
+    wire [4:0] sum;
+    wire cout;
+    wire [4:0] in1;
+    wire [4:0] in2;
+    wire cin;
+    
+    wire [4:0] sum_temp;
+    wire cout_temp;
+    
+    adder_4 adder_4_1(sum_temp[4:0], cout_temp, in1[4:0], in2[4:0], cin);
+    adder_4 adder_4_2(sum[4:0], cout, sum_temp[4:0], in2[4:0], cout_temp);
+
+endmodule
+
+module adder_4(output [3:0] sum,
+                      output cout,
+                      input [3:0] in1, in2,
+                      input cin);              
+              
+    wire [3:0] sum;
+    wire cout;
+    wire [3:0] in1;
+    wire [3:0] in2;
+    wire cin;
+    
+    wire [3:0] sum_temp;
+    wire cout_temp;
+    
+    adder_3 adder_3_1(sum_temp[3:0], cout_temp, in1[3:0], in2[3:0], cin);
+    adder_3 adder_3_2(sum[3:0], cout, sum_temp[3:0], in2[3:0], cout_temp);
+
+endmodule
+
+module adder_3(output [2:0] sum,
+                      output cout,
+                      input [2:0] in1, in2,
+                      input cin);              
+              
+    wire [2:0] sum;
+    wire cout;
+    wire [2:0] in1;
+    wire [2:0] in2;
+    wire cin;
+    
+    wire [2:0] sum_temp;
+    wire cout_temp;
+    
+    adder_2 adder_2_1(sum_temp[2:0], cout_temp, in1[2:0], in2[2:0], cin);
+    adder_2 adder_2_2(sum[2:0], cout, sum_temp[2:0], in2[2:0], cout_temp);
+
+endmodule
+
+module adder_2(output [1:0] sum,
+                      output cout,
+                      input [1:0] in1, in2,
+                      input cin);              
+              
+    wire [1:0] sum;
+    wire cout;
+    wire [1:0] in1;
+    wire [1:0] in2;
+    wire cin;
+    
+    wire [1:0] sum_temp;
+    wire cout_temp;
+    
+    adder_1 adder_1_1(sum_temp[1:0], cout_temp, in1[1:0], in2[1:0], cin);
+    adder_1 adder_1_2(sum[1:0], cout, sum_temp[1:0], in2[1:0], cout_temp);
+
+endmodule
+
+module adder_1(output [1:0] sum,
+                      output cout,
+                      input [1:0] in1, in2,
+                      input cin);              
+              
+    wire [1:0] sum;
+    wire cout;
+    wire [1:0] in1;
+    wire [1:0] in2;
+    wire cin;
+    
+    wire [1:0] sum_temp;
+    wire cout_temp;
+    
+    adder_0 adder_0_1(sum_temp[1:0], cout_temp, in1[1:0], in2[1:0], cin);
+    adder_0 adder_0_2(sum[1:0], cout, sum_temp[1:0], in2[1"
+79.534,345.76,0.02000884198790956,95.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+73.416,346.83,0.1,96.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+                          
+  wire c1, c2, c3, c4, c5, c6, c7;
+  
+  full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+  full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+  full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+  full_adder FA4(sum[3], c4, in1[3], in2[3], c3);
+  full_adder FA5(sum[4], c5, in1[4], in2[4], c4);
+  full_adder FA6(sum[5], c6, in1[5], in2[5], c5);
+  full_adder FA7(sum[6], c7, in1[6], in2[6], c6);
+  full_adder FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+  wire a, b, c;
+  xor(a, in1, in2);
+  xor(sum, a, cin);
+  and(b, a, cin);
+  and(c, in1, in2);
+  or(cout, b, c);
+endmodule"
+73.416,346.83,0.1,97.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder FA4(sum[3], c4, in1[3], in2[3], c3);
+    full_adder FA5(sum[4], c5, in1[4], in2[4], c4);
+    full_adder FA6(sum[5], c6, in1[5], in2[5], c5);
+    full_adder FA7(sum[6], c7, in1[6], in2[6], c6);
+    full_adder FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+    wire w1, w2, w3;
+    xor(w1, in1, in2);
+    xor(sum, w1, cin);
+    and(w2, w1, cin);
+    and(w3, in1, in2);
+    or(cout, w2, w3);
+endmodule"
+79.534,345.76,0.02000884198790956,98.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+N/A,N/A,-0.1,99.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+                          
+    wire [7:0] sum;
+    wire cout;
+    
+    wire [7:0] carry;
+    
+    full_adder_8 fa0(sum[0], carry[0], in1[0], in2[0], cin);
+    full_adder_8 fa1(sum[1], carry[1], in1[1], in2[1], carry[0]);
+    full_adder_8 fa2(sum[2], carry[2], in1[2], in2[2], carry[1]);
+    full_adder_8 fa3(sum[3], carry[3], in1[3], in2[3], carry[2]);
+    full_adder_8 fa4(sum[4], carry[4], in1[4], in2[4], carry[3]);
+    full_adder_8 fa5(sum[5], carry[5], in1[5], in2[5], carry[4]);
+    full_adder_8 fa6(sum[6], carry[6], in1[6], in2[6], carry[5]);
+    full_adder_8 fa7(sum[7], cout, in1[7], in2[7], carry[6]);
+endmodule
+
+module full_adder_8(output sum,
+                     output cout,
+                     input in1, in2, cin);
+    wire a, b, c, d, e, f, g, h;
+    
+    half_adder ha1(a, b, in1, in2);
+    half_adder ha2(c, d, a, cin);
+    half_adder ha3(e, f, b, in1);
+    half_adder ha4(g, h, d, in2);
+    half_adder ha5(sum, cout, e, f);
+endmodule
+
+module half_adder(output sum,
+                   output cout,
+                   input in1, in2);
+    xor(sum, in1, in2);
+    and(cout, in1, in2);
+endmodule"
+73.416,346.83,0.1,100.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+    
+    full_adder_8 FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder_8 FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder_8 FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder_8 FA4(sum[3], c4, in1[3], in2[3], c3);
+    full_adder_8 FA5(sum[4], c5, in1[4], in2[4], c4);
+    full_adder_8 FA6(sum[5], c6, in1[5], in2[5], c5);
+    full_adder_8 FA7(sum[6], c7, in1[6], in2[6], c6);
+    full_adder_8 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module full_adder_8(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+    wire w1, w2, w3;
+    xor(w1, in1, in2);
+    xor(sum, w1, cin);
+    and(w2, w1, cin);
+    and(w3, in1, in2);
+    or(cout, w2, w3);
+endmodule"
+73.416,346.83,0.1,101.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+    
+    full_adder_8 FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder_8 FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder_8 FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder_8 FA4(sum[3], c4, in1[3], in2[3], c3);
+    full_adder_8 FA5(sum[4], c5, in1[4], in2[4], c4);
+    full_adder_8 FA6(sum[5], c6, in1[5], in2[5], c5);
+    full_adder_8 FA7(sum[6], c7, in1[6], in2[6], c6);
+    full_adder_8 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module full_adder_8(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+    wire w1, w2, w3;
+    xor(w1, in1, in2);
+    xor(sum, w1, cin);
+    and(w2, w1, cin);
+    and(w3, in1, in2);
+    or(cout, w2, w3);
+endmodule"
+73.416,346.83,0.1,102.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire [7:0] carry;
+    full_adder_8 fa0(sum[0], carry[0], in1[0], in2[0], cin);
+    full_adder_8 fa1(sum[1], carry[1], in1[1], in2[1], carry[0]);
+    full_adder_8 fa2(sum[2], carry[2], in1[2], in2[2], carry[1]);
+    full_adder_8 fa3(sum[3], carry[3], in1[3], in2[3], carry[2]);
+    full_adder_8 fa4(sum[4], carry[4], in1[4], in2[4], carry[3]);
+    full_adder_8 fa5(sum[5], carry[5], in1[5], in2[5], carry[4]);
+    full_adder_8 fa6(sum[6], carry[6], in1[6], in2[6], carry[5]);
+    full_adder_8 fa7(sum[7], cout, in1[7], in2[7], carry[6]);
+endmodule
+
+module full_adder_8(output sum,
+                     output cout,
+                     input in1, in2, cin);
+    wire a, b, c, d, e, f, g, h;
+    xor(a, in1, in2);
+    xor(sum, a, cin);
+    and(b, a, cin);
+    and(c, in1, in2);
+    and(d, in1, in2);
+    or(cout, b, c);
+    and(e, b, c);
+    and(f, b, d);
+    and(g, c, d);
+    or(h, e, f);
+    or(cout, h, g);
+endmodule"
+41.23,196.03,0.7825842297546265,103.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire c1, c2, c3;
+    full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+    wire x, y, z;
+    xor(sum, in1, in2, cin);
+    and(w1, in1, in2);
+    and(w2, in1, cin);
+    and(w3, in2, cin);
+    or(cout, w1, w2, w3);
+endmodule"
+41.23,196.03,0.7825842297546265,104.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire c1, c2, c3;
+    full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+    wire x, y, z;
+    xor(sum, in1, in2, cin);
+    and(w1, in1, in2);
+    and(w2, in1, cin);
+    and(w3, in2, cin);
+    or(cout, w1, w2, w3);
+endmodule"
+41.23,196.03,0.7825842297546265,105.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire c1, c2, c3;
+    full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+    wire x, y, z;
+    xor(sum, in1, in2, cin);
+    and(w1, in1, in2);
+    and(w2, in1, cin);
+    and(w3, in2, cin);
+    or(cout, w1, w2, w3);
+endmodule"
+41.23,196.03,0.7825842297546265,106.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire c1, c2, c3;
+    full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+    wire x, y, z;
+    xor(sum, in1, in2, cin);
+    and(w1, in1, in2);
+    and(w2, in1, cin);
+    and(w3, in2, cin);
+    or(cout, w1, w2, w3);
+endmodule"
+41.23,196.03,0.7825842297546265,107.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire c1, c2, c3;
+    full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+    wire x, y, z;
+    xor(sum, in1, in2, cin);
+    and(w1, in1, in2);
+    and(w2, in1, cin);
+    and(w3, in2, cin);
+    or(cout, w1, w2, w3);
+endmodule"
+41.23,196.03,0.7825842297546265,108.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire c1, c2, c3;
+    full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+    wire x, y, z;
+    xor(sum, in1, in2, cin);
+    and(w1, in1, in2);
+    and(w2, in1, cin);
+    and(w3, in2, cin);
+    or(cout, w1, w2, w3);
+endmodule"
+73.416,346.83,0.1,109.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire c1, c2;
+    full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder FA4(sum[3], c4, in1[3], in2[3], c3);
+    full_adder FA5(sum[4], c5, in1[4], in2[4], c4);
+    full_adder FA6(sum[5], c6, in1[5], in2[5], c5);
+    full_adder FA7(sum[6], c7, in1[6], in2[6], c6);
+    full_adder FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+    wire xor1, and1, and2;
+    xor(xor1, in1, in2);
+    xor(sum, xor1, cin);
+    and(and1, xor1, cin);
+    and(and2, in1, in2);
+    or(cout, and1, and2);
+endmodule"
+73.416,346.83,0.1,110.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire c1, c2, c3, c4, c5, c6, c7;
+    full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder FA4(sum[3], c4, in1[3], in2[3], c3);
+    full_adder FA5(sum[4], c5, in1[4], in2[4], c4);
+    full_adder FA6(sum[5], c6, in1[5], in2[5], c5);
+    full_adder FA7(sum[6], c7, in1[6], in2[6], c6);
+    full_adder FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+    wire xor1, and1, and2;
+    xor(xor1, in1, in2);
+    xor(sum, xor1, cin);
+    and(and1, xor1, cin);
+    and(and2, in1, in2);
+    or(cout, and1, and2);
+endmodule"
+41.23,196.03,0.7825842297546265,111.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire c1, c2, c3;
+    full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+    wire x, y, z;
+    xor(sum, in1, in2, cin);
+    and(w1, in1, in2);
+    and(w2, in1, cin);
+    and(w3, in2, cin);
+    or(cout, w1, w2, w3);
+endmodule"
+41.23,196.03,0.7825842297546265,112.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire c1, c2, c3;
+    full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+    wire x, y, z;
+    xor(sum, in1, in2, cin);
+    and(w1, in1, in2);
+    and(w2, in1, cin);
+    and(w3, in2, cin);
+    or(cout, w1, w2, w3);
+endmodule"
+41.23,196.03,0.7825842297546265,113.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire c1, c2, c3;
+    full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+    wire x, y, z;
+    xor(sum, in1, in2, cin);
+    and(w1, in1, in2);
+    and(w2, in1, cin);
+    and(w3, in2, cin);
+    or(cout, w1, w2, w3);
+endmodule"
+41.23,196.03,0.7825842297546265,114.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire c1, c2, c3;
+    full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+    wire x, y, z;
+    xor(sum, in1, in2, cin);
+    and(w1, in1, in2);
+    and(w2, in1, cin);
+    and(w3, in2, cin);
+    or(cout, w1, w2, w3);
+endmodule"
+41.23,196.03,0.7825842297546265,115.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire c1, c2, c3;
+    full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+    wire x, y, z;
+    xor(sum, in1, in2, cin);
+    and(w1, in1, in2);
+    and(w2, in1, cin);
+    and(w3, in2, cin);
+    or(cout, w1, w2, w3);
+endmodule"
+73.416,346.83,0.1,116.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire c1,c2,c3,c4,c5,c6,c7;
+    full_adder FA1(sum[0],c1,in1[0],in2[0],cin);
+    full_adder FA2(sum[1],c2,in1[1],in2[1],c1);
+    full_adder FA3(sum[2],c3,in1[2],in2[2],c2);
+    full_adder FA4(sum[3],c4,in1[3],in2[3],c3);
+    full_adder FA5(sum[4],c5,in1[4],in2[4],c4);
+    full_adder FA6(sum[5],c6,in1[5],in2[5],c5);
+    full_adder FA7(sum[6],c7,in1[6],in2[6],c6);
+    full_adder FA8(sum[7],cout,in1[7],in2[7],c7);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+    wire xor1, and1, and2;
+    xor(xor1, in1, in2);
+    xor(sum, xor1, cin);
+    and(and1, xor1, cin);
+    and(and2, in1, in2);
+    or(cout, and1, and2);
+endmodule"
+N/A,N/A,-1,117.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire c1;
+    wire c2;
+    wire c3;
+    wire c4;
+    wire c5;
+    wire c6;
+    wire c7;
+    wire c8;
+    wire c9;
+    wire c10;
+    wire c11;
+    wire c12;
+    wire c13;
+    wire c14;
+    wire c15;
+    wire c16;
+    wire c17;
+    wire c18;
+    wire c19;
+    wire c20;
+    wire c21;
+    wire c22;
+    wire c23;
+    wire c24;
+    wire c25;
+    wire c26;
+    wire c27;
+    wire c28;
+    wire c29;
+    wire c30;
+    wire c31;
+    wire c32;
+    wire c33;
+    wire c34;
+    wire c35;
+    wire c36;
+    wire c37;
+    wire c38;
+    wire c39;
+    wire c40;
+    wire c41;
+    wire c42;
+    wire c43;
+    wire c44;
+    wire c45;
+    wire c46;
+    wire c47;
+    wire c48;
+    wire c49;
+    wire c50;
+    wire c51;
+    wire c52;
+    wire c53;
+    wire c54;
+    wire c55;
+    wire c56;
+    wire c57;
+    wire c58;
+    wire c59;
+    wire c60;
+    wire c61;
+    wire c62;
+    wire c63;
+    wire c64;
+    wire c65;
+    wire c66;
+    wire c67;
+    wire c68;
+    wire c69;
+    wire c70;
+    wire c71;
+    wire c72;
+    wire c73;
+    wire c74;
+    wire c75;
+    wire c76;
+    wire c77;
+    wire c78;
+    wire c79;
+    wire c80;
+    wire c81;
+    wire c82;
+    wire c83;
+    wire c84;
+    wire c85;
+    wire c86;
+    wire c87;
+    wire c88;
+    wire c89;
+    wire c90;
+    wire c91;
+    wire c92;
+    wire c93;
+    wire c94;
+    wire c95;
+    wire c96;
+    wire c97;
+    wire c98;
+    wire c99;
+    wire c100;
+    wire c101;
+    wire c102;
+    wire c103;
+    wire c104;
+    wire c105;
+    wire c106;
+    wire c107;
+    wire c108;
+    wire c109;
+    wire c110;
+    wire c111;
+    wire c112;
+    wire c113;
+    wire c114;
+    wire c115;
+    wire c116;
+    wire c117;
+    wire c118;
+    wire c119;
+    wire c120;
+    wire c121;
+    wire c122;
+    wire c123;
+    wire c124;
+    wire c125;
+    wire c126;
+    wire c127;
+    wire c128;
+    wire c129;
+    wire c130;
+    wire c131;
+    wire c132;
+    wire c133;
+    wire c134;
+    wire c135;
+    wire c136;
+    wire c137;
+    wire c138;
+    wire c139;
+    wire c140;
+    wire c141;
+    wire c142;
+    wire c143;
+    wire c144;
+    wire c145;
+    wire c146;
+    wire c147;
+    wire c148;
+    wire c149;
+    wire c150;
+    wire c151;
+    wire c152;
+    wire c153;
+    wire c154;
+    wire c155;
+    wire c156;
+    wire c157;
+    wire c158;
+    wire c159;
+    wire c160;
+    wire c161;
+    wire c162;
+    wire c163;
+    wire c164;
+    wire c165;
+    wire c166;
+    wire c167;
+    wire c168;
+    wire c169;
+    wire c170;
+    wire c171;
+    wire c172;
+    wire c173;
+    wire c174;
+    wire c175;
+    wire c176;
+    wire c177;
+    wire c178;
+    wire c179;
+    wire c180;
+    wire c181;
+    wire c182;
+    wire c183;
+    wire c184;
+    wire c185;
+    wire c186;
+    wire c187;
+    wire c188;
+    wire c189;
+    wire c190;
+    wire c191;
+    wire c192;
+    wire c193;
+    wire c194;
+    wire c195;
+    wire c196;
+    wire c197;
+    wire c198;
+    wire c199;
+    wire c200;
+    wire c201;
+    wire c202;
+    wire c203;
+    wire c204;
+    wire c205;
+    wire c206;
+    wire c207;
+    wire c208;
+    wire c209;
+    wire c210;
+    wire c211;
+    wire c212;
+    wire c213;
+    wire c214;
+    wire c215;
+    wire c216;
+    wire c217;
+    wire c218;
+    wire c219;
+    wire c220;
+    wire c221;
+    wire c222;
+    wire c223;
+    wire c224;
+    wire c225;
+    wire c226;
+    wire c227;
+    wire c228;
+    wire c229;
+    wire c230;
+    wire c231;
+    wire c232;
+    wire c233;
+    wire c234;
+    wire c235;
+    wire c236;
+    wire c237;
+    wire c238;
+    wire c239;
+    wire c240;
+    wire c241;
+    wire c242;
+    wire c243;
+    wire c244;
+    wire c245;
+    wire c246;
+    wire c247;
+    wire c248;
+    wire c249;
+    wire c250;"
+73.416,346.83,0.1,118.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire c1, c2, c3, c4, c5, c6, c7;
+    full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder FA4(sum[3], c4, in1[3], in2[3], c3);
+    full_adder FA5(sum[4], c5, in1[4], in2[4], c4);
+    full_adder FA6(sum[5], c6, in1[5], in2[5], c5);
+    full_adder FA7(sum[6], c7, in1[6], in2[6], c6);
+    full_adder FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+    wire xor1, and1, and2;
+    xor(xor1, in1, in2);
+    xor(sum, xor1, cin);
+    and(and1, xor1, cin);
+    and(and2, in1, in2);
+    or(cout, and1, and2);
+endmodule"
+41.23,196.03,0.7825842297546265,119.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire c1, c2, c3;
+    full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+    wire x, y, z;
+    xor(sum, in1, in2, cin);
+    and(w1, in1, in2);
+    and(w2, in1, cin);
+    and(w3, in2, cin);
+    or(cout, w1, w2, w3);
+endmodule"
+73.416,346.83,0.1,120.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire c1, c2;
+    full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder FA4(sum[3], c4, in1[3], in2[3], c3);
+    full_adder FA5(sum[4], c5, in1[4], in2[4], c4);
+    full_adder FA6(sum[5], c6, in1[5], in2[5], c5);
+    full_adder FA7(sum[6], c7, in1[6], in2[6], c6);
+    full_adder FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+    wire xor1, and1, and2;
+    xor(xor1, in1, in2);
+    xor(sum, xor1, cin);
+    and(and1, xor1, cin);
+    and(and2, in1, in2);
+    or(cout, and1, and2);
+endmodule"
+41.23,196.03,0.7825842297546265,121.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire c1, c2, c3;
+    full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+    wire x, y, z;
+    xor(sum, in1, in2, cin);
+    and(w1, in1, in2);
+    and(w2, in1, cin);
+    and(w3, in2, cin);
+    or(cout, w1, w2, w3);
+endmodule"
+41.23,196.03,0.7825842297546265,122.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire c1, c2, c3;
+    full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+    wire x, y, z;
+    xor(sum, in1, in2, cin);
+    and(w1, in1, in2);
+    and(w2, in1, cin);
+    and(w3, in2, cin);
+    or(cout, w1, w2, w3);
+endmodule"
+41.23,196.03,0.7825842297546265,123.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire c1, c2, c3;
+    full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+    wire x, y, z;
+    xor(sum, in1, in2, cin);
+    and(w1, in1, in2);
+    and(w2, in1, cin);
+    and(w3, in2, cin);
+    or(cout, w1, w2, w3);
+endmodule"
+38.304,198.83,0.8008984479302602,124.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire c1, c2, c3;
+    fulladder_8 fa1(sum[0], c1, in1[0], in2[0], cin);
+    fulladder_8 fa2(sum[1], c2, in1[1], in2[1], c1);
+    fulladder_8 fa3(sum[2], c3, in1[2], in2[2], c2);
+    fulladder_8 fa4(sum[3], cout, in1[3], in2[3], c3);
+endmodule
+
+module fulladder_8(output sum,
+                     output cout,
+                     input in1, in2, cin);
+    wire a, b, c, d, e, f, g, h;
+    xor(a, in1, in2);
+    xor(sum, a, cin);
+    and(b, a, cin);
+    and(c, in1, in2);
+    and(d, in1, in2, cin);
+    or(cout, b, c, d);
+endmodule"
+41.23,196.03,0.7825842297546265,125.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire c1, c2, c3;
+    full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+    wire x, y, z;
+    xor(sum, in1, in2, cin);
+    and(w1, in1, in2);
+    and(w2, in1, cin);
+    and(w3, in2, cin);
+    or(cout, w1, w2, w3);
+endmodule"
+41.23,196.03,0.7825842297546265,126.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire c1, c2, c3;
+    full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+    wire x, y, z;
+    xor(sum, in1, in2, cin);
+    and(w1, in1, in2);
+    and(w2, in1, cin);
+    and(w3, in2, cin);
+    or(cout, w1, w2, w3);
+endmodule"
+73.416,346.83,0.1,127.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire c1, c2, c3, c4, c5, c6, c7;
+    full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder FA4(sum[3], c4, in1[3], in2[3], c3);
+    full_adder FA5(sum[4], c5, in1[4], in2[4], c4);
+    full_adder FA6(sum[5], c6, in1[5], in2[5], c5);
+    full_adder FA7(sum[6], c7, in1[6], in2[6], c6);
+    full_adder FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+    wire xor1, and1, and2;
+    xor(xor1, in1, in2);
+    xor(sum, xor1, cin);
+    and(and1, xor1, cin);
+    and(and2, in1, in2);
+    or(cout, and1, and2);
+endmodule"
+38.304,198.83,0.8008984479302602,128.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire c1, c2, c3;
+    fulladder_8 fa1(sum[0], c1, in1[0], in2[0], cin);
+    fulladder_8 fa2(sum[1], c2, in1[1], in2[1], c1);
+    fulladder_8 fa3(sum[2], c3, in1[2], in2[2], c2);
+    fulladder_8 fa4(sum[3], cout, in1[3], in2[3], c3);
+endmodule
+
+module fulladder_8(output sum,
+                     output cout,
+                     input in1, in2, cin);
+    wire a, b, c, d, e, f, g, h;
+    xor(a, in1, in2);
+    xor(sum, a, cin);
+    and(b, a, cin);
+    and(c, in1, in2);
+    and(d, in1, in2, cin);
+    or(cout, b, c, d);
+endmodule"
+41.23,196.03,0.7825842297546265,129.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire c1, c2, c3;
+    full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+    wire x, y, z;
+    xor(sum, in1, in2, cin);
+    and(w1, in1, in2);
+    and(w2, in1, cin);
+    and(w3, in2, cin);
+    or(cout, w1, w2, w3);
+endmodule"
+69.16,317.51,0.2376074065438233,130.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire c1, c2, c3;
+    full_adder FA0(sum[0], c1, in1[0], in2[0], cin);
+    full_adder FA1(sum[1], c2, in1[1], in2[1], c1);
+    full_adder FA2(sum[2], c3, in1[2], in2[2], c2);
+    full_adder FA3(sum[3], cout, in1[3], in2[3], c3);
+    full_adder FA4(sum[4], c4, in1[4], in2[4], c3);
+    full_adder FA5(sum[5], c5, in1[5], in2[5], c4);
+    full_adder FA6(sum[6], c6, in1[6], in2[6], c5);
+    full_adder FA7(sum[7], cout, in1[7], in2[7], c6);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+    wire xor1, and1, and2;
+    xor(xor1, in1, in2);
+    xor(sum, xor1, cin);
+    and(and1, xor1, cin);
+    and(and2, in1, in2);
+    or(cout, and1, and2);
+endmodule"
+73.416,346.83,0.1,131.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire [7:0] sum;
+    wire cout;
+    wire [7:0] in1;
+    wire [7:0] in2;
+    wire cin;
+    
+    full_adder_8 FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder_8 FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder_8 FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder_8 FA4(sum[3], c4, in1[3], in2[3], c3);
+    full_adder_8 FA5(sum[4], c5, in1[4], in2[4], c4);
+    full_adder_8 FA6(sum[5], c6, in1[5], in2[5], c5);
+    full_adder_8 FA7(sum[6], c7, in1[6], in2[6], c6);
+    full_adder_8 FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module full_adder_8(output wire sum,
+                     output wire cout,
+                     input wire in1, in2, cin);
+    wire w1, w2, w3;
+    xor(w1, in1, in2);
+    xor(sum, w1, cin);
+    and(w2, w1, cin);
+    and(w3, in1, in2);
+    or(cout, w2, w3);
+endmodule"
+38.304,198.83,0.8008984479302602,132.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire c1, c2, c3;
+    fulladder_8 fa1(sum[0], c1, in1[0], in2[0], cin);
+    fulladder_8 fa2(sum[1], c2, in1[1], in2[1], c1);
+    fulladder_8 fa3(sum[2], c3, in1[2], in2[2], c2);
+    fulladder_8 fa4(sum[3], cout, in1[3], in2[3], c3);
+endmodule
+
+module fulladder_8(output sum,
+                     output cout,
+                     input in1, in2, cin);
+    wire a, b, c, d, e, f, g, h;
+    xor(a, in1, in2);
+    xor(sum, a, cin);
+    and(b, a, cin);
+    and(c, in1, in2);
+    and(d, in1, in2, cin);
+    or(cout, b, c, d);
+endmodule"
+41.23,195.95,0.7827137673846812,133.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire c1, c2, c3;
+    full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder_1 FA4(sum[3], cout, in1[3], in2[3], c3);
+endmodule
+
+module full_adder_1(output sum,
+                     output cout,
+                     input in1, in2, cin);
+    wire x, y, z;
+    xor(sum, in1, in2, cin);
+    and(x, in1, in2);
+    and(y, in1, cin);
+    and(z, in2, cin);
+    or(cout, x, y, z);
+endmodule"
+73.416,346.83,0.1,134.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire c1, c2;
+    full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder FA4(sum[3], c4, in1[3], in2[3], c3);
+    full_adder FA5(sum[4], c5, in1[4], in2[4], c4);
+    full_adder FA6(sum[5], c6, in1[5], in2[5], c5);
+    full_adder FA7(sum[6], c7, in1[6], in2[6], c6);
+    full_adder FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+    wire xor1, and1, and2;
+    xor(xor1, in1, in2);
+    xor(sum, xor1, cin);
+    and(and1, xor1, cin);
+    and(and2, in1, in2);
+    or(cout, and1, and2);
+endmodule"
+38.304,198.83,0.8008984479302602,135.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire c1, c2, c3;
+    fulladder_8 fa1(sum[0], c1, in1[0], in2[0], cin);
+    fulladder_8 fa2(sum[1], c2, in1[1], in2[1], c1);
+    fulladder_8 fa3(sum[2], c3, in1[2], in2[2], c2);
+    fulladder_8 fa4(sum[3], cout, in1[3], in2[3], c3);
+endmodule
+
+module fulladder_8(output sum,
+                     output cout,
+                     input in1, in2, cin);
+    wire a, b, c, d, e, f, g, h;
+    xor(a, in1, in2);
+    xor(sum, a, cin);
+    and(b, a, cin);
+    and(c, in1, in2);
+    and(d, in1, in2, cin);
+    or(cout, b, c, d);
+endmodule"
+41.23,195.95,0.7827137673846812,136.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire c1, c2, c3;
+    full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder_1 FA4(sum[3], cout, in1[3], in2[3], c3);
+endmodule
+
+module full_adder_1(output sum,
+                     output cout,
+                     input in1, in2, cin);
+    wire x, y, z;
+    xor(sum, in1, in2, cin);
+    and(x, in1, in2);
+    and(y, in1, cin);
+    and(z, in2, cin);
+    or(cout, x, y, z);
+endmodule"
+73.416,346.83,0.1,137.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire c1, c2, c3, c4, c5, c6, c7;
+    full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder FA4(sum[3], c4, in1[3], in2[3], c3);
+    full_adder FA5(sum[4], c5, in1[4], in2[4], c4);
+    full_adder FA6(sum[5], c6, in1[5], in2[5], c5);
+    full_adder FA7(sum[6], c7, in1[6], in2[6], c6);
+    full_adder FA8(sum[7], cout, in1[7], in2[7], c7);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+    wire xor1, and1, and2;
+    xor(xor1, in1, in2);
+    xor(sum, xor1, cin);
+    and(and1, xor1, cin);
+    and(and2, in1, in2);
+    or(cout, and1, and2);
+endmodule"
+41.23,195.95,0.7827137673846812,138.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire c1, c2, c3;
+    full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder_1 FA4(sum[3], cout, in1[3], in2[3], c3);
+endmodule
+
+module full_adder_1(output sum,
+                     output cout,
+                     input in1, in2, cin);
+    wire x, y, z;
+    xor(sum, in1, in2, cin);
+    and(x, in1, in2);
+    and(y, in1, cin);
+    and(z, in2, cin);
+    or(cout, x, y, z);
+endmodule"
+38.304,198.83,0.8008984479302602,139.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire c1, c2, c3;
+    fulladder_8 fa1(sum[0], c1, in1[0], in2[0], cin);
+    fulladder_8 fa2(sum[1], c2, in1[1], in2[1], c1);
+    fulladder_8 fa3(sum[2], c3, in1[2], in2[2], c2);
+    fulladder_8 fa4(sum[3], cout, in1[3], in2[3], c3);
+endmodule
+
+module fulladder_8(output sum,
+                     output cout,
+                     input in1, in2, cin);
+    wire a, b, c, d, e, f, g, h;
+    xor(a, in1, in2);
+    xor(sum, a, cin);
+    and(b, a, cin);
+    and(c, in1, in2);
+    and(d, in1, in2, cin);
+    or(cout, b, c, d);
+endmodule"
+73.416,346.83,0.1,140.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire c1,c2,c3,c4,c5,c6,c7;
+    full_adder FA1(sum[0],c1,in1[0],in2[0],cin);
+    full_adder FA2(sum[1],c2,in1[1],in2[1],c1);
+    full_adder FA3(sum[2],c3,in1[2],in2[2],c2);
+    full_adder FA4(sum[3],c4,in1[3],in2[3],c3);
+    full_adder FA5(sum[4],c5,in1[4],in2[4],c4);
+    full_adder FA6(sum[5],c6,in1[5],in2[5],c5);
+    full_adder FA7(sum[6],c7,in1[6],in2[6],c6);
+    full_adder FA8(sum[7],cout,in1[7],in2[7],c7);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+    wire xor1, and1, and2;
+    xor(xor1, in1, in2);
+    xor(sum, xor1, cin);
+    and(and1, xor1, cin);
+    and(and2, in1, in2);
+    or(cout, and1, and2);
+endmodule"
+73.416,346.83,0.1,141.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire [7:0] carry;
+    full_adder_8 fa0(sum[0], carry[0], in1[0], in2[0], cin);
+    full_adder_8 fa1(sum[1], carry[1], in1[1], in2[1], carry[0]);
+    full_adder_8 fa2(sum[2], carry[2], in1[2], in2[2], carry[1]);
+    full_adder_8 fa3(sum[3], carry[3], in1[3], in2[3], carry[2]);
+    full_adder_8 fa4(sum[4], carry[4], in1[4], in2[4], carry[3]);
+    full_adder_8 fa5(sum[5], carry[5], in1[5], in2[5], carry[4]);
+    full_adder_8 fa6(sum[6], carry[6], in1[6], in2[6], carry[5]);
+    full_adder_8 fa7(sum[7], cout, in1[7], in2[7], carry[6]);
+endmodule
+
+module full_adder_8(output sum,
+                     output cout,
+                     input in1, in2, cin);
+    wire a, b, c, d, e, f, g, h;
+    xor(a, in1, in2);
+    xor(sum, a, cin);
+    and(b, a, cin);
+    and(c, in1, in2);
+    and(d, in1, in2);
+    or(cout, b, c);
+    and(e, b, c);
+    and(f, b, d);
+    and(g, c, d);
+    or(h, e, f);
+    or(cout, h, g);
+endmodule"
+41.23,195.95,0.7827137673846812,142.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire c1, c2, c3;
+    full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder_1 FA4(sum[3], cout, in1[3], in2[3], c3);
+endmodule
+
+module full_adder_1(output sum,
+                     output cout,
+                     input in1, in2, cin);
+    wire x, y, z;
+    xor(sum, in1, in2, cin);
+    and(x, in1, in2);
+    and(y, in1, cin);
+    and(z, in2, cin);
+    or(cout, x, y, z);
+endmodule"
+41.23,195.95,0.7827137673846812,143.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire c1, c2, c3;
+    full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder_1 FA4(sum[3], cout, in1[3], in2[3], c3);
+endmodule
+
+module full_adder_1(output sum,
+                     output cout,
+                     input in1, in2, cin);
+    wire x, y, z;
+    xor(sum, in1, in2, cin);
+    and(x, in1, in2);
+    and(y, in1, cin);
+    and(z, in2, cin);
+    or(cout, x, y, z);
+endmodule"
+38.304,198.83,0.8008984479302602,144.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire c1, c2, c3;
+    fulladder_8 fa1(sum[0], c1, in1[0], in2[0], cin);
+    fulladder_8 fa2(sum[1], c2, in1[1], in2[1], c1);
+    fulladder_8 fa3(sum[2], c3, in1[2], in2[2], c2);
+    fulladder_8 fa4(sum[3], cout, in1[3], in2[3], c3);
+endmodule
+
+module fulladder_8(output sum,
+                     output cout,
+                     input in1, in2, cin);
+    wire a, b, c, d, e, f, g, h;
+    xor(a, in1, in2);
+    xor(sum, a, cin);
+    and(b, a, cin);
+    and(c, in1, in2);
+    and(d, in1, in2, cin);
+    or(cout, b, c, d);
+endmodule"
+41.23,195.95,0.7827137673846812,145.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire c1, c2, c3;
+    full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder_1 FA4(sum[3], cout, in1[3], in2[3], c3);
+endmodule
+
+module full_adder_1(output sum,
+                     output cout,
+                     input in1, in2, cin);
+    wire x, y, z;
+    xor(sum, in1, in2, cin);
+    and(x, in1, in2);
+    and(y, in1, cin);
+    and(z, in2, cin);
+    or(cout, x, y, z);
+endmodule"
+41.23,195.95,0.7827137673846812,146.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire c1, c2, c3;
+    full_adder_1 FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder_1 FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder_1 FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder_1 FA4(sum[3], cout, in1[3], in2[3], c3);
+endmodule
+
+module full_adder_1(output sum,
+                     output cout,
+                     input in1, in2, cin);
+    wire x, y, z;
+    xor(sum, in1, in2, cin);
+    and(x, in1, in2);
+    and(y, in1, cin);
+    and(z, in2, cin);
+    or(cout, x, y, z);
+endmodule"
+41.23,196.03,0.7825842297546265,147.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire c1, c2, c3;
+    full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+endmodule
+
+module full_adder(output sum,
+                  output cout,
+                  input in1,
+                  input in2,
+                  input cin);
+    wire x, y, z;
+    xor(sum, in1, in2, cin);
+    and(w1, in1, in2);
+    and(w2, in1, cin);
+    and(w3, in2, cin);
+    or(cout, w1, w2, w3);
+endmodule"
+38.304,198.83,0.8008984479302602,148.0,1,"//Design an 8-bit adder.
+//There are two 8 bit inputs (in1 and in2) and a single carry-in input bit, cin.
+//The outputs are an 8 bit value, [7:0] sum, and a single carry-out output bit, cout.
+//The module should utilize the inputs (in1 and in2) and the cin bit to obtain the output sum and cout values.
+module adder_8(output [7:0] sum,
+                      output cout,
+                      input [7:0] in1, in2,
+                      input cin);
+    wire c1, c2, c3;
+    fulladder_8 fa1(sum[0], c1, in1[0], in2[0], cin);
+    fulladder_8 fa2(sum[1], c2, in1[1], in2[1], c1);
+    fulladder_8 fa3(sum[2], c3, in1[2], in2[2], c2);
+    fulladder_8 fa4(sum[3], cout, in1[3], in2[3], c3);
+endmodule
+
+module fulladder_8(output sum,
+                     output cout,
+                     input in1, in2, cin);
+    wire a, b, c, d, e, f, g, h;
+    xor(a, in1, in2);
+    xor(sum, a, cin);
+    and(b, a, cin);
+    and(c, in1, in2);
+    and(d, in1, in2, cin);
+    or(cout, b, c, d);
+endmodule"

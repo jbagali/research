@@ -1,0 +1,99 @@
+Area,Delay,Score,Current Run,Episode,Verilog
+N/A,N/A,-1,0,0,"//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_64(
+    input wire clk,
+    input wire reset,
+    input wire [63:0] A,
+    input wire [63:0] B,
+    output reg [127:0] accumulator
+);
+    //Declare internal registers
+    reg [63:0] accumulator_temp;
+    reg [63:0] B_temp;
+    reg [1:0] B_temp_sign;
+    reg [1:0] B_temp_sign_temp;
+    reg [1:0] B_temp_sign_temp_1;
+    reg [1:0] B_temp_sign_temp_2;
+    reg [1:0] B_temp_sign_temp_3;
+    reg [1:0] B_temp_sign_temp_4;
+    reg [1:0] B_temp_sign_temp_5;
+    reg [1:0] B_temp_sign_temp_6;
+    reg [1:0] B_temp_sign_temp_7;
+    reg [1:0] B_temp_sign_temp_8;
+    reg [1:0] B_temp_sign_temp_9;
+    reg [1:0] B_temp_sign_temp_10;
+    reg [1:0] B_temp_sign_temp_11;
+    reg [1:0] B_temp_sign_temp_12;
+    reg [1:0] B_temp_sign_temp_13;
+    reg [1:0] B_temp_sign_temp_14;
+    reg [1:0] B_temp_sign_temp_15;
+    reg [1:0] B_temp_sign_temp_16;
+    reg [1:0] B_temp_sign_temp_17;
+    reg [1:0] B_temp_sign_temp_18;
+    reg [1:0] B_temp_sign_temp_19;
+    reg [1:0] B_temp_sign_temp_20;
+    reg [1:0] B_temp_sign_temp_21;
+    reg [1:0] B_temp_sign_temp_22;
+    reg [1:0] B_temp_sign_temp_23;
+    reg [1:0] B_temp_sign_temp_24;
+    reg [1:0] B_temp_sign_temp_25;
+    reg [1:0] B_temp_sign_temp_26;
+    reg [1:0] B_temp_sign_temp_27;
+    reg [1:0] B_temp_sign_temp_28;
+    reg [1:0] B_temp_sign_temp_29;
+    reg [1:0] B_temp_sign_temp_30;
+    reg [1:0] B_temp_sign_temp_31;
+    reg [1:0] B_temp_sign_temp_32;
+    reg [1:0] B_temp_sign_temp_33;
+    reg [1:0] B_temp_sign_temp_34;
+    reg [1:0] B_temp_sign_temp_35;
+    reg [1:0] B_temp_sign_temp_36;
+    reg [1:0] B_temp_sign_temp_37;
+    reg [1:0] B_temp_sign_temp_38;
+    reg [1:0] B_temp_sign_temp_39;
+    reg [1:0] B_temp_sign_temp_40;
+    reg [1:0] B_temp_sign_temp_41;
+    reg [1:0] B_temp_sign_temp_42;
+    reg [1:0] B_temp_sign_temp_43;
+    reg [1:0] B_temp_sign_temp_44;
+    reg [1:0] B_temp_sign_temp_45;
+    reg [1:0] B_temp_sign_temp_46;
+    reg [1:0] B_temp_sign_temp_47;
+    reg [1:0] B_temp_sign_temp_48;
+    reg [1:0] B_temp_sign_temp_49;
+    reg [1:0] B_temp_sign_temp_50;
+    reg [1:0] B_temp_sign_temp_51;
+    reg [1:0] B_temp_sign_temp_52;
+    reg [1:0] B_temp_sign_temp_53;
+    reg [1:0] B_temp_sign_temp_54;
+    reg [1:0] B_temp_sign_temp_55;
+    reg [1:0] B_temp_sign_temp_56;
+    reg [1:0] B_temp_sign_temp_57;
+    reg [1:0] B_temp_sign_temp_58;
+    reg [1:0] B_temp_sign_temp_59;
+    reg [1:0] B_temp_sign_temp_60;
+    reg [1:0] B_temp_sign_temp_61;
+    reg [1:0] B_temp_sign_temp_62;
+    reg [1:0] B_temp_sign_temp_63;
+    reg [1:0] B_temp_sign_temp_64;
+    reg [1:0] B_temp_sign_temp_65;
+    reg [1:0] B_temp_sign_temp_66;
+    reg [1:0] B_temp_sign_temp_67;
+    reg [1:0] B_temp_sign_temp_68;
+    reg [1:0] B_temp_sign_temp_69;
+    reg [1:0] B_temp_sign_temp_70;
+    reg [1:0] B_temp_sign_temp_71;
+    reg [1:0] B_temp_sign_temp_72;
+    reg [1:0] B_temp_sign_temp_73;
+    reg [1:0] B_temp_sign_temp_74;
+    reg [1:0] B_temp_sign_temp_75;
+    reg [1:0] B_temp_sign_temp_76;
+    reg [1:0] B_temp_sign_temp_77;
+    reg [1:0] B_temp_sign_temp_78;
+    reg [1:0] B_temp_sign_temp_79;
+    reg [1:0] B_temp_sign_temp_80"

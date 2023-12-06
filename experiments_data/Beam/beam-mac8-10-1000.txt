@@ -1,0 +1,416 @@
+mac/mac_8.v
+Prompt str:  //Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_8(
+    input wire clk,
+    input wire reset,
+    input wire [7:0] A,
+    input wire [7:0] B,
+    output reg [15:0] accumulator
+);
+
+Loading LLM model...
+Initializing MCTS tree/LLM env...
+Episode not stated yet!
+Simulations per episode:  500
+********-- EPISODE-1--************
+Env seed:  386143
+BEAM SEARCH: ID TYPE:  <class 'torch.Tensor'>
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_8(
+    input wire clk,
+    input wire reset,
+    input wire [7:0] A,
+    input wire [7:0] B,
+    output reg [15:0] accumulator
+);
+    reg [7:0] C;
+    always @(posedge clk) begin
+        if (reset) begin
+            accumulator <= 0;
+            C <= 0;
+        end
+        else begin
+            accumulator <= C;
+            C <= A + B;
+        end
+    end
+endmodule
+Path:  output_files/2948217_mac_8/2948217_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 00, B: 00, Accumulator: xxxx\nTime:                15000, A: 00, B: 00, Accumulator: 0000\nTime:                25000, A: 00, B: 00, Accumulator: 0000\nTest 1 passed\nTime:                35000, A: 02, B: 03, Accumulator: 0000\nTime:                45000, A: 02, B: 03, Accumulator: 0000\nTest 2 failed\n'
+[ 1003 23067   257  4643   346   519  8265   329   257 20582   357 15205
+ 24705   959   290  6366   388  8927     8  4326    13   198  1003   464
+ 20582  4326  2753   734 17311    11   317   290   347    11   290 15082
+   444   606    13   198  1003   464  1255   286   262 48473   318 22425
+   351   257  2368  7881    11   327    13   198  1003   464 22425  1255
+   318  8574   287   281  5072  7881    11 10507  8927    13   198  1003
+   464  8265   815   423   257  1630  5128    11   537    74   357 15750
+   828   284 18305  1096   262  4560    13   198  1003   464  8265   815
+   423   257  1630  5128    11 13259   357 42503   828   284 13259   262
+ 22425  1255    13   198 21412  8352    62    23     7   198 50284 15414
+  6503   537    74    11   198 50284 15414  6503 13259    11   198 50284
+ 15414  6503   685    22    25    15    60   317    11   198 50284 15414
+  6503   685    22    25    15    60   347    11   198 50284 22915   842
+   685  1314    25    15    60 10507  8927   198  1776   198 50284  2301
+   685    22    25    15    60   327    26   198 50284 33770  2488     7
+ 29813   469   537    74     8  2221   198 50280   361   357 42503     8
+  2221   198 50276  4134   388  8927 19841   657    26   198 50276    34
+ 19841   657    26   198 50280   437   198 50280 17772  2221   198 50276
+  4134   388  8927 19841   327    26   198 50276    34 19841   317  1343
+   347    26   198 50280   437   198 50284   437   198   437 21412     2]
+Running getPromptScore: 
+Beam token ids:  [1003, 23067, 257, 4643, 346, 519, 8265, 329, 257, 20582, 357, 15205, 24705, 959, 290, 6366, 388, 8927, 8, 4326, 13, 198, 1003, 464, 20582, 4326, 2753, 734, 17311, 11, 317, 290, 347, 11, 290, 15082, 444, 606, 13, 198, 1003, 464, 1255, 286, 262, 48473, 318, 22425, 351, 257, 2368, 7881, 11, 327, 13, 198, 1003, 464, 22425, 1255, 318, 8574, 287, 281, 5072, 7881, 11, 10507, 8927, 13, 198, 1003, 464, 8265, 815, 423, 257, 1630, 5128, 11, 537, 74, 357, 15750, 828, 284, 18305, 1096, 262, 4560, 13, 198, 1003, 464, 8265, 815, 423, 257, 1630, 5128, 11, 13259, 357, 42503, 828, 284, 13259, 262, 22425, 1255, 13, 198, 21412, 8352, 62, 23, 7, 198, 50284, 15414, 6503, 537, 74, 11, 198, 50284, 15414, 6503, 13259, 11, 198, 50284, 15414, 6503, 685, 22, 25, 15, 60, 317, 11, 198, 50284, 15414, 6503, 685, 22, 25, 15, 60, 347, 11, 198, 50284, 22915, 842, 685, 1314, 25, 15, 60, 10507, 8927, 198, 1776, 198, 50284, 2301, 685, 22, 25, 15, 60, 327, 26, 198, 50284, 33770, 2488, 7, 29813, 469, 537, 74, 8, 2221, 198, 50280, 361, 357, 42503, 8, 2221, 198, 50276, 4134, 388, 8927, 19841, 657, 26, 198, 50276, 34, 19841, 657, 26, 198, 50280, 437, 198, 50280, 17772, 2221, 198, 50276, 4134, 388, 8927, 19841, 327, 26, 198, 50276, 34, 19841, 317, 1343, 347, 26, 198, 50280, 437, 198, 50284, 437, 198, 437, 21412, 2]
+Beam results:  //Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_8(
+    input wire clk,
+    input wire reset,
+    input wire [7:0] A,
+    input wire [7:0] B,
+    output reg [15:0] accumulator
+);
+    reg [7:0] C;
+    always @(posedge clk) begin
+        if (reset) begin
+            accumulator <= 0;
+            C <= 0;
+        end
+        else begin
+            accumulator <= C;
+            C <= A + B;
+        end
+    end
+endmodule
+Env seed:  219617
+BEAM SEARCH: ID TYPE:  <class 'torch.Tensor'>
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_8(
+    input wire clk,
+    input wire reset,
+    input wire [7:0] A,
+    input wire [7:0] B,
+    output reg [15:0] accumulator
+);
+    reg [7:0] C;
+    always @(posedge clk) begin
+        if (reset) begin
+            accumulator <= 0;
+            C <= 0;
+        end
+        else begin
+            accumulator <= C;
+            C <= A + B;
+        end
+    end
+endmodule
+Path:  output_files/2948217_mac_8/2948217_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 00, B: 00, Accumulator: xxxx\nTime:                15000, A: 00, B: 00, Accumulator: 0000\nTime:                25000, A: 00, B: 00, Accumulator: 0000\nTest 1 passed\nTime:                35000, A: 02, B: 03, Accumulator: 0000\nTime:                45000, A: 02, B: 03, Accumulator: 0000\nTest 2 failed\n'
+[ 1003 23067   257  4643   346   519  8265   329   257 20582   357 15205
+ 24705   959   290  6366   388  8927     8  4326    13   198  1003   464
+ 20582  4326  2753   734 17311    11   317   290   347    11   290 15082
+   444   606    13   198  1003   464  1255   286   262 48473   318 22425
+   351   257  2368  7881    11   327    13   198  1003   464 22425  1255
+   318  8574   287   281  5072  7881    11 10507  8927    13   198  1003
+   464  8265   815   423   257  1630  5128    11   537    74   357 15750
+   828   284 18305  1096   262  4560    13   198  1003   464  8265   815
+   423   257  1630  5128    11 13259   357 42503   828   284 13259   262
+ 22425  1255    13   198 21412  8352    62    23     7   198 50284 15414
+  6503   537    74    11   198 50284 15414  6503 13259    11   198 50284
+ 15414  6503   685    22    25    15    60   317    11   198 50284 15414
+  6503   685    22    25    15    60   347    11   198 50284 22915   842
+   685  1314    25    15    60 10507  8927   198  1776   198 50284  2301
+   685    22    25    15    60   327    26   198 50284 33770  2488     7
+ 29813   469   537    74     8  2221   198 50280   361   357 42503     8
+  2221   198 50276  4134   388  8927 19841   657    26   198 50276    34
+ 19841   657    26   198 50280   437   198 50280 17772  2221   198 50276
+  4134   388  8927 19841   327    26   198 50276    34 19841   317  1343
+   347    26   198 50280   437   198 50284   437   198   437 21412     2]
+Running getPromptScore: 
+Beam token ids:  [1003, 23067, 257, 4643, 346, 519, 8265, 329, 257, 20582, 357, 15205, 24705, 959, 290, 6366, 388, 8927, 8, 4326, 13, 198, 1003, 464, 20582, 4326, 2753, 734, 17311, 11, 317, 290, 347, 11, 290, 15082, 444, 606, 13, 198, 1003, 464, 1255, 286, 262, 48473, 318, 22425, 351, 257, 2368, 7881, 11, 327, 13, 198, 1003, 464, 22425, 1255, 318, 8574, 287, 281, 5072, 7881, 11, 10507, 8927, 13, 198, 1003, 464, 8265, 815, 423, 257, 1630, 5128, 11, 537, 74, 357, 15750, 828, 284, 18305, 1096, 262, 4560, 13, 198, 1003, 464, 8265, 815, 423, 257, 1630, 5128, 11, 13259, 357, 42503, 828, 284, 13259, 262, 22425, 1255, 13, 198, 21412, 8352, 62, 23, 7, 198, 50284, 15414, 6503, 537, 74, 11, 198, 50284, 15414, 6503, 13259, 11, 198, 50284, 15414, 6503, 685, 22, 25, 15, 60, 317, 11, 198, 50284, 15414, 6503, 685, 22, 25, 15, 60, 347, 11, 198, 50284, 22915, 842, 685, 1314, 25, 15, 60, 10507, 8927, 198, 1776, 198, 50284, 2301, 685, 22, 25, 15, 60, 327, 26, 198, 50284, 33770, 2488, 7, 29813, 469, 537, 74, 8, 2221, 198, 50280, 361, 357, 42503, 8, 2221, 198, 50276, 4134, 388, 8927, 19841, 657, 26, 198, 50276, 34, 19841, 657, 26, 198, 50280, 437, 198, 50280, 17772, 2221, 198, 50276, 4134, 388, 8927, 19841, 327, 26, 198, 50276, 34, 19841, 317, 1343, 347, 26, 198, 50280, 437, 198, 50284, 437, 198, 437, 21412, 2]
+Beam results:  //Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_8(
+    input wire clk,
+    input wire reset,
+    input wire [7:0] A,
+    input wire [7:0] B,
+    output reg [15:0] accumulator
+);
+    reg [7:0] C;
+    always @(posedge clk) begin
+        if (reset) begin
+            accumulator <= 0;
+            C <= 0;
+        end
+        else begin
+            accumulator <= C;
+            C <= A + B;
+        end
+    end
+endmodule
+Env seed:  542195
+BEAM SEARCH: ID TYPE:  <class 'torch.Tensor'>
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_8(
+    input wire clk,
+    input wire reset,
+    input wire [7:0] A,
+    input wire [7:0] B,
+    output reg [15:0] accumulator
+);
+    reg [7:0] C;
+    always @(posedge clk) begin
+        if (reset) begin
+            accumulator <= 0;
+            C <= 0;
+        end
+        else begin
+            accumulator <= C;
+            C <= A + B;
+        end
+    end
+endmodule
+Path:  output_files/2948217_mac_8/2948217_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 00, B: 00, Accumulator: xxxx\nTime:                15000, A: 00, B: 00, Accumulator: 0000\nTime:                25000, A: 00, B: 00, Accumulator: 0000\nTest 1 passed\nTime:                35000, A: 02, B: 03, Accumulator: 0000\nTime:                45000, A: 02, B: 03, Accumulator: 0000\nTest 2 failed\n'
+[ 1003 23067   257  4643   346   519  8265   329   257 20582   357 15205
+ 24705   959   290  6366   388  8927     8  4326    13   198  1003   464
+ 20582  4326  2753   734 17311    11   317   290   347    11   290 15082
+   444   606    13   198  1003   464  1255   286   262 48473   318 22425
+   351   257  2368  7881    11   327    13   198  1003   464 22425  1255
+   318  8574   287   281  5072  7881    11 10507  8927    13   198  1003
+   464  8265   815   423   257  1630  5128    11   537    74   357 15750
+   828   284 18305  1096   262  4560    13   198  1003   464  8265   815
+   423   257  1630  5128    11 13259   357 42503   828   284 13259   262
+ 22425  1255    13   198 21412  8352    62    23     7   198 50284 15414
+  6503   537    74    11   198 50284 15414  6503 13259    11   198 50284
+ 15414  6503   685    22    25    15    60   317    11   198 50284 15414
+  6503   685    22    25    15    60   347    11   198 50284 22915   842
+   685  1314    25    15    60 10507  8927   198  1776   198 50284  2301
+   685    22    25    15    60   327    26   198 50284 33770  2488     7
+ 29813   469   537    74     8  2221   198 50280   361   357 42503     8
+  2221   198 50276  4134   388  8927 19841   657    26   198 50276    34
+ 19841   657    26   198 50280   437   198 50280 17772  2221   198 50276
+  4134   388  8927 19841   327    26   198 50276    34 19841   317  1343
+   347    26   198 50280   437   198 50284   437   198   437 21412     2]
+Running getPromptScore: 
+Beam token ids:  [1003, 23067, 257, 4643, 346, 519, 8265, 329, 257, 20582, 357, 15205, 24705, 959, 290, 6366, 388, 8927, 8, 4326, 13, 198, 1003, 464, 20582, 4326, 2753, 734, 17311, 11, 317, 290, 347, 11, 290, 15082, 444, 606, 13, 198, 1003, 464, 1255, 286, 262, 48473, 318, 22425, 351, 257, 2368, 7881, 11, 327, 13, 198, 1003, 464, 22425, 1255, 318, 8574, 287, 281, 5072, 7881, 11, 10507, 8927, 13, 198, 1003, 464, 8265, 815, 423, 257, 1630, 5128, 11, 537, 74, 357, 15750, 828, 284, 18305, 1096, 262, 4560, 13, 198, 1003, 464, 8265, 815, 423, 257, 1630, 5128, 11, 13259, 357, 42503, 828, 284, 13259, 262, 22425, 1255, 13, 198, 21412, 8352, 62, 23, 7, 198, 50284, 15414, 6503, 537, 74, 11, 198, 50284, 15414, 6503, 13259, 11, 198, 50284, 15414, 6503, 685, 22, 25, 15, 60, 317, 11, 198, 50284, 15414, 6503, 685, 22, 25, 15, 60, 347, 11, 198, 50284, 22915, 842, 685, 1314, 25, 15, 60, 10507, 8927, 198, 1776, 198, 50284, 2301, 685, 22, 25, 15, 60, 327, 26, 198, 50284, 33770, 2488, 7, 29813, 469, 537, 74, 8, 2221, 198, 50280, 361, 357, 42503, 8, 2221, 198, 50276, 4134, 388, 8927, 19841, 657, 26, 198, 50276, 34, 19841, 657, 26, 198, 50280, 437, 198, 50280, 17772, 2221, 198, 50276, 4134, 388, 8927, 19841, 327, 26, 198, 50276, 34, 19841, 317, 1343, 347, 26, 198, 50280, 437, 198, 50284, 437, 198, 437, 21412, 2]
+Beam results:  //Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_8(
+    input wire clk,
+    input wire reset,
+    input wire [7:0] A,
+    input wire [7:0] B,
+    output reg [15:0] accumulator
+);
+    reg [7:0] C;
+    always @(posedge clk) begin
+        if (reset) begin
+            accumulator <= 0;
+            C <= 0;
+        end
+        else begin
+            accumulator <= C;
+            C <= A + B;
+        end
+    end
+endmodule
+Env seed:  817167
+BEAM SEARCH: ID TYPE:  <class 'torch.Tensor'>
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_8(
+    input wire clk,
+    input wire reset,
+    input wire [7:0] A,
+    input wire [7:0] B,
+    output reg [15:0] accumulator
+);
+    reg [7:0] C;
+    always @(posedge clk) begin
+        if (reset) begin
+            accumulator <= 0;
+            C <= 0;
+        end
+        else begin
+            accumulator <= C;
+            C <= A + B;
+        end
+    end
+endmodule
+Path:  output_files/2948217_mac_8/2948217_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 00, B: 00, Accumulator: xxxx\nTime:                15000, A: 00, B: 00, Accumulator: 0000\nTime:                25000, A: 00, B: 00, Accumulator: 0000\nTest 1 passed\nTime:                35000, A: 02, B: 03, Accumulator: 0000\nTime:                45000, A: 02, B: 03, Accumulator: 0000\nTest 2 failed\n'
+[ 1003 23067   257  4643   346   519  8265   329   257 20582   357 15205
+ 24705   959   290  6366   388  8927     8  4326    13   198  1003   464
+ 20582  4326  2753   734 17311    11   317   290   347    11   290 15082
+   444   606    13   198  1003   464  1255   286   262 48473   318 22425
+   351   257  2368  7881    11   327    13   198  1003   464 22425  1255
+   318  8574   287   281  5072  7881    11 10507  8927    13   198  1003
+   464  8265   815   423   257  1630  5128    11   537    74   357 15750
+   828   284 18305  1096   262  4560    13   198  1003   464  8265   815
+   423   257  1630  5128    11 13259   357 42503   828   284 13259   262
+ 22425  1255    13   198 21412  8352    62    23     7   198 50284 15414
+  6503   537    74    11   198 50284 15414  6503 13259    11   198 50284
+ 15414  6503   685    22    25    15    60   317    11   198 50284 15414
+  6503   685    22    25    15    60   347    11   198 50284 22915   842
+   685  1314    25    15    60 10507  8927   198  1776   198 50284  2301
+   685    22    25    15    60   327    26   198 50284 33770  2488     7
+ 29813   469   537    74     8  2221   198 50280   361   357 42503     8
+  2221   198 50276  4134   388  8927 19841   657    26   198 50276    34
+ 19841   657    26   198 50280   437   198 50280 17772  2221   198 50276
+  4134   388  8927 19841   327    26   198 50276    34 19841   317  1343
+   347    26   198 50280   437   198 50284   437   198   437 21412     2]
+Running getPromptScore: 
+Beam token ids:  [1003, 23067, 257, 4643, 346, 519, 8265, 329, 257, 20582, 357, 15205, 24705, 959, 290, 6366, 388, 8927, 8, 4326, 13, 198, 1003, 464, 20582, 4326, 2753, 734, 17311, 11, 317, 290, 347, 11, 290, 15082, 444, 606, 13, 198, 1003, 464, 1255, 286, 262, 48473, 318, 22425, 351, 257, 2368, 7881, 11, 327, 13, 198, 1003, 464, 22425, 1255, 318, 8574, 287, 281, 5072, 7881, 11, 10507, 8927, 13, 198, 1003, 464, 8265, 815, 423, 257, 1630, 5128, 11, 537, 74, 357, 15750, 828, 284, 18305, 1096, 262, 4560, 13, 198, 1003, 464, 8265, 815, 423, 257, 1630, 5128, 11, 13259, 357, 42503, 828, 284, 13259, 262, 22425, 1255, 13, 198, 21412, 8352, 62, 23, 7, 198, 50284, 15414, 6503, 537, 74, 11, 198, 50284, 15414, 6503, 13259, 11, 198, 50284, 15414, 6503, 685, 22, 25, 15, 60, 317, 11, 198, 50284, 15414, 6503, 685, 22, 25, 15, 60, 347, 11, 198, 50284, 22915, 842, 685, 1314, 25, 15, 60, 10507, 8927, 198, 1776, 198, 50284, 2301, 685, 22, 25, 15, 60, 327, 26, 198, 50284, 33770, 2488, 7, 29813, 469, 537, 74, 8, 2221, 198, 50280, 361, 357, 42503, 8, 2221, 198, 50276, 4134, 388, 8927, 19841, 657, 26, 198, 50276, 34, 19841, 657, 26, 198, 50280, 437, 198, 50280, 17772, 2221, 198, 50276, 4134, 388, 8927, 19841, 327, 26, 198, 50276, 34, 19841, 317, 1343, 347, 26, 198, 50280, 437, 198, 50284, 437, 198, 437, 21412, 2]
+Beam results:  //Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_8(
+    input wire clk,
+    input wire reset,
+    input wire [7:0] A,
+    input wire [7:0] B,
+    output reg [15:0] accumulator
+);
+    reg [7:0] C;
+    always @(posedge clk) begin
+        if (reset) begin
+            accumulator <= 0;
+            C <= 0;
+        end
+        else begin
+            accumulator <= C;
+            C <= A + B;
+        end
+    end
+endmodule
+Env seed:  916062
+BEAM SEARCH: ID TYPE:  <class 'torch.Tensor'>
+//Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_8(
+    input wire clk,
+    input wire reset,
+    input wire [7:0] A,
+    input wire [7:0] B,
+    output reg [15:0] accumulator
+);
+    reg [7:0] C;
+    always @(posedge clk) begin
+        if (reset) begin
+            accumulator <= 0;
+            C <= 0;
+        end
+        else begin
+            accumulator <= C;
+            C <= A + B;
+        end
+    end
+endmodule
+Path:  output_files/2948217_mac_8/2948217_simulation
+Output Verilog module compiles successfully.
+Verilog testbench simulation ran successfully.
+Some testbench tests failed.
+Simulation output:  b'Time:                 5000, A: 00, B: 00, Accumulator: xxxx\nTime:                15000, A: 00, B: 00, Accumulator: 0000\nTime:                25000, A: 00, B: 00, Accumulator: 0000\nTest 1 passed\nTime:                35000, A: 02, B: 03, Accumulator: 0000\nTime:                45000, A: 02, B: 03, Accumulator: 0000\nTest 2 failed\n'
+[ 1003 23067   257  4643   346   519  8265   329   257 20582   357 15205
+ 24705   959   290  6366   388  8927     8  4326    13   198  1003   464
+ 20582  4326  2753   734 17311    11   317   290   347    11   290 15082
+   444   606    13   198  1003   464  1255   286   262 48473   318 22425
+   351   257  2368  7881    11   327    13   198  1003   464 22425  1255
+   318  8574   287   281  5072  7881    11 10507  8927    13   198  1003
+   464  8265   815   423   257  1630  5128    11   537    74   357 15750
+   828   284 18305  1096   262  4560    13   198  1003   464  8265   815
+   423   257  1630  5128    11 13259   357 42503   828   284 13259   262
+ 22425  1255    13   198 21412  8352    62    23     7   198 50284 15414
+  6503   537    74    11   198 50284 15414  6503 13259    11   198 50284
+ 15414  6503   685    22    25    15    60   317    11   198 50284 15414
+  6503   685    22    25    15    60   347    11   198 50284 22915   842
+   685  1314    25    15    60 10507  8927   198  1776   198 50284  2301
+   685    22    25    15    60   327    26   198 50284 33770  2488     7
+ 29813   469   537    74     8  2221   198 50280   361   357 42503     8
+  2221   198 50276  4134   388  8927 19841   657    26   198 50276    34
+ 19841   657    26   198 50280   437   198 50280 17772  2221   198 50276
+  4134   388  8927 19841   327    26   198 50276    34 19841   317  1343
+   347    26   198 50280   437   198 50284   437   198   437 21412     2]
+Running getPromptScore: 
+Beam token ids:  [1003, 23067, 257, 4643, 346, 519, 8265, 329, 257, 20582, 357, 15205, 24705, 959, 290, 6366, 388, 8927, 8, 4326, 13, 198, 1003, 464, 20582, 4326, 2753, 734, 17311, 11, 317, 290, 347, 11, 290, 15082, 444, 606, 13, 198, 1003, 464, 1255, 286, 262, 48473, 318, 22425, 351, 257, 2368, 7881, 11, 327, 13, 198, 1003, 464, 22425, 1255, 318, 8574, 287, 281, 5072, 7881, 11, 10507, 8927, 13, 198, 1003, 464, 8265, 815, 423, 257, 1630, 5128, 11, 537, 74, 357, 15750, 828, 284, 18305, 1096, 262, 4560, 13, 198, 1003, 464, 8265, 815, 423, 257, 1630, 5128, 11, 13259, 357, 42503, 828, 284, 13259, 262, 22425, 1255, 13, 198, 21412, 8352, 62, 23, 7, 198, 50284, 15414, 6503, 537, 74, 11, 198, 50284, 15414, 6503, 13259, 11, 198, 50284, 15414, 6503, 685, 22, 25, 15, 60, 317, 11, 198, 50284, 15414, 6503, 685, 22, 25, 15, 60, 347, 11, 198, 50284, 22915, 842, 685, 1314, 25, 15, 60, 10507, 8927, 198, 1776, 198, 50284, 2301, 685, 22, 25, 15, 60, 327, 26, 198, 50284, 33770, 2488, 7, 29813, 469, 537, 74, 8, 2221, 198, 50280, 361, 357, 42503, 8, 2221, 198, 50276, 4134, 388, 8927, 19841, 657, 26, 198, 50276, 34, 19841, 657, 26, 198, 50280, 437, 198, 50280, 17772, 2221, 198, 50276, 4134, 388, 8927, 19841, 327, 26, 198, 50276, 34, 19841, 317, 1343, 347, 26, 198, 50280, 437, 198, 50284, 437, 198, 437, 21412, 2]
+Beam results:  //Design a Verilog module for a MAC (Multiplier and Accumulator) unit.
+//The MAC unit takes two inputs, A and B, and multiplies them.
+//The result of the multiplication is accumulated with a third register, C.
+//The accumulated result is stored in an output register, accumulator.
+//The module should have a control input, clk (clock), to synchronize the operations.
+//The module should have a control input, reset (reset), to reset the accumulated result.
+module mac_8(
+    input wire clk,
+    input wire reset,
+    input wire [7:0] A,
+    input wire [7:0] B,
+    output reg [15:0] accumulator
+);
+    reg [7:0] C;
+    always @(posedge clk) begin
+        if (reset) begin
+            accumulator <= 0;
+            C <= 0;
+        end
+        else begin
+            accumulator <= C;
+            C <= A + B;
+        end
+    end
+endmodule
+Env seed:  180547

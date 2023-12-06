@@ -1,0 +1,3940 @@
+Area,Delay,Score,Current Run,Episode,Verilog
+N/A,N/A,-0.5,2.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+N/A,N/A,-1,3.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+    wire [3:0] sum;
+    wire cout;
+    wire [3:0] in1;
+    wire [3:0] in2;
+    wire cin;
+
+    output [3:0] out;
+
+    wire [3:0] out;
+
+    wire [3:0] out1;
+    wire [3:0] out2;
+
+    wire [3:0] out3;
+    wire [3:0] out4;
+
+    wire [3:0] out5;
+    wire [3:0] out6;
+
+    wire [3:0] out7;
+    wire [3:0] out8;
+
+    wire [3:0] out9;
+    wire [3:0] out10;
+
+    wire [3:0] out11;
+    wire [3:0] out12;
+
+    wire [3:0] out13;
+    wire [3:0] out14;
+
+    wire [3:0] out15;
+    wire [3:0] out16;
+
+    wire [3:0] out17;
+    wire [3:0] out18;
+
+    wire [3:0] out19;
+    wire [3:0] out20;
+
+    wire [3:0] out21;
+    wire [3:0] out22;
+
+    wire [3:0] out23;
+    wire [3:0] out24;
+
+    wire [3:0] out25;
+    wire [3:0] out26;
+
+    wire [3:0] out27;
+    wire [3:0] out28;
+
+    wire [3:0] out29;
+    wire [3:0] out30;
+
+    wire [3:0] out31;
+    wire [3:0] out32;
+
+    wire [3:0] out33;
+    wire [3:0] out34;
+
+    wire [3:0] out35;
+    wire [3:0] out36;
+
+    wire [3:0] out37;
+    wire [3:0] out38;
+
+    wire [3:0] out39;
+    wire [3:0] out40;
+
+    wire [3:0] out41;
+    wire [3:0] out42;
+
+    wire [3:0] out43;
+    wire [3:0] out44;
+
+    wire [3:0] out45;
+    wire [3:0] out46;
+
+    wire [3:0] out47;
+    wire [3:0] out48;
+
+    wire [3:0] out49;
+    wire [3:0] out50;
+
+    wire [3:0] out51;
+    wire [3:0] out52;
+
+    wire [3:0] out53;
+    wire [3:0] out54;
+
+    wire [3:0] out55;
+    wire [3:0] out56;
+
+    wire [3:0] out57;
+    wire [3:0] out58;
+
+    wire [3:0] out59;
+    wire [3:0] out60;
+
+    wire [3:0] out61;
+    wire [3:0] out62;
+
+    wire [3:0] out63;
+    wire [3:0] out64;
+
+    wire [3:0] out65;
+    wire [3:0] out66;
+
+    wire [3:0] out67;
+    wire [3:0] out68;
+
+    wire [3:0] out69;
+    wire [3:0] out70;
+
+    wire [3:0] out71;
+    wire [3:0] out72;
+
+    wire [3:0] out73;
+    wire [3:0] out74;
+
+    wire [3:0] out75;
+    wire [3:0] out76;
+
+    wire [3:0] out77;
+    wire [3:0] out78;
+
+    wire [3:0] out79;
+    wire [3:0] out80;
+
+    wire [3:0] out81;
+    wire [3:0] out82;
+
+    wire [3:0] out83;
+    wire [3:0] out84;
+
+    wire [3:0] out85;
+    "
+N/A,N/A,-0.5,4.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+N/A,N/A,-0.5,5.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);   
+
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+N/A,N/A,-1,6.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+	wire [3:0] c;
+	
+	adder_1bit a1(sum[0], c[0], in1[0], in2[0], cin);
+	adder_1bit a2(sum[1], c[1], in1[1], in2[1], c[0]);
+	adder_1bit a3(sum[2], c[2], in1[2], in2[2], c[1]);
+	adder_1bit a4(sum[3], cout, in1[3], in2[3], c[2]);
+	
+endmodule
+
+module adder_1bit(output sum, cout, input in1, in2, cin);
+	wire [1:0] c;
+	
+	adder_1bit a1(sum, c[0], in1, in2, cin);
+	adder_1bit a2(cout, c[1], c[0], in1, in2);
+	
+endmodule"
+N/A,N/A,-1,7.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin); 
+
+wire c1, c2, c3;
+
+adder4bit u1(sum[3:0], c1, in1[3:0], in2[3:0], cin);
+adder4bit u2(sum[7:4], c2, in1[7:4], in2[7:4], c1);
+adder4bit u3(sum[11:8], c3, in1[11:8], in2[11:8], c2);
+adder4bit u4(sum[15:12], cout, in1[15:12], in2[15:12], c3);
+
+endmodule
+
+module adder4bit(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire c1, c2, c3;
+
+adder u1(sum[0], c1, in1[0], in2[0], cin);
+adder u2(sum[1], c2, in1[1], in2[1], c1);
+adder u3(sum[2], c3, in1[2], in2[2], c2);
+adder u4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule"
+N/A,N/A,-0.5,8.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+    wire [3:0] in1, in2;
+    wire cin;
+    wire [3:0] sum;
+    wire cout;
+    
+    assign in1 = in1;
+    assign in2 = in2;
+    assign cin = cin;
+    
+    assign sum = sum;
+    assign cout = cout;
+    
+endmodule"
+N/A,N/A,-0.5,9.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);   
+
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+N/A,N/A,-0.5,10.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+    wire [3:0] sum;
+    wire cout;
+    wire [3:0] in1;
+    wire [3:0] in2;
+    wire cin;
+
+    /// This is a 4-bit adder
+    assign sum = in1 + in2 + cin;
+    assign cout = (in1[3] & in2[3] & cin) | (in1[3] & in2[3] & ~cin) | (~in1[3] & ~in2[3] & cin);
+
+endmodule"
+N/A,N/A,-0.5,11.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+N/A,N/A,-0.5,12.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);  
+
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+41.23,195.95,0.0001237774118229832,13.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);	
+	wire [3:0] c;
+	
+	adder_1bit a1(sum[0], c[0], in1[0], in2[0], cin);
+	adder_1bit a2(sum[1], c[1], in1[1], in2[1], c[0]);
+	adder_1bit a3(sum[2], c[2], in1[2], in2[2], c[1]);
+	adder_1bit a4(sum[3], cout, in1[3], in2[3], c[2]);
+	
+endmodule
+
+module adder_1bit(output sum, cout, input in1, in2, cin);
+	wire x, y, z;
+	
+	xor(sum, in1, in2, cin);
+	and(x, in1, in2);
+	and(y, in1, cin);
+	and(z, in2, cin);
+	or(cout, x, y, z);
+	
+endmodule"
+41.23,195.95,0.0001237774118229832,14.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);	
+	wire [3:0] c;
+	
+	adder_1bit a1(sum[0], c[0], in1[0], in2[0], cin);
+	adder_1bit a2(sum[1], c[1], in1[1], in2[1], c[0]);
+	adder_1bit a3(sum[2], c[2], in1[2], in2[2], c[1]);
+	adder_1bit a4(sum[3], cout, in1[3], in2[3], c[2]);
+	
+endmodule
+
+module adder_1bit(output sum, cout, input in1, in2, cin);
+	wire x, y, z;
+	
+	xor(sum, in1, in2, cin);
+	and(x, in1, in2);
+	and(y, in1, cin);
+	and(z, in2, cin);
+	or(cout, x, y, z);
+	
+endmodule"
+N/A,N/A,-1,15.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1, in2;
+wire cin;
+wire [3:0] sum;
+wire cout;
+
+//////////////// A 4-bit adder with carry-in enable goes here
+
+bitwise_add add1(sum[0], c1, in1[0], in2[0], cin);
+bitwise_add add2(sum[1], c2, in1[1], in2[1], c1);
+bitwise_add add3(sum[2], c3, in1[2], in2[2], c2);
+bitwise_add add4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module bitwise_add(output sum, carry, input a, b, cin);
+wire [3:0] in1, in2;
+wire cin;
+wire [3:0] sum;
+wire carry;
+
+assign in1 = {1'b0, a};
+assign in2 = {1'b0, b};
+assign cin = 1'b0;
+
+adder add1(sum, carry, in1, in2, cin);
+
+endmodule"
+N/A,N/A,-0.5,16.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);    
+    wire [3:0] in1_w, in2_w;
+    wire cin_w;
+    
+    assign in1_w = in1;
+    assign in2_w = in2;
+    assign cin_w = cin;
+    
+    full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+    full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+    full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+    full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+    
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+    wire x, y, z;
+    
+    xor(sum, in1, in2, cin);
+    and(x, in1, in2);
+    and(y, in1, cin);
+    and(z, in2, cin);
+    or(cout, x, y, z);
+endmodule"
+41.23,195.95,0.0001237774118229832,17.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);	
+	wire [3:0] c;
+	
+	adder_1bit a1(sum[0], c[0], in1[0], in2[0], cin);
+	adder_1bit a2(sum[1], c[1], in1[1], in2[1], c[0]);
+	adder_1bit a3(sum[2], c[2], in1[2], in2[2], c[1]);
+	adder_1bit a4(sum[3], cout, in1[3], in2[3], c[2]);
+	
+endmodule
+
+module adder_1bit(output sum, cout, input in1, in2, cin);
+	wire x, y, z;
+	
+	xor(sum, in1, in2, cin);
+	and(x, in1, in2);
+	and(y, in1, cin);
+	and(z, in2, cin);
+	or(cout, x, y, z);
+	
+endmodule"
+41.23,195.95,0.0001237774118229832,18.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);	
+	wire [3:0] c;
+	
+	adder_1bit a1(sum[0], c[0], in1[0], in2[0], cin);
+	adder_1bit a2(sum[1], c[1], in1[1], in2[1], c[0]);
+	adder_1bit a3(sum[2], c[2], in1[2], in2[2], c[1]);
+	adder_1bit a4(sum[3], cout, in1[3], in2[3], c[2]);
+	
+endmodule
+
+module adder_1bit(output sum, cout, input in1, in2, cin);
+	wire x, y, z;
+	
+	xor(sum, in1, in2, cin);
+	and(x, in1, in2);
+	and(y, in1, cin);
+	and(z, in2, cin);
+	or(cout, x, y, z);
+	
+endmodule"
+N/A,N/A,-0.5,19.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+	wire [3:0] sum;
+	wire cout;
+	wire [3:0] in1;
+	wire [3:0] in2;
+	wire cin;
+
+	ADDER_FIXED_POINT ADDER_FIXED_POINT_INST(sum, cout, in1, in2, cin);
+
+endmodule
+`timescale 1ns / 1ps
+				
+module ADDER_FIXED_POINT(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+	wire [3:0] sum;
+	wire cout;
+	wire [3:0] in1;
+	wire [3:0] in2;
+	wire cin;
+
+	wire [3:0] sum_temp;
+	wire cout_temp;
+	wire [3:0] in1_temp;
+	wire [3:0] in2_temp;
+	wire cin_temp;
+
+	assign sum_temp = in1 + in2;
+	assign cout_temp = cin;
+
+	assign sum = sum_temp[3:0];
+	assign cout = cout_temp;
+
+	assign in1_temp = in1;
+	assign in2_temp = in2;
+	assign cin_temp = cin;
+
+	assign in1 = in1_temp;
+	assign in2 = in2_temp;
+	assign cin = cin_temp;
+
+endmodule"
+N/A,N/A,-0.5,20.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);	
+
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA0(sum[0], cin_w, in1_w[0], in2_w[0], cin_w);
+full_adder FA1(sum[1], cin_w, in1_w[1], in2_w[1], cin_w);
+full_adder FA2(sum[2], cin_w, in1_w[2], in2_w[2], cin_w);
+full_adder FA3(sum[3], cout, in1_w[3], in2_w[3], cin_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+41.23,195.95,0.0001237774118229832,21.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);		
+	wire [3:0] c;
+	
+	adder_1bit a1(sum[0], c[0], in1[0], in2[0], cin);
+	adder_1bit a2(sum[1], c[1], in1[1], in2[1], c[0]);
+	adder_1bit a3(sum[2], c[2], in1[2], in2[2], c[1]);
+	adder_1bit a4(sum[3], cout, in1[3], in2[3], c[2]);
+	
+endmodule
+
+module adder_1bit(output sum, cout, input in1, in2, cin);
+	wire x, y, z;
+	
+	xor(sum, in1, in2, cin);
+	and(x, in1, in2);
+	and(y, in1, cin);
+	and(z, in2, cin);
+	or(cout, x, y, z);
+	
+endmodule"
+N/A,N/A,-1,22.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);        
+    wire [3:0] sum;
+    wire cout;
+    wire [3:0] in1;
+    wire [3:0] in2;
+    wire cin;
+    
+    ////////Write your code below&
+    
+    dfrl dfrl_sum(sum[0], cin, in1[0], in2[0], cin);
+    dfrl dfrl_sum1(sum[1], cin, in1[1], in2[1], cin);
+    dfrl dfrl_sum2(sum[2], cin, in1[2], in2[2], cin);
+    dfrl dfrl_sum3(sum[3], cin, in1[3], in2[3], cin);
+    dfrl dfrl_cout(cout, cin, in1[3], in2[3], cin);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+"
+41.23,195.95,0.0001237774118229832,23.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);		
+	wire [3:0] c;
+	
+	adder_1bit a1(sum[0], c[0], in1[0], in2[0], cin);
+	adder_1bit a2(sum[1], c[1], in1[1], in2[1], c[0]);
+	adder_1bit a3(sum[2], c[2], in1[2], in2[2], c[1]);
+	adder_1bit a4(sum[3], cout, in1[3], in2[3], c[2]);
+	
+endmodule
+
+module adder_1bit(output sum, cout, input in1, in2, cin);
+	wire x, y, z;
+	
+	xor(sum, in1, in2, cin);
+	and(x, in1, in2);
+	and(y, in1, cin);
+	and(z, in2, cin);
+	or(cout, x, y, z);
+	
+endmodule"
+N/A,N/A,-0.5,24.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);   
+
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+N/A,N/A,-1,25.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);                                   
+    wire [3:0] sum;
+    wire cout;
+    wire [3:0] in1;
+    wire [3:0] in2;
+    wire cin;
+    
+    part2_adder_4bit uut(sum, cout, in1, in2, cin);
+    
+endmodule
+`timescale 1ns / 1ps
+typedef unsigned int reg [31:0];
+
+module part2_adder_4bit(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+    wire [3:0] sum;
+    wire cout;
+    wire [3:0] in1;
+    wire [3:0] in2;
+    wire cin;
+    
+    wire [3:0] sum_temp;
+    wire cout_temp;
+    
+    adder uut1(sum_temp[0], cout_temp, in1[0], in2[0], cin);
+    adder uut2(sum_temp[1], cout_temp, in1[1], in2[1], cout_temp);
+    adder uut3(sum_temp[2], cout_temp, in1[2], in2[2], cout_temp);
+    adder uut4(sum_temp[3], cout_temp, in1[3], in2[3], cout_temp);
+    
+    assign sum = sum_temp;
+    assign cout = cout_temp;
+    
+endmodule"
+41.23,195.95,0.0001237774118229832,26.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);		
+	wire [3:0] c;
+	
+	adder_1bit a1(sum[0], c[0], in1[0], in2[0], cin);
+	adder_1bit a2(sum[1], c[1], in1[1], in2[1], c[0]);
+	adder_1bit a3(sum[2], c[2], in1[2], in2[2], c[1]);
+	adder_1bit a4(sum[3], cout, in1[3], in2[3], c[2]);
+	
+endmodule
+
+module adder_1bit(output sum, cout, input in1, in2, cin);
+	wire x, y, z;
+	
+	xor(sum, in1, in2, cin);
+	and(x, in1, in2);
+	and(y, in1, cin);
+	and(z, in2, cin);
+	or(cout, x, y, z);
+	
+endmodule"
+N/A,N/A,-0.5,27.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+41.23,195.95,0.0001237774118229832,28.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);		
+	wire [3:0] c;
+	
+	adder_1bit a1(sum[0], c[0], in1[0], in2[0], cin);
+	adder_1bit a2(sum[1], c[1], in1[1], in2[1], c[0]);
+	adder_1bit a3(sum[2], c[2], in1[2], in2[2], c[1]);
+	adder_1bit a4(sum[3], cout, in1[3], in2[3], c[2]);
+	
+endmodule
+
+module adder_1bit(output sum, cout, input in1, in2, cin);
+	wire x, y, z;
+	
+	xor(sum, in1, in2, cin);
+	and(x, in1, in2);
+	and(y, in1, cin);
+	and(z, in2, cin);
+	or(cout, x, y, z);
+	
+endmodule"
+N/A,N/A,-0.5,29.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);		
+
+	wire [3:0] sum;
+	wire cout;
+	wire [3:0] in1;
+	wire [3:0] in2;
+	wire cin;
+	
+	assign sum = in1 + in2 + cin;
+	assign cout = (in1[0] & in2[0] & cin) | (in1[1] & in2[1] & cin) | (in1[2] & in2[2] & cin) | (in1[3] & in2[3] & cin);
+
+endmodule"
+N/A,N/A,-1,30.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+    wire [3:0] sum;
+    wire cout;
+    wire [3:0] in1;
+    wire [3:0] in2;
+    wire cin;
+
+    carry_select_adder_4bit_slice csa_slice1(sum[0], c1, in1[0], in2[0], cin);
+    carry_select_adder_4bit_slice csa_slice2(sum[1], c2, in1[1], in2[1], c1);
+    carry_select_adder_4bit_slice csa_slice3(sum[2], c3, in1[2], in2[2], c2);
+    carry_select_adder_4bit_slice csa_slice4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module carry_select_adder_4bit_slice(output wire sum,
+                                output wire cout,
+                                input wire in1, in2, cin);
+
+    wire [3:0] sum;
+    wire cout;
+    wire [3:0] in1;
+    wire [3:0] in2;
+    wire cin;
+
+    wire c1;
+    wire c2;
+    wire c3;
+
+    assign c1 = in1[0] & in2[0];
+    assign c2 = in1[1] & in2[1];
+    assign c3 = in1[2] & in2[2];
+    assign cout = in1[3] & in2[3];
+
+    adder a1(sum[0], c1, in1[0], in2[0], cin);
+    adder a2(sum[1], c2, in1[1], in2[1], c1);
+    adder a3(sum[2], c3, in1[2], in2[2], c2);
+    adder a4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule"
+N/A,N/A,-1,31.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+  wire [3:0] in1, in2;
+  wire cin;
+  wire [3:0] sum;
+  wire cout;
+  
+  //// Module 1
+  MUX4to1 m1(in1[0], in2[0], in1[1], in2[1], in1[2], in2[2], in1[3], in2[3], sum[0], cin);
+  MUX4to1 m2(in1[0], in2[0], in1[1], in2[1], in1[2], in2[2], in1[3], in2[3], cout, cin);
+  
+  CU CU1(in1[0], in2[0], in1[1], in2[1], in1[2], in2[2], in1[3], in2[3], cin, sum[0], cin);
+  
+  MD MD1(in1[0], in2[0], in1[1], in2[1], in1[2], in2[2], in1[3], in2[3], cin, sum[0], cin);
+  
+  done_counter dc1(in1[0], in2[0], in1[1], in2[1], in1[2], in2[2], in1[3], in2[3], cin, cout, cin);
+  
+  NOTE NOTE1(in1[0], in2[0], in1[1], in2[1], in1[2], in2[2], in1[3], in2[3], cin, sum[0], cin);
+  
+  ISSUES ISSUES1(in1[0], in2[0], in1[1], in2[1], in1[2], in2[2], in1[3], in2[3], cin, sum[0], cin);
+  
+  ff_reg f1(in1[0], in2[0], in1[1], in2[1], in1[2], in2[2], in1[3], in2[3], cin, sum[0], cin);
+  
+  flash_counter fc1(in1[0], in2[0], in1[1], in2[1], in1[2], in2[2], in1[3], in2[3], cin, sum[0], cin);
+  
+  RESET RESET1(in1[0], in2[0], in1[1], in2[1], in1[2], in2[2], in1[3], in2[3], cin, sum[0], cin);
+  
+  twos_complement t1(in1[0], in2[0], in1[1], in2[1], in1[2], in2[2], in1[3], in2[3], cin, sum[0], cin);
+  
+  entrance_exit e1(in1[0], in2[0], in1[1], in2[1], in1[2], in2[2], in1[3], in2[3], cin, sum[0], cin);
+  
+  PARTIAL_ADDER P1(in1[0], in2[0], in1[1], in2[1], in1[2], in2[2], in1[3], in2[3], cin, sum[0], cin);
+  
+  also_two_bits a1(in1[0], in2[0], in1[1], in2[1], in1[2], in2[2], in1[3], in2[3], cin, sum[0], cin);
+  
+  METHOD_1 M1(in1[0], in2[0], in1[1], in2[1], in1[2], in2[2], in1[3], in2[3], cin, sum[0], cin);
+  
+  endmodule
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  "
+N/A,N/A,-1,32.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);	
+
+	wire [3:0] sum;
+	wire cout;
+	wire [3:0] in1;
+	wire [3:0] in2;
+	wire cin;
+	
+	//// your code here
+	
+	dfrl dfrl_sum(sum[0], cin, in1[0], in2[0], cin);
+	dfrl dfrl_sum1(sum[1], cin, in1[1], in2[1], cin);
+	dfrl dfrl_sum2(sum[2], cin, in1[2], in2[2], cin);
+	dfrl dfrl_sum3(sum[3], cin, in1[3], in2[3], cin);
+	
+	dfrl dfrl_cout(cout, cin, in1[3], in2[3], cin);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+"
+N/A,N/A,-1,33.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);   
+
+    wire [3:0] sum;
+    wire cout;
+    wire [3:0] in1;
+    wire [3:0] in2;
+    wire cin;
+
+    decoder4x4 decoder(
+       .in(cin),
+       .out(in1),
+       .out2(in2)
+    );
+
+    adder4bit adder(
+       .sum(sum),
+       .cout(cout),
+       .in1(in1),
+       .in2(in2)
+    );
+
+endmodule
+`timescale 1ns / 1ps
+3:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:"
+N/A,N/A,-0.5,34.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);		
+
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA0(sum[0], cin_w, in1_w[0], in2_w[0], cin_w);
+full_adder FA1(sum[1], cin_w, in1_w[1], in2_w[1], cin_w);
+full_adder FA2(sum[2], cin_w, in1_w[2], in2_w[2], cin_w);
+full_adder FA3(sum[3], cout, in1_w[3], in2_w[3], cin_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+N/A,N/A,-0.5,35.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+endmodule"
+N/A,N/A,-0.5,36.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+    wire [3:0] in1, in2;
+    wire cin;
+    wire [3:0] sum;
+    wire cout;
+    
+    assign in1 = in1;
+    assign in2 = in2;
+    assign cin = cin;
+    
+    assign sum = sum;
+    assign cout = cout;
+    
+endmodule"
+41.23,195.95,0.0001237774118229832,37.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);		
+	wire [3:0] c;
+	
+	adder_1bit a1(sum[0], c[0], in1[0], in2[0], cin);
+	adder_1bit a2(sum[1], c[1], in1[1], in2[1], c[0]);
+	adder_1bit a3(sum[2], c[2], in1[2], in2[2], c[1]);
+	adder_1bit a4(sum[3], cout, in1[3], in2[3], c[2]);
+	
+endmodule
+
+module adder_1bit(output sum, cout, input in1, in2, cin);
+	wire x, y, z;
+	
+	xor(sum, in1, in2, cin);
+	and(x, in1, in2);
+	and(y, in1, cin);
+	and(z, in2, cin);
+	or(cout, x, y, z);
+	
+endmodule"
+N/A,N/A,-1,38.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);		
+	
+	wire [3:0] c;
+	
+	adder_1bit a1(sum[0], c[0], in1[0], in2[0], cin);
+	adder_1bit a2(sum[1], c[1], in1[1], in2[1], c[0]);
+	adder_1bit a3(sum[2], c[2], in1[2], in2[2], c[1]);
+	adder_1bit a4(sum[3], cout, in1[3], in2[3], c[2]);
+	
+endmodule
+
+module adder_1bit(output sum, cout, input in1, in2, cin);
+	
+	wire [1:0] c;
+	
+	adder_1bit a1(sum, c[0], in1, in2, cin);
+	adder_1bit a2(cout, c[1], c[0], in1, in2);
+	
+endmodule"
+N/A,N/A,-0.5,39.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+endmodule"
+N/A,N/A,-0.5,40.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+	wire [3:0] sum;
+	wire cout;
+	wire [3:0] in1;
+	wire [3:0] in2;
+	wire cin;
+
+	HA adder1(sum[0], c1, in1[0], in2[0], cin);
+	FA adder2(sum[1], c2, in1[1], in2[1], c1);
+	FA adder3(sum[2], c3, in1[2], in2[2], c2);
+	FA adder4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module HA(output sum, output cout, input in1, in2, cin);
+
+	wire in1;
+	wire in2;
+	wire cin;
+	wire sum;
+	wire cout;
+
+	xor(sum, in1, in2);
+	and(cout, in1, in2);
+
+endmodule
+
+module FA(output sum, output cout, input in1, in2, cin);
+
+	wire in1;
+	wire in2;
+	wire cin;
+	wire sum;
+	wire cout;
+
+	xor(sum, in1, in2);
+	and(cout, in1, in2);
+
+endmodule"
+N/A,N/A,-1,41.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+	wire [3:0] c;
+	
+	adder_1bit a1(sum[0], c[0], in1[0], in2[0], cin);
+	adder_1bit a2(sum[1], c[1], in1[1], in2[1], c[0]);
+	adder_1bit a3(sum[2], c[2], in1[2], in2[2], c[1]);
+	adder_1bit a4(sum[3], cout, in1[3], in2[3], c[2]);
+	
+endmodule
+
+module adder_1bit(output sum, cout, input in1, in2, cin);
+	wire [1:0] c;
+	
+	adder_1bit a1(sum, c[0], in1, in2, cin);
+	adder_1bit a2(cout, c[1], c[0], in1, in2);
+	
+endmodule"
+N/A,N/A,-0.5,42.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+  wire [3:0] in1;
+  wire [3:0] in2;
+  wire cin;
+  wire [3:0] sum;
+  wire cout;
+
+  assign in1 = in1;
+  assign in2 = in2;
+  assign cin = cin;
+  assign sum = sum;
+  assign cout = cout;
+
+endmodule"
+N/A,N/A,-1,43.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);	
+	
+	wire [3:0] c;
+	
+	adder_1bit a1(sum[0], c[0], in1[0], in2[0], cin);
+	adder_1bit a2(sum[1], c[1], in1[1], in2[1], c[0]);
+	adder_1bit a3(sum[2], c[2], in1[2], in2[2], c[1]);
+	adder_1bit a4(sum[3], cout, in1[3], in2[3], c[2]);
+	
+endmodule
+
+module adder_1bit(output sum, cout, input in1, in2, cin);
+	
+	wire [1:0] c;
+	
+	adder_1bit a1(sum, c[0], in1, in2, cin);
+	adder_1bit a2(cout, c[1], c[0], in1, in2);
+	
+endmodule"
+N/A,N/A,-0.5,44.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+   wire [3:0] in1;
+   wire [3:0] in2;
+   wire cin;
+   wire [3:0] sum;
+   wire cout;
+   
+   assign in1 = in1;
+   assign in2 = in2;
+   assign cin = cin;
+   assign sum = sum;
+   assign cout = cout;
+   
+endmodule"
+N/A,N/A,-0.5,45.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);		 
+	wire [3:0] c;
+	wire [3:0] sum;
+	wire cout;
+	
+	assign c[0] = cin;
+	assign c[1] = in1[0] ^ in2[0] ^ c[0];
+	assign c[2] = in1[1] ^ in2[1] ^ c[1];
+	assign c[3] = in1[2] ^ in2[2] ^ c[2];
+	
+	fa f1(sum[0], c[0], in1[0], in2[0], c[0]);
+	fa f2(sum[1], c[1], in1[1], in2[1], c[1]);
+	fa f3(sum[2], c[2], in1[2], in2[2], c[2]);
+	fa f4(sum[3], cout, in1[3], in2[3], c[3]);
+	
+endmodule
+
+module fa(output sum, output cout, input a, b, cin);
+	wire w1, w2, w3;
+	
+	xor x1(w1, a, b);
+	xor x2(sum, w1, cin);
+	and a1(w2, w1, cin);
+	and a2(w3, a, b);
+	or o1(cout, w2, w3);
+endmodule"
+N/A,N/A,-0.5,46.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);   
+	wire [3:0] c;
+	wire [3:0] sum;
+	wire cout;
+	
+	assign c[0] = cin;
+	assign c[1] = in1[0] ^ in2[0] ^ c[0];
+	assign c[2] = in1[1] ^ in2[1] ^ c[1];
+	assign c[3] = in1[2] ^ in2[2] ^ c[2];
+	
+	fa f1(sum[0], c[0], in1[0], in2[0], c[0]);
+	fa f2(sum[1], c[1], in1[1], in2[1], c[1]);
+	fa f3(sum[2], c[2], in1[2], in2[2], c[2]);
+	fa f4(sum[3], cout, in1[3], in2[3], c[3]);
+	
+endmodule
+
+module fa(output sum, output cout, input a, b, cin);
+	wire w1, w2, w3;
+	
+	xor x1(w1, a, b);
+	xor x2(sum, w1, cin);
+	and a1(w2, w1, cin);
+	and a2(w3, a, b);
+	or o1(cout, w2, w3);
+endmodule"
+N/A,N/A,-0.5,47.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+ 
+    wire [3:0] c;
+    wire [3:0] sum;
+    wire cout;
+ 
+    assign c[0] = cin;
+    assign c[1] = in1[0] ^ in2[0] ^ c[0];
+    assign c[2] = in1[1] ^ in2[1] ^ c[1];
+    assign c[3] = in1[2] ^ in2[2] ^ c[2];
+ 
+    full_adder FA1(sum[0], c[0], in1[0], in2[0], c[0]);
+    full_adder FA2(sum[1], c[1], in1[1], in2[1], c[1]);
+    full_adder FA3(sum[2], c[2], in1[2], in2[2], c[2]);
+    full_adder FA4(sum[3], cout, in1[3], in2[3], c[3]);
+ 
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+ 
+    wire x, y, z;
+    wire sum, cout;
+ 
+    xor(sum, in1, in2, cin);
+    and(x, in1, in2);
+    and(y, in1, cin);
+    and(z, in2, cin);
+    or(cout, x, y, z);
+ 
+endmodule"
+N/A,N/A,-0.5,48.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+
+endmodule"
+38.304,198.83,0.00013130279133767963,49.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+N/A,N/A,-0.5,50.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+reg [3:0] sum;
+reg cout;
+always @(in1 or in2 or cin)
+begin
+    sum = in1 + in2 + cin;
+    cout = (in1[0] & in2[0] & cin) | (in1[1] & in2[1] & (in1[0] ^ in2[0])) | (in1[2] & in2[2] & (in1[1] ^ in2[1])) | (in1[3] & in2[3] & (in1[2] ^ in2[2]));
+end
+endmodule"
+N/A,N/A,-0.5,51.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+reg [3:0] sum;
+reg cout;
+
+always @(in1 or in2 or cin)
+begin
+    sum = in1 + in2 + cin;
+    cout = (in1[0] & in2[0] & cin) | (in1[1] & in2[1] & cin) | (in1[2] & in2[2] & cin) | (in1[3] & in2[3] & cin);
+end
+
+endmodule"
+N/A,N/A,-0.5,52.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);  
+
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+38.304,198.83,0.00013130279133767963,53.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,54.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+N/A,N/A,-0.5,55.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign sum = in1 + in2 + cin;
+assign cout = (in1[3] & in2[3] & cin) | (in1[3] & in2[3] & ~cin) | (~in1[3] & ~in2[3] & cin);
+endmodule"
+N/A,N/A,-0.5,56.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+    wire [3:0] in1, in2;
+    wire cin;
+    wire [3:0] sum;
+    wire cout;
+    
+    assign in1 = in1;
+    assign in2 = in2;
+    assign cin = cin;
+    
+    assign sum = sum;
+    assign cout = cout;
+    
+endmodule"
+38.304,198.83,0.00013130279133767963,57.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+assign {cout, sum} = in1 + in2 + cin;
+
+endmodule"
+N/A,N/A,-1,58.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire c1, c2, c3;
+
+adder4bit u1(sum[3:0], c1, in1[3:0], in2[3:0], cin);
+adder4bit u2(sum[7:4], c2, in1[7:4], in2[7:4], c1);
+adder4bit u3(sum[11:8], c3, in1[11:8], in2[11:8], c2);
+adder4bit u4(sum[15:12], cout, in1[15:12], in2[15:12], c3);
+
+endmodule
+
+module adder4bit(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire c1, c2, c3;
+
+adder u1(sum[0], c1, in1[0], in2[0], cin);
+adder u2(sum[1], c2, in1[1], in2[1], c1);
+adder u3(sum[2], c3, in1[2], in2[2], c2);
+adder u4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule"
+N/A,N/A,-1,59.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+	wire [3:0] sum;
+	wire cout;
+	wire [3:0] in1;
+	wire [3:0] in2;
+	wire cin;
+
+	two_bit_adder add1(sum[0], c1, in1[0], in2[0], cin);
+	two_bit_adder add2(sum[1], c2, in1[1], in2[1], c1);
+	two_bit_adder add3(sum[2], c3, in1[2], in2[2], c2);
+	two_bit_adder add4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module two_bit_adder(output wire sum, output wire cout, input wire in1, in2, input wire cin);
+
+	wire [1:0] sum;
+	wire cout;
+	wire in1;
+	wire in2;
+	wire cin;
+
+	xor(sum[0], in1, in2, cin);
+	and(cout, in1, in2);
+
+endmodule"
+N/A,N/A,-0.5,60.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);   
+    wire [3:0] in1_w, in2_w;
+    wire cin_w;
+    
+    assign in1_w = in1;
+    assign in2_w = in2;
+    assign cin_w = cin;
+    
+    full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+    full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+    full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+    full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+    
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+    wire x, y, z;
+    
+    xor(sum, in1, in2, cin);
+    and(x, in1, in2);
+    and(y, in1, cin);
+    and(z, in2, cin);
+    or(cout, x, y, z);
+endmodule"
+N/A,N/A,-0.5,61.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);    
+    wire [3:0] in1_w, in2_w;
+    wire cin_w;
+    
+    assign in1_w = in1;
+    assign in2_w = in2;
+    assign cin_w = cin;
+    
+    full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+    full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+    full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+    full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+    
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+    wire x, y, z;
+    
+    xor(sum, in1, in2, cin);
+    and(x, in1, in2);
+    and(y, in1, cin);
+    and(z, in2, cin);
+    or(cout, x, y, z);
+endmodule"
+38.304,198.83,0.00013130279133767963,62.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,63.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,64.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+N/A,N/A,-0.5,65.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign cout = cin;
+assign sum = in1 + in2;
+endmodule"
+N/A,N/A,-1,66.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+	
+	wire [3:0] c;
+	
+	adder_1bit a1(sum[0], c[0], in1[0], in2[0], cin);
+	adder_1bit a2(sum[1], c[1], in1[1], in2[1], c[0]);
+	adder_1bit a3(sum[2], c[2], in1[2], in2[2], c[1]);
+	adder_1bit a4(sum[3], cout, in1[3], in2[3], c[2]);
+	
+endmodule
+
+module adder_1bit(output sum, cout, input in1, in2, cin);
+	
+	wire [1:0] c;
+	
+	adder_1bit a1(sum, c[0], in1, in2, cin);
+	adder_1bit a2(cout, c[1], c[0], in1, in2);
+	
+endmodule"
+N/A,N/A,-1,67.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+    
+    wire [3:0] c;
+    
+    adder_1bit a1(sum[0], c[0], in1[0], in2[0], cin);
+    adder_1bit a2(sum[1], c[1], in1[1], in2[1], c[0]);
+    adder_1bit a3(sum[2], c[2], in1[2], in2[2], c[1]);
+    adder_1bit a4(sum[3], cout, in1[3], in2[3], c[2]);
+    
+endmodule
+
+module adder_1bit(output sum, cout, input in1, in2, cin);
+    
+    wire [1:0] c;
+    
+    adder_1bit a1(sum[0], c[0], in1, in2, cin);
+    adder_1bit a2(sum[1], c[1], in1, in2, c[0]);
+    
+    assign cout = c[1];
+    
+endmodule"
+N/A,N/A,-0.5,68.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);		  
+	wire [3:0] c;
+	wire [3:0] sum;
+	wire cout;
+	
+	assign c[0] = cin;
+	assign c[1] = in1[0] ^ in2[0] ^ c[0];
+	assign c[2] = in1[1] ^ in2[1] ^ c[1];
+	assign c[3] = in1[2] ^ in2[2] ^ c[2];
+	
+	fa f1(sum[0], c[0], in1[0], in2[0], c[0]);
+	fa f2(sum[1], c[1], in1[1], in2[1], c[1]);
+	fa f3(sum[2], c[2], in1[2], in2[2], c[2]);
+	fa f4(sum[3], cout, in1[3], in2[3], c[3]);
+	
+endmodule
+
+module fa(output sum, output cout, input a, b, cin);
+	wire w1, w2, w3;
+	
+	xor x1(w1, a, b);
+	xor x2(sum, w1, cin);
+	and a1(w2, w1, cin);
+	and a2(w3, a, b);
+	or o1(cout, w2, w3);
+endmodule"
+N/A,N/A,-0.5,69.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);   	
+	wire [3:0] c;
+	wire [3:0] sum;
+	wire cout;
+	
+	assign c[0] = cin;
+	assign c[1] = in1[0] ^ in2[0] ^ c[0];
+	assign c[2] = in1[1] ^ in2[1] ^ c[1];
+	assign c[3] = in1[2] ^ in2[2] ^ c[2];
+	
+	fa f1(sum[0], c[0], in1[0], in2[0], c[0]);
+	fa f2(sum[1], c[1], in1[1], in2[1], c[1]);
+	fa f3(sum[2], c[2], in1[2], in2[2], c[2]);
+	fa f4(sum[3], cout, in1[3], in2[3], c[3]);
+	
+endmodule
+
+module fa(output sum, output cout, input a, b, cin);
+	wire w1, w2, w3;
+	
+	xor x1(w1, a, b);
+	xor x2(sum, w1, cin);
+	and a1(w2, w1, cin);
+	and a2(w3, a, b);
+	or o1(cout, w2, w3);
+endmodule"
+38.304,198.83,0.00013130279133767963,70.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+assign {cout, sum} = in1 + in2 + cin;
+
+endmodule"
+38.304,198.83,0.00013130279133767963,71.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+assign {cout, sum} = in1 + in2 + cin;
+
+endmodule"
+N/A,N/A,-0.5,72.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+assign sum = in1 + in2 + cin;
+assign cout = (in1[3] & in2[3] & cin) | (in1[3] & in2[3] & ~cin) | (~in1[3] & ~in2[3] & cin);
+
+endmodule"
+N/A,N/A,-1,73.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+parameter s0 = 4'b0000;
+parameter s1 = 4'b0001;
+parameter s2 = 4'b0010;
+parameter s3 = 4'b0011;
+parameter s4 = 4'b0100;
+parameter s5 = 4'b0101;
+parameter s6 = 4'b0110;
+parameter s7 = 4'b0111;
+parameter s8 = 4'b1000;
+parameter s9 = 4'b1001;
+parameter s10 = 4'b1010;
+parameter s11 = 4'b1011;
+parameter s12 = 4'b1100;
+parameter s13 = 4'b1101;
+parameter s14 = 4'b1110;
+parameter s15 = 4'b1111;
+
+wire c1, c2, c3;
+
+rom_4bit r1(sum[0], in1[0], in2[0], cin);
+rom_4bit r2(sum[1], in1[1], in2[1], c1);
+rom_4bit r3(sum[2], in1[2], in2[2], c2);
+rom_4bit r4(sum[3], in1[3], in2[3], c3);
+
+mux_4bit m1(cout, c1, c2, c3, s0);
+mux_4bit m2(cout, c1, c2, c3, s1);
+mux_4bit m3(cout, c1, c2, c3, s2);
+mux_4bit m4(cout, c1, c2, c3, s3);
+mux_4bit m5(cout, c1, c2, c3, s4);
+mux_4bit m6(cout, c1, c2, c3, s5);
+mux_4bit m7(cout, c1, c2, c3, s6);
+mux_4bit m8(cout, c1, c2, c3, s7);
+mux_4bit m9(cout, c1, c2, c3, s8);
+mux_4bit m10(cout, c1, c2, c3, s9);
+mux_4bit m11(cout, c1, c2, c3, s10);
+mux_4bit m12(cout, c1, c2, c3, s11);
+mux_4bit m13(cout, c1, c2, c3, s12);
+mux_4bit m14(cout, c1, c2, c3, s13);
+mux_4bit m15(cout, c1, c2, c3, s14);
+mux_4bit m16(cout, c1, c2, c3, s15);
+
+endmodule
+
+module mux_4bit(output out, input in1, in2, in3, in4);
+
+wire w1, w2, w3;
+
+mux_2bit m1(w1, in1, in2);
+mux_2bit m2(w2, in3, in4);
+mux_2bit m3(out, w1, w2);
+
+endmodule
+
+module mux_2bit(output out, input in1, in2);
+
+wire w1, w2;
+
+mux_1bit m1(w1, in1, in2);
+mux_1bit m2(w2, in1, in2);
+mux_1bit m3(out, w1, w2);
+
+endmodule
+
+module mux_1bit(output out, input in1, in2);
+
+wire w1, w2;
+
+not n1(w1, in1);
+not n2(w2, in2);
+mux_2bit m1(out, w1, w2);
+
+endmodule
+
+module rom_4bit(output [3:0] out, input [3:0] in, input [3:0] cin);
+
+wire [3:0] out_temp;
+
+mux_4bit m1(out_temp[0"
+N/A,N/A,-0.5,74.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);		    
+	wire [3:0] c;
+	wire [3:0] sum;
+	wire cout;
+	
+	assign c[0] = cin;
+	assign c[1] = in1[0] ^ in2[0] ^ c[0];
+	assign c[2] = in1[1] ^ in2[1] ^ c[1];
+	assign c[3] = in1[2] ^ in2[2] ^ c[2];
+	
+	fa f1(sum[0], c[0], in1[0], in2[0], c[0]);
+	fa f2(sum[1], c[1], in1[1], in2[1], c[1]);
+	fa f3(sum[2], c[2], in1[2], in2[2], c[2]);
+	fa f4(sum[3], cout, in1[3], in2[3], c[3]);
+	
+endmodule
+
+module fa(output sum, output cout, input a, b, cin);
+	wire w1, w2, w3;
+	
+	xor x1(w1, a, b);
+	xor x2(sum, w1, cin);
+	and a1(w2, w1, cin);
+	and a2(w3, a, b);
+	or o1(cout, w2, w3);
+endmodule"
+38.304,198.83,0.00013130279133767963,75.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+N/A,N/A,-0.5,76.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign cin = 1'b0;
+
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cin);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cin_w, cin);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cin_w, cin);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cin_w, cin);
+
+assign cout = cin_w;
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+38.304,198.83,0.00013130279133767963,77.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,78.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout,sum} = in1 + in2 + cin;
+endmodule"
+N/A,N/A,-0.5,79.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign sum = in1 + in2 + cin;
+assign cout = (in1[3] & in2[3] & cin) | (in1[3] & in2[3] & ~cin) | (~in1[3] & ~in2[3] & cin);
+endmodule"
+41.23,196.03,0.00012372689816208518,80.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, carry, input a, b, cin);
+
+wire c1, c2, c3;
+
+xor(sum, a, b, cin);
+and(c1, a, b);
+and(c2, b, cin);
+and(c3, a, cin);
+or(carry, c1, c2, c3);
+
+endmodule"
+N/A,N/A,-0.5,81.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+38.304,198.83,0.00013130279133767963,82.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,83.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,84.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout,sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,85.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,86.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,87.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,88.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout,sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,89.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,90.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+N/A,N/A,-0.5,91.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign sum = in1 + in2 + cin;
+assign cout = (in1[3] & in2[3] & cin) | (in1[3] & in2[3] & ~cin) | (~in1[3] & ~in2[3] & cin);
+endmodule"
+38.304,198.83,0.00013130279133767963,92.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout,sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,93.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,94.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,95.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,96.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout,sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,97.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,98.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,99.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout,sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,100.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+
+endmodule"
+38.304,198.83,0.00013130279133767963,101.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+N/A,N/A,-0.5,102.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign cout = cin;
+assign sum = in1 + in2;
+endmodule"
+N/A,N/A,-1,103.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+	wire [3:0] c;
+	
+	adder_1bit a1(sum[0], c[0], in1[0], in2[0], cin);
+	adder_1bit a2(sum[1], c[1], in1[1], in2[1], c[0]);
+	adder_1bit a3(sum[2], c[2], in1[2], in2[2], c[1]);
+	adder_1bit a4(sum[3], cout, in1[3], in2[3], c[2]);
+	
+endmodule
+
+module adder_1bit(output sum, cout, input in1, in2, cin);
+	wire [1:0] c;
+	
+	adder_1bit a1(sum, c[0], in1, in2, cin);
+	adder_1bit a2(cout, c[1], c[0], in1, in2);
+	
+endmodule"
+38.304,198.83,0.00013130279133767963,104.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout,sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,105.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,106.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1+in2+cin;
+endmodule"
+N/A,N/A,-0.5,107.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign sum = in1 + in2 + cin;
+assign cout = (in1[3] & in2[3] & cin) | (in1[3] & in2[3] & ~cin) | (~in1[3] & ~in2[3] & cin);
+endmodule"
+N/A,N/A,-1,108.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+always @(in1 or in2 or cin)
+begin
+    if (cin == 1'b0)
+    begin
+        sum = in1 + in2;
+        cout = 1'b0;
+    end
+    else
+    begin
+        sum = in1 + in2 + cin;
+        cout = 1'b1;
+    end
+end
+
+endmodule"
+38.304,198.83,0.00013130279133767963,109.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+
+endmodule"
+38.304,198.83,0.00013130279133767963,110.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout,sum} = in1 + in2 + cin;
+endmodule"
+N/A,N/A,-0.5,111.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign cin = 1'b0;
+
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cin);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cin_w, cin);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cin_w, cin);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cin_w, cin);
+
+assign cout = cin_w;
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+38.304,198.83,0.00013130279133767963,112.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,113.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,114.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout,sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,115.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign #1 {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,116.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+
+endmodule"
+38.304,198.83,0.00013130279133767963,117.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,118.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum}=in1+in2+cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,119.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout,sum}=in1+in2+cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,120.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,121.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+
+endmodule"
+38.304,198.83,0.00013130279133767963,122.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout,sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,123.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,124.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,125.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout,sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,126.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+
+endmodule"
+38.304,198.83,0.00013130279133767963,127.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+N/A,N/A,-0.5,128.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign sum = in1 + in2 + cin;
+assign cout = (in1[3] & in2[3] & cin) | (in1[3] & in2[3] & ~cin) | (~in1[3] & ~in2[3] & cin);
+endmodule"
+N/A,N/A,-1,129.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+    wire c1, c2, c3;
+    
+    adder4bit u1(sum[3:0], c1, in1[3:0], in2[3:0], cin);
+    adder4bit u2(sum[7:4], c2, in1[7:4], in2[7:4], c1);
+    adder4bit u3(sum[11:8], c3, in1[11:8], in2[11:8], c2);
+    adder4bit u4(sum[15:12], cout, in1[15:12], in2[15:12], c3);
+endmodule
+
+module adder4bit(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+    wire c1, c2, c3;
+    
+    adder u1(sum[0], c1, in1[0], in2[0], cin);
+    adder u2(sum[1], c2, in1[1], in2[1], c1);
+    adder u3(sum[2], c3, in1[2], in2[2], c2);
+    adder u4(sum[3], cout, in1[3], in2[3], c3);
+endmodule"
+38.304,198.83,0.00013130279133767963,130.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,131.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout,sum} = in1+in2+cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,132.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+
+endmodule"
+38.304,198.83,0.00013130279133767963,133.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1+in2+cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,134.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout,sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,135.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,136.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,137.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+
+endmodule"
+38.304,198.83,0.00013130279133767963,138.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout,sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,139.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,140.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,141.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout,sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,142.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+
+endmodule"
+38.304,198.83,0.00013130279133767963,143.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,144.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout,sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,145.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,146.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+
+endmodule"
+38.304,198.83,0.00013130279133767963,147.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,148.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout,sum}=in1+in2+cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,149.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+N/A,N/A,-0.5,150.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+and(w1, in1[0], in2[0]);
+and(w2, in1[1], in2[1]);
+and(w3, in1[2], in2[2]);
+and(w4, in1[3], in2[3]);
+
+or(cout, w1, w2, w3, w4);
+
+xor(sum[0], in1[0], in2[0], cin);
+xor(sum[1], in1[1], in2[1], cin);
+xor(sum[2], in1[2], in2[2], cin);
+xor(sum[3], in1[3], in2[3], cin);
+
+endmodule"
+38.304,198.83,0.00013130279133767963,151.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+
+endmodule"
+38.304,198.83,0.00013130279133767963,152.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout,sum} = in1 + in2 + cin;
+
+endmodule"
+N/A,N/A,-0.5,153.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign sum[0] = in1[0] ^ in2[0] ^ cin;
+assign sum[1] = in1[1] ^ in2[1] ^ cin;
+assign sum[2] = in1[2] ^ in2[2] ^ cin;
+assign sum[3] = in1[3] ^ in2[3] ^ cin;
+assign cout = in1[3] & in2[3] & cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,154.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,155.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign #1 {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,156.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum}=in1+in2+cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,157.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1+in2+cin;
+endmodule"
+N/A,N/A,-0.5,158.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign cout = cin;
+assign sum = in1 + in2;
+endmodule"
+38.304,198.83,0.00013130279133767963,159.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+	assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,160.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+	assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,161.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+	assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+41.23,195.95,0.0001237774118229832,162.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+	wire c1, c2, c3;
+	
+	full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+	full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+	full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+	full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+	
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+	wire x, y, z;
+	
+	xor(sum, in1, in2, cin);
+	and(x, in1, in2);
+	and(y, in1, cin);
+	and(z, in2, cin);
+	or(cout, x, y, z);
+	
+endmodule"
+41.23,195.95,0.0001237774118229832,163.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+	wire c1, c2, c3;
+	
+	full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+	full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+	full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+	full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+	
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+	wire x, y, z;
+	
+	xor(sum, in1, in2, cin);
+	and(x, in1, in2);
+	and(y, in1, cin);
+	and(z, in2, cin);
+	or(cout, x, y, z);
+	
+endmodule"
+41.23,195.95,0.0001237774118229832,164.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+	wire c1, c2, c3;
+	
+	full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+	full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+	full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+	full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+	
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+	wire x, y, z;
+	
+	xor(sum, in1, in2, cin);
+	and(x, in1, in2);
+	and(y, in1, cin);
+	and(z, in2, cin);
+	or(cout, x, y, z);
+	
+endmodule"
+N/A,N/A,-1,165.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+	wire [3:0] c;
+	
+	adder_1bit a1(sum[0], c[0], in1[0], in2[0], cin);
+	adder_1bit a2(sum[1], c[1], in1[1], in2[1], c[0]);
+	adder_1bit a3(sum[2], c[2], in1[2], in2[2], c[1]);
+	adder_1bit a4(sum[3], cout, in1[3], in2[3], c[2]);
+	
+endmodule
+
+module adder_1bit(output sum, cout, input in1, in2, cin);
+	wire [1:0] c;
+	
+	adder_1bit a1(sum, c[0], in1, in2, cin);
+	adder_1bit a2(cout, c[1], c[0], in1, in2);
+	
+endmodule"
+N/A,N/A,-1,166.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+   wire [3:0] in1_w, in2_w;
+   wire cin_w;
+   
+   assign in1_w = in1;
+   assign in2_w = in2;
+   assign cin_w = cin;
+   
+   adder4bit u1(sum[3:0], cout_w, in1_w[3:0], in2_w[3:0], cin_w);
+   adder4bit u2(sum[7:4], cout_w, in1_w[7:4], in2_w[7:4], cout_w);
+
+endmodule
+
+module adder4bit(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+   wire [3:0] in1_w, in2_w;
+   wire cin_w;
+   
+   assign in1_w = in1;
+   assign in2_w = in2;
+   assign cin_w = cin;
+   
+   adder4bit u1(sum[3:0], cout_w, in1_w[3:0], in2_w[3:0], cin_w);
+   adder4bit u2(sum[7:4], cout_w, in1_w[7:4], in2_w[7:4], cout_w);
+
+endmodule"
+N/A,N/A,-0.5,167.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+endmodule"
+N/A,N/A,-0.5,168.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+endmodule"
+38.304,198.83,0.00013130279133767963,169.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout,sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,170.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign 
+	{cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,171.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,172.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+
+endmodule"
+38.304,198.83,0.00013130279133767963,173.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout,sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,174.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,175.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,176.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout,sum} = in1+in2+cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,177.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+
+endmodule"
+38.304,198.83,0.00013130279133767963,178.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,179.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,180.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout,sum} = in1 + in2 + cin;
+
+endmodule"
+38.304,198.83,0.00013130279133767963,181.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+
+endmodule"
+38.304,198.83,0.00013130279133767963,182.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,183.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign  {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,184.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout,sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,185.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+N/A,N/A,-1,186.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign c[0] = cin;
+assign sum = in1 + in2 + c[0];
+assign cout = c[1];
+
+endmodule"
+N/A,N/A,-0.5,187.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+adder4bit uut(sum[3:0], cout, in1[3:0], in2[3:0], cin);
+
+endmodule
+
+module adder4bit(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire [3:0] sum;
+wire cout;
+
+wire [3:0] in1;
+wire [3:0] in2;
+wire cin;
+
+assign sum = in1 + in2 + cin;
+assign cout = (in1[3] == in2[3] && in1[3] == cin)? 1'b1 : 1'b0;
+
+endmodule"
+N/A,N/A,-0.5,188.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout1, sum1} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,189.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign{cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,190.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+
+endmodule"
+N/A,N/A,-0.5,191.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign sum = in1 + in2 + cin;
+assign cout = (in1[3] & in2[3] & cin) | (in1[3] & in2[3] & ~cin) | (~in1[3] & ~in2[3] & cin);
+endmodule"
+38.304,198.83,0.00013130279133767963,192.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,193.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout,sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,194.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+	full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+	full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+	full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+	full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+	wire w1, w2, w3;
+	xor(w1, in1, in2);
+	xor(sum, w1, cin);
+	and(w2, w1, cin);
+	and(w3, in1, in2);
+	or(cout, w2, w3);
+endmodule"
+41.23,195.95,0.0001237774118229832,195.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+	 
+	 wire [3:0] c;
+	 
+	 full_adder FA1(sum[0], c[0], in1[0], in2[0], cin);
+	 full_adder FA2(sum[1], c[1], in1[1], in2[1], c[0]);
+	 full_adder FA3(sum[2], c[2], in1[2], in2[2], c[1]);
+	 full_adder FA4(sum[3], cout, in1[3], in2[3], c[2]);
+	 
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+	wire x, y, z;
+	
+	xor(sum, in1, in2, cin);
+	and(x, in1, in2);
+	and(y, in1, cin);
+	and(z, in2, cin);
+	or(cout, x, y, z);
+	
+endmodule"
+N/A,N/A,-1,196.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+	adder4bit uut(sum[3:0], cout, in1[3:0], in2[3:0], cin);
+endmodule
+
+module adder4bit(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+	wire [3:0] sum;
+	wire cout;
+	wire [3:0] in1;
+	wire [3:0] in2;
+	wire cin;
+	
+	adder uut(sum[3:0], cout, in1[3:0], in2[3:0], cin);
+	
+	assign sum = in1 + in2 + cin;
+	assign cout = (in1[3] == in2[3] && in1[3] == cin)? 1'b1 : 1'b0;
+endmodule"
+38.304,198.83,0.00013130279133767963,197.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1+in2+cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,198.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+
+endmodule"
+38.304,198.83,0.00013130279133767963,199.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout,sum}=in1+in2+cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,200.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+41.23,196.03,0.00012372689816208518,201.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, carry, input a, b, cin);
+
+wire c1, c2, c3;
+
+xor(sum, a, b, cin);
+and(c1, a, b);
+and(c2, b, cin);
+and(c3, a, cin);
+or(carry, c1, c2, c3);
+
+endmodule"
+N/A,N/A,-1,202.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire w1, w2, w3;
+
+adder_4bit a1(sum[3:0], w1, in1[3:0], in2[3:0], cin);
+adder_4bit a2(sum[7:4], w2, in1[7:4], in2[7:4], w1);
+adder_4bit a3(sum[11:8], w3, in1[11:8], in2[11:8], w2);
+adder_4bit a4(sum[15:12], cout, in1[15:12], in2[15:12], w3);
+
+endmodule
+
+module adder_4bit(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire w1, w2, w3;
+
+adder_4bit a1(sum[3:0], w1, in1[3:0], in2[3:0], cin);
+adder_4bit a2(sum[7:4], w2, in1[7:4], in2[7:4], w1);
+adder_4bit a3(sum[11:8], w3, in1[11:8], in2[11:8], w2);
+adder_4bit a4(sum[15:12], cout, in1[15:12], in2[15:12], w3);
+
+endmodule"
+38.304,198.83,0.00013130279133767963,203.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,204.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout,sum} = in1 + in2 + cin;
+
+endmodule"
+38.304,198.83,0.00013130279133767963,205.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+
+endmodule"
+N/A,N/A,-0.5,206.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign #5 {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,207.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+
+
+endmodule"
+38.304,198.83,0.00013130279133767963,208.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,209.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout,sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,210.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin; 
+endmodule"
+38.304,198.83,0.00013130279133767963,211.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,212.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout,sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,213.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum}=in1+in2+cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,214.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+
+endmodule"
+38.304,198.83,0.00013130279133767963,215.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,216.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign
+	{cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,217.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout,sum} = in1+in2+cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,218.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,219.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+
+endmodule"
+38.304,198.83,0.00013130279133767963,220.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout,sum} = in1 + in2 + cin;
+
+endmodule"
+38.304,198.83,0.00013130279133767963,221.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,222.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1+in2+cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,223.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout,sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,224.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,225.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+
+endmodule"
+38.304,198.83,0.00013130279133767963,226.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,227.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout,sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,228.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+N/A,N/A,-0.5,229.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign sum = in1 + in2 + cin;
+assign cout = (in1[3] & in2[3] & cin) | (in1[3] & in2[3] & ~cin) | (~in1[3] & ~in2[3] & cin);
+endmodule"
+38.304,198.83,0.00013130279133767963,230.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+
+endmodule"
+38.304,198.83,0.00013130279133767963,231.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout,sum}=in1+in2+cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,232.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,233.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,234.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+
+endmodule"
+38.304,198.83,0.00013130279133767963,235.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+    assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,236.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+    assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+N/A,N/A,-0.5,237.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+    wire [3:0] in1, in2;
+    wire cin;
+    wire [3:0] sum;
+    wire cout;
+    
+    assign in1 = in1;
+    assign in2 = in2;
+    assign cin = cin;
+    
+    assign sum = sum;
+    assign cout = cout;
+    
+endmodule"
+38.304,198.83,0.00013130279133767963,238.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout,sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,239.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,240.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+N/A,N/A,-0.5,241.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);   
+
+wire [3:0] in1_w, in2_w;
+wire cin_w;
+
+assign in1_w = in1;
+assign in2_w = in2;
+assign cin_w = cin;
+
+full_adder FA1(sum[0], in1_w[0], in2_w[0], cin_w, cout_w);
+full_adder FA2(sum[1], in1_w[1], in2_w[1], cout_w, cout_w);
+full_adder FA3(sum[2], in1_w[2], in2_w[2], cout_w, cout_w);
+full_adder FA4(sum[3], in1_w[3], in2_w[3], cout_w, cout_w);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, input cin);
+
+wire x, y, z;
+
+xor(sum, in1, in2, cin);
+and(x, in1, in2);
+and(y, in1, cin);
+and(z, in2, cin);
+or(cout, x, y, z);
+
+endmodule"
+38.304,198.83,0.00013130279133767963,242.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout,sum} = in1 + in2 + cin;
+
+endmodule"
+38.304,198.83,0.00013130279133767963,243.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+
+endmodule"
+38.304,198.83,0.00013130279133767963,244.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,245.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout,sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,246.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+N/A,N/A,-1,247.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign (in1, in2, cin) sum = in1 + in2 + cin;
+assign cout = in1[3] ^ in2[3] ^ cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,248.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1+in2+cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,249.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+
+endmodule"
+N/A,N/A,-0.5,250.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+or(cout, in1[3]&in2[3], in1[2]&in2[2], in1[1]&in2[1], in1[0]&in2[0]);
+
+and(sum[0], in1[0], in2[0], cin);
+
+and(sum[1], in1[1], in2[1], cin);
+
+and(sum[2], in1[2], in2[2], cin);
+
+and(sum[3], in1[3], in2[3], cin);
+
+endmodule"
+N/A,N/A,-0.5,251.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+    wire [3:0] sum;
+    wire cout;
+    wire [3:0] in1;
+    wire [3:0] in2;
+    wire cin;
+
+    (* ADDER_THRESHOLD = ""35"" *)
+    full_adder FA0(sum[0], cin, in1[0], in2[0], cin);
+    full_adder FA1(sum[1], cin, in1[1], in2[1], cin);
+    full_adder FA2(sum[2], cin, in1[2], in2[2], cin);
+    full_adder FA3(sum[3], cout, in1[3], in2[3], cin);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+
+    wire sum;
+    wire cout;
+    wire in1;
+    wire in2;
+    wire cin;
+
+    assign sum = in1 ^ in2 ^ cin;
+    assign cout = (in1 & in2) | (in1 & cin) | (in2 & cin);
+
+endmodule"
+38.304,198.83,0.00013130279133767963,252.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout,sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,253.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,254.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum}= in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,255.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign 
+	{cout, sum} = in1 + in2 + cin;
+endmodule"
+N/A,N/A,-0.5,256.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign cout = in1[3] ^ in2[3] ^ cin;
+assign sum = in1 ^ in2 ^ cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,257.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout,sum} = in1+in2+cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,258.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,259.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+
+endmodule"
+N/A,N/A,-1,260.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+wire [3:0] in1, in2;
+wire cin;
+wire [3:0] sum;
+wire cout;
+
+module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire [3:0] in1, in2;
+wire cin;
+wire [3:0] sum;
+wire cout;
+
+latch l1(sum[0], in1[0], in2[0], cin);
+latch l2(sum[1], in1[1], in2[1], cin);
+latch l3(sum[2], in1[2], in2[2], cin);
+latch l4(sum[3], in1[3], in2[3], cin);
+
+and a1(cout, in1[0], in2[0], cin);
+and a2(cout, in1[1], in2[1], cin);
+and a3(cout, in1[2], in2[2], cin);
+and a4(cout, in1[3], in2[3], cin);
+
+endmodule"
+38.304,198.83,0.00013130279133767963,261.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,262.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout,sum} = in1 + in2 + cin;
+
+endmodule"
+38.304,198.83,0.00013130279133767963,263.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,264.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+
+endmodule"
+38.304,198.83,0.00013130279133767963,265.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout,sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,266.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,267.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,268.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout,sum}=in1+in2+cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,269.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+
+endmodule"
+38.304,198.83,0.00013130279133767963,270.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,271.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+N/A,N/A,-0.5,272.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign sum=in1+in2+cin;
+assign cout=in1[3]&in2[3]&cin|in1[2]&in2[2]&cin|in1[1]&in2[1]&cin|in1[0]&in2[0]&cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,273.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+	assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+N/A,N/A,-0.5,274.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+	reg [3:0] sum;
+	reg cout;
+	always @(in1 or in2 or cin)
+	begin
+		sum = in1 + in2 + cin;
+		cout = (in1[0] & in2[0] & cin) | (in1[1] & in2[1] & (in1[0] ^ in2[0])) | (in1[2] & in2[2] & (in1[1] ^ in2[1])) | (in1[3] & in2[3] & (in1[2] ^ in2[2]));
+	end
+endmodule"
+38.304,198.83,0.00013130279133767963,275.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout,sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,276.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+assign {cout, sum} = in1+in2+cin;
+endmodule"
+41.23,196.03,0.00012372689816208518,277.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, carry, input a, b, cin);
+
+wire c1, c2, c3;
+
+xor(sum, a, b, cin);
+and(c1, a, b);
+and(c2, b, cin);
+and(c3, a, cin);
+or(carry, c1, c2, c3);
+
+endmodule"
+41.23,196.03,0.00012372689816208518,278.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+fulladder FA1(sum[0], c1, in1[0], in2[0], cin);
+fulladder FA2(sum[1], c2, in1[1], in2[1], c1);
+fulladder FA3(sum[2], c3, in1[2], in2[2], c2);
+fulladder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module fulladder(output sum, carry, input a, b, cin);
+
+assign sum = a ^ b ^ cin;
+assign carry = (a & b) | (b & cin) | (cin & a);
+
+endmodule"
+41.23,196.03,0.00012372689816208518,279.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, carry, input a, b, cin);
+
+wire c1, c2, c3;
+
+xor(sum, a, b, cin);
+and(c1, a, b);
+and(c2, b, cin);
+and(c3, a, cin);
+or(carry, c1, c2, c3);
+
+endmodule"
+41.23,196.03,0.00012372689816208518,280.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, carry, input a, b, cin);
+
+wire c1, c2, c3;
+
+xor(sum, a, b, cin);
+and(c1, a, b);
+and(c2, b, cin);
+and(c3, a, cin);
+or(carry, c1, c2, c3);
+
+endmodule"
+41.23,196.03,0.00012372689816208518,281.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+fulladder FA1(sum[0], c1, in1[0], in2[0], cin);
+fulladder FA2(sum[1], c2, in1[1], in2[1], c1);
+fulladder FA3(sum[2], c3, in1[2], in2[2], c2);
+fulladder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module fulladder(output sum, carry, input a, b, cin);
+
+assign sum = a ^ b ^ cin;
+assign carry = (a & b) | (b & cin) | (cin & a);
+
+endmodule"
+38.304,198.83,0.00013130279133767963,282.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+full_adder FA0(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA1(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA2(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA3(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+41.23,196.03,0.00012372689816208518,283.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+fullAdder FA1(sum[0], c1, in1[0], in2[0], cin);
+fullAdder FA2(sum[1], c2, in1[1], in2[1], c1);
+fullAdder FA3(sum[2], c3, in1[2], in2[2], c2);
+fullAdder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module fullAdder(output sum, carry, input a, b, cin);
+
+wire c1, c2, c3;
+
+xor(sum, a, b, cin);
+and(c1, a, b);
+and(c2, b, cin);
+and(c3, a, cin);
+or(carry, c1, c2, c3);
+
+endmodule"
+41.23,196.03,0.00012372689816208518,284.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, carry, input a, b, cin);
+
+wire c1, c2, c3;
+
+xor(sum, a, b, cin);
+and(c1, a, b);
+and(c2, b, cin);
+and(c3, a, cin);
+or(carry, c1, c2, c3);
+
+endmodule"
+41.23,196.03,0.00012372689816208518,285.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+full_adder f1(sum[0], c1, in1[0], in2[0], cin);
+full_adder f2(sum[1], c2, in1[1], in2[1], c1);
+full_adder f3(sum[2], c3, in1[2], in2[2], c2);
+full_adder f4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, carry, input a, b, cin);
+
+wire c1, c2, c3;
+
+xor(sum, a, b, cin);
+and(c1, a, b);
+and(c2, b, cin);
+and(c3, a, cin);
+or(carry, c1, c2, c3);
+
+endmodule"
+41.23,196.03,0.00012372689816208518,286.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+fulladder FA1(sum[0], c1, in1[0], in2[0], cin);
+fulladder FA2(sum[1], c2, in1[1], in2[1], c1);
+fulladder FA3(sum[2], c3, in1[2], in2[2], c2);
+fulladder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module fulladder(output sum, carry, input a, b, cin);
+
+assign sum = a ^ b ^ cin;
+assign carry = (a & b) | (b & cin) | (cin & a);
+
+endmodule"
+38.304,198.83,0.00013130279133767963,287.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+full_adder FA0(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA1(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA2(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA3(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
+41.23,196.03,0.00012372689816208518,288.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+full_adder add1(sum[0], c1, in1[0], in2[0], cin);
+full_adder add2(sum[1], c2, in1[1], in2[1], c1);
+full_adder add3(sum[2], c3, in1[2], in2[2], c2);
+full_adder add4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, carry, input a, b, cin);
+
+wire c1, c2, c3;
+
+xor(sum, a, b, cin);
+and(c1, a, b);
+and(c2, b, cin);
+and(c3, a, cin);
+or(carry, c1, c2, c3);
+
+endmodule"
+41.23,196.03,0.00012372689816208518,289.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+fulladder f1(sum[0], c1, in1[0], in2[0], cin);
+fulladder f2(sum[1], c2, in1[1], in2[1], c1);
+fulladder f3(sum[2], c3, in1[2], in2[2], c2);
+fulladder f4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module fulladder(output sum, carry, input a, b, cin);
+
+assign sum = a ^ b ^ cin;
+assign carry = (a & b) | (b & cin) | (cin & a);
+
+endmodule"
+41.23,196.03,0.00012372689816208518,290.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+full_adder a1(sum[0], c1, in1[0], in2[0], cin);
+full_adder a2(sum[1], c2, in1[1], in2[1], c1);
+full_adder a3(sum[2], c3, in1[2], in2[2], c2);
+full_adder a4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, carry, input a, b, cin);
+
+wire c1, c2, c3;
+
+xor(sum, a, b, cin);
+and(c1, a, b);
+and(c2, b, cin);
+and(c3, a, cin);
+or(carry, c1, c2, c3);
+
+endmodule"
+N/A,N/A,-0.5,291.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+wire a0, a1, a2, a3;
+
+xor(a0, in1[0], in2[0]);
+xor(a1, in1[1], in2[1]);
+xor(a2, in1[2], in2[2]);
+xor(a3, in1[3], in2[3]);
+
+wire c1, c2, c3;
+
+and(c1, in1[0], in2[0]);
+and(c2, in1[1], in2[1]);
+and(c3, in1[2], in2[2]);
+and(cout, in1[3], in2[3]);
+
+or(sum[0], a0, c1);
+or(sum[1], a1, c2);
+or(sum[2], a2, c3);
+or(sum[3], a3, cout);
+
+endmodule"
+N/A,N/A,-0.5,292.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+reg [3:0] sum;
+reg cout;
+
+always @(in1 or in2 or cin)
+begin
+    sum = in1 + in2 + cin;
+    cout = (in1[0] & in2[0] & cin) | (in1[1] & in2[1] & cin) | (in1[2] & in2[2] & cin) | (in1[3] & in2[3] & cin);
+end
+
+endmodule"
+38.304,198.83,0.00013130279133767963,293.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+    assign {cout, sum} = in1 + in2 + cin;
+endmodule"
+38.304,198.83,0.00013130279133767963,294.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+    full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+    full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+    full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+    full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+    wire w1, w2, w3;
+    xor(w1, in1, in2);
+    xor(sum, w1, cin);
+    and(w2, w1, cin);
+    and(w3, in1, in2);
+    or(cout, w2, w3);
+endmodule"
+N/A,N/A,-1,295.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+        wire [3:0] sum;
+        wire cout;
+        wire [3:0] in1;
+        wire [3:0] in2;
+        wire cin;
+
+        localparam ADD = 4'b0000;
+        localparam SUB = 4'b0001;
+        localparam AND = 4'b0010;
+        localparam OR  = 4'b0011;
+        localparam XOR = 4'b0100;
+        localparam NOT = 4'b0101;
+        localparam NAND = 4'b0110;
+        localparam NOR = 4'b0111;
+        localparam XNOR = 4'b1000;
+        localparam NOT_INVERTED = 4'b1001;
+
+        BUFGMUX mux1(sum[0], in1[0], in2[0], cin, ADD[0]);
+        BUFGMUX mux2(sum[1], in1[1], in2[1], cin, ADD[1]);
+        BUFGMUX mux3(sum[2], in1[2], in2[2], cin, ADD[2]);
+        BUFGMUX mux4(sum[3], in1[3], in2[3], cin, ADD[3]);
+
+        BUFGMUX mux5(cout, in1[3], in2[3], cin, SUB[3]);
+
+        BUFGMUX mux6(cout, in1[2], in2[2], cin, SUB[2]);
+        BUFGMUX mux7(cout, in1[1], in2[1], cin, SUB[1]);
+        BUFGMUX mux8(cout, in1[0], in2[0], cin, SUB[0]);
+
+        BUFGMUX mux9(cout, in1[3], in2[3], cin, AND[3]);
+        BUFGMUX mux10(cout, in1[2], in2[2], cin, AND[2]);
+        BUFGMUX mux11(cout, in1[1], in2[1], cin, AND[1]);
+        BUFGMUX mux12(cout, in1[0], in2[0], cin, AND[0]);
+
+        BUFGMUX mux13(cout, in1[3], in2[3], cin, OR[3]);
+        BUFGMUX mux14(cout, in1[2], in2[2], cin, OR[2]);
+        BUFGMUX mux15(cout, in1[1], in2[1], cin, OR[1]);
+        BUFGMUX mux16(cout, in1[0], in2[0], cin, OR[0]);
+
+        BUFGMUX mux17(cout, in1[3], in2[3], cin, XOR[3]);
+        BUFGMUX mux18(cout, in1[2], in2[2], cin, XOR[2]);
+        BUFGMUX mux19(cout, in1[1], in2[1], cin, XOR[1]);
+        BUFGMUX mux20(cout, in1[0], in2[0], cin, XOR[0]);
+
+        BUFGMUX mux21(cout, in1[3], in2[3], cin, NOT[3]);
+        BUFGMUX mux22(cout, in1[2], in2[2], cin, NOT[2]);
+        BUFGMUX mux23(cout, in1[1], in2[1], cin, NOT[1]);
+        BUFGMUX mux24(cout, in1[0], in2[0], cin, NOT[0]);
+
+        BUFGMUX mux25(cout, in1[3], in2[3], cin, NOT_INVERTED[3]);
+        BUFGMUX mux26(cout, in1[2], in2[2], cin, NOT_INVERTED[2]);
+        BUFGMUX mux27(cout, in1[1], in2[1], cin, NOT_INVERTED[1]);
+        BUFGM"
+N/A,N/A,-0.5,296.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+    wire [3:0] in1, in2;
+    wire cin;
+    wire [3:0] sum;
+    wire cout;
+    
+    assign in1 = in1;
+    assign in2 = in2;
+    assign cin = cin;
+    
+    assign sum = sum;
+    assign cout = cout;
+    
+endmodule"
+41.23,196.03,0.00012372689816208518,297.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+full_adder FA1(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA2(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA3(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, carry, input a, b, cin);
+
+wire c1, c2, c3;
+
+xor(sum, a, b, cin);
+and(c1, a, b);
+and(c2, b, cin);
+and(c3, a, cin);
+or(carry, c1, c2, c3);
+
+endmodule"
+41.23,196.03,0.00012372689816208518,298.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+fullAdder FA1(sum[0], c1, in1[0], in2[0], cin);
+fullAdder FA2(sum[1], c2, in1[1], in2[1], c1);
+fullAdder FA3(sum[2], c3, in1[2], in2[2], c2);
+fullAdder FA4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module fullAdder(output sum, carry, input a, b, cin);
+
+wire c1, c2, c3;
+
+xor(sum, a, b, cin);
+and(c1, a, b);
+and(c2, b, cin);
+and(c3, a, cin);
+or(carry, c1, c2, c3);
+
+endmodule"
+41.23,196.03,0.00012372689816208518,299.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+full_adder fa0(sum[0], c1, in1[0], in2[0], cin);
+full_adder fa1(sum[1], c2, in1[1], in2[1], c1);
+full_adder fa2(sum[2], c3, in1[2], in2[2], c2);
+full_adder fa3(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, carry, input a, b, cin);
+
+wire c1, c2, c3;
+
+xor(sum, a, b, cin);
+and(c1, a, b);
+and(c2, b, cin);
+and(c3, a, cin);
+or(carry, c1, c2, c3);
+
+endmodule"
+41.23,196.03,0.00012372689816208518,300.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+fulladder u1(sum[0], c1, in1[0], in2[0], cin);
+fulladder u2(sum[1], c2, in1[1], in2[1], c1);
+fulladder u3(sum[2], c3, in1[2], in2[2], c2);
+fulladder u4(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module fulladder(output sum, carry, input a, b, cin);
+
+assign sum = a ^ b ^ cin;
+assign carry = (a & b) | (b & cin) | (cin & a);
+
+endmodule"
+38.304,198.83,0.00013130279133767963,301.0,1,"module adder(output [3:0] sum, output cout, input [3:0] in1, in2, input cin);
+
+full_adder FA0(sum[0], c1, in1[0], in2[0], cin);
+full_adder FA1(sum[1], c2, in1[1], in2[1], c1);
+full_adder FA2(sum[2], c3, in1[2], in2[2], c2);
+full_adder FA3(sum[3], cout, in1[3], in2[3], c3);
+
+endmodule
+
+module full_adder(output sum, output cout, input in1, in2, cin);
+
+wire w1, w2, w3;
+
+xor(w1, in1, in2);
+xor(sum, w1, cin);
+and(w2, w1, cin);
+and(w3, in1, in2);
+or(cout, w2, w3);
+
+endmodule"
