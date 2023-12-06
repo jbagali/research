@@ -45,20 +45,6 @@ else:
     device = torch.device("cpu")
 #test
 class LLMQueryEnv(gym.Env, StaticEnv):
-    """
-    Simple gym environment with the goal to navigate the player from its
-    starting position to the highest point on a two-dimensional map within
-    a limited number of steps. Rewards are defined as the difference in
-    altitude between states minus a penalty for each step. The player starts
-    in the lower left corner of the map and the highest point is in the upper
-    right corner. Map layout mirrors CliffWalking environment:
-    top left = (0, 0), top right = (0, m-1), bottom left = (n-1, 0),
-    bottom right = (n-1, m-1).
-    The setup of this environment was inspired by the energy landscape in
-    protein folding.
-    """
-
-    # origAIG incomplete prompt
     
     def __init__(self, csv_logger=None, row_data=None, op = "mcts", orig_prompt="def hello_world():", orig_module="hello_world", file_path = "", tb_path = "", dump_path = "",
                  model_name=None, tokenizer=None, model=None):
@@ -117,8 +103,6 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         with torch.no_grad():
             torchState = torch.from_numpy(currentState).to(device)
             decoded = self.tokenizer.decode(currentState[0])    
-        #print("")
-        #print("")
         #print('Decoded state: ',repr(decoded))
         for w in sorted(self.stopwords, key=len, reverse=True):
             if decoded.endswith(w):
@@ -155,16 +139,12 @@ class LLMQueryEnv(gym.Env, StaticEnv):
 
         with open(output_file_path, 'w') as temp_file:
             temp_file.write(verilog_code)
-        #TMP
-        #if(self.tb_path != ""):
+
         self.row_data['verilog'] = verilog_code
 
         os.chmod(output_file_path, 0o777)
         #Setting the testbench file path (assuming in same location as prompt file).
 
-        
-        
-        #TMP EDIT
         self.compilable = self.compilation_check(output_file_path, self.tb_path)
         #Call functionality check if compilable.
         
@@ -243,11 +223,6 @@ class LLMQueryEnv(gym.Env, StaticEnv):
                 self.row_data['area'] = area_value
                 self.row_data['delay'] = delay_value
                 self.row_data['score'] = reward
-                #try:
-                #    print("Removing dump files...")
-                #    os.remove(logfile_path)
-                #except OSError as e:
-                #    print(f"Error deleting log file: {e}")
 
                 return reward
             else:
@@ -327,8 +302,6 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         
     #Helper - retrieving the delay value from the Yosys log file.
     def extract_delay_from_log(self, filepath):
-        #print("retrieving delay (called)")
-        #print("Delay filepath: ", filepath)
         with open(filepath, "r") as file:
             for line in file:
                 if "Delay = " in line:
@@ -341,7 +314,6 @@ class LLMQueryEnv(gym.Env, StaticEnv):
     
     #Helper - retrieving the area value from the Yosys log file.
     def extract_area_from_log(self, filepath):
-
         #Reading data.
         with open(filepath, "r") as file:
             for line in file:
@@ -387,8 +359,6 @@ class LLMQueryEnv(gym.Env, StaticEnv):
 
             
             non_comment_all_ids = sorted_ids_arr[non_comment_mask]
-
-            #print("Len original: ", len(sorted_ids_arr), " Len new: ", len(non_comment_all_ids))
             # Apply the mask to get non-comment IDs and their probabilities
             non_comment_ids = non_comment_all_ids[:self.n_actions]
             non_comment_probs = sorted_probs_arr[non_comment_mask][:self.n_actions]
@@ -412,10 +382,7 @@ class LLMQueryEnv(gym.Env, StaticEnv):
                     self.verilogFunctionalityCheck(ids.detach().cpu().numpy())
                     if self.compilable:     #if compilable, finish prompt generation.
                         return True
-                    #elif self.non_compilable_attempts >= 2:    #if continued generation of module 2+ times, finish.
-                    #    return True
                     elif b'Unknown module type' in self.compilation_output:    #if unknown module, continue generation.
-                        #self.non_compilable_attempts += 1
                         print("Continuing generation.")
                         return False
                     else:   #if compilation error is of origin other than "undefined module", finish generation.
@@ -449,9 +416,6 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         decoded_tokens = self.tokenizer.decode(best_beam_output_np, skip_special_tokens=True)
         decoded_tokens = decoded_tokens.rstrip("#")
 
-        #print("Type: ", type(best_beam_output))
-        #print("Out: ", best_beam_output)
-        #print("Final input_ids: ", final_input_ids)
         print(best_beam_output_np)
         #self.verilogFunctionalityCheck(best_beam_output_np)
         self.getPromptScore()
@@ -474,15 +438,11 @@ class LLMQueryEnv(gym.Env, StaticEnv):
         with torch.no_grad():
             torchState = torch.from_numpy(state).to(device)
             while not self.is_done_state(state,depth):
-                #print("Token: ", i)
-                #context_state = torchState[:,-500:]
                 start_time = datetime.now()
                 output = self.model(input_ids=torchState)
 
                 next_token_logits = output.logits[0, -1, :]
                 next_token_prob = torch.softmax(next_token_logits, dim=-1)
-                #max_token_index = torch.argmax(next_token_prob, dim=-1)
-                #selected_token = max_token_index.unsqueeze(0).unsqueeze(0)
 
                 sorted_probs, sorted_ids = torch.sort(next_token_prob, dim=-1, descending=True)
                 selected_token = sorted_ids[0].unsqueeze(0).unsqueeze(0)
@@ -491,12 +451,8 @@ class LLMQueryEnv(gym.Env, StaticEnv):
                 
                 if(self.op == "mcts"):
                     while (self.is_comment(chosen_id.item()) and chosen_index < sorted_ids.size(-1)):
-                        #
-                        # print("Comment: ", chosen_id.item())
-                        #print("Incrementing: ", chosen_index)
                         chosen_index += 1
                         chosen_id = sorted_ids[chosen_index].unsqueeze(0).unsqueeze(0)
-                    #print(chosen_id.item())
 
                 selected_token = chosen_id
 
@@ -504,23 +460,11 @@ class LLMQueryEnv(gym.Env, StaticEnv):
                 time_difference = end_time - start_time
                 seconds = time_difference.total_seconds()
                 self.cumul_token_time += seconds
-                #print(self.cumul_token_time)
-
-                #print("Good: ", self.tokenizer.decode(selected_token.item()))
-                #print("return in: ", seconds, " seconds")
-                
-                #sorted_ids = torch.argsort(next_token_probs, dim=-1, descending=True)
-                #print("Sorted Id: ", sorted_ids[None,0, None])
-                #torchState = torch.cat([torchState, sorted_ids[None,0, None]], dim=-1)
-
-
-                #torchState = torch.cat([torchState, torch.tensor([chosen_id], device=torchState.device).unsqueeze(0)], dim=-1)
                 torchState = torch.cat([torchState, selected_token], dim=-1)
                 state = torchState.detach().cpu().numpy()
                 decoded = self.tokenizer.decode(state[0])    
                 depth+=1
                 i += 1
-                #print("Token: ", i)
             print("Tokens: ", i)
             end_time = datetime.now()
             time_difference = end_time - start_time

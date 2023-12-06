@@ -1,9 +1,3 @@
-"""
-Adapted from https://github.com/tensorflow/minigo/blob/master/mcts.py
-
-Implementation of the Monte-Carlo tree search algorithm as detailed in the
-AlphaGo Zero paper (https://www.nature.com/articles/nature24270).
-"""
 import math
 import random as rd
 import collections
@@ -177,17 +171,6 @@ class MCTSNode:
             # Encountered leaf node (i.e. node that is not yet expanded).
             if not current.is_expanded:
                 break
-            # Logic: For an expanded node, explore all child at least once. 
-            # Once, all the child are added as leaf and averaged monte carlo
-            # rollout has been evaluated, choose the action with highest score.
-            # if np.sum(current.child_visited) < current.n_actions:
-            #     for i in range(len(current.child_visited)):
-            #         if current.child_visited[i] == 0:
-            #             best_move = i
-            #             break
-            # else:
-            #     best_move = np.argmax(current.child_action_score)
-            #CHECK!!
             print("Leaf selection - action scores: ", current.child_action_score, " taking action: ", np.argmax(current.child_action_score))
             best_move = np.argmax(current.child_action_score)
             current = current.maybe_add_child(best_move)
@@ -245,8 +228,6 @@ class MCTSNode:
         self.original_prior = self.child_prior = action_probs
         # This is a deviation from the paper that led to better results in
         # practice (following the MiniGo implementation).
-        #self.child_W = np.ones([self.n_actions], dtype=np.float32) * predValue
-        #self.child_M = np.ones([self.n_actions], dtype=np.float32) * actualValue
         self.child_W = np.zeros([self.n_actions], dtype=np.float32)
         self.child_M = np.zeros([self.n_actions], dtype=np.float32)
         self.backup_value(predValue,actualValue,up_to=up_to)
