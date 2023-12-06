@@ -18,7 +18,7 @@ to generate an LLM output for a given prompt file. This includes generating resu
 Some additional parameters are described below.
 
 An example terminal command is the following:<br />
-python main.py --dumpdir output_files --sim 1 --ep 1 --prompt_path mac/mac_4.v --tb_path mac/tb_mac_4.v --op mcts --csv counter.csv
+python main.py --dumpdir output_files --sim 1 --ep 1 --prompt_path prompt_tb_files/mac/mac_4.v --tb_path prompt_tb_files/mac/tb_mac_4.v --module_name mac_4 --op mcts --csv mac_new.csv
 
 ### Below are the parameters and their descriptions.
 ```
