@@ -20,7 +20,7 @@ Some additional parameters are described below.
 An example terminal command is the following:<br />
 python main.py --dumpdir output_files --sim 1 --ep 1 --prompt_path prompt_tb_files/mac/mac_4.v --tb_path prompt_tb_files/mac/tb_mac_4.v --module_name mac_4 --op mcts --csv mac_new.csv
 
-### Below are the parameters and their descriptions.
+### Below are the terminal command hyperparameters and their descriptions.
 ```
 --dump_dir:    Filepath of the directory in which output files are stored.
 --op:          Specifies which LLM operation to perform ('mcts', 'beam', or 'greedy').
