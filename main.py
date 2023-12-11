@@ -80,7 +80,7 @@ if __name__ == '__main__':
 
     
     if not osp.exists(rootDumpDir):
-        os.mkdirs(rootDumpDir, mode=0o777 )
+        os.mkdir(rootDumpDir, mode=0o777 )
         
     
     if torch.cuda.is_available():
@@ -89,8 +89,8 @@ if __name__ == '__main__':
     else:
         device = torch.device("cpu")
 
-    gpu_devices = [0, 1, 2]
-    torch.cuda.set_device(gpu_devices[0])
+    #gpu_devices = [0, 1, 2]
+    #torch.cuda.set_device(gpu_devices[0])
     print(prompt_filepath)
     try:
         with open(prompt_filepath, "r") as prompt_file:
@@ -105,8 +105,8 @@ if __name__ == '__main__':
     model_name = "shailja/CodeGen_2B_Verilog"
     tokenizer = AutoTokenizer.from_pretrained("shailja/fine-tuned-codegen-2B-Verilog")
     model = AutoModelForCausalLM.from_pretrained("shailja/fine-tuned-codegen-2B-Verilog").to(device)
-    if len(gpu_devices) > 1:
-        model = DataParallel(model, device_ids=gpu_devices)
+    #if len(gpu_devices) > 1:
+    #    model = DataParallel(model, device_ids=gpu_devices)
     print("Initializing MCTS tree/LLM env...")
     idx_ep = 0
     
